@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taoquen — Tao Quantum Entanglement™ | TCM Wellness Academy</title>
-  <meta name="description" content="Taoquen is a TCM Wellness Academy: live, small-group online Qigong in the unbroken Wu Ming lineage of Grand Master Nan Lu. You cannot understand TCM until you have experienced Qi.">
+  <title>Taoquen — 道之量子糾纏™ | 中醫養生學院</title>
+  <meta name="description" content="Taoquen 是一所中醫養生學院：傳承自 Nan Lu 大師、從未中斷的無名氣功，線上即時小班授課。未曾體驗過氣，就無法真正理解中醫。">
   <meta name="keywords" content="Wu Ming Qigong, Dragon's Way Qigong, Four Energy Gates, 3E Qigong, TCM, Traditional Chinese Medicine, Grand Master Nan Lu, Qi, Five Elements, Taoquen, Tao Quantum Entanglement">
   <link rel="canonical" href="https://taoquen.com/">
-  <link rel="alternate" hreflang="zh-Hant" href="index-zh.html">
   <meta name="theme-color" content="#141806">
 
   <!-- Favicon (inline 道-seal mark) -->
@@ -16,20 +15,23 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://taoquen.com/">
-  <meta property="og:title" content="Taoquen — Tao Quantum Entanglement™ | TCM Wellness Academy">
-  <meta property="og:description" content="Three online Qigong programs in the unbroken Wu Ming lineage. Because you cannot understand TCM until you have experienced Qi.">
+  <meta property="og:title" content="Taoquen — 道之量子糾纏™ | 中醫養生學院">
+  <meta property="og:description" content="三套線上氣功課程，源自從未中斷的無名傳承。因為未曾體驗過氣，就無法真正理解中醫。">
   <meta property="og:image" content="og-cover.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Taoquen — Tao Quantum Entanglement™">
-  <meta name="twitter:description" content="A TCM Wellness Academy. Real practice. Real lineage. Real Qi.">
+  <meta name="twitter:title" content="Taoquen — 道之量子糾纏™">
+  <meta name="twitter:description" content="中醫養生學院。真修練，真傳承，真氣。">
   <meta name="twitter:image" content="og-cover.svg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@400;500&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="index.html">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -826,6 +828,14 @@
     .marquee-track{animation:none;}
   }
 
+
+  /* Traditional Chinese typography */
+  body{font-family:'Inter','Noto Sans TC',system-ui,sans-serif; letter-spacing:.02em;}
+  h1,h2,h3,h4{font-family:'Playfair Display','Noto Serif TC',Georgia,serif; letter-spacing:.03em;}
+  .serif-i,.pull,.chip,.humility p,.story blockquote,.el-pane .el-signs{font-family:'Cormorant Garamond','Noto Serif TC',serif;}
+  p{max-width:40em;}
+  .hero h1{max-width:9em;}
+
   /* language switch */
   .nav-links a.lang-switch{border:1px solid rgba(232,168,48,.55); padding:5px 11px; border-radius:999px; letter-spacing:.08em;}
   .nav-links a.lang-switch::after{display:none;}
@@ -834,7 +844,7 @@
   </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">跳至內容</a>
 
   <!-- PRELOADER -->
   <div id="preloader" aria-hidden="true">
@@ -845,8 +855,8 @@
         <text class="pre-glyph" x="50" y="52" text-anchor="middle" dominant-baseline="central">道</text>
       </svg>
     </div>
-    <div class="pre-word">taoquen<span>entangle with the tao</span></div>
-    <button class="pre-skip" id="preSkip" type="button">Skip</button>
+    <div class="pre-word">taoquen<span>與道相連</span></div>
+    <button class="pre-skip" id="preSkip" type="button">略過</button>
   </div>
 
   <!-- ATMOSPHERE -->
@@ -856,10 +866,10 @@
   <div id="cursorDot" aria-hidden="true"></div>
 
   <!-- SCROLL PROGRESS RAIL (populated by JS) -->
-  <nav id="srail" class="srail" aria-label="Jump to section"></nav>
+  <nav id="srail" class="srail" aria-label="跳至章節"></nav>
 
   <!-- CHAPTER HUD — running chapter marker -->
-  <div id="chapterHud" aria-hidden="true"><span class="ch-rule"></span><span id="chapterHudTxt">Prologue · Your story so far</span></div>
+  <div id="chapterHud" aria-hidden="true"><span class="ch-rule"></span><span id="chapterHudTxt">序章 · 你至今的故事</span></div>
 
   <!-- QI FIELD (shader canvas mounts here; gradient is the fallback) -->
   <div id="qi-field" aria-hidden="true"></div>
@@ -870,23 +880,23 @@
   <header>
     <nav class="nav" id="nav" aria-label="Primary">
       <div class="wrap nav-in">
-        <a href="index.html" class="lockup" aria-label="Taoquen home">
+        <a href="index-zh.html" class="lockup" aria-label="Taoquen 首頁">
           <span class="lockup-name">taoquen</span>
-          <span class="lockup-sub">Entangle with the Tao</span>
+          <span class="lockup-sub">與道相連</span>
           <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
         </a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="tcm.html">Learn TCM</a></li>
-          <li><a href="dwq.html">Dragon&rsquo;s Way</a></li>
-          <li><a href="four-energy-gates.html">Self-Care</a></li>
-          <li><a href="qi-assessment.html">Free Assessment</a></li>
-          <li><a href="free-class.html">Free Class</a></li>
-          <li><a href="programs.html">Programs</a></li>
-          <li><a href="dwq-promo.html" class="btn">Enroll</a></li>
-          <li><a href="index-zh.html" class="lang-switch" lang="zh-Hant" hreflang="zh-Hant">中文</a></li>
-          <li><a href="login.html">Log In</a></li>
+          <li><a href="tcm.html">認識中醫</a></li>
+          <li><a href="dwq.html">龍之道</a></li>
+          <li><a href="four-energy-gates.html">自我調養</a></li>
+          <li><a href="qi-assessment.html">免費評估</a></li>
+          <li><a href="free-class.html">免費課程</a></li>
+          <li><a href="programs.html">課程</a></li>
+          <li><a href="dwq-promo.html" class="btn">報名</a></li>
+          <li><a href="index.html" class="lang-switch" lang="en" hreflang="en">EN</a></li>
+          <li><a href="login.html">登入</a></li>
         </ul>
-        <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <button class="nav-burger" id="burger" aria-label="開啟選單" aria-expanded="false" aria-controls="drawer">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -894,59 +904,57 @@
   </header>
 
   <!-- mobile drawer -->
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
-    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
-    <span class="drawer-sub">Taoquen · TCM Wellness Academy</span>
-    <a href="tcm.html" style="transition-delay:.08s">Learn TCM</a>
-    <a href="dwq.html" style="transition-delay:.13s">Dragon&rsquo;s Way</a>
-    <a href="four-energy-gates.html" style="transition-delay:.18s">Self-Care</a>
-    <a href="qi-assessment.html" style="transition-delay:.23s">Free Assessment</a>
-    <a href="free-class.html" style="transition-delay:.28s">Free Class</a>
-    <a href="programs.html" style="transition-delay:.33s">Programs</a>
-    <a href="dwq-promo.html" style="transition-delay:.38s">Enroll</a>
-    <a href="login.html" style="transition-delay:.43s">Log In</a>
-    <a href="index-zh.html" class="lang-switch" lang="zh-Hant" hreflang="zh-Hant" style="transition-delay:.48s">中文</a>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="選單">
+    <button class="drawer-close" id="drawerClose" aria-label="關閉選單">&times;</button>
+    <span class="drawer-sub">Taoquen · 中醫養生學院</span>
+    <a href="tcm.html" style="transition-delay:.08s">認識中醫</a>
+    <a href="dwq.html" style="transition-delay:.13s">龍之道</a>
+    <a href="four-energy-gates.html" style="transition-delay:.18s">自我調養</a>
+    <a href="qi-assessment.html" style="transition-delay:.23s">免費評估</a>
+    <a href="free-class.html" style="transition-delay:.28s">免費課程</a>
+    <a href="programs.html" style="transition-delay:.33s">課程</a>
+    <a href="dwq-promo.html" style="transition-delay:.38s">報名</a>
+    <a href="login.html" style="transition-delay:.43s">登入</a>
+    <a href="index.html" class="lang-switch" lang="en" hreflang="en" style="transition-delay:.48s">EN</a>
   </div>
 
   <main id="main">
 
   <!-- ===================== 1 · HERO ===================== -->
-  <section class="hero" id="top" data-rail="Prologue" data-ch="Prologue · Your story so far">
+  <section class="hero" id="top" data-rail="序章" data-ch="序章 · 你至今的故事">
     <div class="wrap">
-      <span class="eyebrow hero-eyebrow reveal">Taoquen · Find Your Path</span>
-      <h1 id="heroTitle" aria-label="Find your path. Write your story. Build it on Qi.">
-        <span class="hl-line"><span class="hl-in">Find your path. </span></span>
-        <span class="hl-line"><span class="hl-in">Write your story. </span></span>
-        <span class="hl-line"><span class="hl-in">Build it on <em>Qi.</em></span></span>
+      <span class="eyebrow hero-eyebrow reveal">Taoquen · 找到你的道路</span>
+      <h1 id="heroTitle" aria-label="找到你的道路，書寫你的故事，以氣為根基。">
+        <span class="hl-line"><span class="hl-in">找到你的道路，</span></span>
+        <span class="hl-line"><span class="hl-in">書寫你的故事，</span></span>
+        <span class="hl-line"><span class="hl-in">以<em>氣</em>為根基。</span></span>
       </h1>
       <p class="hero-sub reveal d2">
-        Taoquen helps you write your own story and build the life you want — through Qi:
-        real Qigong in the unbroken Wu Ming lineage of Grand Master Nan Lu.
-        Because <strong>you cannot understand TCM until you have experienced Qi.</strong>
+        Taoquen 幫助你書寫自己的故事，活出你想要的人生——透過氣：傳承自 Nan Lu 大師、從未中斷的正宗無名氣功。因為<strong>未曾體驗過氣，就無法真正理解中醫。</strong>
       </p>
       <div class="hero-cta reveal d3">
-        <a class="btn" href="programs.html">Explore Programs <span aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="qi-assessment.html">Free Assessment</a>
+        <a class="btn" href="programs.html">探索課程 <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="qi-assessment.html">免費評估</a>
       </div>
       <div class="hero-stats reveal d4">
         <div class="stat">
           <span class="stat-n"><span data-count="3">3</span></span>
-          <span class="stat-l">Qigong Programs</span>
-          <span class="stat-d">Dragon’s Way · Energy Gates · 3E</span>
+          <span class="stat-l">套氣功課程</span>
+          <span class="stat-d">龍之道 · 四能量門 · 3E</span>
         </div>
         <div class="stat">
           <span class="stat-n"><span data-count="2500">2,500</span><small>+</small></span>
-          <span class="stat-l">Years of Lineage</span>
-          <span class="stat-d">Passed master to student</span>
+          <span class="stat-l">年傳承</span>
+          <span class="stat-d">師徒親傳</span>
         </div>
         <div class="stat">
-          <span class="stat-n">Full<small>&nbsp;refund</small></span>
-          <span class="stat-l">Satisfaction Guarantee</span>
-          <span class="stat-d">If not satisfied — no questions</span>
+          <span class="stat-n">全額<small>&nbsp;退款</small></span>
+          <span class="stat-l">滿意保證</span>
+          <span class="stat-d">不滿意即退款，不問原因</span>
         </div>
       </div>
     </div>
-    <div class="scroll-cue" aria-hidden="true">Follow the gold line</div>
+    <div class="scroll-cue" aria-hidden="true">跟隨金線</div>
   </section>
 
   <div class="page-body">
@@ -960,42 +968,42 @@
   </div>
 
   <!-- ===================== 2 · DOORWAYS ===================== -->
-  <section class="sec" id="doorways" data-rail="壹 · The beginning" data-ch="Chapter 壹 · Where your path begins" aria-labelledby="doorwaysH">
+  <section class="sec" id="doorways" data-rail="壹 · 起點" data-ch="第壹章 · 你的道路從這裡開始" aria-labelledby="doorwaysH">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">Chapter 壹 — Where your path begins</span>
-        <h2 id="doorwaysH" class="reveal d1">Every story opens somewhere. Where does yours?</h2>
-        <p class="lede reveal d2">Three doorways onto the same path. Choose the one that meets your body where it is right now.</p>
+        <span class="eyebrow reveal">第壹章 — 你的道路從這裡開始</span>
+        <h2 id="doorwaysH" class="reveal d1">每個故事都有起點。你的從哪裡開始？</h2>
+        <p class="lede reveal d2">三扇門，通往同一條道路。選擇最貼近你身體此刻狀態的那一扇。</p>
       </div>
       <div class="doors">
         <article class="door reveal tilt">
           <div class="door-glow" aria-hidden="true"></div>
           <div class="door-img duo wipe"><img src="images/chinese-meridian-image.webp" alt="Classical Chinese meridian chart of the human body" loading="lazy" width="800" height="450"></div>
           <div class="door-body">
-            <span class="door-k">For chronic conditions</span>
-            <h3>Something keeps coming back.</h3>
-            <p>Migraine, fibromyalgia, IBS, chronic fatigue, autoimmune. You’ve tried everything. In TCM that isn’t bad luck — it’s a pattern with a name. See the map.</p>
-            <a class="link-arrow" href="conditions.html">See the pattern map <span class="ar" aria-hidden="true">→</span></a>
+            <span class="door-k">給長期病症者</span>
+            <h3>總有些問題反覆出現。</h3>
+            <p>偏頭痛、纖維肌痛、腸躁症、慢性疲勞、自體免疫疾病。你什麼都試過了。在中醫看來，這不是運氣不好——而是一種有名字的模式。看看這張地圖。</p>
+            <a class="link-arrow" href="conditions.html">查看模式地圖 <span class="ar" aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="door reveal d1 tilt">
           <div class="door-glow" aria-hidden="true"></div>
           <div class="door-img duo wipe"><img src="images/JoinAclass.jpg" alt="A small live online Qigong class in session" loading="lazy" width="800" height="450"></div>
           <div class="door-body">
-            <span class="door-k">For burnt-out professionals</span>
-            <h3>28–38 and already exhausted?</h3>
-            <p>For tech, finance, and consulting. A 15-minute daily practice for people who can’t take a sabbatical — and can’t keep running on caffeine.</p>
-            <a class="link-arrow" href="wellness-program.html">Stop the cycle <span class="ar" aria-hidden="true">→</span></a>
+            <span class="door-k">給身心俱疲的專業人士</span>
+            <h3>28 到 38 歲，卻早已筋疲力盡？</h3>
+            <p>為科技、金融與顧問業而設。每天 15 分鐘的練習，給無法休長假、也不能再靠咖啡因撐下去的人。</p>
+            <a class="link-arrow" href="wellness-program.html">打破循環 <span class="ar" aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="door reveal d2 tilt">
           <div class="door-glow" aria-hidden="true"></div>
           <div class="door-img duo wipe"><img src="images/young_adults.png" alt="Students practicing Qigong outdoors" loading="lazy" width="800" height="450"></div>
           <div class="door-body">
-            <span class="door-k">For students 18–26</span>
-            <h3>School wearing you down?</h3>
-            <p>Ten minutes between classes. A free entry track built for exam stress, sleep, and phone-burnt nervous systems.</p>
-            <a class="link-arrow" href="students.html">Start free <span class="ar" aria-hidden="true">→</span></a>
+            <span class="door-k">給 18 至 26 歲的學生</span>
+            <h3>被學業壓得喘不過氣？</h3>
+            <p>課堂之間的十分鐘。專為考試壓力、睡眠，以及被手機耗盡的神經系統而設計的免費入門課程。</p>
+            <a class="link-arrow" href="students.html">免費開始 <span class="ar" aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -1003,52 +1011,52 @@
   </section>
 
   <!-- ===================== 3 · ESSAY ===================== -->
-  <section class="sec essay" id="why" data-rail="貳 · How you got here" data-ch="Chapter 貳 · How you got here" aria-labelledby="whyH">
+  <section class="sec essay" id="why" data-rail="貳 · 你如何走到這裡" data-ch="第貳章 · 你如何走到這裡" aria-labelledby="whyH">
     <span class="ghost" style="top:-40px; right:-60px;" data-parallax="0.06" aria-hidden="true">静</span>
     <div class="wrap">
       <div class="essay-grid">
         <div class="essay-copy">
-          <span class="eyebrow reveal">Chapter 貳 — How you got here</span>
-          <h2 id="whyH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">Why can’t I react calmly?<br>Why do I get so frustrated?</h2>
-          <p class="reveal d2">It didn’t happen overnight. It took many years for your body to learn how to react this way. When you want to stay calm but can’t, you have to look at it from your body’s perspective.</p>
-          <p class="reveal">Over time you trained your energy to want things urgently — this, that, everything at once. You told your body that if you don’t rush, you’ll miss it. Your body learned that lesson well. And now it can’t stop.</p>
-          <p class="reveal">The more Qi you have, the more body intelligence you have to meet difficult moments. The less Qi you have, the more symptoms arise when life gets hard. That’s why your world gets smaller — when Qi falls, so does everything built on top of it: your capacity for stress, your clarity, your relationships, your joy.</p>
+          <span class="eyebrow reveal">第貳章 — 你如何走到這裡</span>
+          <h2 id="whyH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">為什麼我無法冷靜回應？<br>為什麼我這麼容易沮喪？</h2>
+          <p class="reveal d2">這不是一夕之間發生的。你的身體花了許多年，才學會這樣反應。當你想保持冷靜卻做不到時，必須從身體的角度來看待它。</p>
+          <p class="reveal">日積月累，你訓練自己的能量急於求成——這個、那個，全部都要立刻擁有。你告訴身體：不趕快就會錯過。身體把這一課學得很好，如今它停不下來了。</p>
+          <p class="reveal">氣越充足，你就越有身體的智慧去面對困難時刻；氣越不足，生活一艱難，症狀就越多。這就是你的世界越來越小的原因——氣一下降，建立在氣之上的一切也隨之下降：你的抗壓能力、清晰思緒、人際關係與喜悅。</p>
           <blockquote class="pull reveal">
-            “Disease and illness are not random; they are signs the body has drifted out of balance.”
-            <small>The TCM view</small>
+            「疾病不是偶然；它們是身體失去平衡的訊號。」
+            <small>中醫的觀點</small>
           </blockquote>
-          <p class="reveal">The way forward is to understand why your body reacts this way. One powerful framework for that is the Five Elements — where green represents the smooth, unobstructed flow of energy through the body.</p>
-          <p class="reveal">You cannot rewrite the chapters behind you. But the next one is still blank — and Qi is the ink.</p>
+          <p class="reveal">前進的方法，是理解身體為何如此反應。五行正是一個強大的框架——其中綠色代表能量在體內順暢無阻地流動。</p>
+          <p class="reveal">你無法改寫已經過去的篇章。但下一章仍是空白——而氣，就是墨水。</p>
         </div>
         <figure class="essay-fig reveal d2">
           <div class="duo wipe"><img src="images/zhuang-zi-mountain.jpg" alt="A mist-covered mountain landscape in the classical Chinese style" loading="lazy" width="640" height="800"></div>
-          <figcaption>Stillness is not the absence of movement — it is movement in balance.</figcaption>
+          <figcaption>靜，不是沒有動——而是平衡中的動。</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   <!-- ===================== 4 · QI CASCADE ===================== -->
-  <section class="sec cascade" id="cascade" data-rail="叁 · The fall" data-ch="Chapter 叁 · The fall" aria-labelledby="cascadeH">
+  <section class="sec cascade" id="cascade" data-rail="叁 · 衰落" data-ch="第叁章 · 衰落" aria-labelledby="cascadeH">
     <div class="wrap">
       <div class="cascade-grid">
         <div>
-          <span class="eyebrow reveal" style="color:var(--gold-lit);">Chapter 叁 — The fall</span>
-          <h2 id="cascadeH" class="reveal d1" style="color:var(--text-invert); font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">See what happens as Qi rises — and falls</h2>
-          <p class="reveal d2" style="color:rgba(255,248,244,.66); margin-top:18px;">Every layer of your life sits on top of your Qi. Press <strong style="color:var(--gold-lit); font-weight:400;">−</strong> and watch what falls away. Press <strong style="color:var(--gold-lit); font-weight:400;">+</strong> to build it back.</p>
-          <div class="cq-controls reveal d3" role="group" aria-label="Qi level">
-            <button type="button" class="cq-btn" id="qiDown" aria-label="Decrease Qi">−</button>
+          <span class="eyebrow reveal" style="color:var(--gold-lit);">第叁章 — 衰落</span>
+          <h2 id="cascadeH" class="reveal d1" style="color:var(--text-invert); font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">看看氣上升與下降時，會發生什麼</h2>
+          <p class="reveal d2" style="color:rgba(255,248,244,.66); margin-top:18px;">你生活的每一層都建立在氣之上。按下 <strong style="color:var(--gold-lit); font-weight:400;">−</strong>，看看什麼會消失；按下 <strong style="color:var(--gold-lit); font-weight:400;">+</strong>，把它重建回來。</p>
+          <div class="cq-controls reveal d3" role="group" aria-label="氣的程度">
+            <button type="button" class="cq-btn" id="qiDown" aria-label="減少氣">−</button>
             <div class="cq-meter" id="qiMeter" aria-hidden="true"><span class="lit"></span><span class="lit"></span><span class="lit"></span><span class="lit"></span><span class="lit"></span></div>
-            <button type="button" class="cq-btn" id="qiUp" aria-label="Increase Qi" disabled>+</button>
-            <span class="cq-meter-label" id="qiLabel" aria-live="polite">Full Qi</span>
+            <button type="button" class="cq-btn" id="qiUp" aria-label="增加氣" disabled>+</button>
+            <span class="cq-meter-label" id="qiLabel" aria-live="polite">氣足</span>
           </div>
           <div class="cq-beats" id="cqBeats" aria-live="polite">
-            <p class="cq-beat on">This is <strong>full Qi</strong>. Every layer has room: stress bounces off, thinking is clear, people feel easy to be around, joy arrives uninvited.</p>
-            <p class="cq-beat"><strong>Joy goes first.</strong> Not dramatically — it simply stops arriving on its own.</p>
-            <p class="cq-beat">Then <strong>relationships</strong> feel heavier. Patience shortens. People become effort.</p>
-            <p class="cq-beat"><strong>Clarity fogs.</strong> Decisions that used to take a moment now take a meeting with yourself.</p>
-            <p class="cq-beat">Until your world is exactly the size of your <strong>remaining Qi</strong>. Nothing shows up on the tests. Everything is smaller.</p>
-            <p class="cq-beat"><strong>Qi can be rebuilt.</strong> That is the entire practice — and where your next chapter begins. <a href="programs.html">See how →</a></p>
+            <p class="cq-beat on">這是<strong>氣足</strong>的狀態。每一層都有空間：壓力彈開，思緒清晰，與人相處輕鬆自在，喜悅不請自來。</p>
+            <p class="cq-beat"><strong>喜悅最先離開。</strong>不是戲劇性的——它只是不再自己出現。</p>
+            <p class="cq-beat">接著<strong>人際關係</strong>變得沉重。耐心變短，與人相處變成負擔。</p>
+            <p class="cq-beat"><strong>清晰變得模糊。</strong>過去片刻就能做的決定，現在要跟自己開一場會。</p>
+            <p class="cq-beat">直到你的世界，只剩下你<strong>殘存的氣</strong>那麼大。檢查都正常，但一切都變小了。</p>
+            <p class="cq-beat"><strong>氣是可以重建的。</strong>這就是修練的全部意義——也是你下一章的起點。<a href="programs.html">看看怎麼做 →</a></p>
           </div>
         </div>
         <div class="cascade-viz reveal d2">
@@ -1060,14 +1068,14 @@
               <circle class="cq-ring" data-r="100" cx="260" cy="260" r="100" stroke="rgba(232,168,48,.75)"/>
             </g>
             <g id="cqLabels">
-              <text class="cq-label" data-r="238" x="260" y="34">Joy</text>
-              <text class="cq-label" data-r="192" x="260" y="80">Relationships</text>
-              <text class="cq-label" data-r="146" x="260" y="126">Clarity</text>
-              <text class="cq-label" data-r="100" x="260" y="172">Stress capacity</text>
+              <text class="cq-label" data-r="238" x="260" y="34">喜悅</text>
+              <text class="cq-label" data-r="192" x="260" y="80">人際關係</text>
+              <text class="cq-label" data-r="146" x="260" y="126">清晰</text>
+              <text class="cq-label" data-r="100" x="260" y="172">抗壓能力</text>
             </g>
             <circle cx="260" cy="260" r="54" fill="rgba(232,168,48,.1)" stroke="#e8a830" stroke-width="1.4" id="cqCore"/>
             <text class="cq-core-t" x="260" y="256">QI</text>
-            <text class="cq-core-s" x="260" y="282">气</text>
+            <text class="cq-core-s" x="260" y="282">氣</text>
           </svg>
         </div>
       </div>
@@ -1075,207 +1083,207 @@
   </section>
 
   <!-- ===================== 5 · THE MIRROR ===================== -->
-  <section class="sec mirror" id="mirror" data-rail="肆 · The recognition" data-ch="Chapter 肆 · The recognition" aria-labelledby="mirrorH">
+  <section class="sec mirror" id="mirror" data-rail="肆 · 覺察" data-ch="第肆章 · 覺察" aria-labelledby="mirrorH">
     <span class="ghost" style="bottom:-80px; left:-70px;" data-parallax="0.05" aria-hidden="true">镜</span>
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">Chapter 肆 — The recognition</span>
-        <h2 id="mirrorH" class="reveal d1">“What chapter are you in right now?”</h2>
-        <p class="lede reveal d2">Select the lines that could have been written about you — there are no wrong answers.</p>
+        <span class="eyebrow reveal">第肆章 — 覺察</span>
+        <h2 id="mirrorH" class="reveal d1">「你現在正處於哪一章？」</h2>
+        <p class="lede reveal d2">選出那些彷彿在描寫你的句子——沒有錯誤答案。</p>
       </div>
       <div class="mirror-box reveal">
         <svg id="constellation" aria-hidden="true"></svg>
         <div class="mirror-chips" id="mirrorChips">
-          <button type="button" class="chip" aria-pressed="false">I wake up exhausted no matter how long I sleep</button>
-          <button type="button" class="chip" aria-pressed="false">I carry tension I can’t seem to release</button>
-          <button type="button" class="chip" aria-pressed="false">My body has been hurting for years</button>
-          <button type="button" class="chip" aria-pressed="false">I get sick more than I should</button>
-          <button type="button" class="chip" aria-pressed="false">I feel anxious — and can’t always explain why</button>
-          <button type="button" class="chip" aria-pressed="false">My moods shift in ways I don’t understand</button>
-          <button type="button" class="chip" aria-pressed="false">I push through every day. But it costs me.</button>
-          <button type="button" class="chip" aria-pressed="false">Nothing shows up on tests — but I know something is off</button>
-          <button type="button" class="chip" aria-pressed="false">I’ve tried everything outside myself. I haven’t tried Qi.</button>
+          <button type="button" class="chip" aria-pressed="false">無論睡多久，醒來都筋疲力盡</button>
+          <button type="button" class="chip" aria-pressed="false">身上總有放不掉的緊繃</button>
+          <button type="button" class="chip" aria-pressed="false">我的身體已經痛了好幾年</button>
+          <button type="button" class="chip" aria-pressed="false">我生病的次數比應有的多</button>
+          <button type="button" class="chip" aria-pressed="false">我感到焦慮——卻常說不出原因</button>
+          <button type="button" class="chip" aria-pressed="false">我的情緒起伏，連自己都不明白</button>
+          <button type="button" class="chip" aria-pressed="false">我每天硬撐著，但代價不小。</button>
+          <button type="button" class="chip" aria-pressed="false">檢查都正常——但我知道有什麼不對勁</button>
+          <button type="button" class="chip" aria-pressed="false">身外的方法我都試過了，卻還沒試過氣。</button>
         </div>
         <div class="mirror-foot">
-          <p class="mirror-count" id="mirrorCount" aria-live="polite">Your body already knows what it needs.</p>
-          <a class="btn mirror-cta" id="mirrorCta" href="qi-assessment.html">Begin your next chapter <span aria-hidden="true">→</span></a>
+          <p class="mirror-count" id="mirrorCount" aria-live="polite">你的身體早已知道它需要什麼。</p>
+          <a class="btn mirror-cta" id="mirrorCta" href="qi-assessment.html">開啟你的下一章 <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== 6 · TRINITY ===================== -->
-  <section class="sec trinity" id="academy" data-rail="伍 · The guide" data-ch="Chapter 伍 · The guide" aria-labelledby="academyH">
+  <section class="sec trinity" id="academy" data-rail="伍 · 嚮導" data-ch="第伍章 · 嚮導" aria-labelledby="academyH">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">Chapter 伍 — The guide</span>
-        <h2 id="academyH" class="reveal d1">One academy. One lineage. Three programs.</h2>
-        <p class="lede reveal d2">Taoquen is a TCM Wellness Academy. Traditional Chinese Medicine is the world it opens. Every program traces an unbroken lineage to the original Taoist masters — pure practices, unchanged for over 2,500 years.</p>
+        <span class="eyebrow reveal">第伍章 — 嚮導</span>
+        <h2 id="academyH" class="reveal d1">一所學院，一脈傳承，三套課程。</h2>
+        <p class="lede reveal d2">Taoquen 是一所中醫養生學院，為你開啟中醫的世界。每套課程都源自一脈相承、可追溯至古代道家宗師的傳承——純正的功法，兩千五百多年來未曾改變。</p>
       </div>
       <div class="tri-grid">
         <article class="tri reveal">
           <span class="glyph-bg" aria-hidden="true">院</span>
           <span class="tri-num glyph-cjk" aria-hidden="true">壹</span>
-          <span class="tri-k">The Academy</span>
+          <span class="tri-k">學院</span>
           <h3>Taoquen</h3>
-          <p>Where it happens — live, small-group, online, with a teaching lineage tracing back to Grand Master Nan Lu and the Wu Ming tradition.</p>
-          <a class="link-arrow" href="about-taoquen.html">About Taoquen <span class="ar" aria-hidden="true">→</span></a>
+          <p>一切在此發生——線上即時小班授課，教學傳承可追溯至 Nan Lu 大師與無名傳統。</p>
+          <a class="link-arrow" href="about-taoquen.html">關於 Taoquen <span class="ar" aria-hidden="true">→</span></a>
         </article>
         <article class="tri reveal d1">
           <span class="glyph-bg" aria-hidden="true">医</span>
           <span class="tri-num glyph-cjk" aria-hidden="true">貳</span>
-          <span class="tri-k">The Framework</span>
-          <h3>Traditional Chinese Medicine</h3>
-          <p>The 2,500-year science. TCM maps the body through Qi, the Five Elements, and the organ–meridian systems — a complete framework for how the body heals.</p>
-          <a class="link-arrow" href="tcm.html">Explore the framework <span class="ar" aria-hidden="true">→</span></a>
+          <span class="tri-k">框架</span>
+          <h3>傳統中醫</h3>
+          <p>兩千五百年的學問。中醫透過氣、五行與臟腑經絡系統描繪人體——一套解釋身體如何自癒的完整框架。</p>
+          <a class="link-arrow" href="tcm.html">探索框架 <span class="ar" aria-hidden="true">→</span></a>
         </article>
         <article class="tri reveal d2">
           <span class="glyph-bg" aria-hidden="true">功</span>
           <span class="tri-num glyph-cjk" aria-hidden="true">叁</span>
-          <span class="tri-k">The Practice</span>
-          <h3>Three Programs</h3>
-          <p>Each grounded in the same lineage — from a free 20-minute daily practice to a full six-week transformation. Start wherever you are.</p>
-          <a class="link-arrow" href="programs.html">See all programs <span class="ar" aria-hidden="true">→</span></a>
+          <span class="tri-k">修練</span>
+          <h3>三套課程</h3>
+          <p>皆根植於同一傳承——從每天 20 分鐘的免費練習，到完整的六週轉化課程。從你所在之處開始。</p>
+          <a class="link-arrow" href="programs.html">查看所有課程 <span class="ar" aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ===================== 7 · FIVE ELEMENT WHEEL ===================== -->
-  <section class="sec elements" id="elements" data-rail="陸 · The map" data-ch="Chapter 陸 · The map" aria-labelledby="elementsH">
+  <section class="sec elements" id="elements" data-rail="陸 · 地圖" data-ch="第陸章 · 地圖" aria-labelledby="elementsH">
     <span class="ghost" style="top:-60px; right:-40px;" data-parallax="0.06" aria-hidden="true">五</span>
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">Chapter 陸 — The map</span>
-        <h2 id="elementsH" class="reveal d1">Nothing in your story happens without a pattern.</h2>
-        <p class="lede reveal d2">The fatigue rest doesn’t fix, the mood that shifts with the season, the foods that lift or drain you — these are Five Element patterns. Touch one to read it.</p>
+        <span class="eyebrow reveal">第陸章 — 地圖</span>
+        <h2 id="elementsH" class="reveal d1">你故事中的一切，都有其模式。</h2>
+        <p class="lede reveal d2">休息也消除不了的疲勞、隨季節起伏的情緒、讓你振奮或耗竭的食物——這些都是五行模式。點選一個來解讀。</p>
       </div>
       <div class="el-grid">
-        <div class="el-wheel reveal" id="elWheel" role="group" aria-label="Five Elements — select an element to read its pattern">
+        <div class="el-wheel reveal" id="elWheel" role="group" aria-label="五行——選擇一行來解讀其模式">
           <div class="el-ring" aria-hidden="true"></div>
           <div class="el-center" aria-hidden="true">
             <span class="glyph-cjk" id="elCenterGlyph">木</span>
-            <small>Five Elements</small>
+            <small>五行</small>
           </div>
-          <button type="button" class="el-node el-wood"  data-el="wood"  aria-pressed="true"><span class="glyph-cjk" aria-hidden="true">木</span><small>Wood</small></button>
-          <button type="button" class="el-node el-fire"  data-el="fire"  aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">火</span><small>Fire</small></button>
-          <button type="button" class="el-node el-earth" data-el="earth" aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">土</span><small>Earth</small></button>
-          <button type="button" class="el-node el-metal" data-el="metal" aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">金</span><small>Metal</small></button>
-          <button type="button" class="el-node el-water" data-el="water" aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">水</span><small>Water</small></button>
+          <button type="button" class="el-node el-wood"  data-el="wood"  aria-pressed="true"><span class="glyph-cjk" aria-hidden="true">木</span><small>肝</small></button>
+          <button type="button" class="el-node el-fire"  data-el="fire"  aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">火</span><small>心</small></button>
+          <button type="button" class="el-node el-earth" data-el="earth" aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">土</span><small>脾</small></button>
+          <button type="button" class="el-node el-metal" data-el="metal" aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">金</span><small>肺</small></button>
+          <button type="button" class="el-node el-water" data-el="water" aria-pressed="false"><span class="glyph-cjk" aria-hidden="true">水</span><small>腎</small></button>
         </div>
         <div class="el-panel reveal d2" id="elPanel" aria-live="polite">
           <div class="el-pane on" data-el="wood">
-            <span class="el-k" style="color:var(--green);">Wood · 木 · Liver system</span>
-            <h3><span class="glyph-cjk" style="color:var(--green);" aria-hidden="true">木</span>Growth, planning, smooth flow</h3>
-            <p>Wood governs the free movement of Qi — the ease with which energy, decisions, and emotions flow. When Wood is balanced, you adapt; plans bend without breaking.</p>
-            <p class="el-signs">When Wood is strained, students often report: frustration that arrives too fast, tension in the neck and shoulders, waking between 1–3 a.m., a sense of being stuck.</p>
+            <span class="el-k" style="color:var(--green);">木 · 肝系統</span>
+            <h3><span class="glyph-cjk" style="color:var(--green);" aria-hidden="true">木</span>生長、規劃、順暢流動</h3>
+            <p>木主氣的疏泄——能量、決定與情緒流動的順暢程度。木平衡時，你能靈活應變；計劃可以彎曲而不折斷。</p>
+            <p class="el-signs">木失衡時，學員常提到：挫折感來得太快、頸肩緊繃、凌晨 1 至 3 點醒來、有種卡住的感覺。</p>
           </div>
           <div class="el-pane" data-el="fire">
-            <span class="el-k" style="color:var(--vermillion);">Fire · 火 · Heart system</span>
-            <h3><span class="glyph-cjk" style="color:var(--vermillion);" aria-hidden="true">火</span>Joy, connection, presence</h3>
-            <p>Fire governs the heart and the spirit that lives there. In balance, it shows up as warmth, easy laughter, restful sleep, and the capacity to feel close to people.</p>
-            <p class="el-signs">When Fire is strained, students often report: anxiety that sits in the chest, restless sleep, a busy mind at night, joy that feels far away.</p>
+            <span class="el-k" style="color:var(--vermillion);">火 · 心系統</span>
+            <h3><span class="glyph-cjk" style="color:var(--vermillion);" aria-hidden="true">火</span>喜悅、連結、當下</h3>
+            <p>火主心，以及藏於心中的神。平衡時，表現為溫暖、輕鬆的笑聲、安穩的睡眠，以及與人親近的能力。</p>
+            <p class="el-signs">火失衡時，學員常提到：焦慮壓在胸口、睡不安穩、夜裡思緒紛飛、喜悅似乎遙不可及。</p>
           </div>
           <div class="el-pane" data-el="earth">
-            <span class="el-k" style="color:var(--gold-warm);">Earth · 土 · Spleen–Stomach system</span>
-            <h3><span class="glyph-cjk" style="color:var(--gold-warm);" aria-hidden="true">土</span>Digestion, stability, nourishment</h3>
-            <p>Earth is how you transform — food into energy, experience into understanding. A strong Earth element means steady energy and a settled, grounded mind.</p>
-            <p class="el-signs">When Earth is strained, students often report: overthinking and worry on a loop, heaviness after meals, energy dips mid-afternoon, cravings for sweetness.</p>
+            <span class="el-k" style="color:var(--gold-warm);">土 · 脾胃系統</span>
+            <h3><span class="glyph-cjk" style="color:var(--gold-warm);" aria-hidden="true">土</span>消化、穩定、滋養</h3>
+            <p>土是你轉化的方式——將食物化為能量，將經歷化為理解。土強健，意味著能量穩定、心神安定踏實。</p>
+            <p class="el-signs">土失衡時，學員常提到：反覆思慮擔憂、飯後沉重、午後精神低落、渴望甜食。</p>
           </div>
           <div class="el-pane" data-el="metal">
-            <span class="el-k" style="color:#8a8462;">Metal · 金 · Lung system</span>
-            <h3><span class="glyph-cjk" style="color:#8a8462;" aria-hidden="true">金</span>Breath, boundaries, letting go</h3>
-            <p>Metal governs the breath and the skin — the boundary between you and the world, and the ability to release what is finished.</p>
-            <p class="el-signs">When Metal is strained, students often report: shallow breathing, grief that lingers, frequent colds, skin that flares under stress.</p>
+            <span class="el-k" style="color:#8a8462;">金 · 肺系統</span>
+            <h3><span class="glyph-cjk" style="color:#8a8462;" aria-hidden="true">金</span>呼吸、界線、放下</h3>
+            <p>金主呼吸與皮膚——你與世界之間的界線，以及放下已結束之事的能力。</p>
+            <p class="el-signs">金失衡時，學員常提到：呼吸淺短、悲傷揮之不去、經常感冒、壓力下皮膚發作。</p>
           </div>
           <div class="el-pane" data-el="water">
-            <span class="el-k" style="color:#3d5a63;">Water · 水 · Kidney system</span>
-            <h3><span class="glyph-cjk" style="color:#3d5a63;" aria-hidden="true">水</span>Reserves, willpower, deep rest</h3>
-            <p>Water is your deepest reservoir — the inherited energy you draw on when everything else runs out. It governs the bones, the ears, and long-term resilience.</p>
-            <p class="el-signs">When Water is strained, students often report: fatigue that rest doesn’t touch, low-back weakness, fear without an obvious cause, winters that undo them.</p>
+            <span class="el-k" style="color:#3d5a63;">水 · 腎系統</span>
+            <h3><span class="glyph-cjk" style="color:#3d5a63;" aria-hidden="true">水</span>儲備、意志、深層休息</h3>
+            <p>水是你最深的儲備——當其他一切耗盡時，你所動用的先天能量。它主骨、主耳，以及長期的韌性。</p>
+            <p class="el-signs">水失衡時，學員常提到：休息也無法緩解的疲勞、腰部無力、無緣無故的恐懼、每到冬天就撐不住。</p>
           </div>
-          <a class="link-arrow" href="tcm.html" style="margin-top:20px;">Explore the framework <span class="ar" aria-hidden="true">→</span></a>
+          <a class="link-arrow" href="tcm.html" style="margin-top:20px;">探索框架 <span class="ar" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== 8 · PROGRAMS ===================== -->
-  <section class="sec programs" id="programs" data-rail="柒 · The choice" data-ch="Chapter 柒 · The choice" aria-labelledby="programsH">
+  <section class="sec programs" id="programs" data-rail="柒 · 選擇" data-ch="第柒章 · 選擇" aria-labelledby="programsH">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">Chapter 柒 — The choice</span>
-        <h2 id="programsH" class="reveal d1">Three paths. One source.<br>Choose where your story turns.</h2>
-        <p class="lede reveal d2">Each path is rooted in the same tradition — and each leads to the same place: the direct experience of Qi working in your body.</p>
+        <span class="eyebrow reveal">第柒章 — 選擇</span>
+        <h2 id="programsH" class="reveal d1">三條道路，同一源頭。<br>選擇你故事的轉折點。</h2>
+        <p class="lede reveal d2">每條道路都根植於同一傳統——也都通往同一處：親身體驗氣在你體內運行。</p>
       </div>
       <div class="prog-grid">
         <article class="prog prog-flag reveal tilt">
-          <span class="glyph-hero" aria-hidden="true">气</span>
+          <span class="glyph-hero" aria-hidden="true">氣</span>
           <img class="prog-art" src="images/chinese-dragon.webp" alt="" aria-hidden="true" loading="lazy" width="600" height="400">
-          <span class="prog-k" style="color:var(--gold-lit);">Flagship · 6 weeks · Live</span>
-          <h3>Dragon’s Way Qigong®</h3>
-          <p>Our flagship transformation. Six weeks of live online sessions in the Wu Ming lineage — movement, eating-for-healing, and Five Element consciousness woven together to make Qi real in your body, not just understood in your head. Backed by a full satisfaction guarantee.</p>
+          <span class="prog-k" style="color:var(--gold-lit);">旗艦課程 · 6 週 · 直播</span>
+          <h3>龍之道氣功®</h3>
+          <p>我們的旗艦轉化課程。六週無名傳承的線上直播課——結合動功、療癒飲食與五行意識，讓氣在你體內真實運行，而不只是腦中的理解。提供全額滿意保證。</p>
           <div class="prog-meta">
-            <span>6 weeks</span><span>Live · small group</span><span>Refund guarantee</span>
+            <span>6 週</span><span>直播 · 小班</span><span>退款保證</span>
           </div>
-          <a class="btn" href="dwq.html">See the Programme <span aria-hidden="true">→</span></a>
+          <a class="btn" href="dwq.html">查看課程 <span aria-hidden="true">→</span></a>
         </article>
         <div class="prog-side">
           <article class="prog reveal d1 tilt">
-            <span class="prog-free-tag">Free</span>
-            <span class="prog-k">Free · ~20 min daily</span>
-            <h3>Four Energy Gates</h3>
-            <p>A free daily practice that builds your Qi foundation and opens the body’s four primary energy gates. The simplest way to begin.</p>
-            <a class="link-arrow" href="four-energy-gates.html">Start free <span class="ar" aria-hidden="true">→</span></a>
+            <span class="prog-free-tag">免費</span>
+            <span class="prog-k">免費 · 每天約 20 分鐘</span>
+            <h3>四能量門</h3>
+            <p>一套免費的每日練習，打好氣的根基，打開身體四個主要的能量門。最簡單的入門方式。</p>
+            <a class="link-arrow" href="four-energy-gates.html">免費開始 <span class="ar" aria-hidden="true">→</span></a>
           </article>
           <article class="prog reveal d2 tilt">
-            <span class="prog-k">The Three Essentials</span>
+            <span class="prog-k">三寶</span>
             <h3>3E Qigong</h3>
-            <p>A program focused on the Three Essentials — the foundational energy centers that govern health, emotion, and awareness.</p>
-            <a class="link-arrow" href="programs.html">Explore 3E <span class="ar" aria-hidden="true">→</span></a>
+            <p>專注於「三寶」的課程——主宰健康、情緒與覺知的根本能量中心。</p>
+            <a class="link-arrow" href="programs.html">探索 3E <span class="ar" aria-hidden="true">→</span></a>
           </article>
         </div>
       </div>
-      <p class="prog-assess reveal">Prefer to start by listening to your body?
-        <a class="link-arrow" href="qi-assessment.html">Take the free 3-minute Qi Assessment <span class="ar" aria-hidden="true">→</span></a>
+      <p class="prog-assess reveal">想先從傾聽身體開始嗎？
+        <a class="link-arrow" href="qi-assessment.html">做 3 分鐘免費氣評估 <span class="ar" aria-hidden="true">→</span></a>
       </p>
     </div>
   </section>
 
   <!-- ===================== 9 · STORIES ===================== -->
-  <section class="sec stories" id="stories" data-rail="捌 · Rewritten" data-ch="Chapter 捌 · Rewritten chapters" aria-labelledby="storiesH">
+  <section class="sec stories" id="stories" data-rail="捌 · 改寫" data-ch="第捌章 · 改寫的篇章" aria-labelledby="storiesH">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">Chapter 捌 — Rewritten chapters</span>
-        <h2 id="storiesH" class="reveal d1">Stories people have started rewriting</h2>
+        <span class="eyebrow reveal">第捌章 — 改寫的篇章</span>
+        <h2 id="storiesH" class="reveal d1">人們開始改寫的故事</h2>
       </div>
       <div class="story-grid">
         <article class="story reveal">
-          <span class="story-phase">Before</span>
-          <blockquote>“I hadn’t slept through the night in four years. Supplements, therapy, sleep hygiene — nothing held.”</blockquote>
+          <span class="story-phase">之前</span>
+          <blockquote>「我已經四年沒有一覺到天亮。補充品、心理治療、睡眠衛生——全都撐不久。」</blockquote>
           <div class="story-rule" aria-hidden="true"></div>
-          <span class="story-phase after">After — Week 4</span>
-          <p class="after-p">Waking rested for the first time she could remember. Energy building — not borrowed from tomorrow.</p>
-          <span class="story-who">Diana K. · Dragon’s Way Qigong®</span>
+          <span class="story-phase after">之後 — 第 4 週</span>
+          <p class="after-p">她記憶中第一次醒來覺得休息充足。能量在累積——而不是向明天借來的。</p>
+          <span class="story-who">Diana K. · 龍之道氣功®</span>
         </article>
         <article class="story reveal d1">
-          <span class="story-phase">Before</span>
-          <blockquote>“Chronic back pain for six years. Physio, chiropractors, pain management. It would ease, then always return.”</blockquote>
+          <span class="story-phase">之前</span>
+          <blockquote>「慢性背痛六年。物理治療、整脊、疼痛管理。總是緩解一陣子，然後又回來。」</blockquote>
           <div class="story-rule" aria-hidden="true"></div>
-          <span class="story-phase after">After — Week 6</span>
-          <p class="after-p">Pain reduced significantly — and for the first time he understood why it was there.</p>
-          <span class="story-who">Marcus T. · Dragon’s Way Qigong®</span>
+          <span class="story-phase after">之後 — 第 6 週</span>
+          <p class="after-p">疼痛明顯減輕——他也第一次明白它為何存在。</p>
+          <span class="story-who">Marcus T. · 龍之道氣功®</span>
         </article>
         <article class="story reveal d2">
-          <span class="story-phase">Before</span>
-          <blockquote>“Exhausted and anxious constantly. Running on empty. I didn’t know what ‘rested’ felt like anymore.”</blockquote>
+          <span class="story-phase">之前</span>
+          <blockquote>「一直筋疲力盡又焦慮，像在空轉。我已經不記得『休息過』是什麼感覺。」</blockquote>
           <div class="story-rule" aria-hidden="true"></div>
-          <span class="story-phase after">After — Week 3</span>
-          <p class="after-p">The anxiety quieted first. Then a steadiness she hadn’t had in years began to return.</p>
-          <span class="story-who">Priya S. · Four Energy Gates + Dragon’s Way</span>
+          <span class="story-phase after">之後 — 第 3 週</span>
+          <p class="after-p">焦慮先平靜下來。接著，多年未有的穩定感開始回來。</p>
+          <span class="story-who">Priya S. · 四能量門 + 龍之道</span>
         </article>
       </div>
-      <p class="story-note reveal">Illustrative student stories shown as placeholders — to be replaced with real, attributable testimonials.</p>
+      <p class="story-note reveal">以上為示意用的學員故事，將替換為真實、可查證的見證。</p>
     </div>
   </section>
 
@@ -1284,16 +1292,16 @@
     <span class="ghost" style="right:-70px; top:-50px;" data-parallax="0.05" aria-hidden="true">悟</span>
     <div class="wrap">
       <div class="capture-in">
-        <span class="eyebrow reveal" style="color:var(--gold-lit);">Free weekly healing insights</span>
-        <h2 id="insightsH" class="reveal d1">TCM knowledge that changes how you see your body.</h2>
-        <p class="reveal d2">Each week, one insight from Traditional Chinese Medicine most people have never encountered — how your organs communicate, why symptoms cluster, what your body is actually asking for. No fluff; just ancient wisdom made practical.</p>
+        <span class="eyebrow reveal" style="color:var(--gold-lit);">每週免費療癒洞見</span>
+        <h2 id="insightsH" class="reveal d1">改變你看待身體方式的中醫知識。</h2>
+        <p class="reveal d2">每週一則多數人從未接觸過的中醫洞見——臟腑如何溝通、症狀為何成群出現、身體真正需要的是什麼。沒有廢話，只有化為實用的古老智慧。</p>
         <form class="capture-form reveal d3" id="captureForm" novalidate>
-          <input type="email" id="captureEmail" name="email" placeholder="Your email address" required aria-label="Email address" autocomplete="email">
-          <button class="btn" type="submit">Send me insights</button>
+          <input type="email" id="captureEmail" name="email" placeholder="你的電子郵件" required aria-label="電子郵件" autocomplete="email">
+          <button class="btn" type="submit">訂閱洞見</button>
         </form>
-        <p class="capture-err" id="captureErr" role="alert">Something went wrong — please try again.</p>
-        <p class="capture-ok" id="captureOk">You’re in ✔&nbsp; Check your inbox shortly.</p>
-        <p class="capture-note reveal d4">No spam. Unsubscribe any time. We respect your inbox.</p>
+        <p class="capture-err" id="captureErr" role="alert">發生錯誤，請再試一次。</p>
+        <p class="capture-ok" id="captureOk">訂閱成功 ✔&nbsp; 請留意你的收件匣。</p>
+        <p class="capture-note reveal d4">絕不發送垃圾郵件，可隨時取消訂閱。</p>
       </div>
     </div>
   </section>
@@ -1301,54 +1309,54 @@
   <!-- ===================== 11 · LINEAGE MARQUEE ===================== -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
-      <span>2,500 Years · Master to Student</span>
-      <span>Wu Ming Qigong</span>
-      <span>Real Practice · Real Lineage · Real Qi</span>
-      <span>Entangle with the Tao</span>
-      <span>Grand Master Nan Lu</span>
+      <span>兩千五百年 · 師徒相傳</span>
+      <span>無名氣功</span>
+      <span>真修練 · 真傳承 · 真氣</span>
+      <span>與道相連</span>
+      <span>Nan Lu 大師</span>
     </div>
   </div>
 
   <!-- ===================== 12 · ABOUT ===================== -->
-  <section class="sec about" id="about" data-rail="玖 · The source" data-ch="Chapter 玖 · The source" aria-labelledby="aboutH">
+  <section class="sec about" id="about" data-rail="玖 · 源頭" data-ch="第玖章 · 源頭" aria-labelledby="aboutH">
     <span class="ghost" style="bottom:-60px; right:-50px;" data-parallax="0.05" aria-hidden="true">道</span>
     <div class="wrap">
       <div class="about-grid">
         <figure class="about-fig reveal">
           <div class="duo wipe"><img src="images/tree.webp" alt="An old tree standing alone in soft light" loading="lazy" width="640" height="800"></div>
-          <figcaption>“The lineage is the practice. Everything else is just information.”</figcaption>
+          <figcaption>「傳承即是修練，其餘皆只是資訊。」</figcaption>
         </figure>
         <div class="about-copy">
-          <span class="eyebrow reveal">Chapter 玖 — The source</span>
-          <h2 id="aboutH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">Wu Ming Qigong — where the benefits of Qi become real</h2>
-          <p class="reveal d2">Taoquen is a TCM Wellness Academy built around a simple idea: Qi is a doorway. When you begin to experience it in your own body, the entire world of Traditional Chinese Medicine starts to make sense — not as theory, but as something you can feel and work with.</p>
-          <p class="reveal">We offer three Qigong programs, each rooted in the Wu Ming lineage of Grand Master Nan Lu — one of the foremost Qigong masters alive today. That lineage is unbroken; it traces back thousands of years, passed directly, master to student, through every generation.</p>
-          <p class="reveal">Behind the name: <em class="serif-i">Taoquen</em> is short for <em class="serif-i">Tao Quantum Entanglement™</em> — entangle with the Tao. Words can only point; Qi becomes real when someone who has experienced it passes it to you directly.</p>
+          <span class="eyebrow reveal">第玖章 — 源頭</span>
+          <h2 id="aboutH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">無名氣功——讓氣的益處真實顯現</h2>
+          <p class="reveal d2">Taoquen 是一所中醫養生學院，建立在一個簡單的理念上：氣是一扇門。當你開始在自己體內體驗到氣，整個中醫世界便開始變得清晰——不是理論，而是你能感受、能運用的東西。</p>
+          <p class="reveal">我們提供三套氣功課程，皆根植於當代最傑出的氣功大師之一 Nan Lu 大師的無名傳承。這脈傳承從未中斷，可追溯至數千年前，代代師徒親傳。</p>
+          <p class="reveal">名字的由來：<em class="serif-i">Taoquen</em> 是 <em class="serif-i">Tao Quantum Entanglement™</em>（道之量子糾纏）的簡稱——與道相連。文字只能指引方向；唯有親身體驗過氣的人直接傳授給你，氣才會變得真實。</p>
           <div class="humility reveal">
             <span class="seal" aria-hidden="true"><span>道</span></span>
-            <p>“I am a student of Grand Master Nan Lu. Everything I teach comes from his tradition — his ideas, his framework, his decades of wisdom. My role is to share what I experienced, not to own what I learned.”
-              <small>The instructor</small>
+            <p>「我是 Nan Lu 大師的學生。我所教的一切都來自他的傳統——他的理念、他的框架、他數十年的智慧。我的角色是分享我的體驗，而不是佔有我所學到的。」
+              <small>導師</small>
             </p>
           </div>
           <div class="about-links reveal">
-            <a class="link-arrow" href="about-taoquen.html">About the academy <span class="ar" aria-hidden="true">→</span></a>
-            <a class="link-arrow" href="my-story.html">Meet the instructor <span class="ar" aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="about-taoquen.html">關於學院 <span class="ar" aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="my-story.html">認識導師 <span class="ar" aria-hidden="true">→</span></a>
           </div>
-          <p class="about-src reveal">The source: <a href="https://www.tcmworld.org" rel="noopener" target="_blank">TCMWorld.org</a> · <a href="https://www.grandmasternanlu.com" rel="noopener" target="_blank">GrandMasterNanLu.com</a></p>
+          <p class="about-src reveal">源頭：<a href="https://www.tcmworld.org" rel="noopener" target="_blank">TCMWorld.org</a> · <a href="https://www.grandmasternanlu.com" rel="noopener" target="_blank">GrandMasterNanLu.com</a></p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== 13 · ENROLL BANNER ===================== -->
-  <section class="sec enroll" id="enroll" data-rail="Epilogue" data-ch="Epilogue · Your next chapter" aria-labelledby="enrollH">
+  <section class="sec enroll" id="enroll" data-rail="尾聲" data-ch="尾聲 · 你的下一章" aria-labelledby="enrollH">
     <div class="wrap enroll-in">
       <div class="enroll-txt">
-        <span class="enroll-k reveal">Epilogue — now enrolling</span>
-        <h2 id="enrollH" class="reveal d1">Your next chapter is six weeks long.</h2>
-        <p class="reveal d2">Dragon’s Way Qigong® — six weeks of live online sessions rooted in the Wu Ming lineage of Grand Master Nan Lu, built to make Qi real in your body. Groups are kept small by design. See the programme for current cohort dates and enrolment.</p>
+        <span class="enroll-k reveal">尾聲 — 現正招生</span>
+        <h2 id="enrollH" class="reveal d1">你的下一章，為期六週。</h2>
+        <p class="reveal d2">龍之道氣功®——根植於 Nan Lu 大師無名傳承的六週線上直播課程，讓氣在你體內真實運行。刻意維持小班制。最新梯次日期與報名資訊，請見課程頁面。</p>
       </div>
-      <a class="btn reveal d3" href="dwq-promo.html">See the Programme <span aria-hidden="true">→</span></a>
+      <a class="btn reveal d3" href="dwq-promo.html">查看課程 <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -1356,31 +1364,31 @@
   <section class="sec blog" id="blog" aria-labelledby="blogH">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow reveal">From the academy</span>
-        <h2 id="blogH" class="reveal d1">The thinking behind the practice</h2>
-        <p class="lede reveal d2">TCM articles, Qi concepts, and practice guides — written plainly, without jargon.</p>
+        <span class="eyebrow reveal">來自學院</span>
+        <h2 id="blogH" class="reveal d1">修練背後的思考</h2>
+        <p class="lede reveal d2">中醫文章、氣的概念與練習指南——淺白易懂，不談術語。（文章目前為英文）</p>
       </div>
       <div class="blog-grid">
         <article class="post reveal">
-          <span class="post-k">Fundamentals</span>
-          <h3><a href="blog/what-is-qi.html">What is Qi? A plain explanation for curious beginners</a></h3>
-          <p>Qi is the word TCM uses for the energy that animates the body. Here is what it actually means — and why you already know it exists.</p>
-          <a class="link-arrow" href="blog/what-is-qi.html">Read article <span class="ar" aria-hidden="true">→</span></a>
+          <span class="post-k">基礎</span>
+          <h3><a href="blog/what-is-qi.html">什麼是氣？給好奇初學者的淺白解說</a></h3>
+          <p>氣，是中醫用來描述驅動身體之能量的詞。以下說明它真正的意思——以及你為何早已知道它的存在。</p>
+          <a class="link-arrow" href="blog/what-is-qi.html">閱讀文章 <span class="ar" aria-hidden="true">→</span></a>
         </article>
         <article class="post reveal d1">
-          <span class="post-k">The lineage</span>
-          <h3><a href="blog/wu-ming-qigong-explained.html">Wu Ming Qigong: what it is, where it comes from, why it works</a></h3>
-          <p>Not all Qigong builds Qi. Wu Ming Qigong does — because of what stands behind it. The tradition, the teacher, the practice.</p>
-          <a class="link-arrow" href="blog/wu-ming-qigong-explained.html">Read article <span class="ar" aria-hidden="true">→</span></a>
+          <span class="post-k">傳承</span>
+          <h3><a href="blog/wu-ming-qigong-explained.html">無名氣功：它是什麼、從何而來、為何有效</a></h3>
+          <p>並非所有氣功都能養氣。無名氣功可以——因為它背後的根源：傳統、老師與修練。</p>
+          <a class="link-arrow" href="blog/wu-ming-qigong-explained.html">閱讀文章 <span class="ar" aria-hidden="true">→</span></a>
         </article>
         <article class="post reveal d2">
-          <span class="post-k">TCM framework</span>
-          <h3><a href="blog/five-elements-tcm.html">The Five Elements: how TCM maps the body’s intelligence</a></h3>
-          <p>Wood, Fire, Earth, Metal, Water — TCM’s map of how the body heals itself. Here is what each one means.</p>
-          <a class="link-arrow" href="blog/five-elements-tcm.html">Read article <span class="ar" aria-hidden="true">→</span></a>
+          <span class="post-k">中醫框架</span>
+          <h3><a href="blog/five-elements-tcm.html">五行：中醫如何描繪身體的智慧</a></h3>
+          <p>木、火、土、金、水——中醫描繪身體如何自癒的地圖。以下說明每一行的意義。</p>
+          <a class="link-arrow" href="blog/five-elements-tcm.html">閱讀文章 <span class="ar" aria-hidden="true">→</span></a>
         </article>
       </div>
-      <p class="blog-all reveal"><a class="link-arrow" href="blog/index.html">View all articles <span class="ar" aria-hidden="true">→</span></a></p>
+      <p class="blog-all reveal"><a class="link-arrow" href="blog/index.html">查看所有文章 <span class="ar" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -1392,44 +1400,44 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="index.html" class="lockup" aria-label="Taoquen home">
+          <a href="index-zh.html" class="lockup" aria-label="Taoquen 首頁">
             <span class="lockup-name">taoquen</span>
-            <span class="lockup-sub">Entangle with the Tao</span>
+            <span class="lockup-sub">與道相連</span>
             <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
           </a>
-          <p>A TCM Wellness Academy. Find your path, write your story, build it on Qi — in the Wu Ming tradition of Grand Master Nan Lu.</p>
+          <p>中醫養生學院。找到你的道路，書寫你的故事，以氣為根基——傳承自 Nan Lu 大師的無名傳統。</p>
         </div>
-        <nav class="foot-col" aria-label="Programs">
-          <h4>Programs</h4>
+        <nav class="foot-col" aria-label="課程">
+          <h4>課程</h4>
           <ul>
-            <li><a href="dwq.html">Dragon’s Way Qigong®</a></li>
-            <li><a href="four-energy-gates.html">Four Energy Gates</a></li>
+            <li><a href="dwq.html">龍之道氣功®</a></li>
+            <li><a href="four-energy-gates.html">四能量門</a></li>
             <li><a href="programs.html">3E Qigong</a></li>
-            <li><a href="free-class.html">Free Class</a></li>
+            <li><a href="free-class.html">免費課程</a></li>
           </ul>
         </nav>
-        <nav class="foot-col" aria-label="Learn">
-          <h4>Learn</h4>
+        <nav class="foot-col" aria-label="學習">
+          <h4>學習</h4>
           <ul>
-            <li><a href="tcm.html">Learn TCM</a></li>
-            <li><a href="qi-assessment.html">Qi Assessment</a></li>
-            <li><a href="blog/index.html">Articles</a></li>
-            <li><a href="conditions.html">Conditions</a></li>
+            <li><a href="tcm.html">認識中醫</a></li>
+            <li><a href="qi-assessment.html">氣評估</a></li>
+            <li><a href="blog/index.html">文章（英文）</a></li>
+            <li><a href="conditions.html">病症</a></li>
           </ul>
         </nav>
-        <nav class="foot-col" aria-label="Academy">
-          <h4>Academy</h4>
+        <nav class="foot-col" aria-label="學院">
+          <h4>學院</h4>
           <ul>
-            <li><a href="about-taoquen.html">About Taoquen</a></li>
-            <li><a href="my-story.html">My Story</a></li>
-            <li><a href="students.html">For Students</a></li>
-            <li><a href="wellness-program.html">For Professionals</a></li>
-            <li><a href="login.html">Log In</a></li>
+            <li><a href="about-taoquen.html">關於 Taoquen</a></li>
+            <li><a href="my-story.html">我的故事</a></li>
+            <li><a href="students.html">給學生</a></li>
+            <li><a href="wellness-program.html">給專業人士</a></li>
+            <li><a href="login.html">登入</a></li>
           </ul>
         </nav>
       </div>
       <div class="foot-base">
-        <span>© 2026 Taoquen — Tao Quantum Entanglement™. All rights reserved.</span>
+        <span>© 2026 Taoquen — 道之量子糾纏™。版權所有。</span>
         <span class="glyph-cjk" aria-hidden="true">道 可 道 非 常 道</span>
       </div>
     </div>
@@ -1846,7 +1854,7 @@
       {r:[200,192,146,100], o:[.22,1,1,1],        core:54, cOp:1},    /* level 3 */
       {r:[238,192,146,100], o:[1,1,1,1],          core:54, cOp:1}     /* level 4 */
     ];
-    var names = ['Collapsed','Fading','Strained','Thinning','Full Qi'];
+    var names = ['崩潰','衰退','緊繃','變弱','氣足'];
     /* beat index by level: 4→0, 3→1, 2→2, 1→3, 0→4; rebuilt beat (5) when back to full */
     var level = 4, hasFallen = false;
 
@@ -1998,8 +2006,8 @@
     function update(){
       var n = order.length;
       count.textContent = n === 0
-        ? 'Your body already knows what it needs.'
-        : n + ' of ' + chips.length + ' resonate — that is your current chapter, not your ending.';
+        ? '你的身體早已知道它需要什麼。'
+        : '共 ' + chips.length + ' 句中有 ' + n + ' 句引起共鳴——這是你目前的篇章，不是你的結局。';
       cta.classList.toggle('lit', n > 0);
       draw();
     }
