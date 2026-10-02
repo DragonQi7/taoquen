@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Members Login — Taoquen</title>
+  <title>會員登入 — Taoquen</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Log in to your Taoquen members area. Access your Dragon's Way Qigong® course materials, session videos, and healing resources.">
+  <meta name="description" content="登入你的 Taoquen 會員專區，取得龍之道氣功® 課程教材、課堂影片與療癒資源。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://taoquen.com/login.html">
-  <meta property="og:title" content="Members Login — Taoquen">
-  <meta property="og:description" content="Log in to your Taoquen members area. Access your Dragon's Way Qigong® course materials, session videos, and healing resources.">
+  <meta property="og:url" content="https://taoquen.com/login-zh.html">
+  <meta property="og:title" content="會員登入 — Taoquen">
+  <meta property="og:description" content="登入你的 Taoquen 會員專區，取得龍之道氣功® 課程教材、課堂影片與療癒資源。">
   <meta property="og:image" content="https://taoquen.com/images/og-cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Members Login — Taoquen">
-  <meta name="twitter:description" content="Log in to your Taoquen members area. Access your Dragon's Way Qigong® course materials, session videos, and healing resources.">
+  <meta name="twitter:title" content="會員登入 — Taoquen">
+  <meta name="twitter:description" content="登入你的 Taoquen 會員專區，取得龍之道氣功® 課程教材、課堂影片與療癒資源。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@400;500&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -30,7 +30,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter',Noto Sans TC,sans-serif;
       background: linear-gradient(145deg, #2a0805 0%, #55160A 55%, #3a0e08 100%);
       min-height: 100vh;
       display: flex;
@@ -45,7 +45,7 @@
       padding: 18px 32px;
     }
     .nav-logo {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel',Noto Serif TC,serif;
       font-size: 1rem;
       letter-spacing: 0.12em;
       color: rgba(255,248,244,0.85);
@@ -90,7 +90,7 @@
       margin-bottom: 10px;
     }
     .card-header-title {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel',Noto Serif TC,serif;
       font-size: 1.1rem;
       color: #fff8f4;
       letter-spacing: 0.1em;
@@ -112,7 +112,7 @@
       border: none;
       background: none;
       cursor: pointer;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter',Noto Sans TC,sans-serif;
       font-size: 0.83rem;
       font-weight: 500;
       color: var(--text-muted);
@@ -146,7 +146,7 @@
       border: 1.5px solid #e0d8d0;
       border-radius: 8px;
       font-size: 0.88rem;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter',Noto Sans TC,sans-serif;
       color: var(--text);
       background: #faf8f5;
       outline: none;
@@ -172,7 +172,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter',Noto Sans TC,sans-serif;
       margin-top: 4px;
       transition: background 0.2s, transform 0.1s;
     }
@@ -191,7 +191,7 @@
       font-size: 0.88rem;
       font-weight: 500;
       cursor: pointer;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter',Noto Sans TC,sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -250,7 +250,7 @@
     }
     .verify-icon { font-size: 3rem; margin-bottom: 14px; }
     .verify-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Playfair Display',Noto Serif TC,serif;
       font-size: 1.3rem;
       color: var(--jade);
       margin-bottom: 10px;
@@ -297,57 +297,62 @@
   .drawer a.lang-switch{font-size:clamp(1.1rem,5vw,1.5rem); color:#e8a830;}
   @media (max-width:1180px){ nav.nav .nav-links{display:none;} nav.nav .nav-burger{display:flex;} }
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="login-zh.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style id="tq-zh">
+  html{font-synthesis:weight;}
+  body{letter-spacing:.01em;}
+</style>
+<link rel="alternate" hreflang="en" href="login.html">
 </head>
 <body>
 
-  <nav class="nav nav-static" id="siteNav" aria-label="Primary">
+  <nav class="nav nav-static" id="siteNav" aria-label="主選單">
     <div class="wrap nav-in">
-      <a href="index.html" class="lockup" aria-label="Taoquen home">
+      <a href="index-zh.html" class="lockup" aria-label="Taoquen 首頁">
         <span class="lockup-name">taoquen</span>
-        <span class="lockup-sub">Entangle with the Tao</span>
+        <span class="lockup-sub">與道相連</span>
         <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="tcm.html">Learn TCM</a></li>
-        <li><a href="dwq.html">Dragon&rsquo;s Way Qigong</a></li>
-        <li><a href="four-energy-gates.html">Self-Care</a></li>
-        <li><a href="qi-assessment.html">Free Assessment</a></li>
-        <li><a href="free-class.html">Free Class</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="dwq-promo.html" class="tq-btn">Enroll</a></li>
-        <li><a href="login-zh.html" class="lang-switch" lang="zh-Hant" hreflang="zh-Hant">中文</a></li>
-        <li><a href="login.html" id="navLoginBtn" class="active">Log In</a></li>
+        <li><a href="tcm.html">認識中醫</a></li>
+        <li><a href="dwq.html">龍之道氣功</a></li>
+        <li><a href="four-energy-gates-zh.html">自我調養</a></li>
+        <li><a href="qi-assessment-zh.html">免費評估</a></li>
+        <li><a href="free-class-zh.html">免費課程</a></li>
+        <li><a href="programs-zh.html">課程</a></li>
+        <li><a href="dwq-promo-zh.html" class="tq-btn">報名</a></li>
+        <li><a href="login.html" class="lang-switch" lang="en" hreflang="en">EN</a></li>
+        <li><a href="login-zh.html" id="navLoginBtn" class="active">登入</a></li>
       </ul>
-      <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+      <button class="nav-burger" id="burger" aria-label="開啟選單" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     </div>
   </nav>
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
-    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
-    <span class="drawer-sub">Taoquen · TCM Wellness Academy</span>
-    <a href="tcm.html" style="transition-delay:.08s">Learn TCM</a>
-    <a href="dwq.html" style="transition-delay:.13s">Dragon&rsquo;s Way Qigong</a>
-    <a href="four-energy-gates.html" style="transition-delay:.18s">Self-Care</a>
-    <a href="qi-assessment.html" style="transition-delay:.23s">Free Assessment</a>
-    <a href="free-class.html" style="transition-delay:.28s">Free Class</a>
-    <a href="programs.html" style="transition-delay:.33s">Programs</a>
-    <a href="dwq-promo.html" style="transition-delay:.38s">Enroll</a>
-    <a href="login.html" style="transition-delay:.43s">Log In</a>
-    <a href="login-zh.html" class="lang-switch" lang="zh-Hant" hreflang="zh-Hant" style="transition-delay:.48s">中文</a>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="選單">
+    <button class="drawer-close" id="drawerClose" aria-label="關閉選單">&times;</button>
+    <span class="drawer-sub">Taoquen · 中醫養生學院</span>
+    <a href="tcm.html" style="transition-delay:.08s">認識中醫</a>
+    <a href="dwq.html" style="transition-delay:.13s">龍之道氣功</a>
+    <a href="four-energy-gates-zh.html" style="transition-delay:.18s">自我調養</a>
+    <a href="qi-assessment-zh.html" style="transition-delay:.23s">免費評估</a>
+    <a href="free-class-zh.html" style="transition-delay:.28s">免費課程</a>
+    <a href="programs-zh.html" style="transition-delay:.33s">課程</a>
+    <a href="dwq-promo-zh.html" style="transition-delay:.38s">報名</a>
+    <a href="login-zh.html" style="transition-delay:.43s">登入</a>
+    <a href="login.html" class="lang-switch" lang="en" hreflang="en" style="transition-delay:.48s">EN</a>
   </div>
 
   <div class="login-wrap">
     <div class="login-card">
       <div class="card-header">
         <div class="card-header-glyph">☯</div>
-        <div class="card-header-title">Members Portal</div>
-        <div class="card-header-sub">Dragon&rsquo;s Way Qigong&reg; &mdash; Taoquen</div>
+        <div class="card-header-title">會員入口</div>
+        <div class="card-header-sub">龍之道氣功® — Taoquen</div>
       </div>
 
       <!-- TABS -->
       <div class="tabs" id="tabBar">
-        <button class="tab-btn active" onclick="showPanel('login')">Log In</button>
-        <button class="tab-btn" onclick="showPanel('signup')">Create Account</button>
+        <button class="tab-btn active" onclick="showPanel('login')">登入</button>
+        <button class="tab-btn" onclick="showPanel('signup')">建立帳戶</button>
       </div>
 
       <!-- LOGIN PANEL -->
@@ -355,19 +360,18 @@
         <div class="alert alert-error" id="loginError"></div>
 
         <div class="form-row">
-          <label>Email Address</label>
-          <input type="email" id="loginEmail" placeholder="Email address" autocomplete="email">
+          <label>電子郵件</label>
+          <input type="email" id="loginEmail" placeholder="電子郵件" autocomplete="email">
         </div>
         <div class="form-row">
-          <label>Password</label>
+          <label>密碼</label>
           <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password">
         </div>
-        <span class="forgot-link" onclick="showForgot()">Forgot password?</span>
+        <span class="forgot-link" onclick="showForgot()">忘記密碼？</span>
 
-        <button class="form-submit" onclick="doLogin()">Log In to Members Area →</button>
+        <button class="form-submit" onclick="doLogin()">登入會員專區 →</button>
 
-        <div class="form-switch">
-          No account yet? <a onclick="showPanel('signup')">Sign up free</a>
+        <div class="form-switch">還沒有帳戶？<a onclick="showPanel('signup')">免費註冊</a>
         </div>
       </div>
 
@@ -377,52 +381,49 @@
 
         <div class="row-split">
           <div class="form-row">
-            <label>First Name</label>
-            <input type="text" id="signupFirst" placeholder="Wei" autocomplete="given-name">
+            <label>名字</label>
+            <input type="text" id="signupFirst" placeholder="大偉" autocomplete="given-name">
           </div>
           <div class="form-row">
-            <label>Last Name</label>
-            <input type="text" id="signupLast" placeholder="Chen" autocomplete="family-name">
+            <label>姓氏</label>
+            <input type="text" id="signupLast" placeholder="陳" autocomplete="family-name">
           </div>
         </div>
 
         <div class="form-row">
-          <label>Email Address</label>
-          <input type="email" id="signupEmail" placeholder="Email address" autocomplete="email">
+          <label>電子郵件</label>
+          <input type="email" id="signupEmail" placeholder="電子郵件" autocomplete="email">
         </div>
         <div class="form-row">
-          <label>Cell / Mobile</label>
+          <label>手機號碼</label>
           <input type="tel" id="signupCell" placeholder="+1 (555) 000-0000" autocomplete="tel">
         </div>
         <div class="form-row">
-          <label>Address</label>
-          <input type="text" id="signupAddr" placeholder="123 Main St, City, State ZIP" autocomplete="street-address">
+          <label>地址</label>
+          <input type="text" id="signupAddr" placeholder="街道、城市、郵遞區號" autocomplete="street-address">
         </div>
         <div class="form-row">
-          <label>Password <span style="font-size:0.68rem;font-weight:400;text-transform:none;letter-spacing:0;">(min. 8 characters)</span></label>
+          <label>密碼<span style="font-size:0.68rem;font-weight:400;text-transform:none;letter-spacing:0;">（至少 8 個字元）</span></label>
           <input type="password" id="signupPass" placeholder="••••••••" autocomplete="new-password">
         </div>
         <div class="form-row">
-          <label>Confirm Password</label>
+          <label>確認密碼</label>
           <input type="password" id="signupPass2" placeholder="••••••••" autocomplete="new-password">
         </div>
 
-        <button class="form-submit" onclick="doSignup()">Create My Account</button>
+        <button class="form-submit" onclick="doSignup()">建立我的帳戶</button>
 
-        <div class="form-switch">
-          Already a member? <a onclick="showPanel('login')">Log in</a>
+        <div class="form-switch">已經是會員？<a onclick="showPanel('login')">登入</a>
         </div>
       </div>
 
       <!-- VERIFY SCREEN (shown after signup) -->
       <div id="verifyScreen">
         <div class="verify-icon">✉️</div>
-        <div class="verify-title">Account Created!</div>
-        <p class="verify-msg">Your account has been created. You can now log in with your email and password.</p>
+        <div class="verify-title">帳戶已建立！</div>
+        <p class="verify-msg">你的帳戶已建立完成，現在可以用電子郵件和密碼登入。</p>
         <div>
-          <span class="verify-login-link" onclick="showPanel('login');document.getElementById('verifyScreen').style.display='none';document.getElementById('tabBar').style.display='flex'">
-            → Go to Log In
-          </span>
+          <span class="verify-login-link" onclick="showPanel('login');document.getElementById('verifyScreen').style.display='none';document.getElementById('tabBar').style.display='flex'">→ 前往登入</span>
         </div>
       </div>
     </div>
@@ -432,43 +433,43 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="index.html" class="lockup" aria-label="Taoquen home">
+          <a href="index-zh.html" class="lockup" aria-label="Taoquen 首頁">
             <span class="lockup-name">taoquen</span>
-            <span class="lockup-sub">Entangle with the Tao</span>
+            <span class="lockup-sub">與道相連</span>
             <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
           </a>
-          <p>A TCM Wellness Academy. Find your path, write your story, build it on Qi — in the Wu Ming tradition of Grand Master Nan Lu.</p>
+          <p>中醫養生學院。找到你的道路，書寫你的故事，以氣為根基——傳承自 Nan Lu 大師的無名傳統。</p>
         </div>
-        <nav class="foot-col" aria-label="Programs">
-          <h4>Programs</h4>
+        <nav class="foot-col" aria-label="課程">
+          <h4>課程</h4>
           <ul>
-            <li><a href="dwq.html">Dragon’s Way Qigong®</a></li>
-            <li><a href="four-energy-gates.html">Four Energy Gates</a></li>
-            <li><a href="programs.html">3E Qigong</a></li>
-            <li><a href="free-class.html">Free Class</a></li>
+            <li><a href="dwq.html">龍之道氣功®</a></li>
+            <li><a href="four-energy-gates-zh.html">四能量門</a></li>
+            <li><a href="programs-zh.html">3E 氣功</a></li>
+            <li><a href="free-class-zh.html">免費課程</a></li>
           </ul>
         </nav>
-        <nav class="foot-col" aria-label="Learn">
-          <h4>Learn</h4>
+        <nav class="foot-col" aria-label="學習">
+          <h4>學習</h4>
           <ul>
-            <li><a href="tcm.html">Learn TCM</a></li>
-            <li><a href="qi-assessment.html">Qi Assessment</a></li>
-            <li><a href="blog/index.html">Articles</a></li>
-            <li><a href="conditions.html">Conditions</a></li>
+            <li><a href="tcm.html">認識中醫</a></li>
+            <li><a href="qi-assessment-zh.html">氣評估</a></li>
+            <li><a href="blog/index.html">文章</a></li>
+            <li><a href="conditions.html">病症</a></li>
           </ul>
         </nav>
-        <nav class="foot-col" aria-label="Academy">
-          <h4>Academy</h4>
+        <nav class="foot-col" aria-label="學院">
+          <h4>學院</h4>
           <ul>
-            <li><a href="my-story.html">My Story</a></li>
-            <li><a href="students.html">For Students</a></li>
-            <li><a href="wellness-program.html">For Professionals</a></li>
-            <li><a href="login.html">Log In</a></li>
+            <li><a href="my-story.html">我的故事</a></li>
+            <li><a href="students.html">給學生</a></li>
+            <li><a href="wellness-program.html">給專業人士</a></li>
+            <li><a href="login-zh.html">登入</a></li>
           </ul>
         </nav>
       </div>
       <div class="foot-base">
-        <span>© 2026 Taoquen — Tao Quantum Entanglement™. All rights reserved.</span>
+        <span>© 2026 Taoquen — 道之量子糾纏™。版權所有。</span>
         <span class="glyph-cjk" aria-hidden="true">道 可 道 非 常 道</span>
       </div>
     </div>
@@ -499,11 +500,11 @@
     window.clearErrors();
     const email = document.getElementById('loginEmail').value.trim().toLowerCase();
     const pass  = document.getElementById('loginPass').value;
-    if (!email) { document.getElementById('loginEmail').classList.add('error'); window.showError('loginError', 'Please enter your email address.'); return; }
-    if (!pass)  { document.getElementById('loginPass').classList.add('error');  window.showError('loginError', 'Please enter your password.'); return; }
+    if (!email) { document.getElementById('loginEmail').classList.add('error'); window.showError('loginError', '請輸入你的電子郵件。'); return; }
+    if (!pass)  { document.getElementById('loginPass').classList.add('error');  window.showError('loginError', '請輸入你的密碼。'); return; }
 
     const btn = document.querySelector('#panelLogin .form-submit');
-    btn.disabled = true; btn.textContent = 'Signing in…';
+    btn.disabled = true; btn.textContent = '登入中…';
     try {
       const cred = await signInWithEmailAndPassword(auth, email, pass);
       const user = cred.user;
@@ -511,9 +512,9 @@
       localStorage.setItem('tq_session', JSON.stringify({ email: user.email, first: nameParts[0] || '', last: nameParts.slice(1).join(' ') || '' }));
       window.location.href = 'members-main.html';
     } catch (err) {
-      btn.disabled = false; btn.textContent = 'Log In to Members Area →';
+      btn.disabled = false; btn.textContent = '登入會員專區 →';
       const msg = err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found'
-        ? 'Email or password is incorrect. Please try again.'
+        ? '電子郵件或密碼不正確，請再試一次。'
         : err.message;
       window.showError('loginError', msg);
     }
@@ -528,13 +529,13 @@
     const pass  = document.getElementById('signupPass').value;
     const pass2 = document.getElementById('signupPass2').value;
 
-    if (!first) { document.getElementById('signupFirst').classList.add('error'); window.showError('signupError', 'Please enter your first name.'); return; }
-    if (!email || !email.includes('@')) { document.getElementById('signupEmail').classList.add('error'); window.showError('signupError', 'Please enter a valid email address.'); return; }
-    if (pass.length < 8) { document.getElementById('signupPass').classList.add('error'); window.showError('signupError', 'Password must be at least 8 characters.'); return; }
-    if (pass !== pass2) { document.getElementById('signupPass2').classList.add('error'); window.showError('signupError', 'Passwords do not match.'); return; }
+    if (!first) { document.getElementById('signupFirst').classList.add('error'); window.showError('signupError', '請輸入你的名字。'); return; }
+    if (!email || !email.includes('@')) { document.getElementById('signupEmail').classList.add('error'); window.showError('signupError', '請輸入有效的電子郵件。'); return; }
+    if (pass.length < 8) { document.getElementById('signupPass').classList.add('error'); window.showError('signupError', '密碼至少需要 8 個字元。'); return; }
+    if (pass !== pass2) { document.getElementById('signupPass2').classList.add('error'); window.showError('signupError', '兩次輸入的密碼不一致。'); return; }
 
     const btn = document.querySelector('#panelSignup .form-submit');
-    btn.disabled = true; btn.textContent = 'Creating account…';
+    btn.disabled = true; btn.textContent = '建立帳戶中…';
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, pass);
       await updateProfile(cred.user, { displayName: (first + ' ' + last).trim() });
@@ -543,9 +544,9 @@
       document.getElementById('tabBar').style.display = 'none';
       document.getElementById('verifyScreen').style.display = 'block';
     } catch (err) {
-      btn.disabled = false; btn.textContent = 'Create My Account';
+      btn.disabled = false; btn.textContent = '建立我的帳戶';
       const msg = err.code === 'auth/email-already-in-use'
-        ? 'An account with that email already exists. Try logging in.'
+        ? '此電子郵件已有帳戶，請直接登入。'
         : err.message;
       window.showError('signupError', msg);
     }
@@ -556,16 +557,16 @@
     const email = document.getElementById('loginEmail').value.trim().toLowerCase();
     if (!email) {
       document.getElementById('loginEmail').focus();
-      window.showError('loginError', 'Enter your email above first, then click "Forgot password?"');
+      window.showError('loginError', '請先在上方輸入電子郵件，再點選「忘記密碼？」');
       return;
     }
     try {
       await sendPasswordResetEmail(auth, email);
-      window.showError('loginError', '✅ Password reset email sent. Check your inbox.');
+      window.showError('loginError', '✅ 已寄出密碼重設信，請查看你的收件匣。');
       document.getElementById('loginError').classList.remove('alert-error');
       document.getElementById('loginError').classList.add('alert-info');
     } catch (err) {
-      window.showError('loginError', err.code === 'auth/user-not-found' ? 'No account found for that email.' : err.message);
+      window.showError('loginError', err.code === 'auth/user-not-found' ? '找不到使用此電子郵件的帳戶。' : err.message);
     }
   };
 </script>
