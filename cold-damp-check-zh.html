@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cold & Dampness — The Two Hidden Pathogens · Dragon's Way Qigong</title>
+<title>寒與濕——兩種隱藏的病邪 · 龍之道氣功</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,11 +12,11 @@
   :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;
         --cold:#5aa6ff; --cold-deep:#2f6fd0; --damp:#3fb6a3; --damp-deep:#268a7c;}
   html{font-size:16px;-webkit-font-smoothing:antialiased;}
-  body{font-family:'Inter',sans-serif;color:var(--cream);
+  body{font-family:'Inter',Noto Sans TC,sans-serif;color:var(--cream);
     background:var(--bg);
     min-height:100vh;padding:30px 18px 48px;display:flex;flex-direction:column;align-items:center;}
-  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
-  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.06;text-align:center;margin-bottom:12px;}
+  .eyebrow{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.06;text-align:center;margin-bottom:12px;}
   h1 em{font-style:italic;color:#8b6914;}
   .lede{max-width:720px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 24px;}
   .lede b{color:var(--cream);font-weight:500;}
@@ -34,7 +34,7 @@
   .meter.damp.lit{box-shadow:inset 0 0 0 1px rgba(63,182,163,.35),0 0 28px -12px var(--damp);}
   .m-top{display:flex;align-items:center;gap:9px;margin-bottom:4px;}
   .m-ico{font-size:1.3rem;}
-  .m-name{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
+  .m-name{font-family:'Cinzel',Noto Serif TC,serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
   .meter.cold .m-name{color:#2f6fd0;} .meter.damp .m-name{color:#268a7c;}
   .m-status{margin-left:auto;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted);}
   .m-sub{font-size:.7rem;color:var(--muted);margin-bottom:11px;line-height:1.45;}
@@ -49,7 +49,7 @@
   .verdict b{color:var(--cream);}
 
   /* signs checklist */
-  .sec-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 2px 10px;
+  .sec-head{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 2px 10px;
     display:flex;align-items:center;gap:8px;}
   .sec-head .legend{margin-left:auto;display:flex;gap:12px;font-size:.58rem;letter-spacing:.04em;text-transform:none;color:var(--muted);}
   .sec-head .legend span{display:inline-flex;align-items:center;gap:4px;}
@@ -76,7 +76,7 @@
   .rem.active{opacity:1;filter:none;}
   .rem.cold.active{box-shadow:inset 0 0 0 1px rgba(90,166,255,.3),0 0 24px -14px var(--cold);}
   .rem.damp.active{box-shadow:inset 0 0 0 1px rgba(63,182,163,.3),0 0 24px -14px var(--damp);}
-  .rem-h{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+  .rem-h{font-family:'Cinzel',Noto Serif TC,serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
   .rem.cold .rem-h{color:#2f6fd0;} .rem.damp .rem-h{color:#268a7c;}
   .rem-sub{font-size:.7rem;color:var(--muted);font-style:italic;margin-bottom:11px;line-height:1.45;}
   .rem ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
@@ -86,7 +86,7 @@
   .rem li b{color:var(--cream);}
 
   .controls{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap;}
-  .reset-btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
+  .reset-btn{font-family:'Cinzel',Noto Serif TC,serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
     background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);border-radius:22px;padding:11px 18px;cursor:pointer;transition:.15s;}
   .reset-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
   .nei{margin-left:auto;font-size:.7rem;color:var(--muted);font-style:italic;text-align:right;max-width:60%;}
@@ -95,11 +95,11 @@
   /* CTA + credit */
   .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
     background:#faf8f2;border:1px solid rgba(139,105,20,.35);border-radius:18px;box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
-  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
-  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta-pre{font-family:'Cinzel',Noto Serif TC,serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
   .cta h3 em{font-style:italic;color:#8b6914;}
   .cta p{max-width:540px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
-  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0a06;
+  .cta-btn{display:inline-block;font-family:'Cinzel',Noto Serif TC,serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0a06;
     background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;cursor:pointer;text-decoration:none;font-weight:600;
     box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
   .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
@@ -107,103 +107,100 @@
   .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;line-height:1.7;color:#998b6e;}
   .credit strong{color:var(--gold);font-weight:600;}
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="cold-damp-check-zh.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style id="tq-zh">
+  html{font-synthesis:weight;}
+  body{letter-spacing:.01em;}
+</style>
+<link rel="alternate" hreflang="en" href="cold-damp-check.html">
 </head>
 <body>
 
-  <div class="eyebrow">Dragon's Way Qigong® · Digesting the Universe</div>
-  <h1>Cold &amp; <em>Dampness</em></h1>
-  <p class="lede">Master Lu names <b>Cold</b> and <b>Dampness</b> as the two great enemies of healthy metabolism — invisible
-  energies that slip in when your Qi is weak and bog down the Spleen &amp; Stomach. <i>Cold makes things slow, ache and
-  “stick together”; Dampness makes things heavy, swollen and sluggish.</i> Check the signs you live with, and see which
-  may have crept in — with the book's own ways to clear it.</p>
+  <div class="eyebrow">龍之道氣功® · 消化宇宙</div>
+  <h1>寒與<em>濕</em></h1>
+  <p class="lede">Lu 大師指出，<b>寒</b>與<b>濕</b>是健康代謝的兩大敵人——看不見的能量，會在你的氣虛弱時趁虛而入，拖累脾與胃。<i>寒讓一切變慢、疼痛、「黏在一起」；濕讓一切沉重、腫脹、遲緩。</i>勾選你生活中出現的徵兆，看看哪一種可能已經悄悄進入——並附上書中清除它的方法。</p>
 
   <div class="tool">
 
     <!-- meters -->
     <div class="meters">
       <div class="meter cold" id="meterCold">
-        <div class="m-top"><span class="m-ico">❄️</span><span class="m-name">Internal Cold</span><span class="m-status" id="coldStatus">None</span></div>
-        <div class="m-sub">Slows, congeals, aches — worse in winter and before rain or snow.</div>
+        <div class="m-top"><span class="m-ico">❄️</span><span class="m-name">體內之寒</span><span class="m-status" id="coldStatus">無</span></div>
+        <div class="m-sub">使運行變慢、凝滯、疼痛——冬天以及下雨或下雪前會加重。</div>
         <div class="m-bar"><i id="coldBar"></i></div>
       </div>
       <div class="meter damp" id="meterDamp">
-        <div class="m-top"><span class="m-ico">💧</span><span class="m-name">Internal Dampness</span><span class="m-status" id="dampStatus">None</span></div>
-        <div class="m-sub">Heavy, sticky, swollen — bogs down digestion; slow to release.</div>
+        <div class="m-top"><span class="m-ico">💧</span><span class="m-name">體內之濕</span><span class="m-status" id="dampStatus">無</span></div>
+        <div class="m-sub">沉重、黏膩、腫脹——拖累消化；不易排除。</div>
         <div class="m-bar"><i id="dampBar"></i></div>
       </div>
     </div>
 
-    <div class="verdict" id="verdict">Check the signs below — your reading will appear here.</div>
+    <div class="verdict" id="verdict">勾選下方的徵兆——你的解讀會顯示在這裡。</div>
 
     <!-- signs -->
-    <div class="sec-head">Check what you experience
-      <span class="legend"><span><span class="dot c"></span>feeds Cold</span><span><span class="dot d"></span>feeds Dampness</span></span>
+    <div class="sec-head">勾選你所經歷的<span class="legend"><span><span class="dot c"></span>助長寒</span><span><span class="dot d"></span>助長濕</span></span>
     </div>
     <div class="signs" id="signs"></div>
 
     <!-- remedies -->
     <div class="remedies">
       <div class="rem cold" id="remCold">
-        <div class="rem-h">❄️ Warm the Cold</div>
-        <div class="rem-sub">“Heat it up and ice becomes water, which can flow.”</div>
+        <div class="rem-h">❄️ 溫散寒氣</div>
+        <div class="rem-sub">「把它加熱，冰就會變成水，水就能流動。」</div>
         <ul>
-          <li><b>Ginger tea</b> — fresh ginger root slices + a little brown sugar; sip several times a day (it goes to the Stomach).</li>
-          <li><b>Daily hot baths</b> or hot showers to drive Cold out.</li>
-          <li><b>Protect your legs</b> — major Spleen &amp; Stomach meridians run up them; never bare legs in cold wind.</li>
-          <li><b>Eat warm, cooked food</b>; cut ice cream, iced drinks and raw/cold foods.</li>
-          <li><b>Real rest, wrapped up warm</b> — let the body catch its breath.</li>
+          <li><b>薑茶</b>——新鮮薑片加少許黑糖；一天小口喝幾次（它入胃）。</li>
+          <li><b>每天泡熱水澡</b>或沖熱水澡，把寒氣逼出去。</li>
+          <li><b>保護你的雙腿</b>——主要的脾經與胃經沿著雙腿向上運行；冷風中絕不露腿。</li>
+          <li><b>吃溫熱、煮熟的食物</b>；戒掉冰淇淋、冰飲與生冷食物。</li>
+          <li><b>真正地休息，把自己裹得暖暖的</b>——讓身體喘口氣。</li>
         </ul>
       </div>
       <div class="rem damp" id="remDamp">
-        <div class="rem-h">💧 Drain the Dampness</div>
-        <div class="rem-sub">Damp Qi must be transformed to water, then released — diuretics only move the water, not the Damp.</div>
+        <div class="rem-h">💧 排除濕氣</div>
+        <div class="rem-sub">濕氣必須先轉化為水，再排出——利尿劑只能排水，排不了濕。</div>
         <ul>
-          <li><b>Support the Kidney &amp; Bladder</b> — they transform Damp Qi into water the body can pass out.</li>
-          <li><b>Keep the Spleen &amp; Stomach warm &amp; dry</b> — they love warmth and hate Damp.</li>
-          <li><b>Avoid cold-raw, greasy and over-sweet foods</b> and damp environments that breed Damp.</li>
-          <li><b>Move and gently sweat</b> daily — releasing Damp is a slow, steady process.</li>
-          <li><b>Build metabolism with Qigong</b> so Damp has no place to settle.</li>
+          <li><b>支持腎與膀胱</b>——它們把濕氣轉化為身體可以排出的水。</li>
+          <li><b>讓脾胃保持溫暖乾燥</b>——它們喜溫惡濕。</li>
+          <li><b>避免生冷、油膩與過甜的食物</b>，以及會滋生濕氣的潮濕環境。</li>
+          <li><b>活動身體，微微出汗</b>每天都做——排除濕氣是一個緩慢而穩定的過程。</li>
+          <li><b>以氣功建立代謝</b>，讓濕氣無處可留。</li>
         </ul>
       </div>
     </div>
 
     <div class="controls">
-      <button class="reset-btn" id="resetBtn">↺ Clear</button>
-      <div class="nei">“As long as the organs work in harmony and Qi flows freely, there is no place for disease.” — Nei Jing</div>
+      <button class="reset-btn" id="resetBtn">↺ 清除</button>
+      <div class="nei">「只要臟腑協調運作、氣自由流動，疾病就無處容身。」——《內經》</div>
     </div>
 
   </div>
 
 
   <p class="credit">
-    Built on the <strong>Cold &amp; Dampness teaching</strong> in <strong>Digesting the Universe</strong> by Grand Master Nan&nbsp;Lu —
-    the two environmental pathogens that most impact Spleen &amp; Stomach metabolism function. A reflective self-check,
-    not a diagnosis.<br>
-    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
-  </p>
+    本工具建立在<strong>寒與濕的教導</strong>之上，出自 <strong>《消化宇宙》</strong>，作者 Nan Lu 大師——最影響脾胃代謝功能的兩種環境病邪。這是一份自我反思的檢測，不是診斷。<br>僅供教育與自我反思之用，並非醫療建議、診斷或治療。</p>
 
 <script>
 (function(){
   // weight of each sign toward Cold / Dampness (0–3), per the book's signs
   const SIGNS = [
-    {t:'Cold hands or cold feet',                              c:3, d:0},
-    {t:'You always crave warmth and warm drinks',             c:3, d:0},
-    {t:'You rub or warm your belly to soothe your stomach',   c:3, d:0},
-    {t:'Menstrual cramps, sometimes with clots',              c:3, d:0},
-    {t:'Bloating, gas or belching after cold or raw food',    c:2, d:1},
-    {t:'Headache, dizziness or sleepiness after a meal',      c:2, d:1},
-    {t:'Sneezing or food allergies after eating',             c:2, d:1},
-    {t:'Pain or stiffness worse in cold or damp weather',     c:2, d:2},
-    {t:'Low-back, knee or joint pain (arthritis)',            c:2, d:2},
-    {t:'Varicose veins',                                      c:2, d:1},
-    {t:'A white coating on your tongue',                      c:2, d:1},
-    {t:'Water retention or swelling, especially in the legs', c:0, d:3},
-    {t:'A heavy, foggy or sluggish feeling',                  c:0, d:3},
-    {t:'Phlegm — coughing it up or clearing your throat',     c:0, d:3},
-    {t:'Itchy skin or rashes (eczema, psoriasis, oozing)',    c:0, d:2},
-    {t:'Loose stools or a sense of incomplete digestion',     c:1, d:2},
-    {t:'A thick, greasy tongue coating',                      c:0, d:2}
+    {t:'手腳冰冷',                              c:3, d:0},
+    {t:'你總是渴望溫暖與熱飲',             c:3, d:0},
+    {t:'你會揉或溫暖肚子來安撫胃',   c:3, d:0},
+    {t:'經痛，有時伴隨血塊',              c:3, d:0},
+    {t:'吃了生冷食物後腹脹、脹氣或打嗝',    c:2, d:1},
+    {t:'飯後頭痛、頭暈或想睡',      c:2, d:1},
+    {t:'吃東西後打噴嚏或食物過敏',             c:2, d:1},
+    {t:'疼痛或僵硬在寒冷或潮濕天氣時加重',     c:2, d:2},
+    {t:'下背、膝蓋或關節疼痛（關節炎）',            c:2, d:2},
+    {t:'靜脈曲張',                                      c:2, d:1},
+    {t:'舌苔白',                      c:2, d:1},
+    {t:'水腫或浮腫，尤其在雙腿', c:0, d:3},
+    {t:'沉重、昏沉或遲緩的感覺',                  c:0, d:3},
+    {t:'有痰——會咳痰或需要清喉嚨',     c:0, d:3},
+    {t:'皮膚癢或起疹子（濕疹、乾癬、滲液）',    c:0, d:2},
+    {t:'大便稀軟，或覺得沒有消化完全',     c:1, d:2},
+    {t:'舌苔厚膩',                      c:0, d:2}
   ];
   const MAXC = SIGNS.reduce((s,x)=>s+x.c,0);
   const MAXD = SIGNS.reduce((s,x)=>s+x.d,0);
@@ -221,7 +218,7 @@
     signsEl.appendChild(el);
   });
 
-  const statusWord=p=> p>=42?'Strong' : p>=18?'Present' : p>0?'Mild' : 'None';
+  const statusWord=p=> p>=42?'明顯' : p>=18?'存在' : p>0?'輕微' : '無';
 
   function render(){
     let cs=0, ds=0;
@@ -236,17 +233,17 @@
     const v=$('verdict'); let txt, border='var(--gold)';
     const anyC=cp>=18, anyD=dp>=18;
     if(cp===0 && dp===0){
-      txt='Check the signs below — your reading will appear here.';
+      txt='勾選下方的徵兆——你的解讀會顯示在這裡。';
     } else if(cp<12 && dp<12){
-      txt='<b>Little sign of either.</b> Your inner warmth is holding — keep protecting it.';
+      txt='<b>兩者的徵兆都很少。</b>你內在的溫暖正在維持——繼續保護它。';
     } else if(anyC && anyD){
-      txt='<b>Signs of both Cold and Dampness.</b> They often travel together, doubling the burden on your Spleen &amp; Stomach. Warm <i>and</i> drain — and rebuild the Qi that lets them in.';
+      txt='<b>同時有寒與濕的徵兆。</b>它們常常結伴而來，加倍加重脾胃的負擔。既要溫散，<i>也</i>要排除——並重建那個讓它們得以進入的氣。';
       border='var(--gold)';
     } else if(cp>=dp){
-      txt='<b>Signs lean toward internal Cold</b> — the energy that makes things slow down, congeal and ache. Bring in warmth.';
+      txt='<b>徵兆偏向體內之寒</b>——讓一切變慢、凝滯、疼痛的能量。帶入溫暖。';
       border='var(--cold)';
     } else {
-      txt='<b>Signs lean toward internal Dampness</b> — the heavy, sticky energy that bogs down digestion. Help the body drain it.';
+      txt='<b>徵兆偏向體內之濕</b>——沉重、黏膩、拖累消化的能量。幫助身體把它排除。';
       border='var(--damp)';
     }
     v.innerHTML=txt; v.style.borderLeftColor=border;

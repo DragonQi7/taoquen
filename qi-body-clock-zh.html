@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Body Clock — Your 24-Hour Qi Cycle · Dragon's Way Qigong</title>
+<title>人體時鐘——你的 24 小時氣之循環 · 龍之道氣功</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,14 +12,14 @@
   :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;}
   html{font-size:16px;-webkit-font-smoothing:antialiased;}
   body{
-    font-family:'Inter',sans-serif;color:var(--cream);
+    font-family:'Inter',Noto Sans TC,sans-serif;color:var(--cream);
     background:var(--bg);
     min-height:100vh;padding:30px 18px 48px;
     display:flex;flex-direction:column;align-items:center;
   }
-  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+  .eyebrow{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
     color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
-  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
+  h1{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
     line-height:1.06;text-align:center;margin-bottom:12px;}
   h1 em{font-style:italic;color:#8b6914;}
   .lede{max-width:680px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 26px;}
@@ -35,7 +35,7 @@
     border:1px solid #e8e1d0;border-radius:12px;background:#faf8f2;}
   .now-dot{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#fff;
     box-shadow:0 0 18px rgba(44,44,40,.25);transition:.25s;}
-  .now-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;}
+  .now-main{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.15rem;font-weight:600;}
   .now-sub{font-size:.82rem;color:var(--muted);margin-top:1px;}
   .now-sub b{color:var(--cream);font-variant-numeric:tabular-nums;}
 
@@ -49,23 +49,23 @@
   .seg:hover{filter:brightness(1.2);}
   .seg.active{filter:brightness(1.32) saturate(1.2);}
   .seg.selected{filter:brightness(1.4) saturate(1.25);}
-  .seg-label{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.04em;fill:#fff;
+  .seg-label{font-family:'Cinzel',Noto Serif TC,serif;font-size:8.5px;letter-spacing:.04em;fill:#fff;
     text-shadow:0 1px 3px rgba(0,0,0,.9);pointer-events:none;font-weight:600;}
   .seg-time{font-size:7px;fill:rgba(255,255,255,.78);pointer-events:none;}
   .seg-label.dark,.seg-time.dark{fill:#241f18;text-shadow:none;}
   .tick-lbl{font-size:8px;fill:rgba(44,44,40,.5);font-variant-numeric:tabular-nums;}
-  .hub-time{font-family:'Playfair Display',serif;font-size:24px;fill:#2c2c28;font-variant-numeric:tabular-nums;font-weight:600;}
-  .hub-sub{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.2em;fill:var(--gold);text-transform:uppercase;}
+  .hub-time{font-family:'Playfair Display',Noto Serif TC,serif;font-size:24px;fill:#2c2c28;font-variant-numeric:tabular-nums;font-weight:600;}
+  .hub-sub{font-family:'Cinzel',Noto Serif TC,serif;font-size:8px;letter-spacing:.2em;fill:var(--gold);text-transform:uppercase;}
   .hand{stroke:#2c2c28;stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(0,0,0,.25));}
   .hand-dot{fill:#2c2c28;filter:drop-shadow(0 0 6px rgba(0,0,0,.3));}
 
   /* detail panel */
   .detail{border-left:3px solid var(--dc,#2c2c28);padding:6px 0 6px 18px;}
-  .d-el{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dc,#2c2c28);margin-bottom:6px;}
-  .d-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;line-height:1.1;margin-bottom:4px;}
+  .d-el{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dc,#2c2c28);margin-bottom:6px;}
+  .d-name{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.6rem;font-weight:600;line-height:1.1;margin-bottom:4px;}
   .d-window{font-size:.82rem;color:var(--gold);font-variant-numeric:tabular-nums;margin-bottom:14px;}
   .d-row{margin-bottom:13px;}
-  .d-row h4{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  .d-row h4{font-family:'Cinzel',Noto Serif TC,serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
     color:var(--muted);margin-bottom:4px;}
   .d-row p{font-size:.88rem;line-height:1.62;color:#4a4030;}
   .d-row p b{color:var(--cream);}
@@ -77,12 +77,12 @@
   /* wake-time quick picker */
   .wake{margin:24px 2px 6px;padding:16px 18px;border:1px solid #e8e1d0;border-radius:12px;
     background:#faf8f2;}
-  .wake-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  .wake-head{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
     color:var(--gold);margin-bottom:4px;}
   .wake-q{font-size:.86rem;color:#4a4030;line-height:1.6;margin-bottom:12px;}
   .wake-q b{color:var(--cream);}
   .wake-btns{display:flex;flex-wrap:wrap;gap:8px;}
-  .wake-btn{font-family:'Inter',sans-serif;font-size:.74rem;color:var(--cream);
+  .wake-btn{font-family:'Inter',Noto Sans TC,sans-serif;font-size:.74rem;color:var(--cream);
     background:#ffffff;border:1px solid rgba(139,105,20,.3);border-radius:20px;
     padding:8px 15px;cursor:pointer;transition:.15s;font-variant-numeric:tabular-nums;}
   .wake-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
@@ -93,12 +93,12 @@
     background:#faf8f2;
     border:1px solid rgba(139,105,20,.35);border-radius:18px;
     box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
-  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
+  .cta-pre{font-family:'Cinzel',Noto Serif TC,serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
     color:var(--gold);opacity:.85;margin-bottom:8px;}
-  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta h3{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
   .cta h3 em{font-style:italic;color:#8b6914;}
   .cta p{max-width:520px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
-  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  .cta-btn{display:inline-block;font-family:'Cinzel',Noto Serif TC,serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
     color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;
     cursor:pointer;text-decoration:none;font-weight:600;box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
   .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
@@ -108,15 +108,18 @@
     line-height:1.7;color:#998b6e;}
   .credit strong{color:var(--gold);font-weight:600;}
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="qi-body-clock-zh.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style id="tq-zh">
+  html{font-synthesis:weight;}
+  body{letter-spacing:.01em;}
+</style>
+<link rel="alternate" hreflang="en" href="qi-body-clock.html">
 </head>
 <body>
 
-  <div class="eyebrow">Dragon's Way Qigong® · Traditional Chinese Medicine</div>
-  <h1>The Body <em>Clock</em></h1>
-  <p class="lede">Qi moves through your organs on a 24-hour tide — each gets a two-hour peak when its energy is highest.
-  Where you feel awake, restless, or low at the same hour each day is no accident: it's an organ asking for support.
-  Find the hour, find the message.</p>
+  <div class="eyebrow">龍之道氣功® · 傳統中醫</div>
+  <h1>人體<em>時鐘</em></h1>
+  <p class="lede">氣以 24 小時的潮汐在你的臟腑之間運行——每個臟腑都有兩小時的高峰，在那段時間能量最強。如果你每天都在同一個時辰清醒、坐立不安或低落，那不是偶然：那是某個臟腑在請求支持。找到那個時辰，就能找到那則訊息。</p>
 
   <div class="tool">
 
@@ -125,31 +128,31 @@
       <div class="now-dot" id="nowDot"></div>
       <div>
         <div class="now-main" id="nowMain">—</div>
-        <div class="now-sub" id="nowSub">Reading your local time…</div>
+        <div class="now-sub" id="nowSub">正在讀取你的當地時間…</div>
       </div>
     </div>
 
     <div class="layout">
       <!-- clock -->
       <div class="clock-wrap">
-        <svg class="clock-svg" id="clockSvg" viewBox="0 0 320 320" aria-label="24-hour organ clock"></svg>
+        <svg class="clock-svg" id="clockSvg" viewBox="0 0 320 320" aria-label="24 小時臟腑時鐘"></svg>
       </div>
 
       <!-- detail -->
       <div class="detail" id="detail">
-        <div class="d-el" id="dEl">Element</div>
+        <div class="d-el" id="dEl">五行</div>
         <div class="d-name" id="dName">—</div>
         <div class="d-window" id="dWindow">—</div>
         <div class="d-row">
-          <h4>What this hour governs</h4>
+          <h4>這個時辰主管什麼</h4>
           <p id="dGoverns">—</p>
         </div>
         <div class="d-row">
-          <h4>Awake or restless now?</h4>
+          <h4>此刻醒著或坐立不安？</h4>
           <p id="dAwake">—</p>
         </div>
         <div class="d-row">
-          <h4>Dragon's Way support</h4>
+          <h4>龍之道的支持方法</h4>
           <p id="dSupport">—</p>
         </div>
         <div class="d-meta" id="dMeta"></div>
@@ -158,32 +161,25 @@
 
     <!-- wake-time picker -->
     <div class="wake">
-      <div class="wake-head">The body never lies</div>
-      <p class="wake-q">Do you keep waking at the <b>same time</b> each night — or hit a wall at the same hour each day?
-        Tap that time to see which organ is calling:</p>
+      <div class="wake-head">身體從不說謊</div>
+      <p class="wake-q">你是否每晚都在<b>同一個時間</b>醒來——或每天都在同一個時辰撞牆？點選那個時間，看看是哪一個臟腑在呼喚你：</p>
       <div class="wake-btns" id="wakeBtns"></div>
     </div>
 
   </div>
 
 
-  <p class="credit">
-    Built on the <strong>Five Element Consciousness Framework</strong> and the TCM organ clock taught in
-    <strong>Dragon's Way Qigong®</strong> by Grand Master Nan Lu. Each two-hour window marks when an organ's Qi
-    is at its daily peak. Pericardium and Triple Burner are the Heart's two Fire-element helpers, beyond the core
-    Heart/Small&nbsp;Intestine pair.<br>
-    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
-  </p>
+  <p class="credit">本工具建立在<strong>五行意識框架</strong>以及中醫臟腑時鐘之上，傳授於<strong>龍之道氣功®</strong>，由 Nan Lu 大師所傳。每個兩小時的時段，標示一個臟腑的氣達到每日高峰的時間。心包與三焦是心的兩個火行助手，在核心的心／小腸這一對之外。<br>僅供教育與自我反思之用，並非醫療建議、診斷或治療。</p>
 
 <script>
 (function(){
   // element palette — matches The Prism of Qi
   const EL = {
-    fire:{name:'Fire', color:'#ff3b30'},
-    earth:{name:'Earth',color:'#ffc01e'},
-    wood:{name:'Wood', color:'#3fd06a'},
-    water:{name:'Water',color:'#2f7bff'},
-    metal:{name:'Metal',color:'#b6bfc9'}
+    fire:{name:'火', color:'#ff3b30'},
+    earth:{name:'土',color:'#ffc01e'},
+    wood:{name:'木', color:'#3fd06a'},
+    water:{name:'水',color:'#2f7bff'},
+    metal:{name:'金',color:'#b6bfc9'}
   };
   // text-safe element colours for the light theme
   const INK = {fire:'#d6362b', earth:'#b8860b', wood:'#1e9e50', water:'#1d5fd6', metal:'#5d6b7a'};
@@ -192,66 +188,66 @@
 
   // 24-hour organ clock — start hour (0–24), each window is 2h.
   const ORGANS = [
-    {key:'lung', el:'metal', name:'Lung',            start:3,
-     governs:'The Lung is the great distributor of Qi — at its peak it draws in fresh Universal energy and lets the old go. Deepest, most restorative breath happens now.',
-     awake:'Waking around 3–5 a.m. (often with sadness or a busy mind) is the classic sign the Lung is asking for support — grief or letting-go left unprocessed.',
-     support:'Slow nasal breathing; honey, pears and almonds; keep skin & chest covered from wind. Let it go.',
-     emotion:'Grief / Sadness', season:'Autumn', partner:'with Large Intestine'},
-    {key:'li', el:'metal', name:'Large Intestine',   start:5,
-     governs:'Letting go on the physical level — this is the body’s natural window for a morning bowel movement and elimination.',
-     awake:'A glass of warm water on waking supports release. Regular morning movements are a sign Lung & Large Intestine Qi flow well.',
-     support:'Warm water on rising; honey to add moisture to the colon; fibre-rich, cooked foods.',
-     emotion:'Grief / Sadness', season:'Autumn', partner:'with Lung'},
-    {key:'st', el:'earth', name:'Stomach',           start:7,
-     governs:'The Stomach “receives and ripens” food. Its Qi is strongest now — which is why this is the ideal hour for your largest, warmest meal.',
-     awake:'Skipping breakfast wastes the day’s strongest digestive fire. Eat your heaviest meal early.',
-     support:'A warm, cooked breakfast; no cold or raw foods or iced drinks. Eat to 70–80% full.',
-     emotion:'Worry / Overthinking', season:'Late Summer', partner:'with Spleen'},
-    {key:'sp', el:'earth', name:'Spleen',            start:9,
-     governs:'The Spleen transforms food into Qi and essence — your daily energy generator. Mental clarity and steady energy build now.',
-     awake:'Heaviness, foggy thinking or worry mid-morning points to Spleen Qi needing warmth and support.',
-     support:'Warm cooked foods, gentle movement, and easing worry — overthinking drains the Spleen directly.',
-     emotion:'Worry / Overthinking', season:'Late Summer', partner:'with Stomach'},
-    {key:'ht', el:'fire', name:'Heart',              start:11,
-     governs:'The Heart — King of organs — reaches its peak. A time for connection, warmth and a calm, joyful midday.',
-     awake:'Midday palpitations, flushing or restlessness can signal the Heart carrying strain other organs should be sharing.',
-     support:'A short rest after lunch; bitter greens (dandelion, kale, radicchio); protect your peace. Smile from the Heart.',
-     emotion:'Joy', season:'Summer', partner:'with Small Intestine'},
-    {key:'si', el:'fire', name:'Small Intestine',    start:13,
-     governs:'The Small Intestine sorts the pure from the impure — finishing the digestion of your midday meal and deciding what nourishes you.',
-     awake:'An early-afternoon dip is natural; keep lunch light-to-moderate and warm to support clean sorting.',
-     support:'Eat lunch before this window; favour warm, easy-to-digest foods; a brief walk aids sorting.',
-     emotion:'Joy', season:'Summer', partner:'with Heart'},
-    {key:'bl', el:'water', name:'Bladder',           start:15,
-     governs:'The Bladder Qi peaks — a strong window for focused work, study and clearing the day’s metabolic “garbage.”',
-     awake:'A mid-afternoon crash or headache here can mean you’re under-hydrated or your Water element is taxed.',
-     support:'Hydrate with warm water; this is a productive window — use it. Keep the low back warm.',
-     emotion:'Fear', season:'Winter', partner:'with Kidney'},
-    {key:'ki', el:'water', name:'Kidney',            start:17,
-     governs:'The Kidney — your inherited “energy tank” — reaches its peak. It stores the Qi you were born with and rules longevity, bones and willpower.',
-     awake:'Low-back or knee ache, ringing ears, or a wave of fear in early evening is the Kidney asking you to conserve, not spend.',
-     support:'Wind down and rest; walnuts, black beans, black sesame; roll a tennis ball under each foot to reach the Kidney meridian.',
-     emotion:'Fear', season:'Winter', partner:'with Bladder'},
-    {key:'pc', el:'fire', name:'Pericardium',        start:19,
-     governs:'The Pericardium — the Heart’s protector (a Fire-element helper) — peaks now. A time for warmth, intimacy and gentle connection.',
-     awake:'Evening anxiety or a guarded, over-busy heart suggests the Heart’s protector is overworked. Slow down.',
-     support:'A calm, light evening; gentle company or quiet; begin to let the day’s stimulation fall away.',
-     emotion:'Joy (Heart’s helper)', season:'Summer', partner:'Heart protector'},
-    {key:'tb', el:'fire', name:'Triple Burner',      start:21,
-     governs:'The Triple Burner (San Jiao — a Fire-element organ) governs the flow of warmth and fluids between your three body cavities, settling metabolism for sleep.',
-     awake:'Still wired at 9–11 p.m.? The body wants to be powering down. Screens and stress here steal tomorrow’s Qi.',
-     support:'Turn off the phone after 8 p.m.; dim the lights; aim to be in bed before midnight.',
-     emotion:'Joy (Heart’s helper)', season:'Summer', partner:'Metabolism / temperature'},
-    {key:'gb', el:'wood', name:'Gallbladder',        start:23,
-     governs:'The Gallbladder — your master decision-maker — peaks as deep sleep begins. The body uses this window to regenerate.',
-     awake:'Waking near midnight, or indecision and being “stuck,” points to Gallbladder Qi. Sleeping before midnight protects it.',
-     support:'Be asleep before midnight; release the day’s decisions; this is Wood’s repair window.',
-     emotion:'Anger (Wood)', season:'Spring', partner:'with Liver'},
-    {key:'lv', el:'wood', name:'Liver',              start:1,
-     governs:'The Liver stores the blood and rules the smooth flow of Qi and emotion. In deep sleep now it cleanses and renews — the “go with the flow” organ at work.',
-     awake:'Waking between 1–3 a.m. (often tense or irritable) is the hallmark of stuck Liver Qi — unreleased stress or anger.',
-     support:'Reduce stress and screens before bed; go with the flow; green foods and gentle movement by day keep Liver Qi moving.',
-     emotion:'Anger', season:'Spring', partner:'with Gallbladder'}
+    {key:'lung', el:'metal', name:'肺',            start:3,
+     governs:'肺是氣的偉大分配者——在高峰時，它吸入新鮮的宇宙能量，並讓舊的離去。此刻的呼吸最深、最能讓人恢復。',
+     awake:'凌晨 3–5 點左右醒來（常伴隨悲傷或思緒紛亂），是肺在請求支持的典型徵兆——悲傷或放下的課題尚未消化。',
+     support:'緩慢的鼻呼吸；蜂蜜、梨與杏仁；遮好皮膚與胸口，避免吹風。放下它。',
+     emotion:'悲傷／哀愁', season:'秋', partner:'與大腸相配'},
+    {key:'li', el:'metal', name:'大腸',   start:5,
+     governs:'身體層次的放下——這是身體早上排便與排出廢物的自然時段。',
+     awake:'起床喝一杯溫水能幫助釋放。早上規律排便，是肺與大腸之氣流動良好的徵兆。',
+     support:'起床喝溫水；用蜂蜜滋潤腸道；吃富含纖維、煮熟的食物。',
+     emotion:'悲傷／哀愁', season:'秋', partner:'與肺相配'},
+    {key:'st', el:'earth', name:'胃',           start:7,
+     governs:'胃「受納腐熟」食物。此時胃氣最強——這就是為什麼這是吃一天中最豐盛、最溫熱的一餐的理想時辰。',
+     awake:'不吃早餐，就浪費了一天中最旺的消化之火。把最豐盛的一餐放在早上吃。',
+     support:'溫熱、煮熟的早餐；不吃生冷食物，不喝冰飲。吃到七、八分飽。',
+     emotion:'擔憂／過度思考', season:'長夏', partner:'與胃相配'},
+    {key:'sp', el:'earth', name:'脾',            start:9,
+     governs:'脾把食物轉化為氣與精華——你每天的能量發電機。思緒清晰與穩定的能量在此時建立。',
+     awake:'上午感到沉重、思緒模糊或擔憂，表示脾氣需要溫暖與支持。',
+     support:'溫熱煮熟的食物、輕柔的活動，並放下擔憂——過度思考會直接耗損脾。',
+     emotion:'擔憂／過度思考', season:'長夏', partner:'與胃相配'},
+    {key:'ht', el:'fire', name:'心',              start:11,
+     governs:'心——五臟之君——達到高峰。這是連結、溫暖，以及平靜喜悅的正午時光。',
+     awake:'正午心悸、臉紅或坐立不安，可能表示心正承擔著其他臟腑應該分擔的壓力。',
+     support:'午餐後稍作休息；苦味綠葉蔬菜（蒲公英、羽衣甘藍、紫菊苣）；守護你的平靜。從心裡微笑。',
+     emotion:'喜悅', season:'夏', partner:'與小腸相配'},
+    {key:'si', el:'fire', name:'小腸',    start:13,
+     governs:'小腸負責分清泌濁——完成午餐的消化，並決定什麼能滋養你。',
+     awake:'午後精神稍微下滑是自然的；午餐保持清淡到適量、溫熱，以支持清楚的分清泌濁。',
+     support:'在這個時段之前吃午餐；選擇溫熱、容易消化的食物；短暫散步有助於分清泌濁。',
+     emotion:'喜悅', season:'夏', partner:'與心相配'},
+    {key:'bl', el:'water', name:'膀胱',           start:15,
+     governs:'膀胱之氣達到高峰——這是專注工作、讀書，以及清除一天代謝「垃圾」的有力時段。',
+     awake:'下午三、四點如果突然崩潰或頭痛，可能表示你水分不足，或你的水行負擔過重。',
+     support:'喝溫水補充水分；這是很有生產力的時段——好好利用它。保持下背溫暖。',
+     emotion:'恐懼', season:'冬', partner:'與腎相配'},
+    {key:'ki', el:'water', name:'腎',            start:17,
+     governs:'腎——你與生俱來的「能量油箱」——達到高峰。它儲藏你與生俱來的氣，主管長壽、骨骼與意志力。',
+     awake:'傍晚時下背或膝蓋痠痛、耳鳴，或一陣恐懼湧上，是腎在要求你保存能量，而不是花用。',
+     support:'放慢腳步、好好休息；核桃、黑豆、黑芝麻；在每隻腳底滾動網球，按摩腎經。',
+     emotion:'恐懼', season:'冬', partner:'與膀胱相配'},
+    {key:'pc', el:'fire', name:'心包',        start:19,
+     governs:'心包——心的守護者（火行的助手）——此時達到高峰。這是溫暖、親密與溫和連結的時光。',
+     awake:'傍晚的焦慮，或一顆戒備、過度忙碌的心，表示心的守護者工作過度了。放慢腳步。',
+     support:'平靜而輕鬆的夜晚；溫和的陪伴或安靜獨處；開始讓一天的刺激逐漸褪去。',
+     emotion:'喜（心的助手）', season:'夏', partner:'心之護衛'},
+    {key:'tb', el:'fire', name:'三焦',      start:21,
+     governs:'三焦（火行的臟腑）主管溫暖與水液在身體三個腔室之間的流動，讓代謝為睡眠沉澱下來。',
+     awake:'晚上 9–11 點還很亢奮？身體想要關機了。此時的螢幕與壓力，會偷走明天的氣。',
+     support:'晚上 8 點後關掉手機；調暗燈光；目標是午夜前上床。',
+     emotion:'喜（心的助手）', season:'夏', partner:'代謝／體溫'},
+    {key:'gb', el:'wood', name:'膽',        start:23,
+     governs:'膽——你的決斷大師——在深度睡眠開始時達到高峰。身體利用這個時段再生。',
+     awake:'午夜前後醒來，或猶豫不決、感覺「卡住」，指向膽氣。午夜前入睡能保護它。',
+     support:'午夜前入睡；放下一天的決定；這是木的修復時段。',
+     emotion:'怒（木）', season:'春', partner:'與肝相配'},
+    {key:'lv', el:'wood', name:'肝',              start:1,
+     governs:'肝藏血，主管氣與情緒的順暢流動。此刻在深度睡眠中，它清理並更新——這個「順勢而為」的臟腑正在工作。',
+     awake:'凌晨 1–3 點醒來（常感到緊繃或煩躁），是肝氣鬱結的標誌——未釋放的壓力或憤怒。',
+     support:'睡前減少壓力與螢幕；順勢而為；白天吃綠色食物、做溫和的活動，讓肝氣持續流動。',
+     emotion:'憤怒', season:'春', partner:'與膽相配'}
   ];
 
   const svg = document.getElementById('clockSvg');
@@ -297,14 +293,14 @@
 
   // hub
   const hubTime=mk('text',{x:cx,y:cy-2,'text-anchor':'middle',class:'hub-time'}); hubTime.textContent='--:--';
-  const hubSub =mk('text',{x:cx,y:cy+14,'text-anchor':'middle',class:'hub-sub'}); hubSub.textContent='Local time';
+  const hubSub =mk('text',{x:cx,y:cy+14,'text-anchor':'middle',class:'hub-sub'}); hubSub.textContent='當地時間';
   // hand + center dot drawn above hub text
   const hand=mk('line',{x1:cx,y1:cy,x2:cx,y2:cy-r+6,class:'hand'});
   const handDot=mk('circle',{cx:cx,cy:cy-r+6,r:4,class:'hand-dot'});
   const center=mk('circle',{cx:cx,cy:cy,r:3.5,fill:'#2c2c28'});
   svg.appendChild(hubTime); svg.appendChild(hubSub); svg.appendChild(hand); svg.appendChild(handDot); svg.appendChild(center);
 
-  function fmt12(h){ h=((h%24)+24)%24; const ap=h<12?'a':'p'; let hh=h%12; if(hh===0)hh=12; return hh+ap; }
+  function fmt12(h){ h=((h%24)+24)%24; return h+':00'; }
   function fmtRange(a,b){ return fmt12(a)+'–'+fmt12(b); }
 
   // detail panel
@@ -320,16 +316,16 @@
     selectedKey=key;
     const o=organByKey(key); const c=INK[o.el]||EL[o.el].color;
     detail.style.setProperty('--dc',c);
-    dEl.textContent=EL[o.el].name+' Element';
+    dEl.textContent=EL[o.el].name+'行';
     dName.textContent=o.name;
     dWindow.textContent=fmtRange(o.start,o.start+2)+'  ·  '+o.partner;
     dGoverns.textContent=o.governs;
     dAwake.textContent=o.awake;
     dSupport.textContent=o.support;
     dMeta.innerHTML =
-      '<span class="d-chip">Element <b>'+EL[o.el].name+'</b></span>'+
-      '<span class="d-chip">Emotion <b>'+o.emotion+'</b></span>'+
-      '<span class="d-chip">Season <b>'+o.season+'</b></span>';
+      '<span class="d-chip">五行 <b>'+EL[o.el].name+'</b></span>'+
+      '<span class="d-chip">情志 <b>'+o.emotion+'</b></span>'+
+      '<span class="d-chip">季節 <b>'+o.season+'</b></span>';
     // segment highlight
     Object.values(segEls).forEach(p=>p.classList.remove('selected'));
     segEls[key].classList.add('selected');
@@ -339,10 +335,10 @@
 
   // wake-time quick picker (night-waking + daytime walls)
   const WAKE_TIMES=[
-    {label:'1–3 a.m.', key:'lv'},{label:'3–5 a.m.', key:'lung'},{label:'5–7 a.m.', key:'li'},
-    {label:'Morning slump', key:'sp'},{label:'After lunch', key:'si'},
-    {label:'Mid-afternoon', key:'bl'},{label:'Early evening', key:'ki'},
-    {label:'Can’t wind down (9–11 p.m.)', key:'tb'},{label:'Near midnight', key:'gb'}
+    {label:'凌晨 1–3 點', key:'lv'},{label:'凌晨 3–5 點', key:'lung'},{label:'清晨 5–7 點', key:'li'},
+    {label:'早上精神低落', key:'sp'},{label:'午餐後', key:'si'},
+    {label:'下午三、四點', key:'bl'},{label:'傍晚', key:'ki'},
+    {label:'無法放鬆（晚上 9–11 點）', key:'tb'},{label:'接近午夜', key:'gb'}
   ];
   const wakeBtns=document.getElementById('wakeBtns');
   WAKE_TIMES.forEach(w=>{
@@ -384,16 +380,16 @@
     handDot.setAttribute('cx',hx); handDot.setAttribute('cy',hy);
     // hub time
     let hh=d.getHours(), mm=d.getMinutes();
-    const ap=hh<12?'AM':'PM'; let h12=hh%12; if(h12===0)h12=12;
+    const ap=hh<12?'上午':'下午'; let h12=hh%12; if(h12===0)h12=12;
     hubTime.textContent=h12+':'+String(mm).padStart(2,'0');
-    hubSub.textContent=ap+' · LOCAL';
+    hubSub.textContent=ap+' · 當地時間';
 
     const o=activeOrgan(hf); const c=EL[o.el].color;
     nowDot.style.background=c; nowDot.style.boxShadow='0 0 18px '+c;
-    nowMain.textContent='Now: '+o.name+'  ·  '+EL[o.el].name;
+    nowMain.textContent='現在： '+o.name+'  ·  '+EL[o.el].name;
     nowMain.style.color=INK[o.el]||c;
-    nowSub.innerHTML='It’s <b>'+h12+':'+String(mm).padStart(2,'0')+' '+ap+'</b> — '+o.name+' Qi is at its daily peak. '+
-      '<span style="color:var(--gold)">Tap any organ to read its message.</span>';
+    nowSub.innerHTML='現在是 <b>'+ap+' '+h12+':'+String(mm).padStart(2,'0')+'</b>——'+o.name+'之氣正處於每日高峰。'+
+      '<span style="color:var(--gold)">點選任一臟腑，閱讀它的訊息。</span>';
     // active-segment glow
     Object.values(segEls).forEach(p=>p.classList.remove('active'));
     segEls[o.key].classList.add('active');

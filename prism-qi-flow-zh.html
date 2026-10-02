@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Prism of Qi — Five Element Light · Dragon's Way Qigong</title>
+<title>氣之稜鏡——五行之光 · 龍之道氣功</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
   }
   html{font-size:16px;-webkit-font-smoothing:antialiased;}
   body{
-    font-family:'Inter',sans-serif;color:var(--cream);
+    font-family:'Inter',Noto Sans TC,sans-serif;color:var(--cream);
     background:var(--bg);
     min-height:100vh;padding:30px 18px 48px;
     display:flex;flex-direction:column;align-items:center;
   }
-  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+  .eyebrow{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
     color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
-  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
+  h1{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
     line-height:1.06;text-align:center;margin-bottom:12px;}
   h1 em{font-style:italic;color:#8b6914;}
   .lede{max-width:680px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 26px;}
@@ -37,7 +37,7 @@
     border:1px solid #e8e1d0;border-radius:12px;background:#faf8f2;}
   .swatch{flex:0 0 auto;width:34px;height:34px;border-radius:50%;
     background:#fff;box-shadow:0 0 18px rgba(255,255,255,.6);transition:.15s;}
-  .state-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;transition:color .2s;}
+  .state-main{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.15rem;font-weight:600;transition:color .2s;}
   .state-sub{font-size:.82rem;color:var(--muted);margin-top:1px;}
 
   /* ── Optical scene ── */
@@ -51,7 +51,7 @@
   .source{position:absolute;left:3%;top:50%;width:16px;height:16px;transform:translateY(-50%);
     border-radius:50%;background:#fff;
     box-shadow:0 0 18px 6px rgba(255,255,255,calc(var(--glow)*.85)),0 0 40px 14px rgba(255,240,210,calc(var(--glow)*.45));}
-  .tag{position:absolute;font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.18em;
+  .tag{position:absolute;font-family:'Cinzel',Noto Serif TC,serif;font-size:.5rem;letter-spacing:.18em;
     text-transform:uppercase;color:rgba(255,255,255,.5);white-space:nowrap;}
   .tag.src{left:1.5%;top:calc(50% + 16px);}
   .tag.prm1{left:15%;top:calc(50% + 48px);transform:translateX(-50%);}
@@ -111,7 +111,7 @@
     filter:drop-shadow(0 1px 2px rgba(0,0,0,.55));}
   .band .ico svg{display:block;width:100%;height:100%;}
   .band .btext{position:relative;z-index:2;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
-  .band .bnm{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  .band .bnm{font-family:'Cinzel',Noto Serif TC,serif;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
     color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.85);font-weight:600;line-height:1.1;}
   .band .bsub{font-size:.56rem;color:rgba(255,255,255,.92);text-shadow:0 1px 4px rgba(0,0,0,.9);}
   .band .dim-flag{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;opacity:0;
@@ -128,9 +128,9 @@
   /* ── Controls (5 element sliders) ── */
   .controls-head-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
     margin:22px 2px 10px;flex-wrap:wrap;}
-  .controls-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  .controls-head{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--gold);}
-  .reset-btn{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  .reset-btn{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--cream);background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);
     border-radius:20px;padding:7px 16px;cursor:pointer;transition:.15s;white-space:nowrap;}
   .reset-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);box-shadow:0 0 16px -4px var(--gold);}
@@ -138,7 +138,7 @@
   /* nourishing-cycle diagram (nodes dim as their Qi weakens) */
   .cycle-strip{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:0 2px 14px;
     padding:10px 14px;border:1px solid #e8e1d0;border-radius:10px;background:#faf8f2;}
-  .cyc-label{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;
+  .cyc-label{font-family:'Cinzel',Noto Serif TC,serif;font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;
     color:var(--muted);margin-right:6px;}
   .cyc-node{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:var(--cream);
     transition:opacity .14s linear;}
@@ -154,7 +154,7 @@
   .card.dim{border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 0 22px -6px var(--c);background:#fffdf6;}
   .card-top{display:flex;align-items:center;gap:8px;margin-bottom:2px;}
   .chip{width:13px;height:13px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);flex:0 0 auto;}
-  .el{font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .el{font-family:'Cinzel',Noto Serif TC,serif;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
   .org{font-size:.66rem;color:var(--muted);margin-bottom:2px;}
   .emo{font-size:.64rem;color:var(--gold);opacity:.9;margin-bottom:10px;}
   .emo b{color:var(--cream);font-weight:500;}
@@ -194,23 +194,23 @@
   /* Journey of Health — physical disease progression (driven by overall Qi) */
   .journey{margin-top:24px;padding:18px 18px 16px;border:1px solid #e8e1d0;border-radius:14px;
     background:#faf8f2;}
-  .journey-head{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  .journey-head{font-family:'Cinzel',Noto Serif TC,serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--gold);margin-bottom:16px;}
-  .journey-head span{font-family:'Inter',sans-serif;letter-spacing:.02em;text-transform:none;font-size:.7rem;color:var(--muted);}
+  .journey-head span{font-family:'Inter',Noto Sans TC,sans-serif;letter-spacing:.02em;text-transform:none;font-size:.7rem;color:var(--muted);}
   .journey-track{position:relative;display:flex;justify-content:space-between;margin:0 4px 18px;}
   .journey-track::before{content:"";position:absolute;left:6%;right:6%;top:10px;height:3px;border-radius:2px;
     background:linear-gradient(to right,#1e9e50,#1d7fd6,#e07f00,#d63a2e,#7c3aed);opacity:.4;}
   .jstep{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;width:19%;}
   .jstep .jdot{width:22px;height:22px;border-radius:50%;background:var(--jc);opacity:.4;transform:scale(.78);
     box-shadow:0 0 0 3px #faf8f2;transition:.18s;}
-  .jstep .jlabel{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;
+  .jstep .jlabel{font-family:'Cinzel',Noto Serif TC,serif;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;
     color:var(--muted);text-align:center;transition:.18s;}
   .jstep.passed .jdot{opacity:.7;}
   .jstep.active .jdot{opacity:1;transform:scale(1.3);box-shadow:0 0 18px var(--jc),0 0 0 3px #faf8f2;}
   .jstep.active .jlabel{color:var(--cream);}
   .journey-detail{border-left:3px solid var(--jdc,#1e9e50);padding:11px 15px;border-radius:9px;
     background:#ffffff;transition:border-color .18s;}
-  .jd-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:3px;color:#1e9e50;}
+  .jd-name{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.05rem;font-weight:600;margin-bottom:3px;color:#1e9e50;}
   .jd-desc{font-size:.78rem;color:#4a4030;line-height:1.55;margin-bottom:9px;}
   .jd-conditions{list-style:none;display:flex;flex-wrap:wrap;gap:7px;}
   .jd-conditions li{font-size:.68rem;background:rgba(44,44,40,.04);border:1px solid rgba(44,44,40,.14);
@@ -222,90 +222,86 @@
     line-height:1.7;color:#998b6e;}
   .credit strong{color:var(--gold);font-weight:600;}
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="prism-qi-flow-zh.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style id="tq-zh">
+  html{font-synthesis:weight;}
+  body{letter-spacing:.01em;}
+</style>
+<link rel="alternate" hreflang="en" href="prism-qi-flow.html">
 </head>
 <body>
 
-  <div class="eyebrow">Dragon's Way Qigong® · Five Element Consciousness Framework</div>
-  <h1>The Prism of <em>Qi</em></h1>
-  <p class="lede">When white light passes whole through the prism, the Five Elements are in balance — this is health.
-  But the five are <strong>one connected system</strong>. Lower any element and — through the nourishing cycle
-  (Wood→Fire→Earth→Metal→Water→Wood) — it drags the others down with it: their colors dim, organ imbalances
-  appear, and the whole light fades. Restore the balance and the light returns to white.</p>
+  <div class="eyebrow">龍之道氣功® · 五行意識框架</div>
+  <h1><em>氣</em>之稜鏡</h1>
+  <p class="lede">當白光完整地穿過稜鏡，五行就處於平衡——這就是健康。但五行是<strong>一個相互連結的系統</strong>。降低任何一行——透過相生循環（木→火→土→金→水→木）——它會把其他行一起拖下來：它們的顏色變暗，臟腑失衡出現，整道光逐漸黯淡。恢復平衡，光就會回到白色。</p>
 
   <div class="tool">
 
     <!-- Wholeness state -->
     <div class="statebar">
       <div>
-        <div class="state-main" id="stateMain">The Light Is Whole</div>
-        <div class="state-sub" id="stateSub">Five Elements in harmony — Qi flows smoothly.</div>
+        <div class="state-main" id="stateMain">光是完整的</div>
+        <div class="state-sub" id="stateSub">五行和諧——氣流動順暢。</div>
       </div>
     </div>
 
     <!-- Optical scene: white in → disperse → 5 elements → recombine → white out -->
     <div class="scene" id="scene">
       <div class="source"></div>
-      <div class="tag src">White Light In</div>
+      <div class="tag src">白光進入</div>
       <div class="beam beam-in"></div>
       <div class="prism prism1"></div>
-      <div class="tag prm1">Prism</div>
+      <div class="tag prm1">稜鏡</div>
       <div class="fan fan-out" id="fanOut"></div>
-      <div class="tag scr">Five&nbsp;Elements</div>
+      <div class="tag scr">五行</div>
       <div class="screen" id="screen"></div>
       <div class="fan fan-in" id="fanIn"></div>
       <div class="prism prism2"></div>
       <div class="beam beam-out" id="beamOut"></div>
       <div class="orb" id="orb"></div>
-      <div class="tag out">Whole&nbsp;Light&nbsp;Out</div>
+      <div class="tag out">完整的光射出</div>
     </div>
 
     <!-- Journey of Health: where lasting imbalance leads (per the Gold Book) -->
     <div class="journey" id="journey">
-      <div class="journey-head">The Journey of Health
-        <span>— when imbalance persists it progresses: energy → organs → physical disease (Dragon's Way Qigong)</span></div>
+      <div class="journey-head">健康之旅<span>——失衡若持續就會進展：能量 → 臟腑 → 身體疾病（龍之道氣功）</span></div>
       <div class="journey-track" id="journeyTrack"></div>
       <div class="journey-detail" id="journeyDetail">
-        <div class="jd-name" id="jdName">True Health &amp; Wellness</div>
-        <div class="jd-desc" id="jdDesc">Organs in balance · Qi flows freely · emotions stable.</div>
+        <div class="jd-name" id="jdName">真正的健康與安康</div>
+        <div class="jd-desc" id="jdDesc">臟腑平衡 · 氣自由流動 · 情緒穩定。</div>
         <ul class="jd-conditions" id="jdConditions"></ul>
       </div>
-      <div class="journey-hope">↩ You can return to a previous level of health at any point — restore the balance and the light returns to white.</div>
+      <div class="journey-hope">↩ 你隨時都能回到先前的健康層級——恢復平衡，光就會回到白色。</div>
     </div>
 
     <!-- Element sliders -->
     <div class="controls-head-row">
-      <div class="controls-head">Adjust one element's Qi — watch it pull the whole cycle down</div>
+      <div class="controls-head">調整其中一行的氣——看它如何把整個循環拖下來</div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
-        <button class="reset-btn" id="resetBtn">☯ Qigong Practice</button>
-        <span style="font-size:.6rem;color:var(--muted);letter-spacing:.05em;font-style:italic;">Press here to see what happens with Qigong practice</span>
+        <button class="reset-btn" id="resetBtn">☯ 氣功練習</button>
+        <span style="font-size:.6rem;color:var(--muted);letter-spacing:.05em;font-style:italic;">按這裡，看看練習氣功會發生什麼</span>
       </div>
     </div>
     <div class="cycle-strip" id="cycleStrip"></div>
     <div class="cards" id="cards"></div>
   </div>
 
-  <p class="credit">
-    Built on the <strong>Five Element Consciousness Framework</strong> from <strong>Dragon's Way Qigong®</strong>
-    by Grand Master Nan Lu. Colors, organs, emotions and imbalance signs follow the program's teaching;
-    Water is shown as deep blue (TCM: black/dark blue) and Metal as silver-white.<br>
-    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
-  </p>
+  <p class="credit">本工具建立在<strong>五行意識框架</strong>之上，出自<strong>龍之道氣功®</strong>，由 Nan Lu 大師所傳。顏色、臟腑、情緒與失衡徵兆皆依循課程的教導；水以深藍色呈現（中醫：黑／深藍），金則以銀白色呈現。<br>僅供教育與自我反思之用，並非醫療建議、診斷或治療。</p>
 
 <script>
 (function(){
   // ── Five Elements (Gold Book) — screen order top→bottom is spectral-ish ──
   const ELEMENTS = [
-    {key:'fire', el:'Fire', organ:'Heart · Small Intestine', emo:'Joy', color:'#ff3b30', char:'火',
-     signs:['Fatigue, lack of energy','Lack of joy, low spirit','Insomnia, nightmares','Depression, anxiety, panic','Irregular heartbeat']},
-    {key:'earth', el:'Earth', organ:'Spleen · Stomach', emo:'Worry / Overthinking', color:'#ffc01e', char:'土',
-     signs:['Worry & overthinking','Bloating, loose stools','Weak or aching muscles','Fatigue, low appetite','Food allergies']},
-    {key:'wood', el:'Wood', organ:'Liver · Gallbladder', emo:'Anger', color:'#3fd06a', char:'木',
-     signs:['Irritability & frustration','Stiffness, poor flexibility','Red, dry or itchy eyes','Stress that won’t release','Low, stuck mood']},
-    {key:'water', el:'Water', organ:'Kidney · Bladder', emo:'Fear', color:'#2f7bff', char:'水',
-     signs:['Fear, anxiety, panic','Memory loss, forgetfulness','Low back & knee pain','Bone loss, hair loss','Ringing in the ears']},
-    {key:'metal', el:'Metal', organ:'Lung · Large Intestine', emo:'Grief / Sadness', color:'#b6bfc9', char:'金',
-     signs:['Persistent sadness','Dry skin, rashes, rosacea','Asthma, chronic cough','Constipation','Fatigue']}
+    {key:'fire', el:'火', organ:'心 · 小腸', emo:'喜悅', color:'#ff3b30', char:'火',
+     signs:['疲勞、缺乏能量','缺乏喜悅、精神低落','失眠、多夢','憂鬱、焦慮、恐慌','心跳不規律']},
+    {key:'earth', el:'土', organ:'脾 · 胃', emo:'擔憂／過度思考', color:'#ffc01e', char:'土',
+     signs:['擔憂與過度思考','腹脹、大便稀軟','肌肉無力或痠痛','疲勞、食慾不振','食物過敏']},
+    {key:'wood', el:'木', organ:'肝 · 膽', emo:'憤怒', color:'#3fd06a', char:'木',
+     signs:['煩躁與挫折','僵硬、柔軟度差','眼睛紅、乾或癢','無法釋放的壓力','低落、卡住的情緒']},
+    {key:'water', el:'水', organ:'腎 · 膀胱', emo:'恐懼', color:'#2f7bff', char:'水',
+     signs:['恐懼、焦慮、恐慌','記憶力衰退、健忘','下背與膝蓋疼痛','骨質流失、掉髮','耳鳴']},
+    {key:'metal', el:'金', organ:'肺 · 大腸', emo:'悲傷／哀愁', color:'#b6bfc9', char:'金',
+     signs:['持續的悲傷','皮膚乾燥、起疹子、酒糟','氣喘、慢性咳嗽','便祕','疲勞']}
   ];
 
   // The Journey of Health — physical progression of lasting imbalance (Dragon's Way Qigong).
@@ -314,20 +310,20 @@
   const INK = {fire:'#d6362b', earth:'#b8860b', wood:'#1e9e50', water:'#1d5fd6', metal:'#5d6b7a'};
 
   const JOURNEY = [
-    {min:.85, short:'Health', color:'#1e9e50', name:'True Health & Wellness',
-     desc:'Organs in balance · Qi flows freely · emotions stable · spirit expressed.', conditions:[]},
-    {min:.70, short:'Level 1', color:'#1d7fd6', name:'Level 1 — Qi Out of Balance',
-     desc:'Imbalance begins on the energetic level; medical tests are still normal.',
-     conditions:['Vague discomforts that come & go','Stress, mood swings','Fatigue, headaches','Muscle tension, poor sleep']},
-    {min:.55, short:'Level 2', color:'#e07f00', name:'Level 2 — Organ Dysfunction',
-     desc:'Imbalance settles into the organs and their relationships.',
-     conditions:['Minor digestive issues, bloating','Food allergies','Insomnia, constipation','Emotional imbalances']},
-    {min:.38, short:'Level 3', color:'#d63a2e', name:'Level 3 — Physical Problems Appear',
-     desc:'Now detectable — medical tests confirm physical problems.',
-     conditions:['High blood pressure','High cholesterol & triglycerides','High blood sugar','Overweight','Acid reflux (GERD), ulcers','Reliance on multiple medications']},
-    {min:.0, short:'Level 4', color:'#7c3aed', name:'Level 4 — Metabolic Syndrome',
-     desc:'Chronic disease and risk of serious complications.',
-     conditions:['Hypertension','Type 2 diabetes','Coronary heart disease','Obesity','Stroke, chest pain, heart attack']}
+    {min:.85, short:'健康', color:'#1e9e50', name:'真正的健康與安康',
+     desc:'臟腑平衡 · 氣自由流動 · 情緒穩定 · 精神充分展現。', conditions:[]},
+    {min:.70, short:'第 1 級', color:'#1d7fd6', name:'第 1 級——氣失衡',
+     desc:'失衡從能量層次開始；醫學檢查仍然正常。',
+     conditions:['時有時無、說不清的不適','壓力、情緒起伏','疲勞、頭痛','肌肉緊繃、睡眠不佳']},
+    {min:.55, short:'第 2 級', color:'#e07f00', name:'第 2 級——臟腑功能失調',
+     desc:'失衡落入臟腑及其相互關係之中。',
+     conditions:['輕微消化問題、腹脹','食物過敏','失眠、便祕','情緒失衡']},
+    {min:.38, short:'第 3 級', color:'#d63a2e', name:'第 3 級——出現身體問題',
+     desc:'現在檢查得出來了——醫學檢查證實出現身體問題。',
+     conditions:['高血壓','高膽固醇與三酸甘油酯','高血糖','體重過重','胃食道逆流、潰瘍','依賴多種藥物']},
+    {min:.0, short:'第 4 級', color:'#7c3aed', name:'第 4 級——代謝症候群',
+     desc:'慢性疾病，以及嚴重併發症的風險。',
+     conditions:['高血壓症','第二型糖尿病','冠狀動脈心臟病','肥胖','中風、胸痛、心臟病發作']}
   ];
 
   // line-art element icons (filled, inherit colour)
@@ -370,7 +366,7 @@
       '<span class="ico">'+ICONS[e.key]+'</span>'+
       '<span class="btext"><span class="bnm">'+e.el+'</span>'+
         '<span class="bsub">'+e.organ+'</span>'+
-        '<span class="dim-flag">· dimmed</span></span>'+
+        '<span class="dim-flag">· 減弱</span></span>'+
       '<span class="glyph">'+e.char+'</span>';
     screen.appendChild(band);
 
@@ -379,18 +375,18 @@
     card.innerHTML=
       '<div class="card-top"><span class="chip"></span><span class="el">'+e.el+'</span></div>'+
       '<div class="org">'+e.organ+'</div>'+
-      '<div class="emo">Emotion: <b>'+e.emo+'</b></div>'+
+      '<div class="emo">情志：<b>'+e.emo+'</b></div>'+
       '<div class="slider-wrap">'+
         '<div class="qi-track"><div class="qi-fill" id="qf-'+e.key+'"></div></div>'+
         '<input type="range" class="slider" min="0" max="100" value="100" id="sl-'+e.key+'" '+
-          'aria-label="'+e.el+' ('+e.organ+') Qi level">'+
+          'aria-label="'+e.el+'（'+e.organ+'）氣的程度">'+
       '</div>'+
-      '<div class="scale"><span>Depleted</span><span>Balanced</span></div>'+
-      '<div class="qi-val">Qi: <b id="qv-'+e.key+'">100%</b></div>'+
+      '<div class="scale"><span>耗損</span><span>平衡</span></div>'+
+      '<div class="qi-val">氣：<b id="qv-'+e.key+'">100%</b></div>'+
       '<div class="drag-note" id="dn-'+e.key+'"></div>'+
-      '<div class="balanced" id="bal-'+e.key+'">● Balanced — Qi flows</div>'+
+      '<div class="balanced" id="bal-'+e.key+'">● 平衡——氣流動順暢</div>'+
       '<div class="signs-wrap" id="sw-'+e.key+'" style="display:none">'+
-        '<div class="signs-h">Signs of imbalance</div>'+
+        '<div class="signs-h">失衡徵兆</div>'+
         '<ul class="signs">'+e.signs.map(s=>'<li>'+s+'</li>').join('')+'</ul>'+
       '</div>';
     cards.appendChild(card);
@@ -409,7 +405,7 @@
 
   // build the nourishing-cycle diagram (Wood → Fire → Earth → Metal → Water → ↻)
   const cycleStrip=document.getElementById('cycleStrip');
-  let cyc='<span class="cyc-label">Nourishing cycle</span>';
+  let cyc='<span class="cyc-label">相生循環</span>';
   RING.forEach((k,idx)=>{
     cyc+='<span class="cyc-node" id="cyc-'+k+'" style="--nc:'+META[k].color+'"><i></i>'+META[k].el+'</span>';
     cyc+= idx<RING.length-1 ? '<span class="cyc-arr">→</span>'
@@ -492,8 +488,8 @@
       if(dragged){
         const m=motherOf(e.key), ch=childOf(e.key);
         document.getElementById('dn-'+e.key).innerHTML='↓ '+((eff[m]<=eff[ch])
-          ? 'Under-nourished by its mother, <b>'+META[m].el+'</b> ('+META[m].organ.split(' · ')[0]+').'
-          : 'Drained by its needy child, <b>'+META[ch].el+'</b> ('+META[ch].organ.split(' · ')[0]+').');
+          ? '受母行 <b>'+META[m].el+'</b>（'+META[m].organ.split(' · ')[0]+'）滋養不足。'
+          : '被需索的子行 <b>'+META[ch].el+'</b>（'+META[ch].organ.split(' · ')[0]+'）耗損。');
       }
     });
 
@@ -519,17 +515,16 @@
 
     // headline
     if(symptomatic.length===0){
-      stateMain.textContent='The Light Is Whole';
+      stateMain.textContent='光是完整的';
       stateMain.style.color='#2c2c28';
-      stateSub.textContent='Five Elements in harmony — the spectrum recombines to pure white. Energy flows; the body is balanced and healthy.';
+      stateSub.textContent='五行和諧——光譜重新合成為純白。能量流動，身體平衡而健康。';
     } else {
       symptomatic.sort((a,b)=>a.v-b.v);
       const worst=symptomatic[0].e;
-      stateMain.textContent='Light Refracts — Imbalance';
+      stateMain.textContent='光被折射——失衡';
       stateMain.style.color=INK[worst.key]||worst.color;
-      const names=symptomatic.map(s=>s.e.el+' ('+s.e.organ.split(' · ')[0]+')').join(', ');
-      stateSub.textContent='Whole light dims to '+Math.round(avg*100)+'% — '+worst.el+'/'+worst.organ.split(' · ')[0]+
-        ' weakest. Out of balance: '+names+'.';
+      const names=symptomatic.map(s=>s.e.el+'（'+s.e.organ.split(' · ')[0]+'）').join('、');
+      stateSub.textContent='整體光芒減弱至 '+Math.round(avg*100)+'%——'+worst.el+'／'+worst.organ.split(' · ')[0]+' 最弱。失衡：'+names+'。';
     }
 
     // Journey of Health — physical progression tracks OVERALL Qi

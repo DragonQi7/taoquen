@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Can You Digest the Universe? — The Five Stages · Dragon's Way Qigong</title>
+<title>你能消化宇宙嗎？——五個階段 · 龍之道氣功</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
   :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;
         --smooth:#c9a86a; --smooth2:#1e8c4a; --stuck:#d63a2e;}
   html{font-size:16px;-webkit-font-smoothing:antialiased;}
-  body{font-family:'Inter',sans-serif;color:var(--cream);
+  body{font-family:'Inter',Noto Sans TC,sans-serif;color:var(--cream);
     background:var(--bg);
     min-height:100vh;padding:30px 18px 48px;display:flex;flex-direction:column;align-items:center;}
-  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+  .eyebrow{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
     color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
-  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.7rem);
+  h1{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.7rem);
     line-height:1.06;text-align:center;margin-bottom:12px;}
   h1 em{font-style:italic;color:#8b6914;}
   .lede{max-width:720px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 24px;}
@@ -30,9 +30,9 @@
     padding:24px;}
 
   /* picker */
-  .pick-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 2px 10px;}
+  .pick-head{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 2px 10px;}
   .cats{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
-  .cat{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  .cat{font-family:'Cinzel',Noto Serif TC,serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
     background:#ffffff;border:1px solid #e3dcc9;border-radius:8px;padding:8px 14px;cursor:pointer;transition:.15s;}
   .cat:hover{color:var(--cream);border-color:rgba(201,168,106,.4);}
   .cat.on{color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border-color:var(--gold);font-weight:600;}
@@ -54,7 +54,7 @@
     box-shadow:0 0 0 4px #ffffff;transition:.25s;filter:grayscale(.6) opacity(.55);}
   .node .nnum{position:absolute;top:-2px;right:calc(50% - 38px);width:20px;height:20px;border-radius:50%;font-size:.62rem;font-weight:700;
     display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid rgba(139,105,20,.5);color:var(--gold);}
-  .node .nname{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;transition:.2s;line-height:1.25;}
+  .node .nname{font-family:'Cinzel',Noto Serif TC,serif;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;transition:.2s;line-height:1.25;}
   .node.done .dot{filter:none;border-color:rgba(201,168,106,.5);}
   .node.active .dot{filter:none;transform:scale(1.12);border-color:var(--gold);box-shadow:0 0 22px rgba(201,168,106,.8),0 0 0 4px #ffffff;}
   .node.active .nname{color:var(--cream);}
@@ -73,8 +73,8 @@
 
   /* stage detail */
   .stage-detail{margin-top:20px;border-left:3px solid var(--accent,#c9a86a);padding:6px 0 6px 18px;min-height:96px;transition:border-color .3s;}
-  .sd-stage{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#c9a86a);margin-bottom:5px;}
-  .sd-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;margin-bottom:8px;}
+  .sd-stage{font-family:'Cinzel',Noto Serif TC,serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#c9a86a);margin-bottom:5px;}
+  .sd-name{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.3rem;font-weight:600;margin-bottom:8px;}
   .sd-def{font-size:.8rem;line-height:1.55;color:var(--muted);margin-bottom:9px;}
   .sd-item{font-size:.92rem;line-height:1.6;color:#4a4030;}
   .sd-item .who{color:#8b6914;font-style:italic;}
@@ -85,9 +85,9 @@
   @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
   .manifest.smooth{background:linear-gradient(160deg,#fdf8ec,#f6eedb);border:1px solid rgba(201,168,106,.5);box-shadow:0 0 40px -20px rgba(201,168,106,.6);}
   .manifest.stuck{background:rgba(214,58,46,.06);border:1px solid rgba(214,58,46,.4);}
-  .mf-tag{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px;}
+  .mf-tag{font-family:'Cinzel',Noto Serif TC,serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px;}
   .manifest.smooth .mf-tag{color:#9a7434;} .manifest.stuck .mf-tag{color:#c0392b;}
-  .mf-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;margin-bottom:6px;}
+  .mf-title{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.35rem;font-weight:600;margin-bottom:6px;}
   .manifest.smooth .mf-title{color:#8b6914;} .manifest.stuck .mf-title{color:#c0392b;}
   .mf-body{font-size:.9rem;line-height:1.62;color:#4a4030;}
   .mf-verdict{margin-top:10px;font-size:.74rem;letter-spacing:.04em;}
@@ -95,11 +95,11 @@
 
   /* controls */
   .controls{display:flex;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap;}
-  .go-btn{font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#1a0a06;
+  .go-btn{font-family:'Cinzel',Noto Serif TC,serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#1a0a06;
     background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:26px;padding:13px 26px;cursor:pointer;
     box-shadow:0 6px 26px -8px rgba(201,168,106,.7);transition:transform .12s,box-shadow .12s;}
   .go-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(201,168,106,.9);}
-  .step-btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);
+  .step-btn{font-family:'Cinzel',Noto Serif TC,serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);
     background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);border-radius:22px;padding:11px 18px;cursor:pointer;transition:.15s;}
   .step-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
   .hint{font-size:.72rem;color:var(--muted);margin-left:auto;}
@@ -108,11 +108,11 @@
   /* CTA + credit */
   .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
     background:#faf8f2;border:1px solid rgba(139,105,20,.35);border-radius:18px;box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
-  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
-  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta-pre{font-family:'Cinzel',Noto Serif TC,serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
   .cta h3 em{font-style:italic;color:#8b6914;}
   .cta p{max-width:540px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
-  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0a06;
+  .cta-btn{display:inline-block;font-family:'Cinzel',Noto Serif TC,serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0a06;
     background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;cursor:pointer;text-decoration:none;font-weight:600;
     box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
   .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
@@ -120,20 +120,22 @@
   .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;line-height:1.7;color:#998b6e;}
   .credit strong{color:var(--gold);font-weight:600;}
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="digest-the-universe-zh.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style id="tq-zh">
+  html{font-synthesis:weight;}
+  body{letter-spacing:.01em;}
+</style>
+<link rel="alternate" hreflang="en" href="digest-the-universe.html">
 </head>
 <body>
 
-  <div class="eyebrow">Dragon's Way Qigong® · Digesting the Universe</div>
-  <h1>Can You <em>Digest</em> the Universe?</h1>
-  <p class="lede">Master Lu teaches that healthy metabolism moves through <b>five stages</b> — and you don't just
-  digest food. You digest <b>emotions</b> and <b>information</b> the same way. The first four stages are physical;
-  the fifth is invisible — <b>spirit</b> — and it's the reason the other four exist. Pick something you've taken in,
-  and watch how far it gets.</p>
+  <div class="eyebrow">龍之道氣功® · 消化宇宙</div>
+  <h1>你能<em>消化</em>宇宙嗎？</h1>
+  <p class="lede">Lu 大師教導，健康的代謝會經過<b>五個階段</b>——而你消化的不只是食物。你也以同樣的方式消化<b>情緒</b>與<b>資訊</b>。前四個階段是物質的；第五個是看不見的——<b>神</b>——而它正是其他四個階段存在的原因。選擇一樣你攝取過的東西，看看它能走多遠。</p>
 
   <div class="tool">
 
-    <div class="pick-head">Choose something to take in</div>
+    <div class="pick-head">選擇要攝取的東西</div>
     <div class="cats" id="cats"></div>
     <div class="items" id="items"></div>
 
@@ -147,15 +149,15 @@
 
     <!-- active stage detail -->
     <div class="stage-detail" id="stageDetail">
-      <div class="sd-stage" id="sdStage">Ready</div>
-      <div class="sd-name" id="sdName">Pick something above, then press Begin</div>
-      <div class="sd-def" id="sdDef">Everything you take in — food, emotion, information — must pass through all five stages to truly nourish you.</div>
+      <div class="sd-stage" id="sdStage">準備就緒</div>
+      <div class="sd-name" id="sdName">在上方選擇一項，然後按「開始」</div>
+      <div class="sd-def" id="sdDef">你所攝取的一切——食物、情緒、資訊——都必須走過全部五個階段，才能真正滋養你。</div>
       <div class="sd-item" id="sdItem"></div>
     </div>
 
     <!-- manifestation -->
     <div class="manifest" id="manifest">
-      <div class="mf-tag">Stage 5 · What it manifests as</div>
+      <div class="mf-tag">第 5 階段 · 它展現為什麼</div>
       <div class="mf-title" id="mfTitle">—</div>
       <div class="mf-body" id="mfBody">—</div>
       <div class="mf-verdict" id="mfVerdict">—</div>
@@ -163,99 +165,95 @@
 
     <!-- controls -->
     <div class="controls">
-      <button class="go-btn" id="goBtn">Begin Digestion →</button>
-      <button class="step-btn" id="stepBtn">Step ›</button>
-      <button class="step-btn" id="resetBtn">↺ Reset</button>
-      <div class="hint" id="hint">Tip: you can also click any stage on the pipeline.</div>
+      <button class="go-btn" id="goBtn">開始消化 →</button>
+      <button class="step-btn" id="stepBtn">下一步 ›</button>
+      <button class="step-btn" id="resetBtn">↺ 重設</button>
+      <div class="hint" id="hint">提示：你也可以直接點選管線上的任何一個階段。</div>
     </div>
 
   </div>
 
 
   <p class="credit">
-    Built on the <strong>Five Stages of Healthy Metabolism Function</strong> from <strong>Digesting the Universe</strong>
-    by Grand Master Nan&nbsp;Lu — Receiving, Digesting, Processing, Transformation, and the manifestation of Spirit.
-    In life these happen at once, faster than the speed of light; here they're slowed down to see.<br>
-    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
-  </p>
+    本工具建立在<strong>健康代謝功能的五個階段</strong>之上，出自 <strong>《消化宇宙》</strong>，作者 Nan Lu 大師——受納、消化、處理、轉化，以及神的展現。在生活中，這些同時發生，比光速還快；這裡把它們放慢，讓你看得見。<br>僅供教育與自我反思之用，並非醫療建議、診斷或治療。</p>
 
 <script>
 (function(){
   const STAGES = [
-    {key:'receive', name:'Receiving',     icon:'🤲', def:'You agree to take something in from outside. It’s a choice made at the mind level — based on what you believe will benefit you.'},
-    {key:'digest',  name:'Digesting',     icon:'🔥', def:'You break it into smaller pieces — by heat, moisture or action — so the body can decide what it needs.'},
-    {key:'process', name:'Processing',    icon:'⚙️', def:'Each organ selects the ingredients it needs and skips what it doesn’t, sending requests to the others.'},
-    {key:'transform',name:'Transformation',icon:'🦋', def:'The chosen essence is transformed into Qi, blood and what each organ needs — a kind of spiritual alchemy.'},
-    {key:'manifest',name:'Manifesting · Spirit', icon:'✨', def:'The invisible final stage — the reason the first four exist. Healthy function lets your spirit and purpose show.'}
+    {key:'receive', name:'受納',     icon:'🤲', def:'你同意從外界攝取某樣東西。這是在心智層面做出的選擇——根據你相信什麼對你有益。'},
+    {key:'digest',  name:'消化',     icon:'🔥', def:'你把它分解成更小的部分——透過熱、濕或動作——讓身體決定它需要什麼。'},
+    {key:'process', name:'處理',    icon:'⚙️', def:'每個臟腑挑選它需要的成分，略過不需要的，並向其他臟腑發出請求。'},
+    {key:'transform',name:'轉化',icon:'🦋', def:'被選中的精華轉化為氣、血，以及每個臟腑所需要的——一種精神上的煉金術。'},
+    {key:'manifest',name:'展現 · 神', icon:'✨', def:'看不見的最後階段——前四個階段存在的原因。健康的功能讓你的精神與使命得以展現。'}
   ];
 
   const ITEMS = {
-    Food:[
-      {key:'warm', icon:'🍲', label:'Warm cooked meal', quality:'smooth',
-       text:['You choose warmth — a decision your Stomach already welcomes.',
-             'Heat and moisture break it down with ease; the Stomach ripens it without strain.',
-             'Each organ selects the rich essence it needs from the meal.',
-             'Essence becomes Qi and blood — the food is transformed together with you.'],
-       mf:{title:'Vibrant, steady energy', body:'Fully digested, the meal feeds body and spirit alike. Your energy is even and your mind clear — fuel for your purpose.'}},
-      {key:'salad', icon:'🥗', label:'Raw cold salad', quality:'stuck', breakAt:1,
-       text:['You believe it’s healthy, so you take it in — based on belief, not the body’s need.',
-             'Its cold essence stalls the Stomach; digestion needs a warmth it can’t supply.',
-             'Little usable essence is selected; much of it simply passes through.',
-             'Weak transformation makes dampness and bloating instead of clean Qi.'],
-       mf:{title:'Tired and foggy — “but I ate well?”', body:'The cold halted the process early, so spirit goes underfed despite a “healthy” plate. The picture was only half right.'}},
-      {key:'crave', icon:'🍫', label:'A craving, honored', quality:'smooth',
-       text:['Your body asks for something specific — and you listen instead of overriding it.',
-             'Because it’s what you truly needed, it breaks down readily.',
-             'The organ that asked selects exactly the frequency it was missing.',
-             'It transforms into the very Qi the body had been searching for.'],
-       mf:{title:'The body’s request, answered', body:'You trusted the message over the mind, and balance returns. Remember — the body never lies.'}}
+    '食物':[
+      {key:'warm', icon:'🍲', label:'溫熱煮熟的一餐', quality:'smooth',
+       text:['你選擇了溫暖——一個你的胃早已歡迎的決定。',
+             '熱與濕輕鬆地把它分解；胃毫不費力地將它腐熟。',
+             '每個臟腑從這一餐中挑選它需要的豐富精華。',
+             '精華化為氣與血——食物與你一同轉化。'],
+       mf:{title:'充沛而穩定的能量', body:'完全消化之後，這一餐同時滋養身體與精神。你的能量平穩、思緒清晰——成為實踐使命的燃料。'}},
+      {key:'salad', icon:'🥗', label:'生冷沙拉', quality:'stuck', breakAt:1,
+       text:['你相信它很健康，所以吃了它——根據的是信念，而不是身體的需要。',
+             '它寒涼的本質讓胃停滯；消化需要的溫暖，它給不了。',
+             '能被挑選的可用精華很少；大部分只是直接通過。',
+             '轉化無力，產生的是濕氣與腹脹，而不是清淨的氣。'],
+       mf:{title:'又累又昏沉——「可是我吃得很健康啊？」', body:'寒涼讓這個過程提早停擺，所以儘管吃的是「健康」的一盤，精神依然吃不飽。這幅圖像只對了一半。'}},
+      {key:'crave', icon:'🍫', label:'順從的渴望', quality:'smooth',
+       text:['你的身體想要某樣特定的東西——而你選擇聆聽，而不是壓過它。',
+             '因為那是你真正需要的，它很容易就被分解。',
+             '提出請求的臟腑，正好挑選到它所缺少的頻率。',
+             '它轉化為身體一直在尋找的那份氣。'],
+       mf:{title:'身體的請求，得到回應', body:'你相信訊息勝過心智，平衡就回來了。記住——身體從不說謊。'}}
     ],
-    Emotion:[
-      {key:'release', icon:'🌬️', label:'Anger, expressed & released', quality:'smooth',
-       text:['A feeling arrives; you take it in honestly rather than denying it.',
-             'Moved through breath, words or tears, it breaks down and starts to flow.',
-             'The message under the anger is selected; the rest moves on.',
-             'It transforms into released tension and renewed Liver flow.'],
-       mf:{title:'Lighter, clearer, flowing', body:'Expressed and digested, the emotion leaves no residue. Liver Qi moves freely again.'}},
-      {key:'worry', icon:'🌀', label:'Worry, held & chewed', quality:'stuck', breakAt:2,
-       text:['You take the worry in and turn it over, again and again.',
-             'You start to break it down — but overthinking jams the Spleen, the very organ that should digest.',
-             'Nothing is resolved or selected; the loop just keeps running.',
-             'It transforms into stagnation: bloating, fatigue, a knotted gut.'],
-       mf:{title:'Stuck in the loop', body:'Undigested worry settles into the body. The mind ate, but nothing nourished the spirit.'}},
-      {key:'joy', icon:'💛', label:'Joy & gratitude', quality:'smooth',
-       text:['You open and receive it fully, without guarding your Heart.',
-             'It needs no breaking down — only welcoming.',
-             'The Heart takes it in and shares its warmth with every organ.',
-             'It transforms into open, flowing Shen — the spirit of the Heart.'],
-       mf:{title:'Radiant spirit', body:'Joy digested becomes Shen made visible — it shows on your face and in your effect on others.'}}
+    '情緒':[
+      {key:'release', icon:'🌬️', label:'憤怒，表達並釋放', quality:'smooth',
+       text:['一種感覺來了；你誠實地接收它，而不是否認它。',
+             '透過呼吸、言語或淚水讓它流動，它就會分解並開始流動。',
+             '憤怒底下的訊息被挑選出來；其餘的則繼續前進。',
+             '它轉化為釋放的緊繃，以及重新恢復的肝之流動。'],
+       mf:{title:'更輕盈、更清明、更流動', body:'被表達並消化之後，這份情緒不留殘渣。肝氣再次自由流動。'}},
+      {key:'worry', icon:'🌀', label:'擔憂，緊抓並反覆咀嚼', quality:'stuck', breakAt:2,
+       text:['你接收了擔憂，然後一遍又一遍地翻來覆去。',
+             '你開始分解它——但過度思考卡住了脾，而脾正是應該負責消化的臟腑。',
+             '什麼都沒有解決，也沒有被挑選；這個循環只是一直轉下去。',
+             '它轉化為鬱滯：腹脹、疲勞、打結的腸胃。'],
+       mf:{title:'卡在循環裡', body:'未消化的擔憂沉積在身體裡。心智吃了，卻沒有任何東西滋養精神。'}},
+      {key:'joy', icon:'💛', label:'喜悅與感恩', quality:'smooth',
+       text:['你敞開心，完整地接收它，不去防衛你的心。',
+             '它不需要分解——只需要歡迎。',
+             '心接收它，並把它的溫暖分享給每一個臟腑。',
+             '它轉化為開闊而流動的神——心之神。'],
+       mf:{title:'光采煥發的精神', body:'被消化的喜悅成為看得見的神——它顯現在你的臉上，也顯現在你對他人的影響上。'}}
     ],
-    Information:[
-      {key:'insight', icon:'💡', label:'An insight or teaching', quality:'smooth',
-       text:['You choose to take in a new idea with an open mind.',
-             'You break it down, testing it against your own experience.',
-             'You keep what serves you and let the rest go.',
-             'It transforms into understanding you can actually live by.'],
-       mf:{title:'Wisdom you embody', body:'Digested, information becomes wisdom — not just stored, but expressed in how you live.'}},
-      {key:'scroll', icon:'📱', label:'Endless scrolling', quality:'stuck', breakAt:1,
-       text:['You take in a flood of input without really choosing it.',
-             'There’s too much to break down — the stream never pauses.',
-             'Nothing gets selected; it piles up unprocessed.',
-             'It transforms into noise: scattered attention, a restless mind.'],
-       mf:{title:'Overloaded, undigested', body:'Information overload never reaches spirit. You consumed everything and metabolized nothing.'}},
-      {key:'nature', icon:'🌿', label:'Silence in Nature', quality:'smooth',
-       text:['You receive stillness and Nature’s Qi — easy to take in.',
-             'There’s nothing harsh to break down; the body simply absorbs.',
-             'Each organ drinks the calm frequency it needs.',
-             'It transforms into restored Qi and a settled mind.'],
-       mf:{title:'Restored and whole', body:'The simplest input digests most completely — Nature feeds the spirit directly.'}}
+    '資訊':[
+      {key:'insight', icon:'💡', label:'一個洞見或教導', quality:'smooth',
+       text:['你選擇以開放的心接收一個新的想法。',
+             '你把它分解，用自己的經驗去檢驗它。',
+             '你留下對你有益的，讓其餘的離開。',
+             '它轉化為你真正能據以生活的理解。'],
+       mf:{title:'你所體現的智慧', body:'資訊被消化之後就成為智慧——不只是被儲存，而是表現在你的生活方式中。'}},
+      {key:'scroll', icon:'📱', label:'無止盡地滑手機', quality:'stuck', breakAt:1,
+       text:['你接收了大量的輸入，卻沒有真正選擇它。',
+             '要分解的東西太多了——資訊流從不停歇。',
+             '什麼都沒有被挑選；它們未經處理地堆積起來。',
+             '它轉化為噪音：分散的注意力、不安的心。'],
+       mf:{title:'超載，未消化', body:'資訊超載永遠到不了精神層面。你消費了一切，卻什麼都沒有代謝。'}},
+      {key:'nature', icon:'🌿', label:'大自然中的寧靜', quality:'smooth',
+       text:['你接收寧靜與大自然的氣——很容易攝取。',
+             '沒有什麼粗糙的東西需要分解；身體只是自然吸收。',
+             '每個臟腑都啜飲它所需要的平靜頻率。',
+             '它轉化為恢復的氣與安定的心。'],
+       mf:{title:'恢復而完整', body:'最簡單的輸入，消化得最完整——大自然直接滋養精神。'}}
     ]
   };
 
   const $=id=>document.getElementById(id);
   const catsEl=$('cats'), itemsEl=$('items'), pipe=$('pipe'), token=$('token'),
         flowfill=$('flowfill'), manifest=$('manifest');
-  let curCat='Food', curItem=null, stage=-1, timer=null, nodeEls=[];
+  let curCat='食物', curItem=null, stage=-1, timer=null, nodeEls=[];
 
   // build pipeline nodes
   STAGES.forEach((s,i)=>{
@@ -287,8 +285,8 @@
     curItem=it;
     document.querySelectorAll('.item').forEach(x=>x.classList.toggle('on',x===b));
     resetPipe();
-    $('sdStage').textContent='Ready'; $('sdName').textContent='Now digesting: '+it.label;
-    $('sdDef').textContent='Press Begin to move it through the five stages — or step through one at a time.';
+    $('sdStage').textContent='準備就緒'; $('sdName').textContent='正在消化： '+it.label;
+    $('sdDef').textContent='按「開始」讓它走過五個階段——或一次走一步。';
     $('sdItem').textContent='';
   }
 
@@ -328,13 +326,13 @@
     const accent = broke ? 'var(--stuck)' : (i===4?'#9a7434':'#8b6914');
     $('stageDetail').style.setProperty('--accent', accent);
     const S=STAGES[i];
-    $('sdStage').textContent='Stage '+(i+1)+' of 5';
+    $('sdStage').textContent='第 '+(i+1)+' 階段，共 5 階段';
     $('sdName').textContent=S.name;
     $('sdDef').textContent=S.def;
     // item text: stages 0-3 from text[]; stage 4 handled by manifest
     if(i<4){ $('sdItem').innerHTML='<span class="who">'+it.icon+' '+it.label+':</span> '+it.text[i]; manifest.classList.remove('show'); }
     else {
-      $('sdItem').innerHTML='<span class="who">'+it.icon+' '+it.label+':</span> '+(stuck?'It never fully arrives here — the process stalled earlier.':'It completes the journey and becomes part of you.');
+      $('sdItem').innerHTML='<span class="who">'+it.icon+' '+it.label+':</span> '+(stuck?'它從未完全抵達這裡——這個過程在更早的階段就停滯了。':'它完成了這趟旅程，成為你的一部分。');
       showManifest(it);
     }
   }
@@ -345,8 +343,8 @@
     $('mfTitle').textContent=it.mf.title;
     $('mfBody').textContent=it.mf.body;
     $('mfVerdict').textContent = stuck
-      ? '✗ Stuck — it never reached spirit. This is where imbalance begins.'
-      : '✓ Fully digested — it reached the fifth stage and fed your spirit.';
+      ? '✗ 卡住了——它從未抵達精神層面。失衡就是從這裡開始的。'
+      : '✓ 完全消化——它抵達了第五階段，滋養了你的精神。';
   }
 
   function nextStage(){
@@ -362,8 +360,8 @@
   }
   function stopAuto(){ if(timer){ clearInterval(timer); timer=null; } }
 
-  $('goBtn').addEventListener('click',()=>{ if(!curItem){ flashHint('Pick something above first ☝'); return; } startAuto(); });
-  $('stepBtn').addEventListener('click',()=>{ if(!curItem){ flashHint('Pick something above first ☝'); return; } stopAuto(); nextStage(); });
+  $('goBtn').addEventListener('click',()=>{ if(!curItem){ flashHint('請先在上方選擇一項 ☝'); return; } startAuto(); });
+  $('stepBtn').addEventListener('click',()=>{ if(!curItem){ flashHint('請先在上方選擇一項 ☝'); return; } stopAuto(); nextStage(); });
   $('resetBtn').addEventListener('click',()=>{ if(curItem) resetPipe(); });
   function flashHint(m){ const h=$('hint'); const o=h.textContent; h.textContent=m; h.style.color='#8b6914'; setTimeout(()=>{h.textContent=o;h.style.color='';},1600); }
 

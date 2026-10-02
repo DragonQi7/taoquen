@@ -4186,7 +4186,7 @@
           <ul>
             <li><a href="qi-assessment-zh.html">免費氣評估</a></li>
             <li><a href="tcm-zh.html">認識中醫</a></li>
-            <li><a href="blog/index.html">文章</a></li>
+            <li><a href="blog/index-zh.html">文章</a></li>
             <li><a href="dwq-zh.html#testimonials">學員成果</a></li>
             <li><a href="dwq-zh.html#about-founder">關於 Nan Lu 大師</a></li>
             <li><a href="login-zh.html">登入</a></li>
@@ -4864,9 +4864,9 @@ const Q1_ALL = [
    options:['神','衛氣','精','宗氣'], answer:2,
    explain:'精是我們先天的生命力——出生時承襲而來，並在一生中逐漸消耗。腎負責儲藏並保護它。保護腎精是長壽的根基。'},
   {organ:'脾', elem:'土行', emoji:'土', bg:'linear-gradient(135deg,#ffb74d,#e65100)',
-   prompt:'The Spleen and Stomach together govern which primary function?',
+   prompt:'脾與胃共同主管哪一項主要功能？',
    options:['呼吸與免疫','把食物轉化為氣血','情緒的順暢流動','儲藏生殖之精'], answer:1,
-   explain:'The Stomach receives food; the Spleen transforms it into Qi and Blood. They are the "Root of Post-Heaven Qi" — our primary energy source generated after birth.'},
+   explain:'胃受納食物，脾將其轉化為氣血。它們是「後天之本」——出生後我們主要的能量來源。'},
   {organ:'肺', elem:'金行', emoji:'金', bg:'linear-gradient(135deg,#90a4ae,#455a64)',
    prompt:'除了呼吸之外，在中醫裡肺還主管身體的哪一個表層？',
    options:['指甲','骨骼','皮膚與毛髮','筋腱'], answer:2,
@@ -4907,7 +4907,7 @@ const Q1_ALL = [
   {organ:'腎', elem:'水行', emoji:'水', bg:'linear-gradient(135deg,#42a5f5,#0d47a1)',
    prompt:'冬天是為哪一個臟腑保存能量的季節？',
    options:['心','肝','肺','腎'], answer:3,
-   explain:'Winter is Water season — the Kidney\'s time. Sleep more, stay warm, eat black and warming foods, and protect Jing. Winter is not for depletion; it is for deep restoration.'},
+   explain:'冬天是水的季節——腎的時節。多睡一點、注意保暖、吃黑色與溫熱的食物，並保護精。冬天不是用來消耗的，而是用來深度修復的。'},
   // TASTES
   {organ:'肝', elem:'木行', emoji:'木', bg:'linear-gradient(135deg,#66bb6a,#2e7d32)',
    prompt:'酸味的食物與哪一個臟腑相應並加以滋養？',
@@ -4924,7 +4924,7 @@ const Q1_ALL = [
   {organ:'肺', elem:'金行', emoji:'金', bg:'linear-gradient(135deg,#90a4ae,#455a64)',
    prompt:'辛辣的食物與哪一個臟腑相應？',
    options:['心','肺','腎','肝'], answer:1,
-   explain:'Pungent is Metal\'s taste. Foods like scallion, ginger, and radish push energy to the body\'s surface, support Lung function, and help disperse early-stage colds.'},
+   explain:'辛是金之味。蔥、薑、蘿蔔等食物能把能量推向身體表層、支持肺的功能，並幫助驅散初期的感冒。'},
   {organ:'腎', elem:'水行', emoji:'水', bg:'linear-gradient(135deg,#42a5f5,#0d47a1)',
    prompt:'少量鹹味的食物能支持哪一個臟腑？',
    options:['脾','肝','心','腎'], answer:3,
@@ -4941,7 +4941,7 @@ const Q1_ALL = [
   {organ:'脾', elem:'土行', emoji:'土', bg:'linear-gradient(135deg,#ffb74d,#e65100)',
    prompt:'黃色與橙色的食物與哪一個臟腑系統相應？',
    options:['肺','腎','肝','脾與胃'], answer:3,
-   explain:'Yellow is Earth\'s colour — harvest and nourishment. Pumpkin, sweet potato, carrots, and millet all carry Earth\'s energetic signature, supporting digestive function.'},
+   explain:'黃是土之色——收穫與滋養。南瓜、地瓜、紅蘿蔔與小米都帶有土的能量印記，支持消化功能。'},
   {organ:'肺', elem:'金行', emoji:'金', bg:'linear-gradient(135deg,#90a4ae,#455a64)',
    prompt:'白色的食物與哪一個臟腑相應？',
    options:['脾','肺','腎','肝'], answer:1,
@@ -5026,18 +5026,18 @@ const Q2_ALL = [
    explain:'冬屬水。腎主管這個季節。多睡一點、吃溫熱的深色食物、保護你的精，讓身體恢復最深層的儲備。'},
   // Tastes
   {qtype:'attr-to-elem', clue:'🍋 酸味', clue2:'檸檬、醋、藍莓、李子與發酵食物', answer:0,
-   explain:'Sour belongs to Wood. In small amounts, sour foods gently tonify Liver energy — gathering and strengthening. They support the Liver\'s function of storing Blood and regulating Qi flow.'},
+   explain:'酸屬木。少量的酸味食物能溫和地補益肝的能量——收斂並強化。它們支持肝藏血與調節氣機的功能。'},
   {qtype:'attr-to-elem', clue:'☕ 苦味', clue2:'蒲公英、黑可可、苦瓜、咖啡與紫菊苣', answer:1,
    explain:'苦屬火。苦味食物能清心火、安定心神，並支持血液循環。它們具有向下、疏泄的特性，能清除身體上部的過剩。'},
   {qtype:'attr-to-elem', clue:'🍯 甘味', clue2:'天然的甜——地瓜、小米、紅蘿蔔與蜂蜜', answer:2,
    explain:'甘屬土。天然甘甜的食物——而不是精製糖——能強健脾胃，生成氣血。精製糖會產生濕氣並削弱土。'},
   {qtype:'attr-to-elem', clue:'🌶️ 辛味', clue2:'薑、蔥、蘿蔔、大蒜與洋蔥', answer:3,
-   explain:'Pungent belongs to Metal. Pungent foods disperse Qi to the surface, support Lung function, and help release early-stage colds. They have an outward, dispersing movement.'},
+   explain:'辛屬金。辛味食物能把氣發散到表層、支持肺的功能，並幫助解除初期的感冒。它們具有向外、發散的運動。'},
   {qtype:'attr-to-elem', clue:'🧂 鹹味', clue2:'海藻、味噌、黑豆與天然海鹽', answer:4,
    explain:'鹹屬水。少量的鹹味食物能滋養腎的能量、軟化堅硬。但鹽分過多會加重腎的負擔，並使動脈硬化。'},
   // Colours
   {qtype:'attr-to-elem', clue:'🟢 青色', clue2:'春天新葉、上升的汁液與新生的顏色', answer:0,
-   explain:'Green belongs to Wood. Green foods — leafy greens, cucumber, kale, dandelion — carry Liver-nourishing energy. Chlorophyll-rich foods resonate with the Liver\'s detoxifying function.'},
+   explain:'綠屬木。綠色食物——綠葉蔬菜、小黃瓜、羽衣甘藍、蒲公英——帶有滋養肝的能量。富含葉綠素的食物與肝的排毒功能相應。'},
   {qtype:'attr-to-elem', clue:'🔴 紅色', clue2:'溫暖、血液與心火的顏色', answer:1,
    explain:'紅屬火。紅色食物——枸杞、番茄、紅椒、草莓——與心的能量相應。它們的紅色色素支持心血管健康。'},
   {qtype:'attr-to-elem', clue:'🟡 黃與橙', clue2:'收穫、豐盛與大地滋養的顏色', answer:2,
@@ -5059,11 +5059,11 @@ const Q2_ALL = [
    explain:'恐是水的情志。長期的恐懼會耗損腎精。當腎的能量強健，我們就有意志、勇氣與踏實感去面對人生的挑戰。'},
   // Five Element Generation Cycle
   {qtype:'attr-to-elem', clue:'🌊 木之母', clue2:'在五行循環中，這一行滋養並生出木', answer:4,
-   explain:'Water is the mother of Wood. Just as water nourishes trees, Kidney energy supports Liver energy. Strong Kidney Jing is essential for healthy Liver function and creative vitality.'},
+   explain:'水是木之母。正如水滋養樹木，腎的能量支持肝的能量。強健的腎精是肝功能健康與創造活力的根本。'},
   {qtype:'attr-to-elem', clue:'🌿 火之母', clue2:'在五行循環中，這一行滋養並生出火', answer:0,
    explain:'木是火之母。肝的能量為心的能量提供燃料。當肝氣自由流動，就能自然滋養心的能量——支持清明、喜悅與循環。'},
   {qtype:'attr-to-elem', clue:'火 · 土之母', clue2:'在五行循環中，這一行滋養並生出土', answer:1,
-   explain:'Fire is the mother of Earth. Heart warmth supports Spleen function. When the Heart is joyful, digestion and the transformation of food into Qi flows smoothly.'},
+   explain:'火是土之母。心的溫暖支持脾的功能。當心喜悅時，消化以及把食物轉化為氣的過程都會順暢。'},
   {qtype:'attr-to-elem', clue:'土 · 金之母', clue2:'在五行循環中，這一行滋養並生出金', answer:2,
    explain:'土是金之母。脾的能量強健，肺就能得到充分的滋養。消化不良常常導致長期的肺虛與痰多。'},
   {qtype:'attr-to-elem', clue:'⚪ 水之母', clue2:'在五行循環中，這一行滋養並生出水', answer:3,
@@ -5079,7 +5079,7 @@ const Q3_ALL = [
   {name:'蒲公英葉', taste:'苦 · 綠 · 木行', answer:0,
    explain:'「對肝的能量而言，沒有什麼比不起眼的蒲公英更好。」苦味綠葉蔬菜支持肝的排毒，並讓氣在全身順暢流動。'},
   {name:'綠豆', taste:'寒涼 · 綠 · 木行', answer:0,
-   explain:'Mung beans enhance Liver function, cool and detoxify the blood, and are especially valuable in Spring when the Liver is most active.'},
+   explain:'綠豆能增強肝的功能、清涼並淨化血液，在肝最活躍的春天尤其珍貴。'},
   {name:'藍莓', taste:'酸甜 · 藍紫 · 木行', answer:0,
    explain:'藍莓帶有與肝相應的酸味精華。它們支持肝氣、滋養肝血——非常適合春天食用。'},
   {name:'羽衣甘藍', taste:'苦 · 深綠 · 木行', answer:0,
@@ -5089,7 +5089,7 @@ const Q3_ALL = [
   {name:'竹筍', taste:'涼 · 綠 · 木行', answer:0,
    explain:'在中醫裡，竹筍能直接支持肝。它快速向上生長的特性，正呼應肝本身屬木、向上升發的創造性能量。'},
   {name:'蔥綠', taste:'辛 · 綠色蔥葉 · 木行', answer:0,
-   explain:'The green tops of scallions support Liver function and have detoxifying properties. In TCM, they help move stagnant Qi and clear toxic heat from the Liver.'},
+   explain:'蔥的綠色部分支持肝的功能，並具有排毒的特性。在中醫裡，它們幫助疏通鬱滯的氣，並清除肝中的熱毒。'},
   // HEART (7)
   {name:'枸杞', taste:'甘 · 紅 · 火行', answer:1,
    explain:'枸杞滋養心與血。它的紅色與火行能量相應——是中醫最受推崇的長壽食物之一。'},
@@ -5126,20 +5126,20 @@ const Q3_ALL = [
   {name:'杏仁', taste:'甘 · 白 · 金行', answer:3,
    explain:'在中醫裡，杏仁有益於肺。它能滋潤肺燥、緩解咳嗽，常與梨或蜂蜜搭配來支持呼吸系統。'},
   {name:'百合', taste:'甘微苦 · 白 · 金行', answer:3,
-   explain:'Lily bulb supports Lung and Spleen function. It aids in the release of mucus and is especially effective for chronic cough — a TCM classic for Lung health.'},
+   explain:'百合支持肺與脾的功能。它幫助排痰，對慢性咳嗽特別有效——是中醫養肺的經典食材。'},
   {name:'蓮藕', taste:'甘 · 白 · 金行', answer:3,
-   explain:'Lotus root has been used for thousands of years to support Lung function. It cools Lung heat, stops coughs, and also benefits the Liver and Blood.'},
+   explain:'數千年來，蓮藕一直被用來支持肺的功能。它能清肺熱、止咳，也有益於肝與血。'},
   {name:'菇類', taste:'鮮味 · 白褐 · 金行', answer:3,
-   explain:'All mushroom varieties support Lung function and boost the immune system (Wei Qi) in TCM. Shiitake, wood ear, and cremini are all excellent Lung tonics.'},
+   explain:'在中醫裡，各種菇類都能支持肺的功能、提升免疫系統（衛氣）。香菇、木耳與褐蘑菇都是極佳的養肺食物。'},
   {name:'白蘿蔔', taste:'辛甘 · 白 · 金行', answer:3,
-   explain:'Daikon supports healthy Stomach and Lung function. Its pungent quality disperses Lung Qi, helps move phlegm, and is especially useful in autumn and winter.'},
+   explain:'白蘿蔔支持胃與肺的健康功能。它的辛味能宣散肺氣、幫助化痰，在秋冬尤其有用。'},
   {name:'蔥白', taste:'辛 · 白 · 金行', answer:3,
-   explain:'The white bulb of scallions supports Lung function. Pungent in nature, they push energy to the surface — useful at the onset of a cold or cough.'},
+   explain:'蔥白支持肺的功能。它性辛，能把能量推向表層——在感冒或咳嗽初起時很有用。'},
   // KIDNEY (7)
   {name:'黑豆', taste:'鹹 · 黑 · 水行', answer:4,
    explain:'黑豆與腎的能量深深相應。它的深色與水行相符，能滋養腎氣、促進血液循環，並強健脾。'},
   {name:'核桃', taste:'甘 · 褐 · 水行', answer:4,
-   explain:'Walnuts support Kidney function in TCM. Their shape mirrors the kidney organ — and they genuinely nourish Kidney Yang, support brain health, and warm cold conditions.'},
+   explain:'在中醫裡，核桃支持腎的功能。它的形狀就像腎臟——而且真的能滋養腎陽、支持大腦健康，並溫暖寒證。'},
   {name:'黑芝麻', taste:'甘 · 黑 · 水行', answer:4,
    explain:'黑芝麻滋養腎並生血。中醫用它來強健頭髮、滋養腎陰，並支持健康地老化。'},
   {name:'海藻', taste:'鹹 · 深綠黑 · 水行', answer:4,
@@ -5149,7 +5149,7 @@ const Q3_ALL = [
   {name:'栗子', taste:'甘 · 褐 · 水行', answer:4,
    explain:'在中醫裡，栗子支持腎。它溫暖而滋養，能補腎陽與脾氣——在冬天尤其受重視，用來建立深層儲備。'},
   {name:'大骨湯', taste:'鹹濃 · 深沉 · 水行', answer:4,
-   explain:'Bone broth builds strong Kidney function and is one of the most deeply restorative foods in TCM. Best consumed in winter, it nourishes Jing and supports bone health.'},
+   explain:'大骨湯能強健腎的功能，是中醫裡最具深層修復力的食物之一。最適合在冬天食用，它滋養精，並支持骨骼健康。'},
 ];
 
 const Q3_ORGANS = [

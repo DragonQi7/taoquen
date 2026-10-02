@@ -454,16 +454,16 @@
           <ul>
             <li><a href="tcm-zh.html">認識中醫</a></li>
             <li><a href="qi-assessment-zh.html">氣評估</a></li>
-            <li><a href="blog/index.html">文章</a></li>
-            <li><a href="conditions.html">病症</a></li>
+            <li><a href="blog/index-zh.html">文章</a></li>
+            <li><a href="conditions-zh.html">病症</a></li>
           </ul>
         </nav>
         <nav class="foot-col" aria-label="學院">
           <h4>學院</h4>
           <ul>
-            <li><a href="my-story.html">我的故事</a></li>
-            <li><a href="students.html">給學生</a></li>
-            <li><a href="wellness-program.html">給專業人士</a></li>
+            <li><a href="my-story-zh.html">我的故事</a></li>
+            <li><a href="students-zh.html">給學生</a></li>
+            <li><a href="wellness-program-zh.html">給專業人士</a></li>
             <li><a href="login-zh.html">登入</a></li>
           </ul>
         </nav>
@@ -510,7 +510,7 @@
       const user = cred.user;
       const nameParts = (user.displayName || '').split(' ');
       localStorage.setItem('tq_session', JSON.stringify({ email: user.email, first: nameParts[0] || '', last: nameParts.slice(1).join(' ') || '' }));
-      window.location.href = 'members-main.html';
+      window.location.href = 'members-main-zh.html';
     } catch (err) {
       btn.disabled = false; btn.textContent = '登入會員專區 →';
       const msg = err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found'
@@ -604,13 +604,13 @@
 
   /* ── Redirect if already logged in ── */
   if (localStorage.getItem('tq_session')) {
-    window.location.href = 'members-main.html';
+    window.location.href = 'members-main-zh.html';
   }
 
   /* ── Dev bypass: login.html?dev skips auth ── */
   if (location.search.indexOf('dev') !== -1) {
     localStorage.setItem('tq_session', JSON.stringify({ email: 'dev@test.com', first: 'Dev', last: 'User' }));
-    window.location.href = 'members-main.html';
+    window.location.href = 'members-main-zh.html';
   }
 
   /* ── Deep-link: login.html#signup opens the Create Account tab ── */

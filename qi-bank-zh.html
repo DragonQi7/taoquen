@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Qi Bank — Your Two Energy Accounts · Dragon's Way Qigong</title>
+<title>氣之銀行——你的兩個能量帳戶 · 龍之道氣功</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
   :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;
         --water:#2f7bff; --earth:#ffc01e; --deposit:#1e9e50; --spend:#d63a2e;}
   html{font-size:16px;-webkit-font-smoothing:antialiased;}
-  body{font-family:'Inter',sans-serif;color:var(--cream);
+  body{font-family:'Inter',Noto Sans TC,sans-serif;color:var(--cream);
     background:var(--bg);
     min-height:100vh;padding:30px 18px 48px;display:flex;flex-direction:column;align-items:center;}
-  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+  .eyebrow{font-family:'Cinzel',Noto Serif TC,serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
     color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
-  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
+  h1{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
     line-height:1.06;text-align:center;margin-bottom:12px;}
   h1 em{font-style:italic;color:#8b6914;}
   .lede{max-width:700px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 26px;}
@@ -37,12 +37,12 @@
   .acct.savings{box-shadow:inset 0 0 0 1px rgba(47,123,255,.22),0 0 30px -14px var(--water);}
   .acct.checking{box-shadow:inset 0 0 0 1px rgba(255,192,30,.22),0 0 30px -14px var(--earth);}
   .acct-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:3px;flex-wrap:wrap;}
-  .acct-name{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
+  .acct-name{font-family:'Cinzel',Noto Serif TC,serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
   .acct.savings .acct-name{color:#1d5fd6;} .acct.checking .acct-name{color:#b8860b;}
   .acct-type{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
   .acct-organ{font-size:.72rem;color:var(--muted);margin-bottom:12px;}
   .acct-organ b{color:var(--cream);font-weight:500;}
-  .balance{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1;
+  .balance{font-family:'Playfair Display',Noto Serif TC,serif;font-size:2.6rem;font-weight:700;line-height:1;
     font-variant-numeric:tabular-nums;margin-bottom:2px;transition:color .3s;}
   .balance .unit{font-size:1rem;color:var(--muted);font-weight:400;margin-left:3px;}
   .meter{position:relative;height:12px;border-radius:7px;background:rgba(44,44,40,.10);overflow:hidden;margin-top:10px;}
@@ -67,18 +67,18 @@
   .ledger{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
     margin-bottom:18px;padding:12px 16px;border:1px solid #e8e1d0;border-radius:12px;background:#faf8f2;}
   .led-left{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
-  .led-stat .k{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
-  .led-stat .v{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums;}
+  .led-stat .k{font-family:'Cinzel',Noto Serif TC,serif;font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
+  .led-stat .v{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums;}
   .led-status{font-size:.8rem;color:var(--muted);}
   .led-status b{font-weight:600;}
 
   /* ── Habits ── */
   .habits{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:6px;}
   @media(max-width:720px){.habits{grid-template-columns:1fr;}}
-  .col-head{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;
+  .col-head{font-family:'Cinzel',Noto Serif TC,serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;
     display:flex;align-items:center;gap:7px;}
   .col-head.dep{color:var(--deposit);} .col-head.spd{color:var(--spend);}
-  .col-head .amt{margin-left:auto;font-family:'Inter',sans-serif;font-size:.66rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+  .col-head .amt{margin-left:auto;font-family:'Inter',Noto Sans TC,sans-serif;font-size:.66rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em;}
   .chip-list{display:flex;flex-direction:column;gap:8px;}
   .chip{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:11px;cursor:pointer;
     border:1px solid #e3dcc9;background:#ffffff;transition:.15s;user-select:none;}
@@ -99,12 +99,12 @@
 
   /* ── Actions ── */
   .actions{display:flex;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap;}
-  .day-btn{font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  .day-btn{font-family:'Cinzel',Noto Serif TC,serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
     color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:26px;padding:13px 26px;
     cursor:pointer;box-shadow:0 6px 26px -8px rgba(201,168,106,.7);transition:transform .12s,box-shadow .12s;}
   .day-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(201,168,106,.9);}
   .day-btn:active{transform:translateY(0);}
-  .reset-btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
+  .reset-btn{font-family:'Cinzel',Noto Serif TC,serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
     background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);border-radius:22px;padding:11px 18px;cursor:pointer;transition:.15s;}
   .reset-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
   .recap{font-size:.74rem;color:var(--muted);margin-left:auto;line-height:1.5;text-align:right;min-height:1.4em;}
@@ -115,7 +115,7 @@
   .gameover{display:none;margin-top:18px;padding:16px 18px;border-radius:12px;text-align:center;
     border:1px solid rgba(214,58,46,.4);background:rgba(214,58,46,.06);}
   .gameover.show{display:block;}
-  .gameover .go-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:#c0392b;margin-bottom:5px;}
+  .gameover .go-main{font-family:'Playfair Display',Noto Serif TC,serif;font-size:1.15rem;font-weight:600;color:#c0392b;margin-bottom:5px;}
   .gameover .go-sub{font-size:.8rem;color:var(--muted);line-height:1.55;}
 
   .note{margin-top:18px;padding:14px 16px;border-left:3px solid var(--gold);border-radius:8px;
@@ -126,11 +126,11 @@
   .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
     background:#faf8f2;
     border:1px solid rgba(139,105,20,.35);border-radius:18px;box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
-  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
-  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta-pre{font-family:'Cinzel',Noto Serif TC,serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',Noto Serif TC,serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
   .cta h3 em{font-style:italic;color:#8b6914;}
   .cta p{max-width:540px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
-  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  .cta-btn{display:inline-block;font-family:'Cinzel',Noto Serif TC,serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
     color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;
     cursor:pointer;text-decoration:none;font-weight:600;box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
   .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
@@ -139,16 +139,18 @@
   .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;line-height:1.7;color:#998b6e;}
   .credit strong{color:var(--gold);font-weight:600;}
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="qi-bank-zh.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style id="tq-zh">
+  html{font-synthesis:weight;}
+  body{letter-spacing:.01em;}
+</style>
+<link rel="alternate" hreflang="en" href="qi-bank.html">
 </head>
 <body>
 
-  <div class="eyebrow">Dragon's Way Qigong® · Digesting the Universe</div>
-  <h1>The <em>Qi</em> Bank</h1>
-  <p class="lede">Master Lu teaches that your body keeps <b>two energy accounts</b>. Your <b>Kidney</b> holds
-  <b>Inborn Qi</b> — the savings you inherited at birth, finite and <b>impossible to refill</b>. Your <b>Spleen &amp; Stomach</b>
-  run a <b>checking account</b> of <b>Acquired Qi</b>, topped up by how you eat, sleep and practice. Live each day below —
-  and watch what your choices spend, deposit, and protect.</p>
+  <div class="eyebrow">龍之道氣功® · 消化宇宙</div>
+  <h1><em>氣</em>之銀行</h1>
+  <p class="lede">Lu 大師教導，你的身體有<b>兩個能量帳戶</b>。你的<b>腎</b>儲藏<b>先天之氣</b>——你出生時承襲的存款，有限且<b>無法再補充</b>。你的<b>脾與胃</b>經營一個<b>後天之氣</b>的<b>活期帳戶</b>，由你的飲食、睡眠與練習來補充。在下方逐日過生活——看看你的選擇花掉了什麼、存入了什麼、保護了什麼。</p>
 
   <div class="tool">
 
@@ -156,94 +158,86 @@
     <div class="accounts">
       <div class="acct savings" id="acctSavings">
         <div class="flow-badge" id="badgeSav"></div>
-        <div class="acct-top"><span class="acct-name">Savings</span><span class="acct-type">Inborn Qi · Prenatal</span></div>
-        <div class="acct-organ">Stored in the <b>Kidney</b> · Water element</div>
+        <div class="acct-top"><span class="acct-name">存款帳戶</span><span class="acct-type">先天之氣 · 與生俱來</span></div>
+        <div class="acct-organ">儲藏於<b>腎</b> · 水行</div>
         <div class="balance"><span id="savVal">100</span><span class="unit">/100</span></div>
         <div class="meter"><i id="savBar" style="width:100%"></i></div>
-        <div class="acct-foot"><b>Cannot be refilled.</b> Drawn down slowly by living — fast when you overdraw checking.</div>
+        <div class="acct-foot"><b>無法再補充。</b>隨著生活緩慢減少——當你透支活期帳戶時則快速減少。</div>
       </div>
 
       <div class="acct checking" id="acctChecking">
         <div class="flow-badge" id="badgeChk"></div>
-        <div class="acct-top"><span class="acct-name">Checking</span><span class="acct-type">Acquired Qi · Daily</span></div>
-        <div class="acct-organ">Run by the <b>Spleen &amp; Stomach</b> · Earth element</div>
+        <div class="acct-top"><span class="acct-name">活期帳戶</span><span class="acct-type">後天之氣 · 每日</span></div>
+        <div class="acct-organ">由<b>脾與胃</b>運作 · 土行</div>
         <div class="balance"><span id="chkVal">45</span><span class="unit">/100</span></div>
         <div class="meter"><i id="chkBar" style="width:45%"></i></div>
-        <div class="acct-foot">Refilled by <b>food, sleep, Qigong &amp; Nature</b>. Spend this first so your savings stay safe.</div>
+        <div class="acct-foot">補充來源：<b>食物、睡眠、氣功與大自然</b>。先花這個帳戶，你的存款才能保持安全。</div>
       </div>
     </div>
 
     <!-- Overdraft warning -->
-    <div class="overdraft" id="overdraft">⚠ <span>Checking is empty — today's living was paid from your <b>Inborn Qi savings</b>. That inheritance never comes back.</span></div>
+    <div class="overdraft" id="overdraft">⚠ <span>活期帳戶已空——今天的生活是從你的<b>先天之氣存款</b>中支付的。這份遺產永遠不會回來。</span></div>
 
     <!-- Day ledger -->
     <div class="ledger">
       <div class="led-left">
-        <div class="led-stat"><div class="k">Day</div><div class="v" id="dayCount">0</div></div>
-        <div class="led-stat"><div class="k">Baseline cost / day</div><div class="v" style="color:var(--spend)">−9</div></div>
+        <div class="led-stat"><div class="k">天數</div><div class="v" id="dayCount">0</div></div>
+        <div class="led-stat"><div class="k">每日基本消耗</div><div class="v" style="color:var(--spend)">−9</div></div>
       </div>
-      <div class="led-status" id="ledStatus">Choose today's habits, then <b>Live This Day</b>.</div>
+      <div class="led-status" id="ledStatus">選擇今天的習慣，然後按<b>過完這一天</b>。</div>
     </div>
 
     <!-- Habits -->
     <div class="habits">
       <div>
-        <div class="col-head dep">▲ Deposits → Checking <span class="amt" id="depSum">+0</span></div>
+        <div class="col-head dep">▲ 存入 → 活期帳戶<span class="amt" id="depSum">+0</span></div>
         <div class="chip-list" id="depList"></div>
       </div>
       <div>
-        <div class="col-head spd">▼ Withdrawals → from Checking <span class="amt" id="spdSum">−0</span></div>
+        <div class="col-head spd">▼ 提領 → 從活期帳戶<span class="amt" id="spdSum">−0</span></div>
         <div class="chip-list" id="spdList"></div>
       </div>
     </div>
 
     <!-- Actions -->
     <div class="actions">
-      <button class="day-btn" id="liveBtn">Live This Day →</button>
-      <button class="reset-btn" id="resetBtn">↺ New Life</button>
+      <button class="day-btn" id="liveBtn">過完這一天 →</button>
+      <button class="reset-btn" id="resetBtn">↺ 重新開始人生</button>
       <div class="recap" id="recap"></div>
     </div>
 
     <!-- Game over -->
     <div class="gameover" id="gameover">
-      <div class="go-main">Your Inborn Qi is spent.</div>
-      <div class="go-sub" id="goSub">You lived <b>0</b> days. Live more sustainably — keep checking funded so your savings last a lifetime.</div>
+      <div class="go-main">你的先天之氣已經用盡。</div>
+      <div class="go-sub" id="goSub">你活了 <b>0</b> 天。更永續地生活——讓活期帳戶保持充足，你的存款才能維持一生。</div>
     </div>
 
     <!-- Teaching note -->
     <div class="note" id="note">
-      <span class="src">"The Kidney acts as an energy savings account and the Stomach acts as an energy checking account…
-      When Inborn Qi is used up, life ends."</span> Conserve your inheritance by acquiring enough Qi each day —
-      through food, rest, time in Nature, and Qigong practice.
-    </div>
+      <span class="src">「腎就像能量的存款帳戶，胃就像能量的活期帳戶……當先天之氣用盡，生命就結束了。」</span>每天獲取足夠的氣——透過食物、休息、親近大自然與練習氣功——來保存你的遺產。</div>
 
   </div>
 
 
-  <p class="credit">
-    Built on the <strong>energy-accounts teaching</strong> from <strong>Digesting the Universe</strong> by Grand Master Nan&nbsp;Lu —
-    Inborn (prenatal) Qi stored in the Kidney vs. Acquired (postnatal) Qi run by the Spleen &amp; Stomach.
-    The day-by-day values are an illustrative model, not a clinical measure.<br>
-    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
-  </p>
+  <p class="credit">本工具建立在<strong>能量帳戶教導</strong>之上，出自<strong>《消化宇宙》</strong>，作者 Nan Lu 大師——儲藏在腎中的先天之氣，對比由脾胃運作的後天之氣。每日數值為示意模型，並非臨床測量。<br>僅供教育與自我反思之用，並非醫療建議、診斷或治療。</p>
 
 <script>
 (function(){
   // ── Habit definitions (illustrative Qi values) ──
   const DEPOSITS = [
-    {key:'qigong', ico:'☯', lbl:'Qigong practice',           val:12},
-    {key:'sleep',  ico:'🌙', lbl:'Sleep before midnight',     val:10},
-    {key:'warm',   ico:'🍲', lbl:'Warm, cooked meal',         val:8},
-    {key:'nature', ico:'🌿', lbl:'Time in Nature',            val:6},
-    {key:'rest',   ico:'🧘', lbl:'Rest / meditation break',   val:5}
+    {key:'qigong', ico:'☯', lbl:'練習氣功',           val:12},
+    {key:'sleep',  ico:'🌙', lbl:'午夜前入睡',     val:10},
+    {key:'warm',   ico:'🍲', lbl:'溫熱、煮熟的一餐',         val:8},
+    {key:'nature', ico:'🌿', lbl:'親近大自然',            val:6},
+    {key:'rest',   ico:'🧘', lbl:'休息／冥想片刻',   val:5}
   ];
   const WITHDRAWALS = [
-    {key:'stress', ico:'⚡', lbl:'High stress',               val:12},
-    {key:'over',   ico:'💼', lbl:'Overwork, no breaks',       val:9},
-    {key:'worry',  ico:'🌀', lbl:'Worry / overthinking',      val:8},
-    {key:'cold',   ico:'🧊', lbl:'Cold & raw food, iced drinks', val:7},
-    {key:'skip',   ico:'⏭', lbl:'Skipped meals',             val:7},
-    {key:'screen', ico:'📱', lbl:'Late-night screens',        val:6}
+    {key:'stress', ico:'⚡', lbl:'高壓力',               val:12},
+    {key:'over',   ico:'💼', lbl:'過度工作、沒有休息',       val:9},
+    {key:'worry',  ico:'🌀', lbl:'擔憂／過度思考',      val:8},
+    {key:'cold',   ico:'🧊', lbl:'生冷食物、冰飲', val:7},
+    {key:'skip',   ico:'⏭', lbl:'不吃正餐',             val:7},
+    {key:'screen', ico:'📱', lbl:'深夜看螢幕',        val:6}
   ];
   const BASELINE = 9;          // daily cost just to be alive
   const START_CHK = 45, START_SAV = 100, CHK_CAP = 100;
@@ -276,8 +270,7 @@
     $('depSum').textContent='+'+d;
     $('spdSum').textContent='−'+w;
     const net=d-w-BASELINE;
-    $('ledStatus').innerHTML = "Today's net: <b style='color:"+(net>=0?'#1e8c4a':'#c0392b')+"'>"+
-      (net>=0?'+':'')+net+" Qi</b> "+(net>=0?'into checking':'— short by '+(-net)+', the gap hits savings')+'.';
+    $('ledStatus').innerHTML = "今日淨額：<b style='color:"+(net>=0?'#1e8c4a':'#c0392b')+"'>"+ (net>=0?'+':'')+net+" 氣</b> "+(net>=0?'存入活期帳戶':'——不足 '+(-net)+'，缺口由存款支付')+'。';
   }
 
   function render(animFlow){
@@ -325,8 +318,7 @@
     if(drewFromSavings>AGING+0.001) flash('badgeSav', drewFromSavings, false);
 
     // recap
-    $('recap').innerHTML = 'Day '+day+': <b>+'+d+'</b> deposited · <b>−'+(w+BASELINE)+'</b> spent'+
-      (drewFromSavings>AGING+0.001 ? ' · <b style="color:#c0392b">−'+Math.round(drewFromSavings)+'</b> from savings' : '');
+    $('recap').innerHTML = '第 '+day+' 天：存入 <b>+'+d+'</b> · 花掉 <b>−'+(w+BASELINE)+'</b>'+ (drewFromSavings>AGING+0.001 ? ' · 動用存款 <b style="color:#c0392b">−'+Math.round(drewFromSavings)+'</b>' : '');
 
     render(true);
     updateStatusBand();
@@ -334,7 +326,7 @@
     if(savings<=0){
       dead=true;
       $('gameover').classList.add('show');
-      $('goSub').innerHTML='You lived <b>'+day+'</b> days. Live more sustainably next time — keep checking funded so your savings last a lifetime.';
+      $('goSub').innerHTML='你活了 <b>'+day+'</b> 天。下次更永續地生活——讓活期帳戶保持充足，你的存款才能維持一生。';
       $('liveBtn').disabled=true; $('liveBtn').style.opacity=.5; $('liveBtn').style.cursor='not-allowed';
     }
   }
