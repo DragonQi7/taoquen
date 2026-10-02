@@ -877,7 +877,10 @@
        In that case we treat the session as paid so dev testing works.
        On the live GitHub Pages domain, fetch works normally. */
     var isFileProtocol = location.protocol === 'file:';
-    if (isFileProtocol) {
+    var OPEN_TO_ALL = true; /* every member sees all six tools; set to false to lock five of them to the emails in subscribers.json */
+    if (OPEN_TO_ALL) {
+      /* nothing to lock */
+    } else if (isFileProtocol) {
       unlockAllTools();
     } else {
       fetch('subscribers.json?_=' + Date.now())
