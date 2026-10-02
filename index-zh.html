@@ -841,6 +841,14 @@
   .nav-links a.lang-switch::after{display:none;}
   .nav-links a.lang-switch:hover{border-color:var(--gold-lit);}
   .drawer a.lang-switch{font-size:clamp(1.1rem,5vw,1.5rem); color:var(--gold-lit);}
+  .nav-links a{white-space:nowrap;}
+  .nav-links{gap:clamp(10px,1.25vw,20px);}
+  .nav-links a{font-size:.58rem; letter-spacing:.12em;}
+  .nav-links .btn{padding:11px 16px; font-size:.58rem;}
+  @media (max-width:1180px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
   </style>
 </head>
 <body>
@@ -887,7 +895,7 @@
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="tcm.html">認識中醫</a></li>
-          <li><a href="dwq.html">龍之道</a></li>
+          <li><a href="dwq.html">龍之道氣功</a></li>
           <li><a href="four-energy-gates.html">自我調養</a></li>
           <li><a href="qi-assessment.html">免費評估</a></li>
           <li><a href="free-class.html">免費課程</a></li>
@@ -908,7 +916,7 @@
     <button class="drawer-close" id="drawerClose" aria-label="關閉選單">&times;</button>
     <span class="drawer-sub">Taoquen · 中醫養生學院</span>
     <a href="tcm.html" style="transition-delay:.08s">認識中醫</a>
-    <a href="dwq.html" style="transition-delay:.13s">龍之道</a>
+    <a href="dwq.html" style="transition-delay:.13s">龍之道氣功</a>
     <a href="four-energy-gates.html" style="transition-delay:.18s">自我調養</a>
     <a href="qi-assessment.html" style="transition-delay:.23s">免費評估</a>
     <a href="free-class.html" style="transition-delay:.28s">免費課程</a>
