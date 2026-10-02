@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Body Clock — Your 24-Hour Qi Cycle · Dragon's Way Qigong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;}
+  html{font-size:16px;-webkit-font-smoothing:antialiased;}
+  body{
+    font-family:'Inter',sans-serif;color:var(--cream);
+    background:var(--bg);
+    min-height:100vh;padding:30px 18px 48px;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
+    line-height:1.06;text-align:center;margin-bottom:12px;}
+  h1 em{font-style:italic;color:#8b6914;}
+  .lede{max-width:680px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 26px;}
+
+  .tool{width:100%;max-width:1100px;
+    background:#ffffff;
+    border:1px solid #e3dbc8;border-radius:20px;
+    box-shadow:0 24px 60px -30px rgba(70,50,10,.18);
+    padding:24px;}
+
+  /* live "now" bar */
+  .nowbar{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding:12px 16px;
+    border:1px solid #e8e1d0;border-radius:12px;background:#faf8f2;}
+  .now-dot{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#fff;
+    box-shadow:0 0 18px rgba(44,44,40,.25);transition:.25s;}
+  .now-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;}
+  .now-sub{font-size:.82rem;color:var(--muted);margin-top:1px;}
+  .now-sub b{color:var(--cream);font-variant-numeric:tabular-nums;}
+
+  .layout{display:grid;grid-template-columns:minmax(280px,1fr) 1fr;gap:26px;align-items:center;}
+  @media(max-width:820px){.layout{grid-template-columns:1fr;}}
+
+  /* clock */
+  .clock-wrap{position:relative;width:100%;max-width:440px;margin:0 auto;aspect-ratio:1;}
+  .clock-svg{width:100%;height:auto;display:block;overflow:visible;}
+  .seg{cursor:pointer;transition:opacity .18s,filter .18s,transform .18s;transform-origin:center;}
+  .seg:hover{filter:brightness(1.2);}
+  .seg.active{filter:brightness(1.32) saturate(1.2);}
+  .seg.selected{filter:brightness(1.4) saturate(1.25);}
+  .seg-label{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.04em;fill:#fff;
+    text-shadow:0 1px 3px rgba(0,0,0,.9);pointer-events:none;font-weight:600;}
+  .seg-time{font-size:7px;fill:rgba(255,255,255,.78);pointer-events:none;}
+  .seg-label.dark,.seg-time.dark{fill:#241f18;text-shadow:none;}
+  .tick-lbl{font-size:8px;fill:rgba(44,44,40,.5);font-variant-numeric:tabular-nums;}
+  .hub-time{font-family:'Playfair Display',serif;font-size:24px;fill:#2c2c28;font-variant-numeric:tabular-nums;font-weight:600;}
+  .hub-sub{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.2em;fill:var(--gold);text-transform:uppercase;}
+  .hand{stroke:#2c2c28;stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(0,0,0,.25));}
+  .hand-dot{fill:#2c2c28;filter:drop-shadow(0 0 6px rgba(0,0,0,.3));}
+
+  /* detail panel */
+  .detail{border-left:3px solid var(--dc,#2c2c28);padding:6px 0 6px 18px;}
+  .d-el{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dc,#2c2c28);margin-bottom:6px;}
+  .d-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;line-height:1.1;margin-bottom:4px;}
+  .d-window{font-size:.82rem;color:var(--gold);font-variant-numeric:tabular-nums;margin-bottom:14px;}
+  .d-row{margin-bottom:13px;}
+  .d-row h4{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:4px;}
+  .d-row p{font-size:.88rem;line-height:1.62;color:#4a4030;}
+  .d-row p b{color:var(--cream);}
+  .d-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .d-chip{font-size:.66rem;background:rgba(44,44,40,.04);border:1px solid rgba(44,44,40,.14);
+    border-radius:7px;padding:5px 10px;color:#3a3630;}
+  .d-chip b{color:var(--dc,#2c2c28);}
+
+  /* wake-time quick picker */
+  .wake{margin:24px 2px 6px;padding:16px 18px;border:1px solid #e8e1d0;border-radius:12px;
+    background:#faf8f2;}
+  .wake-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:4px;}
+  .wake-q{font-size:.86rem;color:#4a4030;line-height:1.6;margin-bottom:12px;}
+  .wake-q b{color:var(--cream);}
+  .wake-btns{display:flex;flex-wrap:wrap;gap:8px;}
+  .wake-btn{font-family:'Inter',sans-serif;font-size:.74rem;color:var(--cream);
+    background:#ffffff;border:1px solid rgba(139,105,20,.3);border-radius:20px;
+    padding:8px 15px;cursor:pointer;transition:.15s;font-variant-numeric:tabular-nums;}
+  .wake-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
+  .wake-btn.on{background:rgba(201,168,106,.22);border-color:var(--gold);color:#5f4a0e;box-shadow:0 0 14px -4px var(--gold);}
+
+  /* ── sign-up CTA ── */
+  .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
+    background:#faf8f2;
+    border:1px solid rgba(139,105,20,.35);border-radius:18px;
+    box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
+  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta h3 em{font-style:italic;color:#8b6914;}
+  .cta p{max-width:520px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
+  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;
+    cursor:pointer;text-decoration:none;font-weight:600;box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
+  .cta-note{margin-top:11px;font-size:.65rem;color:#998b6e;font-style:italic;}
+
+  .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;
+    line-height:1.7;color:#998b6e;}
+  .credit strong{color:var(--gold);font-weight:600;}
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Dragon's Way Qigong® · Traditional Chinese Medicine</div>
+  <h1>The Body <em>Clock</em></h1>
+  <p class="lede">Qi moves through your organs on a 24-hour tide — each gets a two-hour peak when its energy is highest.
+  Where you feel awake, restless, or low at the same hour each day is no accident: it's an organ asking for support.
+  Find the hour, find the message.</p>
+
+  <div class="tool">
+
+    <!-- live now -->
+    <div class="nowbar">
+      <div class="now-dot" id="nowDot"></div>
+      <div>
+        <div class="now-main" id="nowMain">—</div>
+        <div class="now-sub" id="nowSub">Reading your local time…</div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <!-- clock -->
+      <div class="clock-wrap">
+        <svg class="clock-svg" id="clockSvg" viewBox="0 0 320 320" aria-label="24-hour organ clock"></svg>
+      </div>
+
+      <!-- detail -->
+      <div class="detail" id="detail">
+        <div class="d-el" id="dEl">Element</div>
+        <div class="d-name" id="dName">—</div>
+        <div class="d-window" id="dWindow">—</div>
+        <div class="d-row">
+          <h4>What this hour governs</h4>
+          <p id="dGoverns">—</p>
+        </div>
+        <div class="d-row">
+          <h4>Awake or restless now?</h4>
+          <p id="dAwake">—</p>
+        </div>
+        <div class="d-row">
+          <h4>Dragon's Way support</h4>
+          <p id="dSupport">—</p>
+        </div>
+        <div class="d-meta" id="dMeta"></div>
+      </div>
+    </div>
+
+    <!-- wake-time picker -->
+    <div class="wake">
+      <div class="wake-head">The body never lies</div>
+      <p class="wake-q">Do you keep waking at the <b>same time</b> each night — or hit a wall at the same hour each day?
+        Tap that time to see which organ is calling:</p>
+      <div class="wake-btns" id="wakeBtns"></div>
+    </div>
+
+  </div>
+
+
+  <p class="credit">
+    Built on the <strong>Five Element Consciousness Framework</strong> and the TCM organ clock taught in
+    <strong>Dragon's Way Qigong®</strong> by Grand Master Nan Lu. Each two-hour window marks when an organ's Qi
+    is at its daily peak. Pericardium and Triple Burner are the Heart's two Fire-element helpers, beyond the core
+    Heart/Small&nbsp;Intestine pair.<br>
+    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
+  </p>
+
+<script>
+(function(){
+  // element palette — matches The Prism of Qi
+  const EL = {
+    fire:{name:'Fire', color:'#ff3b30'},
+    earth:{name:'Earth',color:'#ffc01e'},
+    wood:{name:'Wood', color:'#3fd06a'},
+    water:{name:'Water',color:'#2f7bff'},
+    metal:{name:'Metal',color:'#b6bfc9'}
+  };
+  // text-safe element colours for the light theme
+  const INK = {fire:'#d6362b', earth:'#b8860b', wood:'#1e9e50', water:'#1d5fd6', metal:'#5d6b7a'};
+  const isLight = hex => { const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+    return (0.299*r+0.587*g+0.114*b) > 168; };
+
+  // 24-hour organ clock — start hour (0–24), each window is 2h.
+  const ORGANS = [
+    {key:'lung', el:'metal', name:'Lung',            start:3,
+     governs:'The Lung is the great distributor of Qi — at its peak it draws in fresh Universal energy and lets the old go. Deepest, most restorative breath happens now.',
+     awake:'Waking around 3–5 a.m. (often with sadness or a busy mind) is the classic sign the Lung is asking for support — grief or letting-go left unprocessed.',
+     support:'Slow nasal breathing; honey, pears and almonds; keep skin & chest covered from wind. Let it go.',
+     emotion:'Grief / Sadness', season:'Autumn', partner:'with Large Intestine'},
+    {key:'li', el:'metal', name:'Large Intestine',   start:5,
+     governs:'Letting go on the physical level — this is the body’s natural window for a morning bowel movement and elimination.',
+     awake:'A glass of warm water on waking supports release. Regular morning movements are a sign Lung & Large Intestine Qi flow well.',
+     support:'Warm water on rising; honey to add moisture to the colon; fibre-rich, cooked foods.',
+     emotion:'Grief / Sadness', season:'Autumn', partner:'with Lung'},
+    {key:'st', el:'earth', name:'Stomach',           start:7,
+     governs:'The Stomach “receives and ripens” food. Its Qi is strongest now — which is why this is the ideal hour for your largest, warmest meal.',
+     awake:'Skipping breakfast wastes the day’s strongest digestive fire. Eat your heaviest meal early.',
+     support:'A warm, cooked breakfast; no cold or raw foods or iced drinks. Eat to 70–80% full.',
+     emotion:'Worry / Overthinking', season:'Late Summer', partner:'with Spleen'},
+    {key:'sp', el:'earth', name:'Spleen',            start:9,
+     governs:'The Spleen transforms food into Qi and essence — your daily energy generator. Mental clarity and steady energy build now.',
+     awake:'Heaviness, foggy thinking or worry mid-morning points to Spleen Qi needing warmth and support.',
+     support:'Warm cooked foods, gentle movement, and easing worry — overthinking drains the Spleen directly.',
+     emotion:'Worry / Overthinking', season:'Late Summer', partner:'with Stomach'},
+    {key:'ht', el:'fire', name:'Heart',              start:11,
+     governs:'The Heart — King of organs — reaches its peak. A time for connection, warmth and a calm, joyful midday.',
+     awake:'Midday palpitations, flushing or restlessness can signal the Heart carrying strain other organs should be sharing.',
+     support:'A short rest after lunch; bitter greens (dandelion, kale, radicchio); protect your peace. Smile from the Heart.',
+     emotion:'Joy', season:'Summer', partner:'with Small Intestine'},
+    {key:'si', el:'fire', name:'Small Intestine',    start:13,
+     governs:'The Small Intestine sorts the pure from the impure — finishing the digestion of your midday meal and deciding what nourishes you.',
+     awake:'An early-afternoon dip is natural; keep lunch light-to-moderate and warm to support clean sorting.',
+     support:'Eat lunch before this window; favour warm, easy-to-digest foods; a brief walk aids sorting.',
+     emotion:'Joy', season:'Summer', partner:'with Heart'},
+    {key:'bl', el:'water', name:'Bladder',           start:15,
+     governs:'The Bladder Qi peaks — a strong window for focused work, study and clearing the day’s metabolic “garbage.”',
+     awake:'A mid-afternoon crash or headache here can mean you’re under-hydrated or your Water element is taxed.',
+     support:'Hydrate with warm water; this is a productive window — use it. Keep the low back warm.',
+     emotion:'Fear', season:'Winter', partner:'with Kidney'},
+    {key:'ki', el:'water', name:'Kidney',            start:17,
+     governs:'The Kidney — your inherited “energy tank” — reaches its peak. It stores the Qi you were born with and rules longevity, bones and willpower.',
+     awake:'Low-back or knee ache, ringing ears, or a wave of fear in early evening is the Kidney asking you to conserve, not spend.',
+     support:'Wind down and rest; walnuts, black beans, black sesame; roll a tennis ball under each foot to reach the Kidney meridian.',
+     emotion:'Fear', season:'Winter', partner:'with Bladder'},
+    {key:'pc', el:'fire', name:'Pericardium',        start:19,
+     governs:'The Pericardium — the Heart’s protector (a Fire-element helper) — peaks now. A time for warmth, intimacy and gentle connection.',
+     awake:'Evening anxiety or a guarded, over-busy heart suggests the Heart’s protector is overworked. Slow down.',
+     support:'A calm, light evening; gentle company or quiet; begin to let the day’s stimulation fall away.',
+     emotion:'Joy (Heart’s helper)', season:'Summer', partner:'Heart protector'},
+    {key:'tb', el:'fire', name:'Triple Burner',      start:21,
+     governs:'The Triple Burner (San Jiao — a Fire-element organ) governs the flow of warmth and fluids between your three body cavities, settling metabolism for sleep.',
+     awake:'Still wired at 9–11 p.m.? The body wants to be powering down. Screens and stress here steal tomorrow’s Qi.',
+     support:'Turn off the phone after 8 p.m.; dim the lights; aim to be in bed before midnight.',
+     emotion:'Joy (Heart’s helper)', season:'Summer', partner:'Metabolism / temperature'},
+    {key:'gb', el:'wood', name:'Gallbladder',        start:23,
+     governs:'The Gallbladder — your master decision-maker — peaks as deep sleep begins. The body uses this window to regenerate.',
+     awake:'Waking near midnight, or indecision and being “stuck,” points to Gallbladder Qi. Sleeping before midnight protects it.',
+     support:'Be asleep before midnight; release the day’s decisions; this is Wood’s repair window.',
+     emotion:'Anger (Wood)', season:'Spring', partner:'with Liver'},
+    {key:'lv', el:'wood', name:'Liver',              start:1,
+     governs:'The Liver stores the blood and rules the smooth flow of Qi and emotion. In deep sleep now it cleanses and renews — the “go with the flow” organ at work.',
+     awake:'Waking between 1–3 a.m. (often tense or irritable) is the hallmark of stuck Liver Qi — unreleased stress or anger.',
+     support:'Reduce stress and screens before bed; go with the flow; green foods and gentle movement by day keep Liver Qi moving.',
+     emotion:'Anger', season:'Spring', partner:'with Gallbladder'}
+  ];
+
+  const svg = document.getElementById('clockSvg');
+  const NS = 'http://www.w3.org/2000/svg';
+  const cx=160, cy=160, R=150, r=92;   // donut radii
+  const labelR = (R+r)/2;
+
+  const pt = (ang,rad)=>{ const t=ang*Math.PI/180; return [cx+rad*Math.sin(t), cy-rad*Math.cos(t)]; };
+  const mk = (tag,attrs)=>{ const e=document.createElementNS(NS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); return e; };
+
+  // build segments
+  const segEls = {};
+  ORGANS.forEach(o=>{
+    const a0=o.start/24*360, a1=(o.start+2)/24*360;
+    const [ox0,oy0]=pt(a0,R), [ox1,oy1]=pt(a1,R), [ix1,iy1]=pt(a1,r), [ix0,iy0]=pt(a0,r);
+    const d=`M${ox0} ${oy0} A${R} ${R} 0 0 1 ${ox1} ${oy1} L${ix1} ${iy1} A${r} ${r} 0 0 0 ${ix0} ${iy0} Z`;
+    const color=EL[o.el].color;
+    const path=mk('path',{d, fill:color, stroke:'#ffffff', 'stroke-width':2, class:'seg', 'data-key':o.key});
+    path.addEventListener('click',()=>select(o.key,true));
+    svg.appendChild(path);
+    segEls[o.key]=path;
+
+    // labels (curved to two lines: organ name + time), placed at segment mid-angle
+    const mid=(a0+a1)/2;
+    const [lx,ly]=pt(mid,labelR);
+    const dark = isLight(color);
+    const nm=mk('text',{x:lx, y:ly-1, 'text-anchor':'middle', class:'seg-label'+(dark?' dark':'')});
+    nm.textContent=o.name.length>13?o.name.replace(' ',' '):o.name;
+    // shrink long names
+    if(o.name.length>11) nm.setAttribute('font-size','7px');
+    const tm=mk('text',{x:lx, y:ly+9, 'text-anchor':'middle', class:'seg-time'+(dark?' dark':'')});
+    tm.textContent=fmtRange(o.start,o.start+2);
+    svg.appendChild(nm); svg.appendChild(tm);
+  });
+
+  // hour ticks (every 3h) just inside outer ring
+  for(let h=0;h<24;h+=3){
+    const a=h/24*360; const [tx,ty]=pt(a,R+11);
+    const t=mk('text',{x:tx,y:ty+3,'text-anchor':'middle',class:'tick-lbl'});
+    t.textContent = h===0?'12a':(h<12?h+'a':(h===12?'12p':(h-12)+'p'));
+    svg.appendChild(t);
+  }
+
+  // hub
+  const hubTime=mk('text',{x:cx,y:cy-2,'text-anchor':'middle',class:'hub-time'}); hubTime.textContent='--:--';
+  const hubSub =mk('text',{x:cx,y:cy+14,'text-anchor':'middle',class:'hub-sub'}); hubSub.textContent='Local time';
+  // hand + center dot drawn above hub text
+  const hand=mk('line',{x1:cx,y1:cy,x2:cx,y2:cy-r+6,class:'hand'});
+  const handDot=mk('circle',{cx:cx,cy:cy-r+6,r:4,class:'hand-dot'});
+  const center=mk('circle',{cx:cx,cy:cy,r:3.5,fill:'#2c2c28'});
+  svg.appendChild(hubTime); svg.appendChild(hubSub); svg.appendChild(hand); svg.appendChild(handDot); svg.appendChild(center);
+
+  function fmt12(h){ h=((h%24)+24)%24; const ap=h<12?'a':'p'; let hh=h%12; if(hh===0)hh=12; return hh+ap; }
+  function fmtRange(a,b){ return fmt12(a)+'–'+fmt12(b); }
+
+  // detail panel
+  const dEl=document.getElementById('dEl'), dName=document.getElementById('dName'),
+        dWindow=document.getElementById('dWindow'), dGoverns=document.getElementById('dGoverns'),
+        dAwake=document.getElementById('dAwake'), dSupport=document.getElementById('dSupport'),
+        dMeta=document.getElementById('dMeta'), detail=document.getElementById('detail');
+
+  let selectedKey=null;
+  function organByKey(k){ return ORGANS.find(o=>o.key===k); }
+
+  function select(key, fromClick){
+    selectedKey=key;
+    const o=organByKey(key); const c=INK[o.el]||EL[o.el].color;
+    detail.style.setProperty('--dc',c);
+    dEl.textContent=EL[o.el].name+' Element';
+    dName.textContent=o.name;
+    dWindow.textContent=fmtRange(o.start,o.start+2)+'  ·  '+o.partner;
+    dGoverns.textContent=o.governs;
+    dAwake.textContent=o.awake;
+    dSupport.textContent=o.support;
+    dMeta.innerHTML =
+      '<span class="d-chip">Element <b>'+EL[o.el].name+'</b></span>'+
+      '<span class="d-chip">Emotion <b>'+o.emotion+'</b></span>'+
+      '<span class="d-chip">Season <b>'+o.season+'</b></span>';
+    // segment highlight
+    Object.values(segEls).forEach(p=>p.classList.remove('selected'));
+    segEls[key].classList.add('selected');
+    // sync wake buttons
+    document.querySelectorAll('.wake-btn').forEach(b=>b.classList.toggle('on',b.dataset.key===key));
+  }
+
+  // wake-time quick picker (night-waking + daytime walls)
+  const WAKE_TIMES=[
+    {label:'1–3 a.m.', key:'lv'},{label:'3–5 a.m.', key:'lung'},{label:'5–7 a.m.', key:'li'},
+    {label:'Morning slump', key:'sp'},{label:'After lunch', key:'si'},
+    {label:'Mid-afternoon', key:'bl'},{label:'Early evening', key:'ki'},
+    {label:'Can’t wind down (9–11 p.m.)', key:'tb'},{label:'Near midnight', key:'gb'}
+  ];
+  const wakeBtns=document.getElementById('wakeBtns');
+  WAKE_TIMES.forEach(w=>{
+    const b=document.createElement('button');
+    b.className='wake-btn'; b.dataset.key=w.key; b.textContent=w.label;
+    b.addEventListener('click',()=>select(w.key,true));
+    wakeBtns.appendChild(b);
+  });
+
+  // live "now" — find active organ for current local time
+  const nowDot=document.getElementById('nowDot'),
+        nowMain=document.getElementById('nowMain'),
+        nowSub=document.getElementById('nowSub');
+
+  function activeOrgan(hourFloat){
+    // each window start..start+2 (wrap). Liver(1)→Gb(23) covers the night.
+    for(const o of ORGANS){
+      const s=o.start, e=o.start+2;
+      const h=hourFloat;
+      if(s<e){ if(h>=s && h<e) return o; }
+      else  { if(h>=s || h<e-24) return o; } // not needed (no e>24 except none)
+    }
+    // handle the 23→1 (Gallbladder) wrap & 1→3, etc. Fallback scan with modular compare:
+    for(const o of ORGANS){
+      let s=o.start, h=hourFloat;
+      let diff=((h-s)%24+24)%24;
+      if(diff>=0 && diff<2) return o;
+    }
+    return ORGANS[0];
+  }
+
+  function tick(){
+    const d=new Date();
+    const hf = d.getHours()+d.getMinutes()/60+d.getSeconds()/3600;
+    // rotate hand
+    const ang=hf/24*360, t=ang*Math.PI/180;
+    const hx=cx+(r-6)*Math.sin(t), hy=cy-(r-6)*Math.cos(t);
+    hand.setAttribute('x2',hx); hand.setAttribute('y2',hy);
+    handDot.setAttribute('cx',hx); handDot.setAttribute('cy',hy);
+    // hub time
+    let hh=d.getHours(), mm=d.getMinutes();
+    const ap=hh<12?'AM':'PM'; let h12=hh%12; if(h12===0)h12=12;
+    hubTime.textContent=h12+':'+String(mm).padStart(2,'0');
+    hubSub.textContent=ap+' · LOCAL';
+
+    const o=activeOrgan(hf); const c=EL[o.el].color;
+    nowDot.style.background=c; nowDot.style.boxShadow='0 0 18px '+c;
+    nowMain.textContent='Now: '+o.name+'  ·  '+EL[o.el].name;
+    nowMain.style.color=INK[o.el]||c;
+    nowSub.innerHTML='It’s <b>'+h12+':'+String(mm).padStart(2,'0')+' '+ap+'</b> — '+o.name+' Qi is at its daily peak. '+
+      '<span style="color:var(--gold)">Tap any organ to read its message.</span>';
+    // active-segment glow
+    Object.values(segEls).forEach(p=>p.classList.remove('active'));
+    segEls[o.key].classList.add('active');
+    return o.key;
+  }
+
+  // init: show current organ in detail, then update clock each second
+  const startKey=tick();
+  select(startKey,false);
+  setInterval(tick,1000);
+
+  // ── Report height to parent (for auto-sizing the iframe in the members area) ──
+  function postHeight(){
+    const h=Math.ceil(document.body.scrollHeight);
+    if(window.parent && window.parent!==window){ window.parent.postMessage({clockHeight:h},'*'); }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  document.addEventListener('click', ()=>setTimeout(postHeight,160), true);  // detail panel grows/shrinks
+  setTimeout(postHeight,200); setTimeout(postHeight,800);
+})();
+</script>
+</body>
+</html>

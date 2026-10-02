@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /login.html
+Disallow: /members-main.html
+Disallow: /checkout.html
+
+Sitemap: https://taoquen.com/sitemap.xml

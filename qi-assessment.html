@@ -1,0 +1,3352 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Qi Assessment &mdash; Discover Your Healing Path | Taoquen</title>
+  <meta name="description" content="Take the free TCM Qi assessment. Discover which organ systems need support and which healing practice is right for you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://taoquen.com/qi-assessment.html">
+  <meta property="og:title" content="Free Qi Assessment — Discover Your Healing Path | Taoquen">
+  <meta property="og:description" content="Take the free TCM Qi assessment. Discover which organ systems need support and which healing practice is right for you.">
+  <meta property="og:image" content="https://taoquen.com/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Qi Assessment — Discover Your Healing Path | Taoquen">
+  <meta name="twitter:description" content="Take the free TCM Qi assessment. Discover which organ systems need support and which healing practice is right for you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@400;500&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       DESIGN SYSTEM
+       ========================================= */
+    :root {
+      /* Dragon's Way Qigong® Brand Palette */
+      --dark:        #E9E4DA;   /* Sand — main background          */
+      --dark-2:      #DED8CC;   /* Sand-2 — alt section background */
+      --dark-3:      #D2CCC0;   /* Sand-3 — deeper section bg      */
+      --jade:        #55160A;   /* Wine — primary accent            */
+      --jade-light:  #C02026;   /* Red — secondary accent           */
+      --jade-glow:   rgba(192,32,38,0.18);
+      --gold:        #55160A;   /* Wine — replaces gold             */
+      --gold-light:  #C02026;   /* Red — replaces gold-light        */
+      --gold-dim:    rgba(85,22,10,0.1);
+      --text:        #1a0804;   /* Near-black warm — body text      */
+      --text-muted:  #6b4030;   /* Warm brown — muted text          */
+      --text-light:  #4a2a1a;   /* Medium brown — light text        */
+      --card-bg:     rgba(255,255,255,0.55);
+      --card-border: rgba(85,22,10,0.15);
+      --glass-bg:    rgba(85,22,10,0.06);
+      --glass-border:rgba(192,32,38,0.18);
+      --red:         #C02026;
+      --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================
+       UTILITY
+       ========================================= */
+    .gold { color: var(--gold); }
+    .jade { color: var(--jade-light); }
+    .italic { font-style: italic; }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* =========================================
+       NAVIGATION
+       ========================================= */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      background: transparent;
+      transition: background 0.4s var(--ease), padding 0.4s var(--ease), backdrop-filter 0.4s;
+    }
+    .site-nav.scrolled {
+      background: rgba(233,228,218,0.97);
+      backdrop-filter: blur(12px);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(85,22,10,0.15);
+      box-shadow: 0 2px 20px rgba(85,22,10,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* ── LOGO A·01 — humanist lowercase + vermillion seal ── */
+    .lockup { position:relative; text-align:left; line-height:1; display:inline-block; text-decoration:none; color:inherit; padding-right:10px; }
+    .lockup-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:24px; letter-spacing:0.04em; color:rgba(255,248,244,0.95); display:block; white-space:nowrap; text-transform:lowercase; transition:color 0.4s; }
+    .lockup-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:10.5px; color:rgba(255,248,244,0.5); margin-top:5px; letter-spacing:0.01em; white-space:nowrap; display:block; transition:color 0.4s; }
+    .lockup-seal { position:absolute; top:-5px; right:0; width:14px; height:14px; background:#b73f2a; transform:rotate(-2deg); display:flex; align-items:center; justify-content:center; }
+    .lockup-seal span { font-family:'Noto Serif SC',serif; font-size:8px; color:#f6efe0; line-height:1; display:block; }
+    .site-nav.scrolled .lockup-name { color:#1b1b18; }
+    .site-nav.scrolled .lockup-sub  { color:rgba(42,48,16,0.75); }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: rgba(255,248,244,0.65);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: rgba(255,248,244,1); }
+    .site-nav.scrolled .nav-links a { color: var(--text-muted); }
+    .site-nav.scrolled .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: rgba(192,32,38,0.85);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+    .site-nav.scrolled .nav-cta { background: var(--gold) !important; }
+    .nav-login-pill { padding: 7px 16px; border-radius: 4px; border: 1.5px solid rgba(255,248,244,0.4); color: rgba(255,248,244,0.85) !important; font-size: 0.72rem !important; font-weight: 500 !important; transition: all 0.2s !important; white-space: nowrap; }
+    .nav-login-pill:hover { border-color: rgba(255,248,244,0.8); color: #fff8f4 !important; background: rgba(255,248,244,0.08); }
+    .site-nav.scrolled .nav-login-pill { border-color: rgba(42,48,16,0.3); color: var(--text-muted) !important; }
+    .site-nav.scrolled .nav-login-pill:hover { border-color: var(--jade-light); color: var(--jade) !important; }
+
+    /* =========================================
+       HERO
+       ========================================= */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #2a0805 0%, #55160A 55%, #3a0e08 100%);
+    }
+    .hero-bg.loaded { opacity: 1; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 55%, rgba(192,32,38,0.12) 0%, transparent 65%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 880px;
+      padding: 0 24px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,230,180,0.78);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeInDown 0.8s 0.3s forwards;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: rgba(255,230,180,0.4);
+      opacity: 1;
+    }
+    .hero-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: #fff8f4;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeInUp 0.9s 0.5s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: #e8a04a;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,248,244,0.68);
+      max-width: 680px;
+      margin: 0 auto 44px;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeInUp 0.9s 0.7s forwards;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeInUp 0.9s 0.9s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(192,32,38,0.25);
+      color: white;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text);
+      padding: 15px 32px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      border: 1px solid rgba(85,22,10,0.3);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(85,22,10,0.06);
+    }
+    .hero-ctas .btn-primary {
+      background: #e8a04a;
+      color: #1a0804;
+    }
+    .hero-ctas .btn-primary:hover {
+      background: #f0b860;
+      color: #1a0804;
+    }
+    .hero-ctas .btn-outline {
+      color: rgba(255,248,244,0.85);
+      border-color: rgba(255,248,244,0.35);
+    }
+    .hero-ctas .btn-outline:hover {
+      color: #fff8f4;
+      border-color: rgba(255,248,244,0.85);
+      background: rgba(255,248,244,0.06);
+    }
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: float 2s ease-in-out infinite;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards, float 2.5s 2.5s ease-in-out infinite;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-15px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    /* =========================================
+       TRUTH BANNER (Pattern Interrupt)
+       ========================================= */
+    .truth-banner {
+      background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-2) 100%);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 72px 0;
+    }
+    .truth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+      align-items: center;
+    }
+    .truth-cell {
+      padding: 0 48px;
+    }
+    .truth-divider {
+      background: var(--card-border);
+      height: 120px;
+      align-self: center;
+    }
+    .truth-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .truth-statement {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      color: var(--text);
+      font-style: italic;
+    }
+    .truth-statement .gold { font-style: normal; }
+
+    /* =========================================
+       STATS BAR
+       ========================================= */
+    .stats-bar {
+      background: var(--jade);
+      padding: 40px 0;
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: block;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-top: 6px;
+    }
+
+    /* =========================================
+       SECTION BASE
+       ========================================= */
+    .section {
+      padding: 100px 0;
+    }
+    .section-alt {
+      background: var(--dark-2);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--jade-light);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-bottom: 20px;
+    }
+    .section-lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-bottom: 32px;
+    }
+
+    /* =========================================
+       TCM FRAMEWORK TABS
+       ========================================= */
+    .tcm-framework {
+      padding: 100px 0;
+      background: var(--dark);
+    }
+    .tcm-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 64px;
+    }
+    .tcm-tabs-nav {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid rgba(85,22,10,0.15);
+      margin-bottom: 56px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 0;
+    }
+    .tcm-tabs-nav::-webkit-scrollbar { display: none; }
+    .tcm-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: -1px;
+    }
+    .tcm-tab-btn:hover { color: var(--text); }
+    .tcm-tab-btn.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .tcm-tab-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .tcm-panel {
+      display: none;
+    }
+    .tcm-panel.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      animation: fadeInUp 0.5s var(--ease);
+    }
+    .tcm-panel-text .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--jade-light);
+      margin-bottom: 16px;
+    }
+    .tcm-panel-text h3 {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      margin-bottom: 24px;
+    }
+    .tcm-panel-text p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+    }
+    .tcm-quote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      background: var(--gold-dim);
+      border-radius: 0 8px 8px 0;
+      margin: 28px 0;
+    }
+    .tcm-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--gold-light) !important;
+      font-size: 1.1rem !important;
+      margin: 0 !important;
+    }
+    .tcm-visual {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .tcm-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.6s var(--ease);
+    }
+    /* Meridian image — show full chart, don't crop */
+    #tab-meridians .tcm-visual,
+    #tab-fiveelements .tcm-visual {
+      aspect-ratio: unset;
+      height: auto;
+    }
+    #tab-meridians .tcm-visual img,
+    #tab-fiveelements .tcm-visual img {
+      height: auto;
+      object-fit: contain;
+      object-position: center center;
+    }
+    .tcm-visual:hover img { transform: scale(1.04); }
+    .tcm-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,8,4,0.55) 0%, transparent 60%);
+    }
+    .tcm-visual-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      right: 24px;
+      font-size: 0.82rem;
+      color: rgba(255,248,246,0.9);
+      font-style: italic;
+    }
+
+    /* Yin-Yang visual element */
+    .yinyang-graphic {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Five Elements Wheel */
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .element-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .element-card:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
+    .element-card .element-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .element-card h5 {
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .element-card p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin: 0 !important;
+    }
+
+    /* Organ cards */
+    .organ-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .organ-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .organ-card-img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .organ-card-body {
+      padding: 14px 12px 16px;
+    }
+    .organ-icon { display: none; }
+    .organ-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 4px; }
+    .organ-emotion { font-size: 0.75rem; color: var(--jade-light); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .organ-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Meridian pathway list */
+    .meridian-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .meridian-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--card-bg);
+      border: 1px solid rgba(85,22,10,0.08);
+      border-radius: 6px;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+    .meridian-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--jade-light);
+      flex-shrink: 0;
+    }
+
+    /* =========================================
+       ASSESSMENT QUIZ
+       ========================================= */
+    .assessment-section {
+      padding: 100px 0;
+      background: var(--dark-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .assessment-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(192,32,38,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .assessment-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 60px;
+    }
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .quiz-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(85,22,10,0.1);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .quiz-card:hover { border-color: rgba(192,32,38,0.25); }
+    .quiz-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .quiz-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .quiz-card h4 {
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .quiz-card h4 small {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 2px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .quiz-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .quiz-option input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid rgba(85,22,10,0.25);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 3px;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .quiz-option input[type="checkbox"]:checked {
+      background: var(--jade);
+      border-color: var(--jade-light);
+    }
+    .quiz-option input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .quiz-option span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+    .quiz-option:hover span { color: var(--text); }
+    .quiz-option input:checked + span { color: var(--text-light); }
+
+    .quiz-action {
+      text-align: center;
+    }
+    .quiz-progress {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .quiz-progress-text { font-size: 0.82rem; color: var(--text-muted); }
+    .quiz-count {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* =========================================
+       RESULTS SECTION
+       ========================================= */
+    #results-section {
+      display: none;
+      padding: 80px 0;
+      background: var(--dark);
+    }
+    #results-section.show { display: block; }
+
+    .results-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .results-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+    .result-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .result-card h3 {
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .result-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .result-card ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(85,22,10,0.08);
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .result-card ul li:last-child { border-bottom: none; }
+    .result-card ul li::before {
+      content: '◆';
+      color: var(--jade-light);
+      font-size: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .food-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 56px;
+    }
+    .food-col h4 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .food-col.eat h4 { color: var(--jade-light); }
+    .food-col.avoid h4 { color: #C02026; }
+    .food-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .food-col ul li {
+      padding: 8px 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(85,22,10,0.06);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .food-col.eat ul li::before { content: '✓'; color: var(--jade-light); font-weight: 700; }
+    .food-col.avoid ul li::before { content: '✕'; color: #C02026; font-weight: 700; }
+
+    .program-rec-banner {
+      background: linear-gradient(135deg, var(--jade) 0%, var(--dark-3) 100%);
+      border: 1px solid rgba(85,22,10,0.2);
+      border-radius: 12px;
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .program-rec-icon { font-size: 3rem; }
+    .program-rec-text h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .program-rec-text p { color: var(--text-light); font-size: 0.95rem; }
+
+    /* =========================================
+       PROGRAMS SECTION
+       ========================================= */
+    .programs-section {
+      padding: 100px 0;
+      background: var(--dark-2);
+      position: relative;
+    }
+    .programs-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=85');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    .programs-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 72px;
+      position: relative;
+    }
+    .programs-header .section-title { margin-bottom: 20px; }
+    .programs-header p { color: var(--text-muted); font-size: 1.05rem; }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+    }
+    .program-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(85,22,10,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+    }
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(85,22,10,0.15);
+      border-color: rgba(85,22,10,0.25);
+    }
+    .program-card.featured {
+      border-color: var(--gold);
+      position: relative;
+    }
+    .program-card.featured .program-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--gold);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-bottom-left-radius: 10px;
+    }
+    .program-img {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .program-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+    .program-card:hover .program-img img { transform: scale(1.06); }
+    .program-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,8,4,0.7) 0%, transparent 60%);
+    }
+    .program-title-banner {
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 28px 32px;
+      text-align: center;
+      color: #fff;
+    }
+    .ptb-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    .ptb-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .ptb-divider {
+      width: 36px;
+      height: 0.5px;
+      background: rgba(255,255,255,0.4);
+    }
+    .ptb-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      opacity: 0.5;
+    }
+    .ptb-feg  { background: linear-gradient(135deg, #2a0f0a 0%, #55160A 55%, #7a1e0e 100%); }
+    .ptb-3es  { background: linear-gradient(135deg, #0d1f0a 0%, #1e5018 55%, #2e6622 100%); }
+    .program-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .program-logo-wrap {
+      margin: 4px -28px 22px;
+      padding: 18px 28px;
+      background: #fff;
+      border-bottom: 1px solid rgba(85,22,10,0.09);
+      border-radius: 0;
+    }
+    .program-logo-wrap img {
+      height: 80px;
+      width: auto;
+      display: block;
+    }
+    .program-type {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--jade-light);
+      margin-bottom: 10px;
+    }
+    .program-title {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .program-tagline {
+      font-size: 0.88rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+    }
+    .program-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .program-includes {
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .program-includes-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .program-includes ul {
+      list-style: none;
+      padding: 0;
+    }
+    .program-includes ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.83rem;
+      color: var(--text-light);
+      padding: 6px 0;
+    }
+    .program-includes ul li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.6rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .program-footer {
+      border-top: 1px solid rgba(85,22,10,0.1);
+      padding-top: 20px;
+    }
+    .program-cta {
+      display: block;
+      text-align: center;
+      background: var(--jade);
+      color: white;
+      padding: 13px 24px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .program-cta:hover {
+      background: var(--jade-light);
+      color: white;
+      transform: translateY(-1px);
+    }
+    .program-card.featured .program-cta {
+      background: var(--gold);
+      color: white;
+    }
+    .program-card.featured .program-cta:hover {
+      background: var(--gold-light);
+      color: white;
+    }
+    .program-guarantee {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+    .program-value-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .program-value-note del { opacity: 0.6; }
+    .program-value-note strong { color: var(--gold); font-size: 1.1rem; }
+
+    /* =========================================
+       TESTIMONIALS
+       ========================================= */
+    .testimonials-section {
+      padding: 100px 0;
+      background: var(--dark);
+      position: relative;
+    }
+    .testimonials-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--card-border), transparent);
+    }
+    .testimonials-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(85,22,10,0.1);
+      border-radius: 14px;
+      padding: 36px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .testimonial-card:hover { border-color: var(--card-border); }
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 16px;
+      left: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 1;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--jade), var(--dark-3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-weight: 500; font-size: 0.92rem; color: var(--text); }
+    .testimonial-detail { font-size: 0.78rem; color: var(--jade-light); margin-top: 2px; }
+    .testimonial-program {
+      display: inline-block;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 4px;
+    }
+
+    /* Extra testimonial - wide card */
+    .testimonial-card.wide {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .testimonial-card.wide .testimonial-img {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .testimonial-card.wide .testimonial-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================================
+       GUARANTEE
+       ========================================= */
+    .guarantee-section {
+      padding: 80px 0;
+      background: var(--dark-3);
+      border-top: 1px solid rgba(85,22,10,0.12);
+      border-bottom: 1px solid rgba(85,22,10,0.12);
+    }
+    .guarantee-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .guarantee-badge {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background: var(--gold-dim);
+    }
+    .guarantee-badge .guar-icon { font-size: 2rem; margin-bottom: 6px; }
+    .guarantee-badge .guar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      line-height: 1.2;
+    }
+    .guarantee-text h2 { font-size: clamp(1.6rem, 2.5vw, 2rem); margin-bottom: 16px; }
+    .guarantee-text p { color: var(--text-muted); font-size: 1rem; max-width: 560px; }
+
+    /* =========================================
+       CTA FINAL
+       ========================================= */
+    .final-cta {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=2400&q=90');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .final-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(26,8,4,0.92) 0%, rgba(85,22,10,0.85) 100%);
+    }
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
+    }
+    .final-cta h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 24px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #fff8f4;
+    }
+    .final-cta p {
+      color: rgba(255,248,244,0.82);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .final-cta .gold.italic {
+      color: var(--gold-light);
+    }
+    .final-cta .btn-outline {
+      border-color: rgba(255,248,244,0.45);
+      color: #fff8f4;
+    }
+    .final-cta .btn-outline:hover {
+      border-color: #fff8f4;
+      background: rgba(255,248,244,0.1);
+      color: #fff8f4;
+    }
+    .urgency-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,248,244,0.9);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 32px;
+    }
+    .urgency-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #C02026;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    footer {
+      background: var(--dark-3);
+      border-top: 1px solid rgba(85,22,10,0.12);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 320px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(85,22,10,0.12);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .footer-disclaimer {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      text-align: center;
+    }
+
+    /* =========================================
+       BACK TO TOP
+       ========================================= */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      background: var(--jade);
+      border: 1px solid rgba(85,22,10,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+      z-index: 999;
+      font-size: 1.1rem;
+      color: white;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .back-to-top:hover { transform: translateY(-3px); }
+
+    /* =========================================
+       RESPONSIVE
+       ========================================= */
+    @media (max-width: 1024px) {
+      .programs-grid { grid-template-columns: 1fr; gap: 20px; }
+      .programs-grid .program-card { max-width: 600px; margin: 0 auto; width: 100%; }
+      .tcm-panel.active { grid-template-columns: 1fr; }
+      .truth-grid { grid-template-columns: 1fr; }
+      .truth-divider { display: none; }
+      .truth-cell { padding: 24px 0; border-bottom: 1px solid var(--card-border); }
+    }
+
+    /* =========================================
+       QI IS GOLD SECTION
+       ========================================= */
+    .qi-gold-section {
+      background: var(--dark-2);
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .qi-gold-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 40%, rgba(201,168,76,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(201,168,76,0.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .qi-gold-inner { max-width: 1020px; margin: 0 auto; position: relative; }
+    .qi-gold-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .gold-word {
+      background: linear-gradient(135deg, #b8861f 0%, #e8c14a 40%, #f5d76e 65%, #c9a030 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .qi-gold-sub {
+      text-align: center;
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 680px;
+      margin: 0 auto 60px;
+      line-height: 1.9;
+    }
+    .qi-gold-sub em { color: var(--gold-light); font-style: italic; }
+    .gold-comparison {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 700px) { .gold-comparison { grid-template-columns: 1fr; } }
+    .gc-col { padding: 40px 36px; }
+    .gc-col.physical { background: rgba(201,168,76,0.10); border-right: 1px solid rgba(201,168,76,0.2); }
+    .gc-col.qi-side  { background: var(--glass-bg); }
+    .gc-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 22px;
+      gap: 8px;
+      background: rgba(85,22,10,0.03);
+      border-left: 1px solid var(--card-border);
+      border-right: 1px solid var(--card-border);
+    }
+    .gc-divider .equals { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #c9a030; line-height: 1; }
+    .gc-divider .vs-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+    .gc-col h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 22px; }
+    .gc-col.physical h3 { color: #b8861f; }
+    .gc-col.qi-side  h3 { color: var(--jade-light); }
+    .gc-trait { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+    .gc-trait .t-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+    .gc-col.physical .t-dot { background: #c9a030; }
+    .gc-col.qi-side  .t-dot { background: var(--jade-light); }
+    .gc-trait .t-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+    .gc-trait .t-text strong { display: block; font-weight: 600; color: var(--text); margin-bottom: 3px; font-size: 0.95rem; }
+    .qi-gold-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .qg-pillar {
+      border-radius: 14px;
+      padding: 32px 26px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .qg-pillar:hover { background: rgba(201,168,76,0.08); border-color: #c9a030; transform: translateY(-3px); }
+    .qg-pillar .p-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+    .qg-pillar h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold-light); margin-bottom: 10px; line-height: 1.3; }
+    .qg-pillar p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.8; }
+    .qi-mining {
+      background: var(--gold-dim);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 52px 48px;
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .qi-mining { grid-template-columns: 1fr; padding: 32px 26px; gap: 32px; } }
+    .qi-mining h3 { font-family: 'Playfair Display', serif; font-size: 1.55rem; color: var(--gold-light); margin-bottom: 18px; line-height: 1.3; }
+    .qi-mining h3 em { font-style: italic; }
+    .qi-mining p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 14px; }
+    .qi-mining p:last-child { margin-bottom: 0; }
+    .mining-steps { display: flex; flex-direction: column; gap: 16px; }
+    .mining-step { display: flex; align-items: flex-start; gap: 16px; }
+    .ms-num {
+      background: linear-gradient(135deg, #b8861f, #e8c14a);
+      color: #1a0804;
+      font-weight: 800;
+      font-size: 0.82rem;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ms-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+    .ms-text strong { display: block; color: var(--gold-light); font-weight: 600; margin-bottom: 2px; font-size: 0.92rem; }
+    .qi-gold-quote { text-align: center; max-width: 700px; margin: 0 auto; }
+    .qi-gold-quote .q-line { display: block; width: 48px; height: 2px; background: linear-gradient(90deg, #b8861f, #e8c14a, #b8861f); margin: 0 auto 20px; border-radius: 2px; }
+    .qi-gold-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--text-light); line-height: 1.75; margin-bottom: 16px; }
+    .qi-gold-quote cite { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.08em; font-style: normal; }
+
+    /* =========================================
+       KIDNEY LIFECYCLE — FINITE INHERITANCE
+       ========================================= */
+    .kidney-lifecycle { background: var(--dark-2); padding: 96px 0; }
+    .kl-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    .kl-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .kl-h2 em { font-style: italic; color: var(--jade-light); }
+    .kl-intro { text-align: center; font-size: 1.07rem; color: var(--text-muted); max-width: 760px; margin: 0 auto 52px; line-height: 1.9; }
+    .kl-intro em { color: var(--gold-light); font-style: italic; }
+    .kl-sub { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--text); text-align: center; margin-bottom: 22px; line-height: 1.35; }
+    .kl-sub em { font-style: italic; color: var(--jade-light); }
+    .kl-body-text { font-size: 0.97rem; color: var(--text-muted); line-height: 1.9; max-width: 820px; margin: 0 auto 28px; text-align: center; }
+    .kl-body-text em { color: var(--gold-light); }
+    .kl-body-text strong { color: var(--text-light); }
+    .kl-table-wrap { overflow-x: auto; margin: 0 auto 56px; max-width: 860px; }
+    .kl-table { width: 100%; border-collapse: collapse; background: rgba(85,22,10,0.02); border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); }
+    .kl-table thead { background: linear-gradient(135deg, #55160A, #7a2010); }
+    .kl-table thead th { padding: 16px 24px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff8f6; text-align: left; }
+    .kl-table tbody tr { border-bottom: 1px solid rgba(85,22,10,0.1); transition: background 0.15s; }
+    .kl-table tbody tr:last-child { border-bottom: none; }
+    .kl-table tbody tr:hover { background: rgba(201,168,76,0.05); }
+    .kl-table td { padding: 15px 24px; font-size: 0.93rem; color: var(--text-muted); vertical-align: top; }
+    .kl-table td:first-child { color: var(--jade-light); font-weight: 600; width: 26%; }
+    .kl-table td:nth-child(2) { color: var(--text-muted); width: 37%; }
+    .kl-table td:nth-child(3) { color: var(--text-muted); width: 37%; }
+    .kl-chart-frame { background: rgba(85,22,10,0.03); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; margin: 0 0 52px; }
+    .kl-chart-header { padding: 26px 32px 18px; border-bottom: 1px solid rgba(85,22,10,0.12); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; }
+    .kl-chart-title h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 4px; }
+    .kl-chart-title .ch-sub { font-size: 0.76rem; color: var(--text-muted); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 3px; }
+    .kl-chart-title .ch-note { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.83rem; color: var(--text-muted); opacity: 0.7; }
+    .kl-legend { display: flex; flex-direction: column; gap: 7px; }
+    .kl-leg-item { display: flex; align-items: center; gap: 10px; font-size: 0.79rem; color: var(--text-light); }
+    .kl-leg-item .leg-label { font-weight: 500; }
+    .kl-leg-item .leg-cycle { font-weight: 300; color: var(--text-muted); font-size: 0.72rem; }
+    .kl-svg-wrap { padding: 0 32px 4px; }
+    .kl-milestones { padding: 14px 32px 22px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; border-top: 1px solid rgba(85,22,10,0.12); }
+    .kl-chip { display: flex; align-items: center; gap: 6px; background: rgba(85,22,10,0.04); border: 1px solid rgba(85,22,10,0.12); border-radius: 20px; padding: 5px 12px; font-size: 0.71rem; color: var(--text-muted); }
+    .kl-chip .kl-age { font-weight: 600; color: var(--text-light); }
+    .kl-drain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 28px 0 56px; }
+    @media (max-width: 720px) { .kl-drain-grid { grid-template-columns: 1fr; } }
+    .kl-drain-card { background: var(--card-bg); border-radius: 14px; padding: 0; text-align: center; border: 1px solid var(--card-border); transition: transform 0.2s, border-color 0.2s; overflow: hidden; }
+    .kl-drain-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .kl-drain-card-img { display: block; width: 100%; height: 220px; object-fit: cover; }
+    .kl-drain-card-body { padding: 28px 28px 36px; }
+    .kl-drain-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); margin-bottom: 10px; }
+    .kl-drain-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+    .kl-reversal { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 46px 54px; margin-bottom: 44px; }
+    @media (max-width: 700px) { .kl-reversal { padding: 30px 24px; } }
+    .kl-reversal h3 { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--text); margin-bottom: 22px; line-height: 1.35; }
+    .kl-reversal h3 em { font-style: italic; color: var(--jade-light); }
+    .kl-reversal p { font-size: 0.97rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 16px; }
+    .kl-reversal p:last-child { margin-bottom: 0; }
+    .kl-reversal em { color: var(--gold-light); font-style: italic; }
+    .kl-quote { border-left: 3px solid var(--jade-light); padding: 20px 24px; background: var(--glass-bg); border-radius: 0 8px 8px 0; margin-top: 24px; }
+    .kl-quote p { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-light); font-size: 1.1rem; margin: 0 0 8px; }
+    .kl-quote cite { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.06em; font-style: normal; }
+
+    /* ── Cohort Calendar ─────────────────────────────────────── */
+    .cohort-section { margin: 40px 0 52px; }
+    .cohort-section-head { text-align: center; margin-bottom: 40px; }
+    .cohort-section-head h3 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+    .cohort-section-head h3 em { font-style: italic; color: var(--gold-light); }
+    .cohort-section-sub { font-size: 0.97rem; color: var(--text-muted); max-width: 580px; margin: 0 auto; line-height: 1.8; }
+    .cohort-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; margin-bottom: 28px; box-shadow: 0 2px 16px rgba(85,22,10,0.06); }
+    .cohort-banner { background: linear-gradient(135deg, #55160A 0%, #3a0e08 100%); padding: 16px 36px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .cohort-banner .cb-label { font-weight: 700; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,235,210,0.9); }
+    .cohort-banner .cb-spots { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border-radius: 30px; padding: 4px 13px; font-size: 0.75rem; font-weight: 700; color: rgba(255,235,210,0.85); letter-spacing: 0.05em; }
+    .cb-spots .spot-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff9a7a; animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.75); } }
+    .cohort-body { padding: 36px; }
+    .cohort-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 0; border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; margin-bottom: 32px; background: rgba(255,255,255,0.4); }
+    .cd-item { padding: 20px 22px; border-right: 1px solid var(--card-border); display: flex; flex-direction: column; gap: 5px; }
+    .cd-item:last-child { border-right: none; }
+    @media (max-width: 700px) { .cd-item { border-right: none; border-bottom: 1px solid var(--card-border); } .cd-item:last-child { border-bottom: none; } .cohort-body { padding: 22px 18px; } .cohort-banner { padding: 14px 18px; } }
+    .cd-icon { font-size: 1.25rem; margin-bottom: 2px; }
+    .cd-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+    .cd-value { font-family: 'Playfair Display', serif; font-size: 0.98rem; color: var(--text); font-weight: 600; line-height: 1.3; }
+    .cd-note { font-size: 0.72rem; color: var(--text-muted); }
+    .cohort-sessions-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .cohort-dates { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 0; }
+    .date-chip { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.6); border: 1px solid var(--card-border); border-radius: 10px; padding: 11px 14px; min-width: 68px; gap: 3px; transition: background 0.2s, border-color 0.2s; }
+    .date-chip:hover { background: rgba(85,22,10,0.06); border-color: var(--gold-light); }
+    .date-chip.first-session { border-color: var(--gold-light); background: rgba(192,32,38,0.07); }
+    .date-chip .dc-week { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .date-chip.first-session .dc-week { color: var(--gold-light); }
+    .date-chip .dc-day { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1; }
+    .date-chip .dc-month { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.04em; }
+    .cohort-enroll-note { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--card-border); text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .cohort-enroll-note strong { color: var(--gold-light); font-weight: 600; }
+    .cohort-enroll-note .enroll-arrow { font-size: 1.1rem; color: var(--gold-light); animation: bounce-down 1.6s ease-in-out infinite; display: inline-block; }
+    @keyframes bounce-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+    .cohort-guarantee { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0 0; font-size: 0.76rem; color: var(--text-muted); letter-spacing: 0.03em; flex-wrap: wrap; }
+    .cohort-guarantee .g-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--card-border); flex-shrink: 0; }
+    .cohort-card.muted { opacity: 0.78; }
+    .cohort-card.muted .cohort-banner { background: linear-gradient(135deg, #7a6a5a 0%, #5a4a3a 100%); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-title { font-size: 1.65rem; }
+      .quiz-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .food-table { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-card.wide { grid-column: auto; grid-template-columns: 1fr; }
+      .testimonial-card.wide .testimonial-img { display: none; }
+      .guarantee-inner { flex-direction: column; text-align: center; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .section { padding: 64px 0; }
+      .meridian-list { grid-template-columns: 1fr; }
+      .elements-grid { grid-template-columns: repeat(3, 1fr); }
+      .organ-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* =========================================
+       VIDEO FEATURE — YouTube
+       ========================================= */
+    .dwq-video-feature {
+      background: var(--dark-3);
+      padding: 88px 0;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+    }
+    .dwq-video-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .dwq-video-feature h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      color: var(--text);
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+    .dwq-video-feature > .dwq-video-inner > p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.85;
+      margin-bottom: 40px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =========================================
+       ABOUT THE PROGRAM — Vimeo + quotes
+       ========================================= */
+    .about-dwq-section {
+      background: var(--dark-2);
+      padding: 88px 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--card-border);
+    }
+    .about-dwq-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(192,32,38,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .about-dwq-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+    .about-dwq-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 36px;
+      line-height: 1.3;
+    }
+    .about-dwq-section h2 em { color: var(--jade-light); font-style: italic; }
+    .about-dwq-section p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+    .about-dwq-section p strong { color: var(--text-light); font-weight: 600; }
+    .about-dwq-section .dwq-quote {
+      border-left: 3px solid var(--jade-light);
+      padding: 20px 28px;
+      margin: 36px auto;
+      max-width: 680px;
+      background: rgba(85,22,10,0.05);
+      border-radius: 0 10px 10px 0;
+    }
+    .about-dwq-section .dwq-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.12rem;
+      color: var(--text);
+      margin: 0 0 10px;
+    }
+    .about-dwq-section .dwq-quote cite {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: normal;
+      letter-spacing: 0.05em;
+    }
+
+    /* shared video wrapper */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 0 auto 48px;
+      max-width: 760px;
+      border: 1px solid rgba(85,22,10,0.18);
+      box-shadow: 0 12px 48px rgba(85,22,10,0.12);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* =========================================
+       ENROLL INTEREST MODAL
+       ========================================= */
+    .enroll-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,8,4,0.72);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .enroll-modal-overlay.open {
+      pointer-events: auto;
+    }
+    .enroll-modal-overlay.open {
+      opacity: 1;
+    }
+    /* (pointer-events toggled by .open class — see above) */
+    .enroll-modal-box {
+      background: var(--dark);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 40px 36px 36px;
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(26,8,4,0.3);
+      transform: translateY(16px);
+      transition: transform 0.28s ease;
+    }
+    .enroll-modal-overlay.open .enroll-modal-box {
+      transform: translateY(0);
+    }
+    .enroll-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .enroll-modal-close:hover { background: rgba(85,22,10,0.08); }
+    .enroll-modal-logo {
+      margin-bottom: 20px;
+    }
+    .enroll-modal-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+    .enroll-program-label {
+      display: inline-block;
+      background: rgba(192,32,38,0.1);
+      border: 1px solid rgba(192,32,38,0.25);
+      color: var(--jade-light);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .enroll-modal-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+    .enroll-modal-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .enroll-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .enroll-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .enroll-field label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .enroll-field input,
+    .enroll-field textarea {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(85,22,10,0.18);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: vertical;
+    }
+    .enroll-field input:focus,
+    .enroll-field textarea:focus {
+      border-color: var(--jade-light);
+      box-shadow: 0 0 0 3px rgba(192,32,38,0.1);
+    }
+    .enroll-field input.invalid,
+    .enroll-field textarea.invalid {
+      border-color: #c0392b;
+    }
+    .enroll-error {
+      font-size: 0.75rem;
+      color: #c0392b;
+      display: none;
+    }
+    .enroll-error.show { display: block; }
+    .enroll-submit {
+      background: var(--jade-light);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 4px;
+    }
+    .enroll-submit:hover { background: var(--jade); transform: translateY(-1px); }
+    .enroll-submit:active { transform: translateY(0); }
+    .enroll-privacy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin: 0;
+    }
+    .enroll-thanks-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(192,32,38,0.1);
+      border: 2px solid var(--jade-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--jade-light);
+      margin: 0 auto 20px;
+    }
+    #enrollThanksStep { text-align: center; }
+    @media (max-width: 540px) {
+      .enroll-modal-box { padding: 28px 20px 24px; }
+    }
+
+    /* =========================================
+       INSTRUCTORS SECTION
+       ========================================= */
+    .instructors-section {
+      background: var(--dark-2);
+      padding: 88px 0;
+      border-top: 1px solid var(--card-border);
+    }
+    .instructors-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .instructors-intro {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .instructors-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 520px);
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+    .instructor-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .instructor-card:hover {
+      box-shadow: 0 12px 40px rgba(85,22,10,0.12);
+      transform: translateY(-3px);
+    }
+    .instructor-photo-wrap {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      background: var(--dark-3);
+      flex-shrink: 0;
+    }
+    .instructor-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .instructor-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-2) 100%);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .instructor-photo-placeholder span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1.5px dashed rgba(85,22,10,0.25);
+      padding: 10px 22px;
+      border-radius: 6px;
+    }
+    .instructor-body {
+      padding: 24px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .instructor-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+      margin: 0 0 4px;
+    }
+    .instructor-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--jade-light);
+      margin-bottom: 6px;
+    }
+    .instructor-location {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .instructor-bio {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+    .instructor-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .specialty-tag {
+      background: rgba(85,22,10,0.07);
+      border: 1px solid rgba(85,22,10,0.14);
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .instructors-cta {
+      text-align: center;
+      padding-top: 16px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .instructors-cta strong { color: var(--text-light); }
+    @media (max-width: 768px) {
+      .instructors-grid { grid-template-columns: 1fr; }
+      .instructor-photo-wrap { height: 220px; }
+    }
+
+    /* =========================================
+       GRAND MASTER NAN LU
+       ========================================= */
+    .about-gml {
+      background: var(--dark-3);
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-gml::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, rgba(192,32,38,0.05) 0%, transparent 60%);
+    }
+    .about-gml-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .about-gml .section-label { color: var(--jade-light); text-align: center; display: block; }
+    .about-gml h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .about-gml h2 em { color: var(--jade-light); font-style: italic; }
+    .about-gml .gml-subtitle {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      letter-spacing: 0.03em;
+    }
+    .about-gml p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.95;
+      margin-bottom: 20px;
+    }
+    .about-gml p strong { color: var(--jade); font-weight: 600; }
+    .gml-quote {
+      border-left: 3px solid var(--jade);
+      padding: 20px 28px;
+      margin: 40px auto;
+      max-width: 680px;
+      background: rgba(85,22,10,0.06);
+      border-radius: 0 10px 10px 0;
+    }
+    .gml-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 0 0 10px;
+    }
+    .gml-quote cite {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: normal;
+      letter-spacing: 0.05em;
+    }
+    .gml-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 48px;
+    }
+    .gml-cred {
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 18px 28px;
+      text-align: center;
+      min-width: 160px;
+    }
+    .gml-cred .gc-n {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--jade);
+      margin-bottom: 4px;
+    }
+    .gml-cred .gc-d {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    /* =========================================
+       TAO QUEN MODAL
+       ========================================= */
+    .tq-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,8,4,0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .tq-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .tq-modal-box {
+      background: #f5f2ed;
+      border-radius: 20px;
+      max-width: 540px;
+      width: 100%;
+      padding: 56px 48px 52px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.35s ease;
+      text-align: center;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .tq-modal-overlay.open .tq-modal-box {
+      transform: translateY(0);
+    }
+    .tq-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #9a9088;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .tq-modal-close:hover { background: rgba(0,0,0,0.06); }
+    .tq-modal-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .tq-modal-wordmark {
+      font-family: 'Cinzel', serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #9a9088;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .tq-modal-wordmark span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: #b89a6a;
+      margin-top: 2px;
+    }
+    .tq-modal-headline {
+      font-size: clamp(1.55rem, 4vw, 2.1rem);
+      font-weight: 200;
+      font-style: italic;
+      line-height: 1.35;
+      color: #0e0d0b;
+      margin-bottom: 28px;
+    }
+    .tq-modal-headline em {
+      font-style: normal;
+      font-weight: 300;
+      color: #b89a6a;
+    }
+    .tq-modal-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .tq-modal-divider-line { height: 0.5px; width: 36px; background: #b89a6a; opacity: 0.5; }
+    .tq-modal-divider-glyph {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #9a9088;
+    }
+    .tq-modal-body { display: flex; flex-direction: column; gap: 20px; }
+    .tq-modal-body p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #3d3830;
+    }
+    .tq-modal-wu {
+      font-style: italic;
+      color: #0e0d0b !important;
+      border-left: 1px solid #b89a6a;
+      padding-left: 20px;
+      text-align: left;
+      margin: 0 auto;
+      max-width: 380px;
+    }
+    .tq-modal-closer strong {
+      font-weight: 500;
+      font-style: italic;
+      color: #b89a6a;
+    }
+    @media (max-width: 560px) {
+      .tq-modal-box { padding: 44px 28px 40px; }
+    }
+
+    /* =========================================
+       JUMP TO ASSESSMENT BUTTON
+       ========================================= */
+    .jump-assess-btn {
+      position: fixed;
+      bottom: 88px;
+      right: 32px;
+      background: var(--jade-light);
+      color: #fff;
+      border: none;
+      border-radius: 28px;
+      padding: 10px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+      z-index: 998;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(192,32,38,0.25);
+    }
+    .jump-assess-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .jump-assess-btn:hover { transform: translateY(-2px); }
+
+    /* =========================================
+       ABOUT SECTION — PHOTO ENRICHMENTS
+       ========================================= */
+    .about-photo-banner {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center 40%;
+      border-radius: 14px;
+      margin-bottom: 44px;
+      display: block;
+      border: 1px solid rgba(85,22,10,0.10);
+      box-shadow: 0 10px 40px rgba(85,22,10,0.12);
+    }
+    .about-split-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin: 36px 0;
+    }
+    .about-split-row.reverse { direction: rtl; }
+    .about-split-row.reverse > * { direction: ltr; }
+    .about-split-row img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(85,22,10,0.12);
+      display: block;
+    }
+    .about-split-row .split-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-split-row .split-text p {
+      margin-bottom: 0;
+    }
+    .about-yinyang-wrap {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin: 36px 0;
+    }
+    .about-yinyang-wrap img {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .about-yinyang-wrap .yin-text { flex: 1; }
+
+    /* =========================================
+       FIVE ELEMENT FRAMEWORK SECTION
+       ========================================= */
+    .five-element-section {
+      background: var(--dark);
+      padding: 84px 24px;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .five-element-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .five-element-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .five-element-section .fe-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 44px;
+      line-height: 1.75;
+    }
+    .five-element-img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 14px;
+      box-shadow: 0 12px 56px rgba(85,22,10,0.13);
+      border: 1px solid var(--card-border);
+    }
+    .five-element-caption {
+      margin-top: 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       GRAND MASTER — LINEAGE VISUAL
+       ========================================= */
+    .gml-lineage-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 36px;
+      align-items: start;
+      margin: 28px 0;
+    }
+    .gml-lineage-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 10px;
+      opacity: 0.88;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+
+    /* Responsive for all above */
+    @media (max-width: 768px) {
+      .about-photo-banner { height: 220px; }
+      .about-split-row { grid-template-columns: 1fr; gap: 24px; }
+      .about-split-row.reverse { direction: ltr; }
+      .about-split-row img { height: 220px; }
+      .about-yinyang-wrap { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .about-yinyang-wrap img { width: 130px; height: 130px; }
+      .gml-lineage-grid { grid-template-columns: 1fr; }
+      .gml-lineage-grid img { height: 200px; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/taoquen.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav nav-static" id="siteNav" aria-label="Primary">
+    <div class="wrap nav-in">
+      <a href="index.html" class="lockup" aria-label="Taoquen home">
+        <span class="lockup-name">taoquen</span>
+        <span class="lockup-sub">Entangle with the Tao</span>
+        <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="tcm.html">Learn TCM</a></li>
+        <li><a href="dwq.html">Dragon&rsquo;s Way</a></li>
+        <li><a href="four-energy-gates.html">Self-Care</a></li>
+        <li><a href="qi-assessment.html" class="active">Free Assessment</a></li>
+        <li><a href="free-class.html">Free Class</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="dwq-promo.html" class="tq-btn">Enroll</a></li>
+        <li><a href="login.html" id="navLoginBtn">Log In</a></li>
+      </ul>
+      <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <span class="drawer-sub">Taoquen · TCM Wellness Academy</span>
+    <a href="tcm.html" style="transition-delay:.08s">Learn TCM</a>
+    <a href="dwq.html" style="transition-delay:.13s">Dragon&rsquo;s Way</a>
+    <a href="four-energy-gates.html" style="transition-delay:.18s">Self-Care</a>
+    <a href="qi-assessment.html" style="transition-delay:.23s">Free Assessment</a>
+    <a href="free-class.html" style="transition-delay:.28s">Free Class</a>
+    <a href="programs.html" style="transition-delay:.33s">Programs</a>
+    <a href="dwq-promo.html" style="transition-delay:.38s">Enroll</a>
+    <a href="login.html" style="transition-delay:.43s">Log In</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Free &bull; 3 Minutes &bull; Five Element Assessment</div>
+      <h1 class="hero-title">
+        The fatigue that sleep doesn&rsquo;t fix.<br>
+        The tension that keeps returning.<br>
+        <em>These are not random.</em>
+      </h1>
+      <p class="hero-subtitle">
+        In Five Elements theory, recurring symptoms point to a specific imbalance. This assessment identifies which of your Five Elements is under stress, how it is showing up in your body right now, and what it is asking you to address before it becomes something harder to ignore.
+      </p>
+      <div class="hero-ctas">
+        <a href="#assessment" class="btn-primary">Start the Assessment &mdash; 3 minutes ↓</a>
+        <a href="dwq.html" class="btn-outline">About Dragon&rsquo;s Way Qigong&reg; &rarr;</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Discover</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TRUTH BANNER -->
+  <section class="truth-banner">
+    <div class="container">
+      <div class="truth-grid">
+        <div class="truth-cell reveal">
+          <div class="truth-label">What modern medicine does</div>
+          <p class="truth-statement">
+            "Your doctor treats the symptom.<br>
+            TCM asks <span class="gold">why it keeps returning.</span>"
+          </p>
+        </div>
+        <div class="truth-divider"></div>
+        <div class="truth-cell reveal reveal-delay-2">
+          <div class="truth-label">The ancient truth</div>
+          <p class="truth-statement">
+            "At the level of energy, <span class="gold">nothing is impossible</span> to heal.<br>
+            Nothing is unmovable. Nothing is permanent."
+            <br><small style="font-size:0.75rem;color:var(--text-muted);font-family:'Inter',sans-serif;">— TCM World Foundation</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-number">5,000+</span>
+          <div class="stat-label">Years of Healing History</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <span class="stat-number">12</span>
+          <div class="stat-label">Major Meridian Pathways</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <span class="stat-number">5</span>
+          <div class="stat-label">Element Organ Systems</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <span class="stat-number">6</span>
+          <div class="stat-label">Weeks to Transformation</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-4">
+          <span class="stat-number">100%</span>
+          <div class="stat-label">Satisfaction Guaranteed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ASSESSMENT SECTION -->
+  <section class="assessment-section" id="assessment">
+    <div class="container">
+      <div class="assessment-header reveal">
+        <span class="section-label">Free Qi Assessment</span>
+        <h2 class="section-title">What Is Your Body Telling You?</h2>
+        <div class="section-divider"></div>
+        <p class="section-lead" style="margin:0 auto;">
+          Select every symptom or pattern you experience regularly. Your results will reveal which organ systems need support — and which healing approach is right for you.
+        </p>
+      </div>
+
+      <div class="quiz-grid">
+        <!-- Category 1: Energy & Vitality -->
+        <div class="quiz-card reveal">
+          <div class="quiz-card-header">
+            <div class="quiz-card-icon">⚡</div>
+            <h4>Energy &amp; Vitality</h4>
+          </div>
+          <div class="quiz-options">
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Persistent fatigue, even after adequate sleep</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Low back pain, weak knees, or heel/foot discomfort</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Heavy, sluggish feeling — especially in the afternoon</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Chronic feelings of fear or anxiety without clear cause</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Difficulty losing weight despite diet changes</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Category 2: Digestion & Gut Health -->
+        <div class="quiz-card reveal reveal-delay-1">
+          <div class="quiz-card-header">
+            <div class="quiz-card-icon">🌿</div>
+            <h4>Digestion &amp; Gut Health</h4>
+          </div>
+          <div class="quiz-options">
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Frequent bloating or stomach distension after meals</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Loose stools or irregular bowel movements</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Stomachache after eating cold foods or dairy</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Excess burping or gas after eating</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Food allergies or sensitivities</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Category 3: Mood & Emotional Patterns -->
+        <div class="quiz-card reveal">
+          <div class="quiz-card-header">
+            <div class="quiz-card-icon">🌀</div>
+            <h4>Mood &amp; Stress</h4>
+          </div>
+          <div class="quiz-options">
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="liver"> <span>Frequent irritability, frustration, or short temper</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="liver"> <span>Chronic stress that feels impossible to shake</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="heart"> <span>Mood swings or emotional highs and lows</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="lung"> <span>Recurring sadness, grief, or feeling of loss</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="spleen"> <span>Constant worry or overthinking that cycles</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Category 4: Sleep & Mental Clarity -->
+        <div class="quiz-card reveal reveal-delay-1">
+          <div class="quiz-card-header">
+            <div class="quiz-card-icon">🌙</div>
+            <h4>Sleep &amp; Mental Clarity</h4>
+          </div>
+          <div class="quiz-options">
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="heart"> <span>Difficulty falling or staying asleep</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Waking between 1–3am regularly</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="heart"> <span>Brain fog, poor concentration, or memory lapses</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Feeling mentally depleted even on rest days</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="heart"> <span>Heart palpitations or racing heart without exertion</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Category 5: Pain & Physical Discomfort -->
+        <div class="quiz-card reveal">
+          <div class="quiz-card-header">
+            <div class="quiz-card-icon">💫</div>
+            <h4>Pain &amp; Physical Discomfort</h4>
+          </div>
+          <div class="quiz-options">
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="liver"> <span>Chronic joint pain or stiffness (especially morning)</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Persistent low back pain or sciatica</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="liver"> <span>Headaches, especially behind eyes or at temples</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="liver"> <span>Tight shoulders, neck tension, or jaw clenching</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="kidney"> <span>Recurring urinary issues, fluid retention, or puffiness</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Category 6: Respiratory & Immunity -->
+        <div class="quiz-card reveal reveal-delay-1">
+          <div class="quiz-card-header">
+            <div class="quiz-card-icon">⚙️</div>
+            <h4>Respiratory &amp; Immunity</h4>
+          </div>
+          <div class="quiz-options">
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="lung"> <span>Seasonal allergies or frequent colds/sinus issues</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="lung"> <span>Chronic cough, asthma, or shallow breathing</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="lung"> <span>Dry skin, hair, or nails — especially in autumn</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="lung"> <span>Difficulty "letting go" — of relationships, habits, emotions</span>
+            </label>
+            <label class="quiz-option">
+              <input type="checkbox" class="quiz-check" data-category="lung"> <span>Low immune resilience — you get sick easily</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-action reveal">
+        <button class="btn-primary" onclick="revealResults()" style="font-size:1rem;padding:18px 48px;">
+          Reveal My Results &amp; Recommendations ↓
+        </button>
+        <div class="quiz-progress">
+          <span class="quiz-progress-text">Symptoms selected:</span>
+          <span class="quiz-count" id="checkCount">0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="results-section">
+    <div class="container">
+      <div class="results-header">
+        <span class="section-label">Your TCM Profile</span>
+        <h2 id="results-title">Your Body's Messages Decoded</h2>
+        <p id="results-intro" style="color:var(--text-muted);font-size:1rem;max-width:600px;margin:12px auto 0;"></p>
+      </div>
+
+      <div class="results-grid" id="results-grid">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- Food Recommendations -->
+<div class="food-table reveal" id="food-table-wrap">
+          <div class="food-col eat">
+            <h4 id="food-eat-title">✓ Healing Foods to Embrace</h4>
+            <ul id="food-eat"></ul>
+          </div>
+          <div class="food-col avoid">
+            <h4 id="food-avoid-title">✕ Foods That Deplete Your Qi</h4>
+            <ul id="food-avoid"></ul>
+          </div>
+        </div>
+
+      <!-- Program recommendation banner -->
+      <div class="program-rec-banner reveal">
+        <div class="program-rec-icon">�?�</div>
+        <div class="program-rec-text">
+          <h3>Based on your profile, <span class="gold">Dragon's Way Qigong®</span> is your ideal starting point</h3>
+          <p>This 6-week program was built for exactly what you're experiencing. Grand Master Nan Lu's signature system addresses the root causes across all five organ systems — using Qigong movement, TCM eating principles, and Five Element consciousness.</p>
+          <a href="checkout.html?plan=standard" style="display:inline-block;margin-top:16px;" class="btn-primary">Enroll in Dragon&rsquo;s Way &rarr;</a>
+          <a href="dwq-promo.html" style="display:inline-block;margin-top:10px;font-size:0.85rem;color:var(--gold);font-weight:500;">Not sure yet? Learn About Dragon&rsquo;s Way &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-bg"></div>
+    <div class="final-cta-overlay"></div>
+    <div class="container final-cta-content">
+      <div class="reveal">
+        <div class="urgency-note">
+          <div class="urgency-dot"></div>
+          Enrollment closes when class capacity is reached — Classes fill quickly
+        </div>
+        <h2>
+          Your symptoms are not a life sentence.<br>
+          <span class="gold italic">They are an invitation.</span>
+        </h2>
+        <p>5,000 years of proven wisdom. A complete, integrated healing system. Guaranteed results. The only variable is your decision.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="#programs" class="btn-primary" style="font-size:1rem;padding:18px 44px;">Begin My Transformation →</a>
+          <a href="#assessment" class="btn-outline" style="font-size:1rem;padding:17px 32px;">Retake the Assessment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="tq-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="index.html" class="lockup" aria-label="Taoquen home">
+            <span class="lockup-name">taoquen</span>
+            <span class="lockup-sub">Entangle with the Tao</span>
+            <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
+          </a>
+          <p>A TCM Wellness Academy. Find your path, write your story, build it on Qi — in the Wu Ming tradition of Grand Master Nan Lu.</p>
+        </div>
+        <nav class="foot-col" aria-label="Programs">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="dwq.html">Dragon’s Way Qigong®</a></li>
+            <li><a href="four-energy-gates.html">Four Energy Gates</a></li>
+            <li><a href="programs.html">3E Qigong</a></li>
+            <li><a href="free-class.html">Free Class</a></li>
+          </ul>
+        </nav>
+        <nav class="foot-col" aria-label="Learn">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="tcm.html">Learn TCM</a></li>
+            <li><a href="qi-assessment.html">Qi Assessment</a></li>
+            <li><a href="blog/index.html">Articles</a></li>
+            <li><a href="conditions.html">Conditions</a></li>
+          </ul>
+        </nav>
+        <nav class="foot-col" aria-label="Academy">
+          <h4>Academy</h4>
+          <ul>
+            <li><a href="my-story.html">My Story</a></li>
+            <li><a href="students.html">For Students</a></li>
+            <li><a href="wellness-program.html">For Professionals</a></li>
+            <li><a href="login.html">Log In</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="foot-base">
+        <span>© 2026 Taoquen — Tao Quantum Entanglement™. All rights reserved.</span>
+        <span class="glyph-cjk" aria-hidden="true">道 可 道 非 常 道</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+  <script>
+    // =======================================
+    // NAV SCROLL BEHAVIOR
+    // =======================================
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 500);
+    });
+
+    // =======================================
+    // HERO BG LOAD
+    // =======================================
+    window.addEventListener('load', () => {
+      document.getElementById('heroBg').classList.add('loaded');
+    });
+
+    // =======================================
+    // REVEAL ON SCROLL
+    // =======================================
+    // Mark body as js-ready so reveal animation activates (progressive enhancement)
+    document.body.classList.add('js-ready');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // =======================================
+    // TCM TABS
+    // =======================================
+    function showTab(tabId, btn) {
+      // Hide all panels
+      document.querySelectorAll('.tcm-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tcm-tab-btn').forEach(b => b.classList.remove('active'));
+
+      // Show selected
+      document.getElementById('tab-' + tabId).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    // =======================================
+    // QUIZ COUNTER
+    // =======================================
+    document.querySelectorAll('.quiz-check').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const count = document.querySelectorAll('.quiz-check:checked').length;
+        document.getElementById('checkCount').textContent = count;
+      });
+    });
+
+    // =======================================
+    // RESULTS LOGIC
+    // =======================================
+    function revealResults() {
+      const checks = document.querySelectorAll('.quiz-check:checked');
+      const scores = { liver: 0, heart: 0, spleen: 0, kidney: 0, lung: 0 };
+
+      checks.forEach(cb => {
+        const cat = cb.getAttribute('data-category');
+        if (scores[cat] !== undefined) scores[cat]++;
+      });
+
+      // Sort to find top 2
+      const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+      const total = checks.length;
+
+      if (total === 0) {
+        alert('Please select at least one symptom to see your personalized results.');
+        return;
+      }
+
+      // Map organ to descriptions
+      const organMap = {
+        liver: {
+          icon: '🌿',
+          name: 'Wood Element — Liver System',
+          desc: 'Your Liver and Gallbladder meridians are under stress. This often manifests as irritability, chronic tension, joint pain, headaches, and difficulty processing frustration. The Liver governs free flow of Qi throughout the entire body — when it\'s congested, everything suffers.',
+          recommendations: [
+            'Morning Qigong to move stagnant Liver Qi',
+            'Avoid late-night eating and alcohol',
+            'Green tea and bitter melon to support detox',
+            'Spend time in nature — especially among trees',
+            'Practice expressing emotions rather than suppressing'
+          ]
+        },
+        heart: {
+          icon: '🔥',
+          name: 'Fire Element — Heart System',
+          desc: 'Your Heart and Pericardium meridians need nourishment. Sleep disturbances, mood swings, brain fog, and emotional volatility all point here. True Heart health is about deep contentment — not just cardiovascular fitness.',
+          recommendations: [
+            'Evening calming practices before sleep',
+            'Hawthorn berry tea to support Heart Qi',
+            'Reduce screen time and stimulation after sunset',
+            'Cultivate joy — not just the absence of sadness',
+            'Dragon\'s Way Qigong movements 4 and 7 specifically support Heart'
+          ]
+        },
+        spleen: {
+          icon: '🌾',
+          name: 'Earth Element — Spleen/Stomach System',
+          desc: 'Your Spleen and Stomach are the central engine of your body\'s energy production. Digestive issues, weight gain, heavy fatigue, and worry all signal Earth element stress. When this system is strong, everything else stabilizes.',
+          recommendations: [
+            'Eat warm, cooked foods — avoid cold and raw',
+            'Rice congee and pumpkin soup to rebuild Spleen Qi',
+            'Eat at regular times without distraction or worry',
+            'Ginger tea before meals to warm digestive fire',
+            'Reduce overthinking and mental rumination'
+          ]
+        },
+        kidney: {
+          icon: '💧',
+          name: 'Water Element — Kidney System',
+          desc: 'Your Kidney system — the "reserve generator" of the body — is depleted. Fatigue, low back pain, fear, poor memory, and reproductive issues all trace here. The Kidney stores your foundational life force Qi.',
+          recommendations: [
+            'Prioritize 8–9 hours of sleep — Kidney restores between 11pm–3am',
+            'Black sesame seeds, walnuts, and kidney beans to nourish Kidney Yin',
+            'Avoid overexertion and working late into the night',
+            'Warm feet and lower back daily',
+            'Dragon\'s Way movement focusing on the lower back and kidneys'
+          ]
+        },
+        lung: {
+          icon: '⚙️',
+          name: 'Metal Element — Lung System',
+          desc: 'Your Lung and Large Intestine meridians are calling for attention. Respiratory issues, allergies, grief, difficulty letting go, and low immunity all originate here. The Lung governs the breath of life — and the emotional ability to receive and release.',
+          recommendations: [
+            'Deep breathing exercises — especially in fresh air',
+            'Pear, lily bulb, and white foods to nourish Lung Yin',
+            'Process and release unresolved grief or sadness',
+            'Maintain regular sleep and wake cycles',
+            'Qigong movements that open the chest and upper back'
+          ]
+        }
+      };
+
+      // Build results HTML
+      const resultsGrid = document.getElementById('results-grid');
+      resultsGrid.innerHTML = '';
+
+      const topTwo = sorted.slice(0, 2).filter(([_, v]) => v > 0);
+
+      if (topTwo.length === 0) {
+        topTwo.push(sorted[0]);
+      }
+
+      topTwo.forEach(([organ, count]) => {
+        const data = organMap[organ];
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        const signalBadge = count > 0
+          ? `<span style="background:var(--gold-dim);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:Inter,sans-serif;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:12px;margin-left:8px;">${count} signal${count > 1 ? 's' : ''}</span>`
+          : '';
+        card.innerHTML = `
+          <h3>${data.icon} ${data.name} ${signalBadge}</h3>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:16px;">${data.desc}</p>
+          <ul>
+            ${data.recommendations.map(r => `<li>${r}</li>`).join('')}
+          </ul>
+        `;
+        resultsGrid.appendChild(card);
+      });
+
+      // Show title
+      const topOrgan = sorted[0][0];
+      const titles = {
+        liver: 'Your Liver Qi is Under Pressure',
+        heart: 'Your Heart Needs Nourishment',
+        spleen: 'Your Digestive Fire Needs Rekindling',
+        kidney: 'Your Kidney Qi is Depleted',
+        lung: 'Your Lung Qi Needs Support'
+      };
+      document.getElementById('results-title').textContent = titles[topOrgan] || 'Your Qi Assessment Results';
+      document.getElementById('results-intro').textContent =
+        `You selected ${total} symptom${total > 1 ? 's' : ''} across ${Object.values(scores).filter(v => v > 0).length} organ system${Object.values(scores).filter(v => v > 0).length > 1 ? 's' : ''}. Your top priority areas are highlighted below.`;
+
+      // Populate organ-specific food table
+      const topData = organMap[topOrgan];
+      const eatUl  = document.getElementById('food-eat');
+      const avoidUl = document.getElementById('food-avoid');
+      if (eatUl && topData.foodEat) {
+        eatUl.innerHTML = topData.foodEat.map(f => `<li>${f}</li>`).join('');
+      }
+      if (avoidUl && topData.foodAvoid) {
+        avoidUl.innerHTML = topData.foodAvoid.map(f => `<li>${f}</li>`).join('');
+      }
+
+      // Show results and make reveal elements visible
+      const resultsSection = document.getElementById('results-section');
+      resultsSection.classList.add('show');
+      resultsSection.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      setTimeout(() => {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    // =======================================
+    // SMOOTH ANCHOR SCROLL OFFSET FOR NAV
+    // =======================================
+    // Jump to assessment + back-to-top scroll logic
+    const jumpBtn = document.getElementById('jumpAssessBtn');
+    window.addEventListener('scroll', () => {
+      const past = window.scrollY > window.innerHeight * 0.8;
+      if (jumpBtn) jumpBtn.classList.toggle('visible', past);
+    });
+
+    // =======================================
+    // ENROLL INTEREST MODAL
+    // =======================================
+    function openEnrollModal(program) {
+      const overlay = document.getElementById('enrollModal');
+      const logo = document.getElementById('enrollModalLogo');
+      const label = document.getElementById('enrollModalProgramLabel');
+      const title = document.getElementById('enrollModalTitle');
+      // Default = Dragon's Way (show logo)
+      if (!program || program === "Dragon's Way Qigōng®") {
+        logo.hidden = false;
+        label.hidden = true;
+        title.textContent = "Reserve Your Spot";
+      } else {
+        logo.hidden = true;
+        label.textContent = program;
+        label.hidden = false;
+        title.textContent = "Reserve Your Spot";
+      }
+      overlay.hidden = false;
+      requestAnimationFrame(() => overlay.classList.add('open'));
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('enrollName').focus(), 300);
+    }
+    function closeEnrollModal() {
+      const overlay = document.getElementById('enrollModal');
+      overlay.classList.remove('open');
+      let cleaned = false;
+      const cleanup = () => {
+        if (cleaned) return;
+        cleaned = true;
+        overlay.hidden = true;
+        document.getElementById('enrollFormStep').hidden = false;
+        document.getElementById('enrollThanksStep').hidden = true;
+        document.getElementById('enrollForm').reset();
+        document.querySelectorAll('.enroll-error').forEach(e => e.classList.remove('show'));
+        document.querySelectorAll('.enroll-field input, .enroll-field textarea').forEach(el => el.classList.remove('invalid'));
+      };
+      overlay.addEventListener('transitionend', cleanup, { once: true });
+      setTimeout(cleanup, 400); // fallback: always restore even if transitionend skipped
+      document.body.style.overflow = '';
+    }
+    // Close on overlay background click
+    document.getElementById('enrollModal').addEventListener('click', function(e) {
+      if (e.target === this) closeEnrollModal();
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !document.getElementById('enrollModal').hidden) closeEnrollModal();
+    });
+    // Form submit handler
+    document.getElementById('enrollForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      const name = document.getElementById('enrollName');
+      const email = document.getElementById('enrollEmail');
+      const nameErr = document.getElementById('enrollNameErr');
+      const emailErr = document.getElementById('enrollEmailErr');
+      // Validate name
+      if (!name.value.trim()) {
+        name.classList.add('invalid'); nameErr.classList.add('show'); valid = false;
+      } else {
+        name.classList.remove('invalid'); nameErr.classList.remove('show');
+      }
+      // Validate email
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      if (!emailOk) {
+        email.classList.add('invalid'); emailErr.classList.add('show'); valid = false;
+      } else {
+        email.classList.remove('invalid'); emailErr.classList.remove('show');
+      }
+      if (!valid) return;
+      // If the form has a real action URL, submit it; otherwise show thank-you
+      const action = this.getAttribute('action');
+      if (action && action.startsWith('http')) {
+        const data = new FormData(this);
+        fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+          .then(r => r.ok ? showEnrollThanks() : alert('Something went wrong. Please try again.'))
+          .catch(() => alert('Something went wrong. Please try again.'));
+      } else {
+        // No endpoint configured yet — show thank-you screen
+        showEnrollThanks();
+      }
+    });
+    function showEnrollThanks() {
+      document.getElementById('enrollFormStep').hidden = true;
+      document.getElementById('enrollThanksStep').hidden = false;
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+  <!-- TAO QUEN MODAL -->
+  <div id="taoQuenModal" class="tq-modal-overlay" role="dialog" aria-modal="true" aria-label="About Tao Quen" onclick="if(event.target===this)closeTaoQuenModal()">
+    <div class="tq-modal-box">
+      <button class="tq-modal-close" onclick="closeTaoQuenModal()" aria-label="Close">&times;</button>
+
+      <div class="tq-modal-mark">
+        <svg width="38" height="38" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="20.5" stroke="#b89a6a" stroke-width="0.5"/>
+          <circle cx="22" cy="22" r="1.6" fill="#b89a6a"/>
+          <path d="M22 22 Q 12 11 22 6 Q 32 11 22 22" fill="none" stroke="#b89a6a" stroke-width="0.6" stroke-linecap="round"/>
+          <path d="M22 22 Q 32 33 22 38 Q 12 33 22 22" fill="none" stroke="#9a9088" stroke-width="0.6" stroke-linecap="round"/>
+          <path d="M6 22 Q 12 11 22 22 Q 32 33 38 22" fill="none" stroke="#c8c0b4" stroke-width="0.4" stroke-dasharray="2 3" stroke-linecap="round"/>
+        </svg>
+        <div class="tq-modal-wordmark">
+          Tao Quen
+          <span>Quantum Entanglement</span>
+        </div>
+      </div>
+
+      <p class="tq-modal-headline">
+        Qi is real.<br>
+        But someone has to<br>
+        <em>make it real for you.</em>
+      </p>
+
+      <div class="tq-modal-divider">
+        <div class="tq-modal-divider-line"></div>
+        <div class="tq-modal-divider-glyph">&#36947; &middot; &#27668; &middot; &#28961;</div>
+        <div class="tq-modal-divider-line"></div>
+      </div>
+
+      <div class="tq-modal-body">
+        <p>Qi is just a word. Words can only point &mdash; they are not the thing itself. Qi becomes real when someone who has experienced it passes it to you directly.</p>
+        <p class="tq-modal-wu">Wu is real. Wu is love. Love is real. Wu is the Tao.</p>
+        <p class="tq-modal-closer">That transmission is <strong>Tao Quen.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTaoQuenModal(e) {
+      e.preventDefault();
+      const m = document.getElementById('taoQuenModal');
+      m.removeAttribute('hidden');
+      requestAnimationFrame(() => m.classList.add('open'));
+      document.body.style.overflow = 'hidden';
+    }
+    function closeTaoQuenModal() {
+      const m = document.getElementById('taoQuenModal');
+      m.classList.remove('open');
+      m.addEventListener('transitionend', () => {
+        m.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+      }, { once: true });
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !document.getElementById('taoQuenModal').hasAttribute('hidden')) closeTaoQuenModal();
+    });
+  </script>
+  <script defer src="assets/taoquen.js"></script>
+</body>
+</html>

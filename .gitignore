@@ -1,0 +1,10 @@
+# Duplicate copy of the site and old drafts - not part of the live site
+/award_winning_taoquen/
+/_archive/
+PROMPT-award-winning-homepage.md
+
+# OS / editor junk
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

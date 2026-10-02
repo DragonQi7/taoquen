@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cold & Dampness — The Two Hidden Pathogens · Dragon's Way Qigong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;
+        --cold:#5aa6ff; --cold-deep:#2f6fd0; --damp:#3fb6a3; --damp-deep:#268a7c;}
+  html{font-size:16px;-webkit-font-smoothing:antialiased;}
+  body{font-family:'Inter',sans-serif;color:var(--cream);
+    background:var(--bg);
+    min-height:100vh;padding:30px 18px 48px;display:flex;flex-direction:column;align-items:center;}
+  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.06;text-align:center;margin-bottom:12px;}
+  h1 em{font-style:italic;color:#8b6914;}
+  .lede{max-width:720px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 24px;}
+  .lede b{color:var(--cream);font-weight:500;}
+
+  .tool{width:100%;max-width:1100px;
+    background:#ffffff;
+    border:1px solid #e3dbc8;border-radius:20px;
+    box-shadow:0 24px 60px -30px rgba(70,50,10,.18);padding:24px;}
+
+  /* meters */
+  .meters{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  @media(max-width:680px){.meters{grid-template-columns:1fr;}}
+  .meter{position:relative;border:1px solid #e6dfcd;border-radius:14px;padding:16px 18px;background:#faf8f2;transition:box-shadow .3s;}
+  .meter.cold.lit{box-shadow:inset 0 0 0 1px rgba(90,166,255,.35),0 0 28px -12px var(--cold);}
+  .meter.damp.lit{box-shadow:inset 0 0 0 1px rgba(63,182,163,.35),0 0 28px -12px var(--damp);}
+  .m-top{display:flex;align-items:center;gap:9px;margin-bottom:4px;}
+  .m-ico{font-size:1.3rem;}
+  .m-name{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
+  .meter.cold .m-name{color:#2f6fd0;} .meter.damp .m-name{color:#268a7c;}
+  .m-status{margin-left:auto;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted);}
+  .m-sub{font-size:.7rem;color:var(--muted);margin-bottom:11px;line-height:1.45;}
+  .m-bar{position:relative;height:11px;border-radius:6px;background:rgba(44,44,40,.10);overflow:hidden;}
+  .m-bar > i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;transition:width .4s ease;}
+  .meter.cold .m-bar > i{background:linear-gradient(90deg,var(--cold-deep),var(--cold));}
+  .meter.damp .m-bar > i{background:linear-gradient(90deg,var(--damp-deep),var(--damp));}
+
+  /* verdict */
+  .verdict{margin-bottom:20px;padding:13px 16px;border-radius:11px;border-left:3px solid var(--gold);
+    background:#faf8f2;font-size:.88rem;line-height:1.6;color:#4a4030;transition:border-color .3s;}
+  .verdict b{color:var(--cream);}
+
+  /* signs checklist */
+  .sec-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 2px 10px;
+    display:flex;align-items:center;gap:8px;}
+  .sec-head .legend{margin-left:auto;display:flex;gap:12px;font-size:.58rem;letter-spacing:.04em;text-transform:none;color:var(--muted);}
+  .sec-head .legend span{display:inline-flex;align-items:center;gap:4px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.c{background:var(--cold);} .dot.d{background:var(--damp);}
+  .signs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;}
+  @media(max-width:680px){.signs{grid-template-columns:1fr;}}
+  .sign{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:11px;cursor:pointer;
+    border:1px solid #e3dcc9;background:#ffffff;transition:.15s;user-select:none;}
+  .sign:hover{border-color:rgba(44,44,40,.3);background:#fbfaf5;}
+  .sign .box{flex:0 0 auto;width:18px;height:18px;border-radius:6px;border:2px solid rgba(44,44,40,.3);display:flex;align-items:center;justify-content:center;transition:.15s;}
+  .sign .box svg{width:11px;height:11px;opacity:0;transform:scale(.5);transition:.15s;}
+  .sign .lbl{flex:1;font-size:.82rem;line-height:1.3;}
+  .sign .tags{flex:0 0 auto;display:flex;gap:4px;}
+  .sign.on{background:#fdf8ec;border-color:rgba(201,168,106,.55);box-shadow:0 0 0 1px rgba(201,168,106,.4);}
+  .sign.on .box{background:var(--gold);border-color:var(--gold);}
+  .sign.on .box svg{opacity:1;transform:none;}
+
+  /* prevention cards */
+  .remedies{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;}
+  @media(max-width:680px){.remedies{grid-template-columns:1fr;}}
+  .rem{border-radius:14px;padding:16px 18px;border:1px solid #e6dfcd;background:#faf8f2;
+    transition:opacity .3s,box-shadow .3s,filter .3s;opacity:.55;filter:saturate(.6);}
+  .rem.active{opacity:1;filter:none;}
+  .rem.cold.active{box-shadow:inset 0 0 0 1px rgba(90,166,255,.3),0 0 24px -14px var(--cold);}
+  .rem.damp.active{box-shadow:inset 0 0 0 1px rgba(63,182,163,.3),0 0 24px -14px var(--damp);}
+  .rem-h{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+  .rem.cold .rem-h{color:#2f6fd0;} .rem.damp .rem-h{color:#268a7c;}
+  .rem-sub{font-size:.7rem;color:var(--muted);font-style:italic;margin-bottom:11px;line-height:1.45;}
+  .rem ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .rem li{font-size:.82rem;line-height:1.5;color:#4a4030;padding-left:18px;position:relative;}
+  .rem.cold li::before{content:"❄";position:absolute;left:0;color:var(--cold);font-size:.7rem;top:2px;}
+  .rem.damp li::before{content:"💧";position:absolute;left:0;font-size:.66rem;top:2px;}
+  .rem li b{color:var(--cream);}
+
+  .controls{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap;}
+  .reset-btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);
+    background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);border-radius:22px;padding:11px 18px;cursor:pointer;transition:.15s;}
+  .reset-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
+  .nei{margin-left:auto;font-size:.7rem;color:var(--muted);font-style:italic;text-align:right;max-width:60%;}
+  @media(max-width:600px){.nei{margin-left:0;max-width:100%;text-align:left;}}
+
+  /* CTA + credit */
+  .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
+    background:#faf8f2;border:1px solid rgba(139,105,20,.35);border-radius:18px;box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
+  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta h3 em{font-style:italic;color:#8b6914;}
+  .cta p{max-width:540px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
+  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0a06;
+    background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;cursor:pointer;text-decoration:none;font-weight:600;
+    box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
+  .cta-note{margin-top:11px;font-size:.65rem;color:#998b6e;font-style:italic;}
+  .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;line-height:1.7;color:#998b6e;}
+  .credit strong{color:var(--gold);font-weight:600;}
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Dragon's Way Qigong® · Digesting the Universe</div>
+  <h1>Cold &amp; <em>Dampness</em></h1>
+  <p class="lede">Master Lu names <b>Cold</b> and <b>Dampness</b> as the two great enemies of healthy metabolism — invisible
+  energies that slip in when your Qi is weak and bog down the Spleen &amp; Stomach. <i>Cold makes things slow, ache and
+  “stick together”; Dampness makes things heavy, swollen and sluggish.</i> Check the signs you live with, and see which
+  may have crept in — with the book's own ways to clear it.</p>
+
+  <div class="tool">
+
+    <!-- meters -->
+    <div class="meters">
+      <div class="meter cold" id="meterCold">
+        <div class="m-top"><span class="m-ico">❄️</span><span class="m-name">Internal Cold</span><span class="m-status" id="coldStatus">None</span></div>
+        <div class="m-sub">Slows, congeals, aches — worse in winter and before rain or snow.</div>
+        <div class="m-bar"><i id="coldBar"></i></div>
+      </div>
+      <div class="meter damp" id="meterDamp">
+        <div class="m-top"><span class="m-ico">💧</span><span class="m-name">Internal Dampness</span><span class="m-status" id="dampStatus">None</span></div>
+        <div class="m-sub">Heavy, sticky, swollen — bogs down digestion; slow to release.</div>
+        <div class="m-bar"><i id="dampBar"></i></div>
+      </div>
+    </div>
+
+    <div class="verdict" id="verdict">Check the signs below — your reading will appear here.</div>
+
+    <!-- signs -->
+    <div class="sec-head">Check what you experience
+      <span class="legend"><span><span class="dot c"></span>feeds Cold</span><span><span class="dot d"></span>feeds Dampness</span></span>
+    </div>
+    <div class="signs" id="signs"></div>
+
+    <!-- remedies -->
+    <div class="remedies">
+      <div class="rem cold" id="remCold">
+        <div class="rem-h">❄️ Warm the Cold</div>
+        <div class="rem-sub">“Heat it up and ice becomes water, which can flow.”</div>
+        <ul>
+          <li><b>Ginger tea</b> — fresh ginger root slices + a little brown sugar; sip several times a day (it goes to the Stomach).</li>
+          <li><b>Daily hot baths</b> or hot showers to drive Cold out.</li>
+          <li><b>Protect your legs</b> — major Spleen &amp; Stomach meridians run up them; never bare legs in cold wind.</li>
+          <li><b>Eat warm, cooked food</b>; cut ice cream, iced drinks and raw/cold foods.</li>
+          <li><b>Real rest, wrapped up warm</b> — let the body catch its breath.</li>
+        </ul>
+      </div>
+      <div class="rem damp" id="remDamp">
+        <div class="rem-h">💧 Drain the Dampness</div>
+        <div class="rem-sub">Damp Qi must be transformed to water, then released — diuretics only move the water, not the Damp.</div>
+        <ul>
+          <li><b>Support the Kidney &amp; Bladder</b> — they transform Damp Qi into water the body can pass out.</li>
+          <li><b>Keep the Spleen &amp; Stomach warm &amp; dry</b> — they love warmth and hate Damp.</li>
+          <li><b>Avoid cold-raw, greasy and over-sweet foods</b> and damp environments that breed Damp.</li>
+          <li><b>Move and gently sweat</b> daily — releasing Damp is a slow, steady process.</li>
+          <li><b>Build metabolism with Qigong</b> so Damp has no place to settle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="reset-btn" id="resetBtn">↺ Clear</button>
+      <div class="nei">“As long as the organs work in harmony and Qi flows freely, there is no place for disease.” — Nei Jing</div>
+    </div>
+
+  </div>
+
+
+  <p class="credit">
+    Built on the <strong>Cold &amp; Dampness teaching</strong> in <strong>Digesting the Universe</strong> by Grand Master Nan&nbsp;Lu —
+    the two environmental pathogens that most impact Spleen &amp; Stomach metabolism function. A reflective self-check,
+    not a diagnosis.<br>
+    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
+  </p>
+
+<script>
+(function(){
+  // weight of each sign toward Cold / Dampness (0–3), per the book's signs
+  const SIGNS = [
+    {t:'Cold hands or cold feet',                              c:3, d:0},
+    {t:'You always crave warmth and warm drinks',             c:3, d:0},
+    {t:'You rub or warm your belly to soothe your stomach',   c:3, d:0},
+    {t:'Menstrual cramps, sometimes with clots',              c:3, d:0},
+    {t:'Bloating, gas or belching after cold or raw food',    c:2, d:1},
+    {t:'Headache, dizziness or sleepiness after a meal',      c:2, d:1},
+    {t:'Sneezing or food allergies after eating',             c:2, d:1},
+    {t:'Pain or stiffness worse in cold or damp weather',     c:2, d:2},
+    {t:'Low-back, knee or joint pain (arthritis)',            c:2, d:2},
+    {t:'Varicose veins',                                      c:2, d:1},
+    {t:'A white coating on your tongue',                      c:2, d:1},
+    {t:'Water retention or swelling, especially in the legs', c:0, d:3},
+    {t:'A heavy, foggy or sluggish feeling',                  c:0, d:3},
+    {t:'Phlegm — coughing it up or clearing your throat',     c:0, d:3},
+    {t:'Itchy skin or rashes (eczema, psoriasis, oozing)',    c:0, d:2},
+    {t:'Loose stools or a sense of incomplete digestion',     c:1, d:2},
+    {t:'A thick, greasy tongue coating',                      c:0, d:2}
+  ];
+  const MAXC = SIGNS.reduce((s,x)=>s+x.c,0);
+  const MAXD = SIGNS.reduce((s,x)=>s+x.d,0);
+
+  const $=id=>document.getElementById(id);
+  const signsEl=$('signs');
+  const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="#1a0a06" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>';
+  const state=SIGNS.map(()=>false);
+
+  SIGNS.forEach((s,i)=>{
+    const tags=(s.c?'<span class="dot c"></span>':'')+(s.d?'<span class="dot d"></span>':'');
+    const el=document.createElement('div'); el.className='sign'; el.dataset.i=i;
+    el.innerHTML='<span class="box">'+CHECK+'</span><span class="lbl">'+s.t+'</span><span class="tags">'+tags+'</span>';
+    el.addEventListener('click',()=>{ state[i]=!state[i]; el.classList.toggle('on',state[i]); render(); });
+    signsEl.appendChild(el);
+  });
+
+  const statusWord=p=> p>=42?'Strong' : p>=18?'Present' : p>0?'Mild' : 'None';
+
+  function render(){
+    let cs=0, ds=0;
+    SIGNS.forEach((s,i)=>{ if(state[i]){ cs+=s.c; ds+=s.d; } });
+    const cp=Math.round(cs/MAXC*100), dp=Math.round(ds/MAXD*100);
+    $('coldBar').style.width=cp+'%'; $('dampBar').style.width=dp+'%';
+    $('coldStatus').textContent=statusWord(cp); $('dampStatus').textContent=statusWord(dp);
+    $('meterCold').classList.toggle('lit', cp>=18);
+    $('meterDamp').classList.toggle('lit', dp>=18);
+
+    // verdict
+    const v=$('verdict'); let txt, border='var(--gold)';
+    const anyC=cp>=18, anyD=dp>=18;
+    if(cp===0 && dp===0){
+      txt='Check the signs below — your reading will appear here.';
+    } else if(cp<12 && dp<12){
+      txt='<b>Little sign of either.</b> Your inner warmth is holding — keep protecting it.';
+    } else if(anyC && anyD){
+      txt='<b>Signs of both Cold and Dampness.</b> They often travel together, doubling the burden on your Spleen &amp; Stomach. Warm <i>and</i> drain — and rebuild the Qi that lets them in.';
+      border='var(--gold)';
+    } else if(cp>=dp){
+      txt='<b>Signs lean toward internal Cold</b> — the energy that makes things slow down, congeal and ache. Bring in warmth.';
+      border='var(--cold)';
+    } else {
+      txt='<b>Signs lean toward internal Dampness</b> — the heavy, sticky energy that bogs down digestion. Help the body drain it.';
+      border='var(--damp)';
+    }
+    v.innerHTML=txt; v.style.borderLeftColor=border;
+
+    // remedy cards
+    $('remCold').classList.toggle('active', cp>=18 || (cp>0 && cp>=dp));
+    $('remDamp').classList.toggle('active', dp>=18 || (dp>0 && dp>cp));
+
+    postHeight();
+  }
+
+  $('resetBtn').addEventListener('click',()=>{
+    state.fill(false);
+    document.querySelectorAll('.sign').forEach(s=>s.classList.remove('on'));
+    render();
+  });
+
+  render();
+
+  // iframe auto-size
+  function postHeight(){ const h=Math.ceil(document.body.scrollHeight);
+    if(window.parent&&window.parent!==window) window.parent.postMessage({pathogenHeight:h},'*'); }
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight);
+  setTimeout(postHeight,200); setTimeout(postHeight,800);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141806"/>
+      <stop offset="0.5" stop-color="#1a2008"/>
+      <stop offset="1" stop-color="#10140a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.36" r="0.6">
+      <stop offset="0" stop-color="#c8901a" stop-opacity="0.28"/>
+      <stop offset="0.55" stop-color="#c8901a" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#c8901a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#c8901a" opacity="0.55"/>
+
+  <!-- ensō seal -->
+  <g transform="translate(600,196)">
+    <circle cx="0" cy="0" r="58" fill="none" stroke="#c8901a" stroke-width="1.6" opacity="0.9"/>
+    <rect x="40" y="-58" width="22" height="22" rx="2" fill="#b73f2a"/>
+    <text x="51" y="-46.5" font-family="'Noto Serif SC', serif" font-size="15" fill="#f6efe0" text-anchor="middle" dominant-baseline="central">道</text>
+    <text x="0" y="2" font-family="'Noto Serif SC', serif" font-size="46" fill="#f6efe0" text-anchor="middle" dominant-baseline="central">气</text>
+  </g>
+
+  <!-- wordmark -->
+  <text x="600" y="332" font-family="'Cormorant Garamond', Georgia, serif" font-size="92" fill="#fff8f4" text-anchor="middle" letter-spacing="2">taoquen</text>
+  <text x="600" y="378" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="30" fill="#e8a04a" text-anchor="middle" letter-spacing="1">entangle with the Tao</text>
+
+  <!-- divider -->
+  <line x1="470" y1="416" x2="730" y2="416" stroke="#c8901a" stroke-width="1" opacity="0.4"/>
+
+  <!-- programs -->
+  <text x="600" y="456" font-family="'Cinzel', serif" font-size="20" fill="rgba(255,248,244,0.85)" text-anchor="middle" letter-spacing="3">DRAGON&#8217;S WAY · FOUR ENERGY GATES · 3E QIGONG</text>
+
+  <!-- line -->
+  <text x="600" y="506" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="26" fill="rgba(255,248,244,0.62)" text-anchor="middle">You cannot understand TCM until you have experienced Qi.</text>
+
+  <!-- footer -->
+  <text x="600" y="566" font-family="'Cinzel', serif" font-size="14" fill="rgba(255,235,190,0.55)" text-anchor="middle" letter-spacing="4">TCM WELLNESS ACADEMY · WU MING LINEAGE OF GRAND MASTER NAN LU</text>
+</svg>

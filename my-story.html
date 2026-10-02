@@ -1,0 +1,692 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qi Restoration Journey | Wendy Q — From Burnout to Flow</title>
+  <meta name="description" content="30 years in investment banking left me with diabetes, hyperthyroidism, panic attacks, and insomnia. Here is what I discovered — and how I can help you find your way back.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:   #000000;
+      --near-black: #0a0a0a;
+      --dark:    #111111;
+      --dark2:   #1a1a1a;
+      --amber:   #e87007;
+      --amber2:  #d96500;
+      --gold:    #f5c876;
+      --gold2:   #dbc774;
+      --cream:   #faf6ef;
+      --light-bg:#f0f4f5;
+      --white:   #ffffff;
+      --gray:    #cbd5e0;
+      --muted:   #888888;
+      --text:    #1a1a1a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; font-size: 17px; line-height: 1.65; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .urgency-bar { background: var(--amber); color: var(--white); text-align: center; padding: 10px 20px; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; position: sticky; top: 0; z-index: 200; }
+    .urgency-bar span { color: var(--black); background: var(--white); padding: 1px 8px; border-radius: 3px; margin: 0 6px; font-weight: 900; }
+
+    nav { background: var(--black); border-bottom: 1px solid rgba(248,199,118,0.2); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 39px; z-index: 100; }
+    /* ── TAOQUEN BRAND IDENTITY ── */
+    .tq-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tq-logo-mark { flex-shrink: 0; }
+    .tq-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .tq-logo-wordmark { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; }
+    .tq-logo-tagline { font-family: 'Lato', sans-serif; font-size: 0.6rem; font-weight: 400; color: rgba(245,200,118,0.45); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 3px; }
+    /* Legacy alias kept for other uses */
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 0.1em; }
+    /* Hero brand lockup */
+    .hero-brand { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 32px; }
+    .hero-brand-mark { flex-shrink: 0; }
+    .hero-brand-text { text-align: left; }
+    .hero-brand-wordmark { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; display: block; line-height: 1; }
+    .hero-brand-tagline { font-size: 0.68rem; font-weight: 400; color: rgba(245,200,118,0.5); letter-spacing: 0.28em; text-transform: uppercase; display: block; margin-top: 5px; font-family: 'Lato', sans-serif; }
+    /* Footer brand */
+    .footer-tq-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+    .footer-tq-wordmark { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; color: rgba(245,200,118,0.5); letter-spacing: 0.2em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta-btn { background: var(--amber); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; font-weight: 900 !important; }
+    .nav-cta-btn:hover { background: var(--amber2); }
+    @media (max-width: 700px) { nav { padding: 12px 20px; top: 38px; } .nav-links { display: none; } }
+
+    .hero { background: var(--black); padding: 80px 24px 72px; text-align: center; }
+    .hero-inner { max-width: 820px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+    .hero h1 { font-family: 'Noto Serif', serif; font-size: clamp(2.4rem, 6vw, 4rem); color: var(--white); line-height: 1.12; margin-bottom: 20px; font-weight: 700; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--gray); max-width: 700px; margin: 0 auto 36px; line-height: 1.75; font-weight: 300; }
+    .hero-sub strong { color: var(--white); font-weight: 700; }
+    .hero-price-line { font-size: 1rem; color: rgba(255,255,255,0.5); margin-bottom: 36px; letter-spacing: 0.02em; }
+    .hero-price-line strong { font-family: 'Noto Serif', serif; font-size: 1.5rem; color: var(--gold); font-weight: 700; }
+    .btn-amber { display: inline-block; background: var(--amber); color: var(--white); font-family: 'Lato', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 17px 48px; border-radius: 5px; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 20px rgba(232,112,7,0.4); }
+    .btn-amber:hover { background: var(--amber2); transform: translateY(-2px); }
+    .btn-outline-white { display: inline-block; background: transparent; color: rgba(255,255,255,0.65); font-weight: 700; font-size: 0.9rem; padding: 14px 30px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.25); margin-left: 14px; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-trust { margin-top: 28px; font-size: 0.82rem; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; }
+
+    .sec { padding: 80px 24px; }
+    .sec-inner { max-width: 780px; margin: 0 auto; }
+    .sec-inner-wide { max-width: 1000px; margin: 0 auto; }
+    .sec-inner-med { max-width: 860px; margin: 0 auto; }
+    .sec-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; text-align: center; }
+    .sec-label-light { color: rgba(255,255,255,0.5); }
+    .sec-heading { font-family: 'Noto Serif', serif; font-size: clamp(1.9rem, 4.5vw, 2.8rem); line-height: 1.2; font-weight: 700; text-align: center; margin-bottom: 18px; }
+    .sec-heading-dark { color: var(--text); }
+    .sec-heading-white { color: var(--white); }
+    .sec-heading em { font-style: italic; color: var(--amber); }
+    .sec-heading-white em { color: var(--gold); }
+    .sec-sub { font-size: 1.07rem; color: #666; text-align: center; max-width: 640px; margin: 0 auto 52px; line-height: 1.85; }
+    .sec-sub-light { color: rgba(255,255,255,0.5); font-weight: 300; }
+
+    .agitation { background: var(--white); }
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 620px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: var(--light-bg); border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 20px 22px; }
+    .pain-card p { font-size: 0.97rem; color: #444; line-height: 1.7; }
+    .pain-card p strong { color: var(--text); font-weight: 700; }
+    .pain-closer { margin-top: 44px; text-align: center; font-family: 'Noto Serif', serif; font-style: italic; font-size: 1.3rem; color: var(--text); line-height: 1.65; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+    .roi-section { background: var(--dark); padding: 80px 24px; }
+    .roi-body { font-size: 1.07rem; color: rgba(255,255,255,0.7); line-height: 1.9; font-weight: 300; }
+    .roi-body p { margin-bottom: 22px; }
+    .roi-body p strong { color: var(--white); font-weight: 700; }
+    .roi-callout { background: rgba(232,112,7,0.1); border: 1px solid rgba(232,112,7,0.4); border-radius: 10px; padding: 30px 36px; margin: 36px 0; text-align: center; }
+    .roi-callout p { font-family: 'Noto Serif', serif; font-size: 1.4rem; color: var(--gold); line-height: 1.6; font-style: italic; margin: 0; }
+    .roi-math { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+    @media (max-width: 600px) { .roi-math { grid-template-columns: 1fr; } }
+    .roi-math-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(248,199,118,0.2); border-radius: 8px; padding: 24px 20px; text-align: center; }
+    .roi-math-card .roi-num { font-family: 'Noto Serif', serif; font-size: 2rem; color: var(--gold); font-weight: 700; display: block; margin-bottom: 8px; }
+    .roi-math-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    .story-section { background: var(--cream); }
+    .story-prose { margin-top: 36px; }
+    .story-prose p { font-size: 1.07rem; color: #333; line-height: 1.95; margin-bottom: 24px; }
+    .story-prose p strong { color: var(--text); }
+    .story-pullquote { border-left: 4px solid var(--amber); padding: 18px 26px; background: rgba(232,112,7,0.07); border-radius: 0 8px 8px 0; margin: 32px 0; }
+    .story-pullquote p { font-family: 'Noto Serif', serif; font-style: italic; font-size: 1.18rem; color: var(--text); line-height: 1.7; margin: 0; }
+
+    .bundle-section { background: var(--black); padding: 80px 24px; }
+    .bundle-row { max-width: 700px; margin: 0 auto 8px; }
+    .bundle-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 16px; }
+    .bundle-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .bundle-item-name { font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 4px; }
+    .bundle-item-name .bundle-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); background: rgba(232,112,7,0.15); padding: 2px 8px; border-radius: 3px; margin-right: 8px; }
+    .bundle-item-desc { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+    .bundle-item-value { font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--gold); font-weight: 700; white-space: nowrap; flex-shrink: 0; padding-top: 2px; }
+    .bundle-item-value .value-label { display: block; font-size: 0.68rem; font-family: 'Lato', sans-serif; font-weight: 400; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
+    .bundle-total { max-width: 700px; margin: 0 auto; background: rgba(245,200,118,0.08); border: 1px solid rgba(245,200,118,0.3); border-radius: 0 0 10px 10px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .bundle-total .total-label { font-size: 0.88rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .bundle-total .total-value { font-family: 'Noto Serif', serif; font-size: 1.8rem; color: var(--gold); font-weight: 700; }
+    .bundle-cta-row { max-width: 700px; margin: 36px auto 0; text-align: center; }
+    .bundle-your-inv { margin-bottom: 8px; font-size: 0.88rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; }
+    .bundle-your-price { font-family: 'Noto Serif', serif; font-size: 2.4rem; color: var(--white); font-weight: 700; margin-bottom: 4px; }
+    .bundle-your-price span { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.4); margin-left: 4px; }
+
+    .modules-section { background: var(--light-bg); padding: 80px 24px; }
+    /* Teaser layout */
+    .module-teaser-wrap { max-width: 860px; margin: 0 auto; }
+    .module-teaser-intro { max-width: 680px; margin: 0 auto 44px; text-align: center; }
+    .module-teaser-intro p { font-size: 1.05rem; color: #555; line-height: 1.85; margin-bottom: 16px; }
+    .module-teaser-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 660px) { .module-teaser-grid { grid-template-columns: 1fr; } }
+    .module-teaser-card { background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: 10px; padding: 24px 22px; display: flex; gap: 18px; align-items: flex-start; }
+    .mtr-num { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 700; color: var(--amber); opacity: 0.35; min-width: 32px; line-height: 1.2; flex-shrink: 0; padding-top: 2px; }
+    .mtr-body { flex: 1; }
+    .mtr-title { font-family: 'Noto Serif', serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+    .mtr-hint { font-size: 0.9rem; color: #555; line-height: 1.7; margin-bottom: 10px; }
+    .mtr-locked { font-size: 0.8rem; font-weight: 700; color: var(--amber); letter-spacing: 0.02em; font-style: italic; border-top: 1px solid rgba(232,112,7,0.15); padding-top: 10px; margin-top: 4px; }
+    .module-teaser-close { max-width: 600px; margin: 52px auto 0; text-align: center; }
+    .module-teaser-close p { font-family: 'Noto Serif', serif; font-style: italic; font-size: 1.1rem; color: #444; line-height: 1.8; margin-bottom: 14px; }
+    /* Legacy module styles kept but unused */
+    .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 44px; }
+    .module-card { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 10px; padding: 28px 26px; position: relative; overflow: hidden; }
+    .module-num { font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+    .module-card h4 { font-family: 'Noto Serif', serif; font-size: 1.12rem; color: var(--text); margin-bottom: 10px; font-weight: 700; line-height: 1.35; }
+    .module-card p { font-size: 0.92rem; color: #555; line-height: 1.7; }
+    .module-card .module-outcome { margin-top: 14px; font-size: 0.85rem; font-weight: 700; color: var(--amber); display: flex; align-items: flex-start; gap: 6px; }
+
+    .bonus-section { background: var(--dark2); padding: 80px 24px; }
+    .bonus-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+    @media (max-width: 750px) { .bonus-cards { grid-template-columns: 1fr; } }
+    .bonus-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(248,199,118,0.2); border-radius: 10px; padding: 26px 22px; }
+    .bonus-card .bonus-num { font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+    .bonus-card h4 { font-family: 'Noto Serif', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 8px; font-weight: 700; }
+    .bonus-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .bonus-card .bonus-value { margin-top: 14px; font-size: 0.92rem; font-weight: 700; color: var(--gold); }
+
+    .who-section { background: var(--white); padding: 80px 24px; }
+    .who-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 44px; }
+    @media (max-width: 680px) { .who-layout { grid-template-columns: 1fr; gap: 32px; } }
+    .who-left p { font-size: 1.02rem; color: #444; line-height: 1.85; margin-bottom: 18px; }
+    .who-left p strong { color: var(--text); }
+    .cred-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+    .cred-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: #555; line-height: 1.55; }
+    .cred-list li::before { content: '▸'; color: var(--amber); font-size: 0.8rem; flex-shrink: 0; margin-top: 3px; }
+    .who-stats { display: flex; flex-direction: column; gap: 14px; }
+    .who-stat { background: var(--light-bg); border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 18px 22px; display: flex; align-items: center; gap: 18px; }
+    .who-stat .stat-num { font-family: 'Noto Serif', serif; font-size: 2.2rem; color: var(--amber); font-weight: 700; min-width: 64px; line-height: 1; }
+    .who-stat .stat-text strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 2px; }
+    .who-stat .stat-text span { font-size: 0.85rem; color: #888; line-height: 1.5; }
+
+    .testimonials { background: var(--near-black); padding: 80px 24px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+    @media (max-width: 750px) { .testi-grid { grid-template-columns: 1fr; } }
+    .testi-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 26px 22px; }
+    .testi-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-card blockquote { font-family: 'Noto Serif', serif; font-style: italic; font-size: 0.98rem; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 18px; }
+    .testi-author { font-size: 0.82rem; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.08em; }
+    .testi-role { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+    .pricing-section { background: var(--white); padding: 80px 24px; }
+    .pricing-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 700px; margin: 44px auto 0; }
+    @media (max-width: 580px) { .pricing-options { grid-template-columns: 1fr; } }
+    .pricing-card { border: 2px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 34px 28px; text-align: center; position: relative; }
+    .pricing-card.featured { border-color: var(--amber); box-shadow: 0 4px 24px rgba(232,112,7,0.18); }
+    .pricing-card .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--amber); color: var(--white); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; }
+    .pricing-plan-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+    .pricing-price { font-family: 'Noto Serif', serif; font-size: 2.8rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 4px; }
+    .pricing-price .currency { font-size: 1.4rem; vertical-align: super; }
+    .pricing-cadence { font-size: 0.9rem; color: #888; margin-bottom: 24px; }
+    .pricing-includes { list-style: none; text-align: left; font-size: 0.88rem; color: #555; line-height: 1.6; margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
+    .pricing-includes li::before { content: '✓  '; color: var(--amber); font-weight: 900; }
+    .btn-full-amber { display: block; width: 100%; background: var(--amber); color: var(--white); font-weight: 900; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 15px; border-radius: 5px; text-align: center; transition: background 0.2s; }
+    .btn-full-amber:hover { background: var(--amber2); }
+    .btn-full-outline { display: block; width: 100%; background: transparent; color: var(--text); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px; border-radius: 5px; border: 2px solid rgba(0,0,0,0.2); text-align: center; transition: border-color 0.2s; }
+    .btn-full-outline:hover { border-color: var(--amber); color: var(--amber); }
+    .pricing-note { max-width: 700px; margin: 30px auto 0; text-align: center; font-size: 0.88rem; color: #888; line-height: 1.7; }
+
+    .guarantee-section { background: var(--dark); padding: 72px 24px; }
+    .guarantee-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .guarantee-icon { font-size: 3.5rem; margin-bottom: 20px; }
+    .guarantee-inner h3 { font-family: 'Noto Serif', serif; font-size: 1.8rem; color: var(--white); font-weight: 700; margin-bottom: 18px; line-height: 1.3; }
+    .guarantee-inner h3 em { color: var(--gold); font-style: italic; }
+    .guarantee-inner p { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.85; font-weight: 300; }
+    .guarantee-inner p strong { color: var(--white); font-weight: 700; }
+
+    .faq-section { background: var(--light-bg); padding: 80px 24px; }
+    .faq-list { max-width: 720px; margin: 44px auto 0; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { background: var(--white); border-radius: 8px; overflow: hidden; }
+    .faq-question { width: 100%; background: transparent; border: none; padding: 20px 24px; text-align: left; font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question:hover { color: var(--amber); }
+    .faq-question .faq-arrow { color: var(--amber); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.25s; }
+    .faq-answer { display: none; padding: 0 24px 20px; font-size: 0.97rem; color: #555; line-height: 1.8; }
+    .faq-answer.open { display: block; }
+
+    .final-cta { background: var(--black); padding: 96px 24px; text-align: center; }
+    .final-cta-inner { max-width: 680px; margin: 0 auto; }
+    .final-cta h2 { font-family: 'Noto Serif', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--white); line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
+    .final-cta h2 em { font-style: italic; color: var(--gold); }
+    .final-cta p { font-size: 1.07rem; color: rgba(255,255,255,0.5); line-height: 1.85; font-weight: 300; margin-bottom: 40px; }
+    .final-cta .btn-amber { font-size: 1.05rem; padding: 18px 52px; }
+    .final-reassure { margin-top: 24px; font-size: 0.82rem; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; }
+    .enroll-closes { font-size: 0.88rem; color: var(--amber); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 36px 24px; text-align: center; }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); line-height: 1.8; }
+    footer a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <div class="urgency-bar">
+    Enrolment Closes: <span>May 31, 2026</span> &nbsp;&middot;&nbsp; First 10 participants receive a complimentary 1:1 Qi assessment session
+  </div>
+
+  <nav>
+    <a href="#" class="tq-logo">
+      <svg class="tq-logo-mark" width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#f5c876" stroke-width="1.4" opacity="0.7"/>
+        <path d="M20 4 C28 4, 28 20, 20 20 C12 20, 12 36, 20 36" stroke="#f5c876" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <circle cx="20" cy="11" r="2.8" fill="#e87007"/>
+        <circle cx="20" cy="29" r="2.8" fill="#f5c876" opacity="0.9"/>
+      </svg>
+      <div class="tq-logo-text">
+        <span class="tq-logo-wordmark">Taoquen</span>
+        <span class="tq-logo-tagline">Ancient Wisdom &middot; Modern Life</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#story">My Story</a></li>
+      <li><a href="#program">The Programme</a></li>
+      <li><a href="tcm.html">Learn TCM</a></li>
+      <li><a href="#pricing">Enroll</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#pricing" class="nav-cta-btn">Yes, I&apos;m Ready</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-brand">
+        <svg class="hero-brand-mark" width="52" height="52" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="#f5c876" stroke-width="1.2" opacity="0.6"/>
+          <path d="M20 4 C28 4, 28 20, 20 20 C12 20, 12 36, 20 36" stroke="#f5c876" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="20" cy="11" r="2.8" fill="#e87007"/>
+          <circle cx="20" cy="29" r="2.8" fill="#f5c876" opacity="0.85"/>
+        </svg>
+        <div class="hero-brand-text">
+          <span class="hero-brand-wordmark">Taoquen</span>
+          <span class="hero-brand-tagline">Ancient Wisdom &middot; Modern Life</span>
+        </div>
+      </div>
+      <div class="hero-eyebrow">The Qi Restoration Journey</div>
+      <h1>Your body is not broken.<br><em>You&apos;ve just never had the owner&apos;s manual.</em></h1>
+      <p class="hero-sub">
+        <strong>30+ years in corporate investment banking.</strong> Diabetes. Hyperthyroidism.
+        Panic attacks. Insomnia that stretched into weeks. Depression. I navigated all of it &mdash;
+        and found an ancient system that modern medicine never mentioned.
+        Now I work with high-performers who are exhausted, unwell, and wondering
+        why success hasn&apos;t made them feel better.
+      </p>
+      <div class="hero-price-line">Starting at <strong>USD 497/month</strong> &nbsp;&middot;&nbsp; Full access from <strong>USD 1,997</strong></div>
+      <a href="#pricing" class="btn-amber">YES, I WANT TO RESTORE MY QI</a>
+      <a href="#story" class="btn-outline-white">Read My Story First</a>
+      <p class="hero-trust">Enrolment closes May 31, 2026 &nbsp;&middot;&nbsp; 30-Day Full Refund Guarantee &nbsp;&middot;&nbsp; Zero Risk</p>
+    </div>
+  </section>
+
+  <section class="sec agitation" id="pain">
+    <div class="sec-inner-med">
+      <div class="sec-label">The Reality Nobody Talks About</div>
+      <h2 class="sec-heading sec-heading-dark">You are achieving.<br>You are <em>not thriving.</em></h2>
+      <p class="sec-sub">Most high-performers I know are managing their health the same way they managed their career &mdash; through sheer willpower. Until the body stops cooperating.</p>
+      <div class="pain-grid">
+        <div class="pain-card"><p><strong>Fatigue that never fully lifts</strong> &mdash; you sleep eight hours and still wake up exhausted. You have been calling it &ldquo;stress&rdquo; for so long it has become your baseline.</p></div>
+        <div class="pain-card"><p><strong>Your body is sending distress signals</strong> &mdash; blood sugar dysregulation, thyroid issues, unexplained weight changes, inflammation you can&apos;t trace to a source.</p></div>
+        <div class="pain-card"><p><strong>Anxiety that escalates into panic</strong> &mdash; not mild, background worry. The kind that arrives without warning, makes you cancel plans, and quietly shrinks your world.</p></div>
+        <div class="pain-card"><p><strong>Digestive chaos and physical disorientation</strong> &mdash; vertigo, bloating, irregular systems, the sense that your body is running on a different operating system than your ambitions.</p></div>
+        <div class="pain-card"><p><strong>Sleeplessness that stretches for days</strong> &mdash; exhausted but wired. Lying awake at 3am, mind cycling through the same loop, watching the clock.</p></div>
+        <div class="pain-card"><p><strong>Quiet withdrawal from the people you love</strong> &mdash; not because you don&apos;t care. Because you are running so low that even connection feels like an energy expenditure you cannot afford.</p></div>
+      </div>
+      <p class="pain-closer">&ldquo;If you are ticking more than three of these boxes, you are not dealing with bad luck.<br>You are dealing with a system running against its own nature.&rdquo;</p>
+    </div>
+  </section>
+
+  <section class="roi-section" id="cost">
+    <div class="sec-inner-med">
+      <div class="sec-label sec-label-light">The Hidden Cost</div>
+      <h2 class="sec-heading sec-heading-white">Your Health Is Not A Personal Problem.<br><em>It Is A Performance Problem.</em></h2>
+      <p class="sec-sub sec-sub-light">The people consistently outperforming their peers are not smarter or more driven. They have learned something about their own energy that most people never do.</p>
+      <div class="roi-body">
+        <p>Think about the <strong>last six months of your professional life.</strong> How many decisions were made under a fog of fatigue? How many conversations were handled with less patience than the situation deserved? How many opportunities were missed because you simply did not have the energy to pursue them?</p>
+        <p>Chronic depletion is not a personality trait. It is not a badge of seriousness. It is a <strong>performance drain with a measurable cost</strong> &mdash; in quality of decisions, in relationships, in the compounding of opportunity missed over years and decades.</p>
+        <p>The people I work with are not lazy. They are running on depleted Qi &mdash; vital energy that has been given away for years without replenishment. <strong>The ancient Chinese understood this with a clarity that modern productivity culture completely ignores.</strong></p>
+      </div>
+      <div class="roi-callout"><p>&ldquo;I was not broken. I had been operating without the owner&apos;s manual for my own body &mdash; and doing so for three decades. When I finally found it, everything changed.&rdquo;</p></div>
+      <div class="roi-math">
+        <div class="roi-math-card"><span class="roi-num">30+</span><p>Years of depletion before I found a different way. That is the cost of not knowing.</p></div>
+        <div class="roi-math-card"><span class="roi-num">8+</span><p>Diagnoses that Western medicine managed but never fully resolved &mdash; until I addressed the root.</p></div>
+        <div class="roi-math-card"><span class="roi-num">&infin;</span><p>The compounding return when you learn to cultivate energy instead of just consuming it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec story-section" id="story">
+    <div class="sec-inner">
+      <div class="sec-label" style="text-align:left;">My Story</div>
+      <h2 class="sec-heading sec-heading-dark" style="text-align:left;">Thirty years chasing the wrong kind of vitality.</h2>
+      <div class="story-prose">
+        <p>I spent over three decades in corporate investment banking. Global markets. Mergers. The relentless, high-stakes pressure that comes with being responsible for significant amounts of other people&apos;s money. From the outside, I had the career most people spend their lives trying to reach.</p>
+        <p>Inside, I was quietly collapsing. I told myself the exhaustion was the price of ambition. The constant headaches were stress. The digestive chaos was just &ldquo;getting older.&rdquo; I had no vocabulary for what was actually happening &mdash; so I did what high-performers do. I pushed through.</p>
+        <p><strong>The diabetes diagnosis was the first thing that made me stop.</strong> Then the hyperthyroidism. Then the panic attacks &mdash; not the mild kind. The kind that land you in the ER at 2am convinced something is catastrophically wrong. The kind that turn ordinary things like air travel into enormous acts of courage.</p>
+        <div class="story-pullquote"><p>&ldquo;I wasn&apos;t looking for a wellness journey. I was looking for a way to function. I was looking for a single day where I woke up and didn&apos;t feel like I was already losing.&rdquo;</p></div>
+        <p>Depression moved in quietly. Stretches where I could not sleep for days. Vertigo that made the world feel unstable in the most literal sense. A low-grade current of worry and fear that I had normalised so completely I thought it was just who I was.</p>
+        <p>Medicine managed my conditions. It did not restore me. And it wasn&apos;t until I began &mdash; somewhat reluctantly &mdash; to explore what the ancient Chinese understood about the body, energy, and the relationship between the two, that things began to genuinely shift.</p>
+        <p>The turning point was Qigong. Then the principles of traditional Chinese medicine. Then the broader framework of Taoist health philosophy &mdash; the understanding that the body has its own intelligence, and that when you learn to work <em>with</em> it rather than against it, things that felt irreversible begin to change.</p>
+        <p>Sleep came back. Not all at once. Gradually, reliably. The fatigue began to lift. The panic quieted. My relationship with food changed when I understood it as nourishment rather than fuel. <strong>The conditions didn&apos;t all vanish &mdash; but the way I inhabited my body became, for the first time I could remember, sustainable.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bundle-section" id="whats-inside">
+    <div class="sec-inner-wide">
+      <div class="sec-label sec-label-light">What You&apos;re Getting</div>
+      <h2 class="sec-heading sec-heading-white">Here Is Everything Inside<br>The Qi Restoration Journey</h2>
+      <p style="text-align:center; color:rgba(255,255,255,0.4); font-size:0.92rem; max-width:580px; margin:0 auto 44px;">Not as a content list. As a complete system built around one question: what would it feel like to genuinely recover your vitality &mdash; and what would you do with it?</p>
+      <div class="bundle-row">
+        <div class="bundle-item">
+          <div class="bundle-item-left">
+            <div class="bundle-item-name"><span class="bundle-tag">Core</span>The Qi Restoration Journey Programme</div>
+            <div class="bundle-item-desc">12-week guided programme &middot; Lifetime access to all materials</div>
+          </div>
+          <div class="bundle-item-value"><span class="value-label">Value</span>USD 1,997</div>
+        </div>
+        <div class="bundle-item">
+          <div class="bundle-item-left">
+            <div class="bundle-item-name"><span class="bundle-tag">Bonus 1</span>Personal Qi Assessment Session</div>
+            <div class="bundle-item-desc">60-minute 1:1 &middot; Understand your constitutional energy pattern before you begin</div>
+          </div>
+          <div class="bundle-item-value"><span class="value-label">Value</span>USD 497</div>
+        </div>
+        <div class="bundle-item">
+          <div class="bundle-item-left">
+            <div class="bundle-item-name"><span class="bundle-tag">Bonus 2</span>The Seasonal Eating Guide</div>
+            <div class="bundle-item-desc">Lifetime access &middot; Food as medicine &mdash; tailored to your constitution and the seasons</div>
+          </div>
+          <div class="bundle-item-value"><span class="value-label">Value</span>USD 297</div>
+        </div>
+        <div class="bundle-item">
+          <div class="bundle-item-left">
+            <div class="bundle-item-name"><span class="bundle-tag">Bonus 3</span>Group Coaching Calls</div>
+            <div class="bundle-item-desc">4 live sessions with replays &middot; Bring your actual questions and real-world situations</div>
+          </div>
+          <div class="bundle-item-value"><span class="value-label">Value</span>USD 600</div>
+        </div>
+        <div class="bundle-item">
+          <div class="bundle-item-left">
+            <div class="bundle-item-name"><span class="bundle-tag">Limited</span>The Qi Cultivation Daily Practice Kit</div>
+            <div class="bundle-item-desc">First 10 annual enrolments only &middot; Physical resource set sent to your home</div>
+          </div>
+          <div class="bundle-item-value"><span class="value-label">Value</span>USD 200</div>
+        </div>
+      </div>
+      <div class="bundle-total"><span class="total-label">Total Value</span><span class="total-value">USD 3,591</span></div>
+      <div class="bundle-cta-row">
+        <div class="bundle-your-inv">Your Investment</div>
+        <div class="bundle-your-price">USD 1,997 <span>one-time &middot; or USD 497/month</span></div>
+        <div style="margin-top:6px; font-size:0.82rem; color:rgba(255,255,255,0.3); margin-bottom:24px;">You are paying the price of the core programme alone. Every bonus above is included.</div>
+        <a href="#pricing" class="btn-amber">I Want The Entire Bundle</a>
+        <div style="margin-top:14px; font-size:0.78rem; color:rgba(255,255,255,0.25);">Enrolment closes May 31, 2026 &middot; 30-Day Full Refund Guarantee</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="modules-section" id="program">
+    <div class="sec-inner-wide">
+      <div class="sec-label">What&apos;s Inside The Programme</div>
+      <h2 class="sec-heading sec-heading-dark">I am not going to list every module here.<br><em>Here is why.</em></h2>
+      <p class="sec-sub" style="max-width:720px;">Most wellness programmes hand you a syllabus. You read it, think &ldquo;that sounds reasonable,&rdquo; and move on. What I have built is not a syllabus. It is a system &mdash; and systems only make sense when you are inside them. What I can tell you is the territory it covers.</p>
+
+      <div class="module-teaser-wrap">
+
+        <div class="module-teaser-intro">
+          <p>There are six territories. Each one addresses something that kept me unwell for years &mdash; and that I have never seen any single wellness programme address together, in the right sequence, in a way that actually holds under the pressure of a real professional life.</p>
+          <p>I am not going to explain the full depth of each one on this page. That is what the programme is for. But I will tell you enough for you to recognise whether this speaks to what you have been carrying.</p>
+        </div>
+
+        <div class="module-teaser-grid">
+
+          <div class="module-teaser-card">
+            <div class="mtr-num">01</div>
+            <div class="mtr-body">
+              <div class="mtr-title">The Language Your Body Is Speaking</div>
+              <p class="mtr-hint">You have been managing symptoms. There is a deeper system underneath them. Until you understand what that system is and how to read it, you are working blind &mdash; and every intervention is a guess.</p>
+              <div class="mtr-locked">What this actually is &mdash; and how to use it &mdash; is inside the programme.</div>
+            </div>
+          </div>
+
+          <div class="module-teaser-card">
+            <div class="mtr-num">02</div>
+            <div class="mtr-body">
+              <div class="mtr-title">Movement That Gives Back More Than It Takes</div>
+              <p class="mtr-hint">Not exercise. Not stretching. Something far older, and far more precise &mdash; a way of moving that directly addresses the energy deficit most high-performers have been accumulating for years without realising it.</p>
+              <div class="mtr-locked">The specific practice and why it works is reserved for participants.</div>
+            </div>
+          </div>
+
+          <div class="module-teaser-card">
+            <div class="mtr-num">03</div>
+            <div class="mtr-body">
+              <div class="mtr-title">Why You Eat the Right Things and Still Feel Wrong</div>
+              <p class="mtr-hint">Nutrition science tells you what to eat. It does not tell you what <em>your body</em> needs to eat &mdash; which is a completely different question. There is a framework for this. It is thousands of years old. It works.</p>
+              <div class="mtr-locked">The full framework is taught inside the programme.</div>
+            </div>
+          </div>
+
+          <div class="module-teaser-card">
+            <div class="mtr-num">04</div>
+            <div class="mtr-body">
+              <div class="mtr-title">The Kind of Rest That Actually Restores You</div>
+              <p class="mtr-hint">There is rest that drains and rest that rebuilds. Most high-performers have been doing the former while calling it the latter. The difference is specific, learnable, and changes everything about how you recover &mdash; without changing your schedule.</p>
+              <div class="mtr-locked">The distinction and the practice are inside the programme.</div>
+            </div>
+          </div>
+
+          <div class="module-teaser-card">
+            <div class="mtr-num">05</div>
+            <div class="mtr-body">
+              <div class="mtr-title">The Emotion&ndash;Body Connection Western Medicine Ignores</div>
+              <p class="mtr-hint">Ancient Chinese medicine has mapped the relationship between specific emotional patterns and specific organ systems for thousands of years. This is not metaphor. It is one of the most practically useful things I have ever learned &mdash; and it explained a decade of my own illness in about twenty minutes.</p>
+              <div class="mtr-locked">This mapping, and what to do with it, is inside the programme.</div>
+            </div>
+          </div>
+
+          <div class="module-teaser-card">
+            <div class="mtr-num">06</div>
+            <div class="mtr-body">
+              <div class="mtr-title">How to Be Ambitious Without Burning the House Down</div>
+              <p class="mtr-hint">This one is not about slowing down. It is not about doing less. It is about understanding the principle that makes sustained high performance possible &mdash; the one that the ancient Taoists understood and that modern productivity culture has never cracked.</p>
+              <div class="mtr-locked">The principle and how to apply it in a career context is inside the programme.</div>
+            </div>
+          </div>
+
+        </div><!-- /module-teaser-grid -->
+
+        <div class="module-teaser-close">
+          <p>I spent thirty years without any of this. I am not going to summarise it in six bullet points on a webpage.</p>
+          <p>What I will tell you is this: the people I work with do not come back with the same problems. Not because I have given them answers &mdash; but because they leave with a framework they carry with them for the rest of their lives.</p>
+          <a href="#pricing" class="btn-amber" style="margin-top:28px; display:inline-block;">I&apos;m Ready to Find Out</a>
+        </div>
+
+      </div><!-- /module-teaser-wrap -->
+    </div>
+  </section>
+
+  <section class="bonus-section" id="bonuses">
+    <div class="sec-inner-wide">
+      <div class="sec-label sec-label-light">The Bonuses Explained</div>
+      <h2 class="sec-heading sec-heading-white">Everything Else You&apos;re Getting</h2>
+      <div class="bonus-cards">
+        <div class="bonus-card">
+          <div class="bonus-num">Bonus 1</div>
+          <h4>Personal Qi Assessment Session (1:1, 60 min)</h4>
+          <p>Before you begin the programme, we map your constitutional energy pattern together. This is not a generic intake form. It is a genuine diagnostic conversation that determines how you should apply every module that follows.</p>
+          <div class="bonus-value">Value: USD 497 &mdash; Yours Included</div>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-num">Bonus 2</div>
+          <h4>The Seasonal Eating Guide (Lifetime Access)</h4>
+          <p>Most nutrition advice is one-size-fits-all. This guide is built on Chinese medicine&apos;s seasonal framework: what to eat in each season to support energy, immunity, and organ health &mdash; organised by constitutional type so it applies to you specifically.</p>
+          <div class="bonus-value">Value: USD 297 &mdash; Yours Included</div>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-num">Bonus 3</div>
+          <h4>Group Coaching Calls (4 Sessions, with Replays)</h4>
+          <p>Bring your actual situation. A health challenge, a question about applying the material, a specific symptom you want to understand. Four live sessions to get real answers &mdash; not generic advice. Replays included.</p>
+          <div class="bonus-value">Value: USD 600 &mdash; Yours Included</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-section" id="about">
+    <div class="sec-inner-wide">
+      <div class="sec-label">Who I Am</div>
+      <h2 class="sec-heading sec-heading-dark">Two worlds.<br><em>One integrated understanding.</em></h2>
+      <div class="who-layout">
+        <div class="who-left">
+          <p>I bring the <strong>analytical rigour of three decades in global investment banking</strong> together with deep immersion in traditional Chinese medicine, Qigong, and Taoist health philosophy. I know what professional depletion looks like from the inside. I know what genuine recovery &mdash; not just management, but actual restoration &mdash; can feel like.</p>
+          <p>I work with <strong>high-performers, senior executives, and professionals</strong> who have achieved the external markers of success while quietly losing their health, their vitality, and their connection to themselves.</p>
+          <ul class="cred-list">
+            <li>30+ years in global corporate investment banking &mdash; I understand your world</li>
+            <li>Trained in Dragon&apos;s Way Qigong and traditional Chinese healing principles</li>
+            <li>Personal navigation of: diabetes, hyperthyroidism, chronic fatigue, panic disorder, clinical depression, insomnia, vertigo</li>
+            <li>Student of the Tao &mdash; the art of living in alignment with natural energy and rhythm</li>
+            <li>Founder of Taoquen &mdash; where ancient wisdom meets modern professional life</li>
+          </ul>
+        </div>
+        <div class="who-stats">
+          <div class="who-stat">
+            <div class="stat-num">30+</div>
+            <div class="stat-text"><strong>Years in Finance</strong><span>Global investment banking. I know what sustained high performance actually costs.</span></div>
+          </div>
+          <div class="who-stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-text"><strong>Conditions Navigated</strong><span>Not managed with medication alone &mdash; genuinely addressed at the root level.</span></div>
+          </div>
+          <div class="who-stat">
+            <div class="stat-num">12+</div>
+            <div class="stat-text"><strong>Weeks per Journey</strong><span>A structured, outcome-focused programme &mdash; not a subscription to inspiration.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="results">
+    <div class="sec-inner-wide">
+      <div class="sec-label sec-label-light">What Participants Say</div>
+      <h2 class="sec-heading sec-heading-white">The Moment Everything<br><em>Stopped Being Theory</em></h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;I had seen cardiologists, endocrinologists, and three different therapists. None of them gave me a framework that made sense of the whole picture. The first module of this programme did that. I felt genuinely seen for the first time in years.&rdquo;</blockquote>
+          <div class="testi-author">S.L.</div>
+          <div class="testi-role">Managing Director, Financial Services &middot; Singapore</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;I was sceptical &mdash; I am a data person. But I was also desperate. Six weeks in, I had my first full week of uninterrupted sleep in four years. That was data enough.&rdquo;</blockquote>
+          <div class="testi-author">R.K.</div>
+          <div class="testi-role">Partner, Professional Services &middot; Hong Kong</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;What I appreciated most was the absence of judgment. No one telling me to slow down, give up my ambitions, or just meditate. This is a serious framework for serious people who want to perform sustainably.&rdquo;</blockquote>
+          <div class="testi-author">M.T.</div>
+          <div class="testi-role">VP Strategy, Technology Sector &middot; London</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="sec-inner">
+      <div class="sec-label">Two Ways to Enroll</div>
+      <h2 class="sec-heading sec-heading-dark">Your Investment</h2>
+      <p class="sec-sub">Both options give you the complete programme and all bonuses. The only difference is how you spread the investment.</p>
+      <div class="pricing-options">
+        <div class="pricing-card">
+          <div class="pricing-plan-name">Monthly Payment Plan</div>
+          <div class="pricing-price"><span class="currency">$</span>497</div>
+          <div class="pricing-cadence">/month &middot; 4 months</div>
+          <ul class="pricing-includes">
+            <li>Full 12-week programme access</li>
+            <li>Personal Qi Assessment (Bonus 1)</li>
+            <li>Seasonal Eating Guide (Bonus 2)</li>
+            <li>4 Group Coaching Calls (Bonus 3)</li>
+            <li>Lifetime access to all materials</li>
+            <li>30-day full refund guarantee</li>
+          </ul>
+          <a href="mailto:hello@taoquen.com?subject=Monthly%20Enrollment" class="btn-full-outline">Start Monthly Plan</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="featured-badge">Best Value &middot; Save USD 191</div>
+          <div class="pricing-plan-name">Full Programme &mdash; One Payment</div>
+          <div class="pricing-price"><span class="currency">$</span>1,997</div>
+          <div class="pricing-cadence">One-time &middot; Full access immediately</div>
+          <ul class="pricing-includes">
+            <li>Full 12-week programme access</li>
+            <li>Personal Qi Assessment (Bonus 1)</li>
+            <li>Seasonal Eating Guide (Bonus 2)</li>
+            <li>4 Group Coaching Calls (Bonus 3)</li>
+            <li>Qi Cultivation Kit (first 10 only)</li>
+            <li>Lifetime access to all materials</li>
+            <li>30-day full refund guarantee</li>
+          </ul>
+          <a href="mailto:hello@taoquen.com?subject=Full%20Enrollment" class="btn-full-amber">Enroll Now</a>
+        </div>
+      </div>
+      <p class="pricing-note">You are paying the price of the core programme alone. Every bonus listed above is included at no additional cost. Enrolment closes <strong>May 31, 2026</strong>.</p>
+    </div>
+  </section>
+
+  <section class="guarantee-section">
+    <div class="guarantee-inner">
+      <div class="guarantee-icon">&#128737;</div>
+      <h3>Enroll with <em>Zero Risk.</em></h3>
+      <p>If within <strong>30 days of enrolment</strong> you don&apos;t feel the programme is delivering what you came for, send me an email and I will refund you in full. No conditions. No hoops. No lengthy process.<br><br>The only person carrying risk on this page is me. That is how confident I am in what I have built here &mdash; and in the fact that the right people will feel it immediately.</p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="sec-inner">
+      <div class="sec-label">Questions</div>
+      <h2 class="sec-heading sec-heading-dark">Frequently Asked</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Do I need any prior knowledge of Qigong or Chinese medicine?<span class="faq-arrow">&#65291;</span></button>
+          <div class="faq-answer">None whatsoever. The programme is designed to be the entry point &mdash; not a continuation of something you already know. I built it for exactly the kind of person I was when I started: sceptical, data-oriented, and out of better options. Everything is explained from first principles.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">I&apos;m already on medication for my conditions. Is this compatible?<span class="faq-arrow">&#65291;</span></button>
+          <div class="faq-answer">Yes. Nothing in this programme replaces or conflicts with medical treatment. What it does is address a dimension of health that medicine doesn&apos;t typically address &mdash; the energetic and constitutional layer. Most participants work alongside their medical practitioners, not instead of them. Always discuss any new health practice with your physician.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">How much time does this require each week?<span class="faq-arrow">&#65291;</span></button>
+          <div class="faq-answer">The programme is designed around a professional schedule. Core practice: 20&ndash;30 minutes daily. Weekly module content: approximately 60&ndash;90 minutes. Group coaching calls are 90 minutes each and are recorded if you can&apos;t attend live.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">I&apos;ve tried other wellness programmes. Why would this be different?<span class="faq-arrow">&#65291;</span></button>
+          <div class="faq-answer">Most wellness programmes give you information or inspiration. This one gives you a framework &mdash; a system for understanding what your body is actually doing and why. Once you have the framework, you carry it everywhere. That is the difference.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">What happens after the 12 weeks?<span class="faq-arrow">&#65291;</span></button>
+          <div class="faq-answer">You keep everything. Lifetime access to all programme materials, the Seasonal Eating Guide, and all call recordings. The framework is designed to be self-sustaining &mdash; the goal is that by the end of 12 weeks you have the tools and understanding to continue on your own. For those who want continued support, follow-on options are available.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Can I really get a refund if it doesn&apos;t work for me?<span class="faq-arrow">&#65291;</span></button>
+          <div class="faq-answer">Absolutely. Email hello@taoquen.com within 30 days and you will receive a full refund. No questions, no conditions. The guarantee is real.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="connect">
+    <div class="final-cta-inner">
+      <div class="enroll-closes">Enrolment Closes May 31, 2026</div>
+      <h2>What if this year was the year<br>you stopped just <em>surviving</em>?</h2>
+      <p>You have already proven you can achieve. The question is whether you can sustain it &mdash; and whether the version of you achieving all of this is the one you actually want to be living as. That is the conversation this programme is built around.</p>
+      <a href="#pricing" class="btn-amber">YES, I WANT TO RESTORE MY QI</a>
+      <p class="final-reassure">30-Day Full Refund &nbsp;&middot;&nbsp; No conditions &nbsp;&middot;&nbsp; The only risk here is mine.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-tq-logo">
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#f5c876" stroke-width="1.4" opacity="0.4"/>
+        <path d="M20 4 C28 4, 28 20, 20 20 C12 20, 12 36, 20 36" stroke="#f5c876" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.5"/>
+        <circle cx="20" cy="11" r="2.8" fill="#e87007" opacity="0.6"/>
+        <circle cx="20" cy="29" r="2.8" fill="#f5c876" opacity="0.4"/>
+      </svg>
+      <span class="footer-tq-wordmark">Taoquen</span>
+    </div>
+    <p>&copy; 2026 Taoquen &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@taoquen.com">hello@taoquen.com</a></p>
+    <p style="margin-top:6px;">Where ancient wisdom meets modern professional life.</p>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      var answer = btn.nextElementSibling;
+      var arrow = btn.querySelector('.faq-arrow');
+      var isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('open'); });
+      document.querySelectorAll('.faq-arrow').forEach(function(a) { a.textContent = '\uFF0B'; });
+      if (!isOpen) { answer.classList.add('open'); arrow.textContent = '\uFF0D'; }
+    }
+  </script>
+
+</body>
+</html>

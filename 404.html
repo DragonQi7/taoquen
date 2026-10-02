@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Taoquen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark: #fdfbf2;
+      --jade: #141806;
+      --gold: #c8901a;
+      --text: #141806;
+      --text-muted: #7a5808;
+    }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .glyph {
+      font-family: 'Cinzel', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 36px;
+    }
+    a.btn {
+      display: inline-block;
+      background: var(--jade);
+      color: #fdfbf2;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    a.btn:hover { opacity: 0.82; }
+    .sub-links {
+      margin-top: 24px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .sub-links a {
+      color: var(--gold);
+      font-size: 0.88rem;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200,144,26,0.3);
+      padding-bottom: 1px;
+    }
+    .sub-links a:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="glyph">道</div>
+  <h1>This path does not exist.</h1>
+  <p>The page you're looking for may have moved, or the URL may be incorrect. Return to the beginning — the Tao always offers a way.</p>
+  <a href="/" class="btn">Return Home</a>
+  <div class="sub-links">
+    <a href="/programs.html">Programs</a>
+    <a href="/qi-assessment.html">Free Assessment</a>
+    <a href="/tcm.html">Learn TCM</a>
+    <a href="/blog/">Blog</a>
+  </div>
+</body>
+</html>

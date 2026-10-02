@@ -1,0 +1,1228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Four Energy Gates &mdash; Daily Self-Healing Practice | Taoquen</title>
+  <meta name="description" content="Learn to heal yourself daily with the Four Energy Gates &mdash; a 20-minute acupressure practice rooted in 5,000 years of TCM. No equipment. No appointments. Just you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://taoquen.com/four-energy-gates.html">
+  <meta property="og:title" content="The Four Energy Gates — Daily Self-Healing Practice | Taoquen">
+  <meta property="og:description" content="Learn to heal yourself daily with the Four Energy Gates — a 20-minute acupressure practice rooted in 5,000 years of TCM. No equipment. No appointments. Just you.">
+  <meta property="og:image" content="https://taoquen.com/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Four Energy Gates — Daily Self-Healing Practice | Taoquen">
+  <meta name="twitter:description" content="Learn to heal yourself daily with the Four Energy Gates — a 20-minute acupressure practice rooted in 5,000 years of TCM. No equipment. No appointments. Just you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Noto+Serif+SC:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════════
+       ROOT TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --bg:          #0d0806;
+      --bg-2:        #120c09;
+      --bg-3:        #160e0b;
+      --surface:     rgba(255,255,255,0.04);
+      --surface-2:   rgba(255,255,255,0.07);
+      --border:      rgba(255,255,255,0.08);
+      --border-2:    rgba(255,255,255,0.14);
+      --text:        #f5ede8;
+      --text-muted:  rgba(245,237,232,0.55);
+      --text-dim:    rgba(245,237,232,0.35);
+      --brand:       #55160A;
+      --brand-light: #C02026;
+      --ease:        cubic-bezier(0.4,0,0.2,1);
+      /* Gate accent palette */
+      --g1:       #52b788;
+      --g1-dim:   rgba(82,183,136,0.12);
+      --g1-glow:  rgba(82,183,136,0.25);
+      --g2:       #e07a5f;
+      --g2-dim:   rgba(224,122,95,0.12);
+      --g2-glow:  rgba(224,122,95,0.25);
+      --g3:       #f4a261;
+      --g3-dim:   rgba(244,162,97,0.12);
+      --g3-glow:  rgba(244,162,97,0.25);
+      --g4:       #6a9bc3;
+      --g4-dim:   rgba(106,155,195,0.12);
+      --g4-glow:  rgba(106,155,195,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      line-height: 1.75; overflow-x: hidden;
+    }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.2; font-weight: 600; }
+    a { color: var(--brand-light); text-decoration: none; }
+    a:hover { color: #e85d50; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .js-ready .reveal { opacity: 0; transform: translateY(32px); }
+    .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn     { from{opacity:0} to{opacity:1} }
+    @keyframes pulse-ring {
+      0%   { transform:scale(1);   opacity:0.6; }
+      70%  { transform:scale(1.9); opacity:0; }
+      100% { transform:scale(1.9); opacity:0; }
+    }
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(38px) rotate(0deg); }
+      to   { transform: rotate(360deg) translateX(38px) rotate(-360deg); }
+    }
+
+    /* ══════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════ */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 18px 0; background: transparent;
+      transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+    }
+    .site-nav.scrolled {
+      background: rgba(13,8,6,0.95); backdrop-filter: blur(16px);
+      padding: 12px 0; box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .site-nav.scrolled::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+      background: linear-gradient(90deg, transparent, var(--brand-light) 30%, var(--g1) 50%, var(--brand-light) 70%, transparent);
+    }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+    .lockup { position:relative; text-align:left; line-height:1; display:inline-block; text-decoration:none; color:inherit; padding-right:10px; }
+    .lockup-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:24px; letter-spacing:0.04em; color:rgba(255,248,244,0.95); display:block; white-space:nowrap; text-transform:lowercase; transition:color 0.4s; }
+    .lockup-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:10.5px; color:rgba(255,248,244,0.5); margin-top:5px; letter-spacing:0.01em; white-space:nowrap; display:block; transition:color 0.4s; }
+    .lockup-seal { position:absolute; top:-5px; right:0; width:14px; height:14px; background:#b73f2a; transform:rotate(-2deg); display:flex; align-items:center; justify-content:center; }
+    .lockup-seal span { font-family:'Noto Serif SC',serif; font-size:8px; color:#f6efe0; line-height:1; display:block; }
+    .site-nav.scrolled .lockup-name { color:#1b1b18; }
+    .site-nav.scrolled .lockup-sub  { color:rgba(42,48,16,0.5); }
+    .nav-links { display:flex; gap:20px; list-style:none; align-items:center; }
+    .nav-links a {
+      font-size:0.72rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase;
+      color:rgba(255,248,244,0.5); transition:color 0.2s; white-space:nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active-page { color:rgba(255,248,244,0.9); }
+    .nav-cta {
+      background: var(--brand-light) !important; color: white !important;
+      padding: 8px 20px; border-radius: 3px; font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: #e03030 !important; color:white !important; }
+    .nav-login-pill { padding: 7px 16px; border-radius: 4px; border: 1.5px solid rgba(255,248,244,0.4); color: rgba(255,248,244,0.85) !important; font-size: 0.72rem !important; font-weight: 500 !important; transition: all 0.2s !important; white-space: nowrap; }
+    .nav-login-pill:hover { border-color: rgba(255,248,244,0.8); color: #fff8f4 !important; background: rgba(255,248,244,0.08); }
+    .site-nav.scrolled .nav-login-pill { border-color: rgba(42,48,16,0.3); color: var(--text-muted) !important; }
+    .site-nav.scrolled .nav-login-pill:hover { border-color: var(--jade-light); color: var(--jade) !important; }
+    .nav-burger { display:none; flex-direction:column; gap:5px; width:42px; height:42px; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
+    .nav-burger span { display:block; width:22px; height:1.5px; background:rgba(255,248,244,0.92); transition:0.3s; }
+    .site-nav.scrolled .nav-burger span { background:#1b1b18; }
+    .drawer { position:fixed; inset:0; z-index:1001; background:rgba(13,8,6,0.97); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; opacity:0; pointer-events:none; transition:opacity 0.4s; }
+    .drawer.open { opacity:1; pointer-events:auto; }
+    .drawer a { font-family:'Playfair Display',serif; font-size:1.7rem; color:#fff8f4; padding:10px 0; opacity:0; transform:translateY(14px); transition:opacity 0.4s, transform 0.4s; }
+    .drawer a:hover { color:var(--brand-light); }
+    .drawer.open a { opacity:1; transform:none; }
+    .drawer.open a:nth-child(2){transition-delay:.06s} .drawer.open a:nth-child(3){transition-delay:.1s} .drawer.open a:nth-child(4){transition-delay:.14s} .drawer.open a:nth-child(5){transition-delay:.18s} .drawer.open a:nth-child(6){transition-delay:.22s} .drawer.open a:nth-child(7){transition-delay:.26s} .drawer.open a:nth-child(8){transition-delay:.3s} .drawer.open a:nth-child(9){transition-delay:.34s}
+    .drawer-close { position:absolute; top:24px; right:28px; background:none; border:none; color:#fff8f4; font-size:2rem; cursor:pointer; line-height:1; }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; isolation: isolate;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:
+        radial-gradient(ellipse 55% 45% at 20% 80%, rgba(82,183,136,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(224,122,95,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(85,22,10,0.25) 0%, transparent 70%),
+        #0d0806;
+    }
+    .hero-meridian {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.4;
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center;
+      max-width: 820px; padding: 0 24px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase;
+      color: rgba(245,237,232,0.5); margin-bottom: 20px;
+      opacity: 0; animation: fadeIn 1s 0.3s forwards;
+    }
+    .hero-eyebrow span { display:block; width:32px; height:1px; background:currentColor; }
+    .hero-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(82,183,136,0.15), rgba(224,122,95,0.15));
+      border: 1px solid rgba(255,255,255,0.12); color: rgba(245,237,232,0.7);
+      font-family:'Cinzel',serif; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 2px; margin-bottom: 28px;
+      opacity: 0; animation: fadeIn 1s 0.45s forwards;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; color: #fff8f4;
+      line-height: 1.05; margin-bottom: 8px;
+      opacity: 0; animation: fadeInUp 1s 0.55s forwards;
+    }
+    .hero-title-sub {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 400;
+      color: rgba(245,237,232,0.6); margin-bottom: 28px;
+      opacity: 0; animation: fadeInUp 1s 0.7s forwards;
+    }
+    .hero-gates {
+      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 40px; opacity: 0; animation: fadeInUp 1s 0.85s forwards;
+    }
+    .hero-gate-pill {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 6px 14px;
+      font-size: 0.72rem; font-weight: 500; color: rgba(245,237,232,0.7);
+    }
+    .hero-gate-pill .dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+    .hero-ctas {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      opacity: 0; animation: fadeInUp 1s 1s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--brand-light); color: white;
+      padding: 15px 34px; border-radius: 4px; font-family:'Inter',sans-serif;
+      font-size: 0.93rem; font-weight: 600; letter-spacing: 0.04em;
+      cursor: pointer; border: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { background:#e03030; transform:translateY(-2px); box-shadow:0 10px 32px rgba(192,32,38,0.35); color:white; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: rgba(245,237,232,0.75);
+      padding: 14px 30px; border-radius: 4px; font-family:'Inter',sans-serif;
+      font-size: 0.93rem; font-weight: 500;
+      cursor: pointer; border: 1px solid rgba(255,255,255,0.18);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color:rgba(255,255,255,0.5); color:white; background:rgba(255,255,255,0.05); }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(245,237,232,0.3); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      opacity: 0; animation: fadeIn 1s 1.5s forwards;
+    }
+    .hero-scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.3)); }
+
+    /* ══════════════════════════════════════════
+       WAVE DIVIDER
+    ══════════════════════════════════════════ */
+    .wave-divider { overflow: hidden; line-height: 0; margin-bottom: -2px; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ══════════════════════════════════════════
+       SECTION BASE
+    ══════════════════════════════════════════ */
+    .section-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
+      margin-bottom: 14px; display: block;
+    }
+    .section-title { font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 18px; }
+    .section-lead { font-size: 1.02rem; color: var(--text-muted); line-height: 1.85; }
+
+    /* ══════════════════════════════════════════
+       TRUTH BANNER
+    ══════════════════════════════════════════ */
+    .truth { background: var(--bg-2); padding: 72px 0; }
+    .truth-inner {
+      max-width: 900px; margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center;
+    }
+    .truth-divider { background: rgba(255,255,255,0.08); height: 100px; }
+    .truth-cell { padding: 0 52px; }
+    .truth-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px;
+    }
+    .truth-text {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1rem, 1.8vw, 1.35rem); color: var(--text); line-height: 1.55;
+    }
+    .truth-text strong { font-style: normal; color: var(--g1); }
+
+    /* ══════════════════════════════════════════
+       WHY SECTION
+    ══════════════════════════════════════════ */
+    .why { background: var(--bg); padding: 100px 0; }
+    .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .why-left h2 { font-size: clamp(1.9rem, 3vw, 2.6rem); margin-bottom: 22px; color: var(--text); }
+    .why-left h2 em { font-style: italic; color: var(--g1); }
+    .why-left p { font-size: 0.96rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 18px; }
+    .why-quote {
+      margin-top: 28px; border-left: 2px solid var(--g2);
+      padding: 16px 22px; background: var(--g2-dim); border-radius: 0 8px 8px 0;
+    }
+    .why-quote p { font-family:'Playfair Display',serif; font-style:italic; color:var(--text); font-size:1rem; line-height:1.7; margin-bottom:0; }
+    .why-quote cite { font-size:0.75rem; color:var(--text-dim); margin-top:8px; display:block; font-style:normal; }
+    .why-pillars { display: flex; flex-direction: column; gap: 16px; }
+    .why-pillar {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px 24px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .why-pillar:hover { background: var(--surface-2); border-color: var(--border-2); }
+    .why-pillar-top { display:flex; align-items:center; gap:14px; margin-bottom:8px; }
+    .why-pillar-icon { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; }
+    .why-pillar-top h3 { font-size:0.95rem; color:var(--text); font-weight:500; }
+    .why-pillar > p { font-size:0.84rem; color:var(--text-muted); line-height:1.7; margin:0; }
+
+    /* ══════════════════════════════════════════
+       STATS
+    ══════════════════════════════════════════ */
+    .stats { background: var(--bg-2); padding: 52px 0; }
+    .stats-grid { display:flex; justify-content:space-around; gap:24px; flex-wrap:wrap; }
+    .stat-item { text-align:center; }
+    .stat-num {
+      font-family:'Playfair Display',serif; font-size:2.8rem; font-weight:700;
+      line-height:1; display:block;
+      background: linear-gradient(135deg, var(--g1) 0%, var(--g3) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size:0.74rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
+
+    /* ══════════════════════════════════════════
+       GATE NAV BAR (sticky)
+    ══════════════════════════════════════════ */
+    .gate-nav {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(13,8,6,0.96); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07); padding: 0;
+    }
+    .gate-nav-inner { display: flex; align-items: stretch; max-width: 1160px; margin: 0 auto; }
+    .gate-nav-item {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 12px; cursor: pointer; border: none;
+      background: transparent; color: var(--text-muted);
+      font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.06em; text-decoration: none;
+      border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .gate-nav-item:hover { color: var(--text); }
+    .gate-nav-item.g1:hover, .gate-nav-item.g1.active { border-bottom-color:var(--g1); color:var(--g1); background:var(--g1-dim); }
+    .gate-nav-item.g2:hover, .gate-nav-item.g2.active { border-bottom-color:var(--g2); color:var(--g2); background:var(--g2-dim); }
+    .gate-nav-item.g3:hover, .gate-nav-item.g3.active { border-bottom-color:var(--g3); color:var(--g3); background:var(--g3-dim); }
+    .gate-nav-item.g4:hover, .gate-nav-item.g4.active { border-bottom-color:var(--g4); color:var(--g4); background:var(--g4-dim); }
+    .gate-nav-dot {
+      width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; position: relative;
+    }
+    .gate-nav-dot::after {
+      content:''; position:absolute; inset:-4px; border-radius:50%;
+      border: 1px solid currentColor; opacity: 0; transition: opacity 0.2s;
+    }
+    .gate-nav-item:hover .gate-nav-dot::after,
+    .gate-nav-item.active .gate-nav-dot::after { opacity: 0.5; }
+    .gate-nav-num { font-family:'Cinzel',serif; font-size:0.6rem; font-weight:700; letter-spacing:0.12em; opacity:0.5; }
+
+    /* ══════════════════════════════════════════
+       GATES SECTION
+    ══════════════════════════════════════════ */
+    .gates-section { padding: 0; }
+    .gate-block {
+      padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative; overflow: hidden;
+    }
+    .gate-block:last-child { border-bottom: none; }
+    .gate-block::before {
+      content:''; position:absolute; inset:0; pointer-events:none; opacity: 0.04;
+    }
+    .gate-block.g1::before { background:radial-gradient(ellipse 80% 60% at 15% 50%, var(--g1), transparent); }
+    .gate-block.g2::before { background:radial-gradient(ellipse 80% 60% at 85% 50%, var(--g2), transparent); }
+    .gate-block.g3::before { background:radial-gradient(ellipse 80% 60% at 15% 50%, var(--g3), transparent); }
+    .gate-block.g4::before { background:radial-gradient(ellipse 80% 60% at 85% 50%, var(--g4), transparent); }
+
+    .gate-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .gate-block.reverse .gate-inner { direction: rtl; }
+    .gate-block.reverse .gate-inner > * { direction: ltr; }
+
+    /* Visual panel */
+    .gate-visual {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; position: relative; min-height: 380px;
+    }
+    .gate-orb {
+      position: relative; width: 160px; height: 160px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 28px;
+    }
+    .gate-orb-icon { font-size: 3.6rem; position: relative; z-index: 1; }
+    .gate-big-num {
+      font-family: 'Cinzel', serif; font-size: 7rem; font-weight: 700;
+      line-height: 1; opacity: 0.06; position: absolute; bottom: 0; right: 0; letter-spacing: -0.04em;
+    }
+    .gate-location-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1px solid; border-radius: 20px; padding: 6px 16px;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .gate-meridian {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.18;
+    }
+
+    /* Content panel */
+    .gate-content { padding: 8px 0; }
+    .gate-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .gate-content h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); color: var(--text); margin-bottom: 16px; }
+    .gate-content > p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 28px; }
+    .gate-technique { border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; border: 1px solid; }
+    .gate-technique-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 7px; display: block; }
+    .gate-technique p { font-size: 0.87rem; line-height: 1.7; color: var(--text-muted); margin: 0; }
+    .gate-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .gate-tags-label { width: 100%; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2px; }
+    .gate-tag { font-size: 0.74rem; padding: 4px 13px; border-radius: 20px; border: 1px solid; background: transparent; }
+
+    /* ══════════════════════════════════════════
+       DAILY SEQUENCE
+    ══════════════════════════════════════════ */
+    .sequence { padding: 100px 0; background: var(--bg-2); }
+    .sequence-header { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+    .seq-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 56px; }
+    .seq-step { text-align: center; position: relative; padding: 0 8px; }
+    .seq-step:not(:last-child)::after {
+      content:''; position:absolute; top:22px; right:-10px; width:20px; height:1px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
+    }
+    .seq-num { width:44px; height:44px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; font-family:'Cinzel',serif; font-size:0.78rem; font-weight:700; color:white; }
+    .seq-step h4 { font-size:0.9rem; color:var(--text); margin-bottom:7px; }
+    .seq-step p { font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .seq-table { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+    .seq-table-head {
+      padding: 18px 28px; background: rgba(255,255,255,0.04);
+      font-family:'Cinzel',serif; font-size:0.68rem; font-weight:700;
+      letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted);
+      display: grid; grid-template-columns: 52px 72px 1.7fr 0.85fr 0.85fr 0.95fr; gap: 10px;
+    }
+    .seq-row {
+      display: grid; grid-template-columns: 52px 72px 1.7fr 0.85fr 0.85fr 0.95fr; gap: 10px;
+      border-top: 1px solid var(--border); padding: 16px 28px; align-items: center;
+      transition: background 0.2s;
+    }
+    .seq-row:hover { background: rgba(255,255,255,0.03); }
+    .seq-num-cell { font-family:'Cinzel',serif; font-size:0.72rem; font-weight:700; }
+    .seq-name { font-weight:500; font-size:0.9rem; color:var(--text); }
+    .seq-point { font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:0.06em; color:var(--text); }
+    .seq-el, .seq-dir { font-size:0.82rem; color:var(--text-muted); }
+    .seq-hour { font-size:0.82rem; }
+    .seq-total {
+      padding: 16px 28px; background: rgba(255,255,255,0.03);
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border);
+    }
+    .seq-total span { font-size:0.85rem; color:var(--text-muted); }
+    .seq-total strong {
+      font-family:'Playfair Display',serif; font-size:1.1rem;
+      background: linear-gradient(135deg, var(--g1), var(--g3));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+
+    /* ══════════════════════════════════════════
+       BENEFITS
+    ══════════════════════════════════════════ */
+    .benefits { padding: 100px 0; background: var(--bg); }
+    .benefits-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .benefit-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 26px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .benefit-card:hover { transform: translateY(-5px); background: var(--surface-2); }
+    .benefit-card.g1:hover { border-color:rgba(82,183,136,0.3);  box-shadow:0 12px 40px rgba(82,183,136,0.08); }
+    .benefit-card.g2:hover { border-color:rgba(224,122,95,0.3);  box-shadow:0 12px 40px rgba(224,122,95,0.08); }
+    .benefit-card.g3:hover { border-color:rgba(244,162,97,0.3);  box-shadow:0 12px 40px rgba(244,162,97,0.08); }
+    .benefit-card.g4:hover { border-color:rgba(106,155,195,0.3); box-shadow:0 12px 40px rgba(106,155,195,0.08); }
+    .benefit-icon { font-size:1.9rem; margin-bottom:14px; }
+    .benefit-card h3 { font-size:0.98rem; color:var(--text); margin-bottom:9px; }
+    .benefit-card p { font-size:0.84rem; color:var(--text-muted); line-height:1.75; margin:0; }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════ */
+    .testimonials { padding: 100px 0; background: var(--bg-2); }
+    .testimonials-header { text-align:center; max-width:560px; margin:0 auto 56px; }
+    .testimonials-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .testimonial {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 34px; position: relative;
+    }
+    .testimonial::before {
+      content:'\201C'; position:absolute; top:14px; left:26px;
+      font-family:'Playfair Display',serif; font-size:5rem;
+      color:rgba(255,255,255,0.05); line-height:1;
+    }
+    .testimonial-stars { letter-spacing:3px; font-size:0.8rem; margin-bottom:14px; }
+    .testimonial-text { font-size:0.94rem; color:rgba(245,237,232,0.72); line-height:1.8; margin-bottom:22px; font-style:italic; }
+    .testimonial-author { display:flex; align-items:center; gap:12px; }
+    .testimonial-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.95rem; color:white; flex-shrink:0; }
+    .testimonial-name { font-weight:500; font-size:0.88rem; color:var(--text); }
+    .testimonial-detail { font-size:0.74rem; color:var(--text-dim); margin-top:2px; }
+
+    /* ══════════════════════════════════════════
+       SIGNUP
+    ══════════════════════════════════════════ */
+    .signup { padding: 120px 0; position: relative; overflow: hidden; background: var(--bg-3); isolation: isolate; }
+    .signup::before {
+      content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background:
+        radial-gradient(ellipse 55% 60% at 15% 50%, var(--g1-dim), transparent),
+        radial-gradient(ellipse 55% 60% at 85% 50%, var(--g4-dim), transparent);
+    }
+    .signup-inner { position:relative; z-index:1; max-width:1020px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .signup-left h2 { font-size:clamp(1.9rem,3.5vw,2.9rem); color:var(--text); margin-bottom:18px; }
+    .signup-left h2 em { font-style:italic; color:var(--g1); }
+    .signup-left p { font-size:0.96rem; color:var(--text-muted); line-height:1.85; margin-bottom:18px; }
+    .signup-includes { display:flex; flex-direction:column; gap:9px; margin-top:20px; }
+    .signup-inc { display:flex; align-items:flex-start; gap:11px; font-size:0.86rem; color:var(--text-muted); }
+    .signup-inc::before { content:'◆'; font-size:0.45rem; color:var(--g3); flex-shrink:0; margin-top:7px; }
+    .signup-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); backdrop-filter: blur(10px);
+    }
+    .signup-card-header {
+      padding: 28px 32px; text-align: center;
+      background: linear-gradient(135deg, rgba(82,183,136,0.12), rgba(106,155,195,0.12));
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .signup-card-eyebrow { font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.24em; text-transform:uppercase; color:rgba(245,237,232,0.4); margin-bottom:6px; }
+    .signup-card-title { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:600; color:var(--text); margin-bottom:4px; }
+    .signup-card-sub { font-size:0.8rem; color:var(--text-muted); }
+    .signup-card-body { padding:28px 32px 32px; }
+    .signup-form { display:flex; flex-direction:column; gap:12px; }
+    .signup-form input {
+      width:100%; padding:13px 16px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      border-radius:8px; font-family:'Inter',sans-serif; font-size:0.9rem;
+      color:var(--text); outline:none; transition:border-color 0.2s, box-shadow 0.2s;
+    }
+    .signup-form input::placeholder { color:rgba(245,237,232,0.3); }
+    .signup-form input:focus { border-color:rgba(82,183,136,0.5); box-shadow:0 0 0 3px rgba(82,183,136,0.1); }
+    .signup-form button {
+      width:100%; padding:15px;
+      background:linear-gradient(135deg, var(--brand), var(--brand-light));
+      color:white; border:none; border-radius:8px;
+      font-family:'Inter',sans-serif; font-size:0.93rem; font-weight:600;
+      cursor:pointer; letter-spacing:0.03em;
+      transition:opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .signup-form button:hover { opacity:0.9; transform:translateY(-1px); box-shadow:0 8px 24px rgba(192,32,38,0.3); }
+    .signup-note { font-size:0.73rem; color:var(--text-dim); text-align:center; margin-top:8px; }
+    .signup-success { display:none; text-align:center; padding:16px 0; }
+    .signup-success p { font-family:'Playfair Display',serif; font-style:italic; font-size:1.2rem; color:var(--g1); }
+    .signup-success span { font-size:0.84rem; color:var(--text-muted); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer { background: #080504; border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 0 32px; }
+    .footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+    .footer-brand p { font-size:0.84rem; color:var(--text-muted); max-width:290px; line-height:1.7; margin-top:10px; }
+    .footer-wordmark { font-family:'Cinzel',serif; font-size:1rem; font-weight:700; color:var(--text); letter-spacing:0.22em; text-transform:uppercase; }
+    .footer-sub { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-dim); margin-top:2px; }
+    .footer-col h4 { font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); margin-bottom:16px; }
+    .footer-col ul { list-style:none; }
+    .footer-col ul li { margin-bottom:10px; }
+    .footer-col ul li a { font-size:0.84rem; color:var(--text-muted); transition:color 0.2s; }
+    .footer-col ul li a:hover { color:var(--g1); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); padding-top:24px; display:flex; justify-content:space-between; align-items:center; }
+    .footer-bottom p { font-size:0.76rem; color:var(--text-dim); }
+    .footer-disclaimer { font-size:0.7rem; color:var(--text-dim); max-width:520px; text-align:center; }
+    .back-to-top {
+      position:fixed; bottom:32px; right:32px; width:44px; height:44px;
+      background:var(--brand); border-radius:50%; display:flex; align-items:center; justify-content:center;
+      cursor:pointer; opacity:0; pointer-events:none; z-index:999;
+      transition:opacity 0.3s, transform 0.2s; color:white; font-size:1.1rem;
+    }
+    .back-to-top.visible { opacity:1; pointer-events:auto; }
+    .back-to-top:hover { transform:translateY(-3px); }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .why-inner { grid-template-columns:1fr; gap:48px; }
+      .gate-inner { grid-template-columns:1fr; }
+      .gate-block.reverse .gate-inner { direction:ltr; }
+      .gate-visual { min-height:260px; }
+      .seq-steps { grid-template-columns:repeat(2,1fr); }
+      .seq-step:nth-child(2)::after { display:none; }
+      .benefits-grid { grid-template-columns:repeat(2,1fr); }
+      .signup-inner { grid-template-columns:1fr; gap:52px; }
+      .truth-inner { grid-template-columns:1fr; }
+      .truth-divider { display:none; }
+      .truth-cell { padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+      .truth-cell:last-child { border-bottom:none; }
+      .seq-table-head, .seq-row { grid-template-columns:40px 60px 1.6fr 0.8fr 0.9fr; }
+      .seq-dir, .seq-table-head span:nth-child(5) { display:none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display:none; }
+      .nav-burger { display:flex; }
+      .gate-nav-item span:not(.gate-nav-dot):not(.gate-nav-num) { display:none; }
+      .benefits-grid { grid-template-columns:1fr; }
+      .testimonials-grid { grid-template-columns:1fr; }
+      .footer-inner { grid-template-columns:1fr; gap:28px; }
+      .footer-bottom { flex-direction:column; gap:10px; text-align:center; }
+      .seq-table-head, .seq-row { grid-template-columns:32px 1.5fr 0.8fr; }
+      .seq-point, .seq-hour, .seq-table-head span:nth-child(2), .seq-table-head span:nth-child(6) { display:none; }
+    }
+
+    /* ── CALLIGRAPHY GATE VISUAL ── */
+    .gate-calli {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      width: 320px; height: 320px; margin-bottom: 24px; flex-shrink: 0;
+    }
+    .gate-calli::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle, currentColor 0%, transparent 68%);
+      opacity: 0.13;
+    }
+    .gate-calli-char {
+      font-family: 'Noto Serif SC', serif; font-weight: 400;
+      font-size: 7.5rem; line-height: 1; letter-spacing: -0.02em;
+      position: relative; z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="lockup sm">
+          <div class="lockup-name">taoquen</div>
+          <div class="lockup-sub">Entangle with the Tao</div>
+          <div class="lockup-seal"><span>道</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="tcm.html">Learn TCM</a></li>
+          <li><a href="dwq.html">Dragon&rsquo;s Way</a></li>
+          <li><a href="four-energy-gates.html" class="active-page">Self-Care</a></li>
+          <li><a href="qi-assessment.html">Free Assessment</a></li>
+          <li><a href="free-class.html">Free Class</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="dwq-promo.html" class="nav-cta">Enroll</a></li>
+          <li><a href="login.html" class="nav-login-pill">Log In</a></li>
+        </ul>
+        <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <a href="tcm.html">Learn TCM</a>
+    <a href="dwq.html">Dragon&rsquo;s Way</a>
+    <a href="four-energy-gates.html">Self-Care</a>
+    <a href="qi-assessment.html">Free Assessment</a>
+    <a href="free-class.html">Free Class</a>
+    <a href="programs.html">Programs</a>
+    <a href="dwq-promo.html">Enroll</a>
+    <a href="login.html">Log In</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-meridian" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M 720 0 C 680 200, 760 350, 720 500 C 680 650, 740 750, 720 900"
+            fill="none" stroke="rgba(82,183,136,0.4)" stroke-width="1"
+            stroke-dasharray="400" stroke-dashoffset="400"
+            style="animation: meridian-flow 8s ease-in-out infinite;"/>
+      <path d="M 580 0 C 540 200, 620 350, 580 500 C 540 650, 600 750, 580 900"
+            fill="none" stroke="rgba(224,122,95,0.3)" stroke-width="1"
+            stroke-dasharray="400" stroke-dashoffset="400"
+            style="animation: meridian-flow 10s ease-in-out 1s infinite;"/>
+      <path d="M 860 0 C 820 200, 900 350, 860 500 C 820 650, 880 750, 860 900"
+            fill="none" stroke="rgba(106,155,195,0.3)" stroke-width="1"
+            stroke-dasharray="400" stroke-dashoffset="400"
+            style="animation: meridian-flow 12s ease-in-out 2s infinite;"/>
+      <circle cx="720" cy="165" r="5" fill="#52b788" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="r"       values="4;7;4"       dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="720" cy="340" r="5" fill="#e07a5f" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" begin="0.8s" repeatCount="indefinite"/>
+        <animate attributeName="r"       values="4;7;4"       dur="3.5s" begin="0.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="720" cy="530" r="5" fill="#f4a261" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" begin="1.6s" repeatCount="indefinite"/>
+        <animate attributeName="r"       values="4;7;4"       dur="4s" begin="1.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="720" cy="720" r="5" fill="#6a9bc3" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.2s" begin="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="r"       values="4;7;4"       dur="3.2s" begin="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <line x1="0" y1="165" x2="1440" y2="165" stroke="rgba(82,183,136,0.07)" stroke-width="1"/>
+      <line x1="0" y1="340" x2="1440" y2="340" stroke="rgba(224,122,95,0.07)" stroke-width="1"/>
+      <line x1="0" y1="530" x2="1440" y2="530" stroke="rgba(244,162,97,0.07)" stroke-width="1"/>
+      <line x1="0" y1="720" x2="1440" y2="720" stroke="rgba(106,155,195,0.07)" stroke-width="1"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span></span>Taoquen &bull; Self-Healing Practice<span></span></div>
+      <div class="hero-tag">Free &bull; 20 Min Daily &bull; No Equipment</div>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,0.55);letter-spacing:0.04em;margin-bottom:14px;">Real self-care is healing yourself from the inside.</p>
+      <h1 class="hero-title">The Four <br>Energy Gates</h1>
+      <p class="hero-title-sub">Your body was born knowing how to heal itself.</p>
+      <div class="hero-gates">
+        <div class="hero-gate-pill"><span class="dot" style="background:#52b788"></span>Gate 1 &middot; Metal</div>
+        <div class="hero-gate-pill"><span class="dot" style="background:#e07a5f"></span>Gate 2 &middot; Fire</div>
+        <div class="hero-gate-pill"><span class="dot" style="background:#f4a261"></span>Gate 3 &middot; Water</div>
+        <div class="hero-gate-pill"><span class="dot" style="background:#6a9bc3"></span>Gate 4 &middot; Wood</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#signup" class="btn-primary">Coming in 2027</a>
+        <a href="#gate-1" class="btn-outline">Explore the Gates &darr;</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--bg-2)"/></svg></div>
+
+  <!-- TRUTH BANNER -->
+  <div class="truth">
+    <div class="container">
+      <div class="truth-inner">
+        <div class="truth-cell reveal">
+          <div class="truth-label">The problem</div>
+          <p class="truth-text">We spend years searching outside ourselves &mdash; doctors, diets, protocols &mdash; while our body&rsquo;s own healing power waits, unused.</p>
+        </div>
+        <div class="truth-divider"></div>
+        <div class="truth-cell reveal d2">
+          <div class="truth-label">The truth</div>
+          <p class="truth-text"><strong>You were born with the ability to heal yourself.</strong> It is not a belief. It is a biological fact TCM has worked with for 5,000 years.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE -->
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="var(--bg)"/></svg></div>
+
+  <!-- WHY SELF-CARE -->
+  <section class="why">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-left reveal">
+          <span class="section-label" style="color:var(--g1)">Why self-care matters</span>
+          <h2>Real healing is something<br>you do <em>for yourself.</em></h2>
+          <p>Most people are never taught this: your body handles thousands of threats every single day &mdash; automatically, silently, without any outside intervention. When you cut your finger, no one teaches the tissue to close.</p>
+          <p>In TCM, this innate self-healing ability is not an optional feature. It is your birthright. The goal of every TCM practice is never to fight illness &mdash; it is to <em>spark your own healing power</em> by restoring the conditions for it to work.</p>
+          <p>When you outsource every healing decision to someone else, you send your body a subtle message: <em>you are not capable.</em> The Four Energy Gates reverse that.</p>
+          <div class="why-quote">
+            <p>&ldquo;Most patients have no idea of the beautiful self-healing gift they have been born with. Each of us enters this reality with everything we need to live a healthy life.&rdquo;</p>
+            <cite>&mdash; Dr. Nan Lu, OMD &middot; Digesting the Universe</cite>
+          </div>
+        </div>
+        <div class="why-pillars">
+          <div class="why-pillar reveal d1">
+            <div class="why-pillar-top">
+              <div class="why-pillar-icon" style="background:var(--g1-dim); color:var(--g1)">&#9670;</div>
+              <h3>Self-healing is your default</h3>
+            </div>
+            <p>TCM doesn&rsquo;t add healing power &mdash; it restores the conditions so the healing you already have can work freely.</p>
+          </div>
+          <div class="why-pillar reveal d2">
+            <div class="why-pillar-top">
+              <div class="why-pillar-icon" style="background:var(--g2-dim); color:var(--g2)">&#9775;</div>
+              <h3>20 minutes a day changes everything</h3>
+            </div>
+            <p>Designed specifically for modern, busy lives by Grand Master Nan Lu &amp; Master Xi-hua Xu. A shortcut that addresses the root &mdash; not just symptoms.</p>
+          </div>
+          <div class="why-pillar reveal d3">
+            <div class="why-pillar-top">
+              <div class="why-pillar-icon" style="background:var(--g3-dim); color:var(--g3)">&#128336;</div>
+              <h3>100 days builds a real foundation</h3>
+            </div>
+            <p>Results that last require a practice that lasts. TCM recommends 100 days not because change is slow &mdash; but because rebuilding energy properly takes time.</p>
+          </div>
+          <div class="why-pillar reveal d4">
+            <div class="why-pillar-top">
+              <div class="why-pillar-icon" style="background:var(--g4-dim); color:var(--g4)">&#128161;</div>
+              <h3>No equipment. No cost. Always available.</h3>
+            </div>
+            <p>Your hands. Your body. Your intention. Nothing to buy, nothing to prepare.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><span class="stat-num">5,000</span><div class="stat-label">Years of TCM wisdom</div></div>
+        <div class="stat-item reveal d1"><span class="stat-num">20</span><div class="stat-label">Minutes daily</div></div>
+        <div class="stat-item reveal d2"><span class="stat-num">4</span><div class="stat-label">Master energy gates</div></div>
+        <div class="stat-item reveal d3"><span class="stat-num">100</span><div class="stat-label">Day transformation</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE -->
+  <div class="wave-divider" style="background:var(--bg-2)"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="var(--bg)"/></svg></div>
+
+  <!-- GATE NAV (sticky) -->
+  <div class="gate-nav" id="gateNav">
+    <div class="gate-nav-inner">
+      <a href="#gate-1" class="gate-nav-item g1" data-gate="gate-1">
+        <span class="gate-nav-dot" style="background:#52b788"></span>
+        <span class="gate-nav-num">01</span>
+        <span>He Gu</span>
+      </a>
+      <a href="#gate-2" class="gate-nav-item g2" data-gate="gate-2">
+        <span class="gate-nav-dot" style="background:#e07a5f"></span>
+        <span class="gate-nav-num">02</span>
+        <span>Tan Zhong</span>
+      </a>
+      <a href="#gate-3" class="gate-nav-item g3" data-gate="gate-3">
+        <span class="gate-nav-dot" style="background:#f4a261"></span>
+        <span class="gate-nav-num">03</span>
+        <span>Guan Yuan</span>
+      </a>
+      <a href="#gate-4" class="gate-nav-item g4" data-gate="gate-4">
+        <span class="gate-nav-dot" style="background:#6a9bc3"></span>
+        <span class="gate-nav-num">04</span>
+        <span>Huan Tiao</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ THE FOUR GATES ═══ -->
+  <section class="gates-section">
+
+    <!-- GATE 1 — jade green -->
+    <div class="gate-block g1" id="gate-1">
+      <div class="container">
+        <div class="gate-inner">
+          <div class="gate-visual reveal">
+            <div class="gate-calli" style="color:var(--g1)">
+              <span class="gate-calli-char" style="text-shadow:0 0 80px rgba(82,183,136,0.5)">合谷</span>
+            </div>
+            <div class="gate-location-chip" style="color:var(--g1); border-color:rgba(82,183,136,0.3); background:var(--g1-dim)">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g1);display:inline-block;"></span>
+              He Gu &middot; LI 4
+            </div>
+            <div class="gate-big-num" style="color:var(--g1)">01</div>
+          </div>
+          <div class="gate-content reveal d2">
+            <span class="gate-label" style="color:var(--g1)">Energy Gate No. 1 &bull; LI 4 &bull; Metal</span>
+            <h2>He Gu</h2>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--g1);margin:-6px 0 18px;letter-spacing:0.01em;">Joining Valley</p>
+            <p>The first gate guards the Metal channel &mdash; the body&rsquo;s protective Qi, its boundary with the outside world. Most people press a random spot and feel nothing. The gate answers only to the right pressure, the right direction, the right hour.</p>
+            <div class="gate-tags">
+              <span class="gate-tag" style="border-color:rgba(82,183,136,0.25); color:var(--g1)">Metal</span>
+              <span class="gate-tag" style="border-color:rgba(82,183,136,0.25); color:var(--g1)">Direction &middot; West</span>
+              <span class="gate-tag" style="border-color:rgba(82,183,136,0.25); color:var(--g1)">Peak hour &middot; 5&ndash;7am</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--text-dim);font-style:italic;margin:18px 0 0;">What it opens &mdash; and how to open it &mdash; is the practice itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GATE 2 — terracotta -->
+    <div class="gate-block g2 reverse" id="gate-2">
+      <div class="container">
+        <div class="gate-inner">
+          <div class="gate-visual reveal">
+            <div class="gate-calli" style="color:var(--g2)">
+              <span class="gate-calli-char" style="text-shadow:0 0 80px rgba(224,122,95,0.5)">膻中</span>
+            </div>
+            <div class="gate-location-chip" style="color:var(--g2); border-color:rgba(224,122,95,0.3); background:var(--g2-dim)">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g2);display:inline-block;"></span>
+              Tan Zhong &middot; CV 17
+            </div>
+            <div class="gate-big-num" style="color:var(--g2)">02</div>
+          </div>
+          <div class="gate-content reveal d2">
+            <span class="gate-label" style="color:var(--g2)">Energy Gate No. 2 &bull; CV 17 &bull; Fire</span>
+            <h2>Tan Zhong</h2>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--g2);margin:-6px 0 18px;letter-spacing:0.01em;">Chest Center</p>
+            <p>The second gate sits where the body&rsquo;s Qi gathers &mdash; the Fire center that houses the Shen, the spirit and the mind. Touch it carelessly and nothing stirs. Open it correctly and everything downstream begins to move.</p>
+            <div class="gate-tags">
+              <span class="gate-tag" style="border-color:rgba(224,122,95,0.25); color:var(--g2)">Fire</span>
+              <span class="gate-tag" style="border-color:rgba(224,122,95,0.25); color:var(--g2)">Direction &middot; South</span>
+              <span class="gate-tag" style="border-color:rgba(224,122,95,0.25); color:var(--g2)">Peak hour &middot; 7&ndash;9pm</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--text-dim);font-style:italic;margin:18px 0 0;">What it opens &mdash; and how to open it &mdash; is the practice itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GATE 3 — amber -->
+    <div class="gate-block g3" id="gate-3">
+      <div class="container">
+        <div class="gate-inner">
+          <div class="gate-visual reveal">
+            <div class="gate-calli" style="color:var(--g3)">
+              <span class="gate-calli-char" style="text-shadow:0 0 80px rgba(244,162,97,0.5)">關元</span>
+            </div>
+            <div class="gate-location-chip" style="color:var(--g3); border-color:rgba(244,162,97,0.3); background:var(--g3-dim)">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g3);display:inline-block;"></span>
+              Guan Yuan &middot; CV 4
+            </div>
+            <div class="gate-big-num" style="color:var(--g3)">03</div>
+          </div>
+          <div class="gate-content reveal d2">
+            <span class="gate-label" style="color:var(--g3)">Energy Gate No. 3 &bull; CV 4 &bull; Water</span>
+            <h2>Guan Yuan</h2>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--g3);margin:-6px 0 18px;letter-spacing:0.01em;">Gate of Origin</p>
+            <p>The third gate is the root &mdash; the Water reserve where the body stores its original essence, its deepest vitality. Few are ever taught to reach it. Fewer still know how to draw from it without spending what cannot be replaced.</p>
+            <div class="gate-tags">
+              <span class="gate-tag" style="border-color:rgba(244,162,97,0.25); color:var(--g3)">Water</span>
+              <span class="gate-tag" style="border-color:rgba(244,162,97,0.25); color:var(--g3)">Direction &middot; North</span>
+              <span class="gate-tag" style="border-color:rgba(244,162,97,0.25); color:var(--g3)">Peak hour &middot; 5&ndash;7pm</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--text-dim);font-style:italic;margin:18px 0 0;">What it opens &mdash; and how to open it &mdash; is the practice itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GATE 4 — slate blue -->
+    <div class="gate-block g4 reverse" id="gate-4">
+      <div class="container">
+        <div class="gate-inner">
+          <div class="gate-visual reveal">
+            <div class="gate-calli" style="color:var(--g4)">
+              <span class="gate-calli-char" style="text-shadow:0 0 80px rgba(106,155,195,0.5)">環跳</span>
+            </div>
+            <div class="gate-location-chip" style="color:var(--g4); border-color:rgba(106,155,195,0.3); background:var(--g4-dim)">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--g4);display:inline-block;"></span>
+              Huan Tiao &middot; GB 30
+            </div>
+            <div class="gate-big-num" style="color:var(--g4)">04</div>
+          </div>
+          <div class="gate-content reveal d2">
+            <span class="gate-label" style="color:var(--g4)">Energy Gate No. 4 &bull; GB 30 &bull; Wood</span>
+            <h2>Huan Tiao</h2>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--g4);margin:-6px 0 18px;letter-spacing:0.01em;">Jumping Circle</p>
+            <p>The fourth gate is the hinge &mdash; the Wood channel that governs movement and the flow between the body&rsquo;s upper and lower halves. Shut, the body splits in two. Open, it moves as one. The method is precise, and unforgiving of guesswork.</p>
+            <div class="gate-tags">
+              <span class="gate-tag" style="border-color:rgba(106,155,195,0.25); color:var(--g4)">Wood</span>
+              <span class="gate-tag" style="border-color:rgba(106,155,195,0.25); color:var(--g4)">Direction &middot; West</span>
+              <span class="gate-tag" style="border-color:rgba(106,155,195,0.25); color:var(--g4)">Peak hour &middot; 11am&ndash;1pm</span>
+            </div>
+            <p style="font-size:0.88rem;color:var(--text-dim);font-style:italic;margin:18px 0 0;">What it opens &mdash; and how to open it &mdash; is the practice itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY TECHNIQUE MATTERS -->
+    <div class="container">
+      <div class="reveal" style="max-width:760px;margin:24px auto 8px;text-align:center;">
+        <span class="section-label" style="color:var(--g4);display:block;margin-bottom:20px;">Why technique matters</span>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,2.8vw,2rem);line-height:1.5;color:var(--text);">
+          Knowing <span style="font-style:normal;color:var(--g3)">where</span> a gate sits is not the same as knowing how to open it. Pressure, direction, rhythm, and the quality of your attention decide whether Qi actually moves &mdash; or whether you&rsquo;re simply touching a point.
+        </p>
+        <p style="font-size:1rem;color:var(--text-muted);line-height:1.8;margin-top:22px;">
+          That is the difference between a diagram and a practice &mdash; and it is what the Four Energy Gates program teaches in full.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave-divider" style="background:var(--bg)"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--bg-2)"/></svg></div>
+
+  <!-- DAILY SEQUENCE -->
+  <section class="sequence">
+    <div class="container">
+      <div class="sequence-header reveal">
+        <span class="section-label" style="color:var(--g3)">The daily practice</span>
+        <h2 class="section-title" style="color:var(--text)">20 minutes. Complete sequence.</h2>
+        <p class="section-lead">The Four Gates are designed to be practiced together. Together they give the whole body &mdash; upper, center, lower, structural &mdash; a complete energy tune-up.</p>
+      </div>
+      <div class="seq-steps reveal">
+        <div class="seq-step">
+          <div class="seq-num" style="background:linear-gradient(135deg,var(--g1),rgba(82,183,136,0.5))">1</div>
+          <h4>Find a quiet moment</h4>
+          <p>Morning or evening. Consistency matters more than timing.</p>
+        </div>
+        <div class="seq-step">
+          <div class="seq-num" style="background:linear-gradient(135deg,var(--g2),rgba(224,122,95,0.5))">2</div>
+          <h4>Work through all four gates</h4>
+          <p>In sequence, Gate 1 through Gate 4. Around 20 minutes total.</p>
+        </div>
+        <div class="seq-step">
+          <div class="seq-num" style="background:linear-gradient(135deg,var(--g3),rgba(244,162,97,0.5))">3</div>
+          <h4>Notice small changes</h4>
+          <p>Track intensity and frequency of symptoms monthly.</p>
+        </div>
+        <div class="seq-step">
+          <div class="seq-num" style="background:linear-gradient(135deg,var(--g4),rgba(106,155,195,0.5))">4</div>
+          <h4>Commit to 100 days</h4>
+          <p>Real transformation happens through repetition.</p>
+        </div>
+      </div>
+      <div class="seq-table reveal">
+        <div class="seq-table-head"><span>#</span><span>Point</span><span>Name</span><span>Element</span><span>Direction</span><span>Peak Hour</span></div>
+        <div class="seq-row">
+          <span class="seq-num-cell" style="color:var(--g1)">01</span>
+          <span class="seq-point">LI 4</span>
+          <span class="seq-name">He Gu &mdash; Joining Valley</span>
+          <span class="seq-el">Metal</span>
+          <span class="seq-dir">West</span>
+          <span class="seq-hour" style="color:var(--g1)">5&ndash;7am</span>
+        </div>
+        <div class="seq-row">
+          <span class="seq-num-cell" style="color:var(--g2)">02</span>
+          <span class="seq-point">CV 17</span>
+          <span class="seq-name">Tan Zhong &mdash; Chest Center</span>
+          <span class="seq-el">Fire</span>
+          <span class="seq-dir">South</span>
+          <span class="seq-hour" style="color:var(--g2)">7&ndash;9pm</span>
+        </div>
+        <div class="seq-row">
+          <span class="seq-num-cell" style="color:var(--g3)">03</span>
+          <span class="seq-point">CV 4</span>
+          <span class="seq-name">Guan Yuan &mdash; Gate of Origin</span>
+          <span class="seq-el">Water</span>
+          <span class="seq-dir">North</span>
+          <span class="seq-hour" style="color:var(--g3)">5&ndash;7pm</span>
+        </div>
+        <div class="seq-row">
+          <span class="seq-num-cell" style="color:var(--g4)">04</span>
+          <span class="seq-point">GB 30</span>
+          <span class="seq-name">Huan Tiao &mdash; Jumping Circle</span>
+          <span class="seq-el">Wood</span>
+          <span class="seq-dir">West</span>
+          <span class="seq-hour" style="color:var(--g4)">11am&ndash;1pm</span>
+        </div>
+        <div class="seq-total"><span>Total daily practice time</span><strong>&approx; 20 minutes</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave-divider" style="background:var(--bg-2)"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,60 1440,10 L1440,60 L0,60 Z" fill="var(--bg)"/></svg></div>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="container">
+      <div class="benefits-header reveal">
+        <span class="section-label" style="color:var(--g2)">What you can expect</span>
+        <h2 class="section-title" style="color:var(--text)">What the practice builds</h2>
+        <p class="section-lead">Practiced daily for 100 days, the Four Energy Gates offer a complete, multidimensional energy tune-up.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card g1 reveal"><div class="benefit-icon">&#9889;</div><h3>Sustained energy</h3><p>By strengthening Kidney Jing and clearing Qi stagnation, most practitioners report steadier, more reliable energy without the crash cycle.</p></div>
+        <div class="benefit-card g2 reveal d1"><div class="benefit-icon">&#129504;</div><h3>Mental clarity</h3><p>Gate 1 and Gate 2 directly support Lung and Heart function &mdash; the organ systems most closely tied to mental focus and emotional stability.</p></div>
+        <div class="benefit-card g2 reveal d2"><div class="benefit-icon">&#128149;</div><h3>Emotional calm</h3><p>Opening Gate 2 releases Heart Qi stagnation, which TCM associates with anxiety, overthinking, and depression.</p></div>
+        <div class="benefit-card g1 reveal"><div class="benefit-icon">&#127774;</div><h3>Glowing skin</h3><p>Healthy skin is a direct expression of Lung function. Gate 1&rsquo;s daily stimulation of the Lung meridian shows on your face &mdash; clients notice this first.</p></div>
+        <div class="benefit-card g4 reveal d1"><div class="benefit-icon">&#9878;</div><h3>Back &amp; body pain relief</h3><p>Gate 4 reconnects the Gallbladder and Bladder meridians. Chronic back pain is one of the most common improvements reported.</p></div>
+        <div class="benefit-card g3 reveal d2"><div class="benefit-icon">&#9775;</div><h3>Hormonal balance</h3><p>Gates 3 and 4 support Kidney, Liver, and Bladder systems. Particularly effective for menopausal symptoms, hot flashes, and night sweats.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave-divider" style="background:var(--bg)"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="var(--bg-2)"/></svg></div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <span class="section-label" style="color:var(--g4)">From practitioners</span>
+        <h2 class="section-title" style="color:var(--text)">What students say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial reveal">
+          <div class="testimonial-stars" style="color:var(--g1)">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">&ldquo;I was skeptical that something so simple could do anything. After three weeks of practicing daily, my chronic sinus pressure &mdash; which I had treated with sprays for years &mdash; was almost completely gone. I couldn&rsquo;t believe it.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--g1-dim); color:var(--g1)">M</div>
+            <div><div class="testimonial-name">Margaret L.</div><div class="testimonial-detail" style="color:var(--g1)">Practicing for 6 months</div></div>
+          </div>
+        </div>
+        <div class="testimonial reveal d1">
+          <div class="testimonial-stars" style="color:var(--g2)">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">&ldquo;Gate 2 changed my relationship with anxiety. Something about the daily practice of opening that center point &mdash; I started sleeping again. Really sleeping. By week six, my husband said I was a different person.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--g2-dim); color:var(--g2)">R</div>
+            <div><div class="testimonial-name">Rachel T.</div><div class="testimonial-detail" style="color:var(--g2)">Dragon&rsquo;s Way &amp; Four Energy Gates</div></div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial-stars" style="color:var(--g4)">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">&ldquo;I&rsquo;m a nurse. I&rsquo;m on my feet 12 hours a day and my lower back had been a constant issue. Gate 4 gave me my body back. After 100 days I went from dreading the end of a shift to feeling like myself again.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--g4-dim); color:var(--g4)">D</div>
+            <div><div class="testimonial-name">David K.</div><div class="testimonial-detail" style="color:var(--g4)">100-day practitioner</div></div>
+          </div>
+        </div>
+        <div class="testimonial reveal d1">
+          <div class="testimonial-stars" style="color:var(--g3)">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">&ldquo;I went through menopause and the hot flashes were unbearable. Within six weeks of daily practice, I went from four or five flashes a night to maybe one, sometimes none. I wish I&rsquo;d known this 20 years ago.&rdquo;</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--g3-dim); color:var(--g3)">S</div>
+            <div><div class="testimonial-name">Susan H.</div><div class="testimonial-detail" style="color:var(--g3)">Menopause support practitioner</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <div class="wave-divider" style="background:var(--bg-2)"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C480,60 960,0 1440,50 L1440,60 L0,60 Z" fill="var(--bg-3)"/></svg></div>
+
+  <!-- SIGNUP -->
+  <section class="signup" id="signup">
+    <div class="container">
+      <div class="signup-inner" style="justify-content:center;text-align:center;">
+        <div class="signup-left reveal" style="max-width:560px;align-items:center;">
+          <span class="section-label" style="color:var(--g1)">Free &bull; Opening 2027</span>
+          <h2>The Four Energy Gates<br><em>is coming in 2027</em></h2>
+          <p style="font-size:1.05rem;line-height:1.8;color:var(--text-muted);">This programme is currently in development. Please check back soon &mdash; the Four Energy Gates will open in 2027.</p>
+          <p style="margin-top:16px;">In the meantime, explore <a href="dwq-promo.html" style="color:var(--g1);font-weight:600;">Dragon&rsquo;s Way Qigong&reg;</a> &mdash; the full 6-week programme enrolling now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DWQ CROSSLINK -->
+  <section style="background:#faf6ef;padding:48px 24px;text-align:center;border-top:1px solid rgba(85,22,10,0.08);">
+    <div style="max-width:580px;margin:0 auto;">
+      <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C02026;margin-bottom:10px;">Ready to go deeper?</p>
+      <h3 style="font-family:'Cinzel',serif;font-size:1.4rem;color:#1a1a1a;margin-bottom:12px;">Start with Dragon&rsquo;s Way Qigong&reg;</h3>
+      <p style="font-size:0.95rem;color:#666;line-height:1.7;margin-bottom:24px;">The Four Energy Gates programme opens in 2027. In the meantime, Dragon&rsquo;s Way Qigong&reg; is our flagship 6-week healing programme — now enrolling for June 2026.</p>
+      <a href="dwq-promo.html" style="display:inline-block;background:#C02026;color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:13px 32px;border-radius:5px;text-decoration:none;">Learn About Dragon&rsquo;s Way &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+                    <a href="index.html" class="lockup" style="margin-bottom:4px;">
+            <div class="lockup-name">taoquen</div>
+            <div class="lockup-sub">Entangle with the Tao</div>
+            <div class="lockup-seal"><span>道</span></div>
+          </a>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="dwq-promo.html">Dragon&rsquo;s Way Qigong&reg;</a></li>
+            <li><a href="four-energy-gates.html">Four Energy Gates</a></li>
+            <li><a href="programs.html">3E Qigong</a></li>
+            <li><a href="free-class.html">Free Class</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="qi-assessment.html">Free Qi Assessment</a></li>
+            <li><a href="tcm.html">Learn TCM</a></li>
+            <li><a href="blog/index.html">Articles</a></li>
+            <li><a href="dwq.html#testimonials">Student Results</a></li>
+            <li><a href="index.html">About Taoquen</a></li>
+            <li><a href="login.html">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Taoquen &nbsp;&middot;&nbsp; TCM Healing Studio</p>
+        <p class="footer-disclaimer">This site is for educational purposes. TCM practices are complementary and not a substitute for medical advice. Always consult a qualified healthcare provider for medical conditions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+  <script>
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 500);
+      updateGateNav();
+    });
+
+    /* mobile drawer */
+    (function(){
+      const burger = document.getElementById('burger');
+      const drawer = document.getElementById('drawer');
+      const drawerClose = document.getElementById('drawerClose');
+      if (!burger || !drawer) return;
+      const openDrawer = () => { drawer.classList.add('open'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+      const closeDrawer = () => { drawer.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+      burger.addEventListener('click', openDrawer);
+      if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(); });
+    })();
+
+    function updateGateNav() {
+      let current = '';
+      ['gate-1','gate-2','gate-3','gate-4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      });
+      document.querySelectorAll('.gate-nav-item').forEach(item => {
+        item.classList.toggle('active', item.dataset.gate === current);
+      });
+    }
+
+    document.getElementById('fegSignupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name  = document.getElementById('feg-name').value.trim();
+      const email = document.getElementById('feg-email').value.trim();
+      if (!name || !email) return;
+      // INTEGRATION POINT: connect ConvertKit / Mailchimp / Beehiiv here
+      document.getElementById('fegSignupForm').style.display = 'none';
+      document.getElementById('fegSuccess').style.display = 'block';
+    });
+
+    document.documentElement.classList.add('js-ready');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = (document.getElementById('gateNav')?.offsetHeight || 0) + 16;
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior:'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qigong for Burnt-Out Professionals | Stop the Cycle Without Quitting Your Job | Taoquen</title>
+  <meta name="description" content="You did everything right and somehow you feel worse every year. A 15-minute daily Qigong practice for tech, finance, and consulting professionals stuck in the burnout cycle. Real practice, not another wellness app.">
+  <meta name="keywords" content="Qigong for burnout, Qigong for tech workers, Qigong for finance professionals, Qigong for consultants, burnout recovery, Qigong daily practice, executive wellness, 15 minute Qigong, professional burnout">
+  <link rel="canonical" href="https://taoquen.com/for-professionals.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Qigong for Burnt-Out Professionals | Taoquen">
+  <meta property="og:description" content="A 15-minute daily Qigong practice for tech, finance, and consulting professionals stuck in the burnout cycle. Real practice, not another app.">
+  <meta property="og:url" content="https://taoquen.com/for-professionals.html">
+  <meta property="og:image" content="https://taoquen.com/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-2: #f8f6f0;
+      --bg-3: #f0ede0;
+      --ink: #181c10;
+      --ink-mid: #4a4a3a;
+      --ink-soft: #6b6b58;
+      --accent: #c8901a;
+      --accent-light: #e8a830;
+      --jade: #1a2010;
+      --line: rgba(24,28,16,0.1);
+      --line-soft: rgba(24,28,16,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }
+    h1 { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.025em; }
+    h2 { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.02em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-light); }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 720px; }
+
+    /* Nav */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft); padding: 14px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); font-weight: 700; }
+    .nav-brand span { font-size: 0.6rem; color: var(--ink-soft); font-weight: 400; margin-left: 8px; letter-spacing: 0.12em; }
+    .nav-cta { background: var(--ink); color: var(--bg); padding: 9px 18px; border-radius: 6px; font-size: 0.78rem; font-weight: 500; transition: background 0.15s; }
+    .nav-cta:hover { background: var(--jade); color: var(--bg); }
+
+    /* Hero */
+    .hero { padding: 100px 0 80px; max-width: 1100px; margin: 0 auto; }
+    .hero-eyebrow { display: inline-block; padding: 6px 14px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 30px; font-size: 0.78rem; color: var(--ink-mid); margin-bottom: 28px; font-weight: 500; }
+    .hero-eyebrow strong { color: var(--accent); }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 24px; max-width: 900px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero-sub { font-size: 1.18rem; color: var(--ink-mid); max-width: 720px; line-height: 1.6; margin-bottom: 36px; font-weight: 400; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn { display: inline-flex; align-items: center; padding: 13px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; transition: all 0.15s; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--jade); color: var(--bg); }
+    .btn-secondary { color: var(--ink); border: 1px solid var(--line); background: transparent; }
+    .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+    .hero-meta { color: var(--ink-soft); font-size: 0.85rem; margin-left: 8px; }
+
+    /* Pain points */
+    .pain { padding: 80px 0; background: var(--bg-2); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .pain h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 16px; }
+    .pain-lead { color: var(--ink-mid); font-size: 1rem; margin-bottom: 48px; max-width: 580px; }
+    .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; }
+    .pain-item { display: flex; gap: 14px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line-soft); }
+    .pain-item-marker { color: var(--accent); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; line-height: 1.4; }
+    .pain-item-text { font-size: 0.96rem; color: var(--ink); line-height: 1.55; }
+
+    /* Cycle diagram */
+    .cycle { padding: 100px 0; }
+    .cycle-header { text-align: center; margin-bottom: 64px; max-width: 700px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+    .cycle-label { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+    .cycle-title { font-size: clamp(1.7rem, 3.2vw, 2.5rem); margin-bottom: 18px; }
+    .cycle-lead { color: var(--ink-mid); font-size: 1rem; line-height: 1.7; }
+    .cycle-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 980px; margin: 0 auto; }
+    .cycle-step { padding: 28px 24px; background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: 12px; position: relative; }
+    .cycle-step-num { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; color: var(--accent); margin-bottom: 12px; letter-spacing: 0.1em; }
+    .cycle-step-title { font-size: 1.02rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+    .cycle-step-text { font-size: 0.84rem; color: var(--ink-mid); line-height: 1.6; }
+    .cycle-step:not(:last-child)::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--ink-soft); font-size: 1.4rem; z-index: 2; }
+
+    /* The shift */
+    .shift { padding: 100px 0; background: var(--jade); color: var(--bg); }
+    .shift-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .shift-label { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+    .shift h2 { color: rgba(255,255,255,0.95); font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 24px; }
+    .shift h2 em { color: var(--accent-light); font-style: italic; }
+    .shift p { color: rgba(255,255,255,0.75); font-size: 1.04rem; line-height: 1.8; margin-bottom: 20px; }
+    .shift-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .shift-stat-num { font-size: 2.2rem; font-weight: 700; color: var(--accent-light); margin-bottom: 8px; line-height: 1; }
+    .shift-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+
+    /* What it is / what it is not */
+    .compare { padding: 100px 0; background: var(--bg); }
+    .compare-header { text-align: center; margin-bottom: 56px; max-width: 700px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto; padding: 0 24px; }
+    .compare-card { padding: 36px 30px; border-radius: 14px; }
+    .compare-card.no { background: var(--bg-2); border: 1px solid var(--line); }
+    .compare-card.yes { background: var(--ink); color: var(--bg); border: 1px solid var(--ink); }
+    .compare-card-label { font-size: 0.76rem; letter-spacing: 0.06em; font-weight: 600; text-transform: uppercase; margin-bottom: 14px; }
+    .compare-card.no .compare-card-label { color: var(--ink-soft); }
+    .compare-card.yes .compare-card-label { color: var(--accent-light); }
+    .compare-card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; line-height: 1.35; }
+    .compare-card.no .compare-card-title { color: var(--ink); }
+    .compare-card.yes .compare-card-title { color: rgba(255,255,255,0.96); }
+    .compare-card ul { list-style: none; }
+    .compare-card li { padding: 12px 0 12px 22px; position: relative; font-size: 0.93rem; line-height: 1.55; }
+    .compare-card.no li { color: var(--ink-mid); border-bottom: 1px solid var(--line-soft); }
+    .compare-card.no li::before { content: '✕'; position: absolute; left: 0; color: var(--ink-soft); font-weight: 500; }
+    .compare-card.yes li { color: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .compare-card.yes li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-light); font-weight: 700; }
+    .compare-card li:last-child { border-bottom: none; }
+
+    /* Schedule */
+    .schedule { padding: 100px 0; background: var(--bg-2); border-top: 1px solid var(--line-soft); }
+    .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; padding: 0 24px; }
+    .schedule-text h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: 20px; }
+    .schedule-text p { color: var(--ink-mid); font-size: 0.98rem; line-height: 1.7; margin-bottom: 14px; }
+    .schedule-card { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 36px 32px; box-shadow: 0 4px 20px rgba(24,28,16,0.04); }
+    .schedule-card-label { font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 14px; display: block; }
+    .schedule-card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .schedule-card-sub { color: var(--ink-mid); font-size: 0.94rem; margin-bottom: 24px; }
+    .schedule-card-time { display: flex; gap: 12px; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line-soft); }
+    .schedule-card-time:first-of-type { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 18px; }
+    .schedule-card-when { font-size: 0.8rem; color: var(--ink-soft); font-weight: 600; min-width: 90px; }
+    .schedule-card-what { font-size: 0.92rem; color: var(--ink); }
+    .schedule-card-cta { display: block; text-align: center; background: var(--ink); color: var(--bg); padding: 13px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; margin-top: 24px; }
+    .schedule-card-cta:hover { background: var(--jade); color: var(--bg); }
+
+    /* Testimonials */
+    .testi { padding: 100px 0; }
+    .testi-header { text-align: center; margin-bottom: 56px; max-width: 700px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 980px; margin: 0 auto; padding: 0 24px; }
+    .testi-card { background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: 14px; padding: 32px 30px; }
+    .testi-quote { font-size: 1.02rem; color: var(--ink); line-height: 1.75; margin-bottom: 24px; font-weight: 400; }
+    .testi-quote::before { content: '"'; color: var(--accent); font-size: 2.4rem; line-height: 0; vertical-align: -0.4em; margin-right: 8px; font-family: 'Playfair Display', serif; }
+    .testi-attr { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line-soft); font-size: 0.82rem; }
+    .testi-name { color: var(--ink); font-weight: 600; }
+    .testi-role { color: var(--ink-soft); }
+
+    /* Final CTA */
+    .final-cta { padding: 120px 0; background: var(--jade); color: var(--bg); text-align: center; }
+    .final-cta-inner { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .final-cta h2 { color: rgba(255,255,255,0.96); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 22px; line-height: 1.2; }
+    .final-cta h2 em { color: var(--accent-light); font-style: italic; }
+    .final-cta-lead { color: rgba(255,255,255,0.78); font-size: 1.08rem; line-height: 1.75; margin-bottom: 40px; }
+    .final-cta-btn { display: inline-block; background: var(--accent); color: var(--ink); padding: 16px 38px; border-radius: 8px; font-size: 1rem; font-weight: 600; transition: background 0.15s; }
+    .final-cta-btn:hover { background: var(--accent-light); color: var(--ink); }
+    .final-cta-meta { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 20px; }
+
+    /* Footer */
+    footer { padding: 48px 0 32px; background: var(--ink); color: rgba(255,255,255,0.6); font-size: 0.84rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
+    .footer-inner a { color: rgba(255,255,255,0.75); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-inner a:hover { color: var(--accent-light); }
+
+    @media (max-width: 860px) {
+      .cycle-flow { grid-template-columns: 1fr 1fr; }
+      .cycle-step:nth-child(2)::after { display: none; }
+      .compare-grid, .schedule-grid, .testi-grid, .pain-grid { grid-template-columns: 1fr; }
+      .shift-stat-grid { grid-template-columns: 1fr; gap: 24px; }
+      .cycle-step:not(:last-child)::after { display: none; }
+      .nav-links { display: none; }
+      .preview-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Expanded nav */
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 0.86rem; color: var(--ink-mid); font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* Program preview */
+    .preview { padding: 100px 0; background: var(--bg); }
+    .preview-header { text-align: center; margin-bottom: 56px; max-width: 700px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+    .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .preview-card { background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: 14px; padding: 30px 28px; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
+    .preview-card:hover { box-shadow: 0 8px 28px rgba(24,28,16,0.08); transform: translateY(-3px); }
+    .preview-tag { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .preview-name { font-size: 1.22rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.015em; }
+    .preview-len { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 14px; }
+    .preview-desc { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.65; margin-bottom: 18px; flex: 1; }
+    .preview-link { font-size: 0.86rem; color: var(--accent); font-weight: 600; }
+
+    /* Hero secondary CTA already exists; final CTA gets a second button */
+    .final-cta-btn-secondary { display: inline-block; color: rgba(255,255,255,0.95); border: 1px solid rgba(255,255,255,0.35); padding: 15px 32px; border-radius: 8px; font-size: 0.98rem; font-weight: 500; transition: background 0.15s; margin-left: 8px; }
+    .final-cta-btn-secondary:hover { background: rgba(255,255,255,0.1); color: white; }
+
+    /* Bottom contact bar */
+    .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--ink); border-top: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; gap: 28px; padding: 10px 24px; flex-wrap: wrap; }
+    .bottom-bar-brand { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+    .bottom-bar a { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.75); font-size: 0.84rem; text-decoration: none; }
+    .bottom-bar a:hover { color: white; }
+    .bottom-bar-cta { background: var(--accent); color: white !important; padding: 8px 18px; border-radius: 6px; font-size: 0.84rem !important; font-weight: 600; flex-shrink: 0; }
+    .bottom-bar-cta:hover { background: var(--accent-light); }
+    body { padding-bottom: 56px; }
+    @media (max-width: 720px) { .bottom-bar { gap: 14px; padding: 8px 12px; } .bottom-bar-brand { display: none; } body { padding-bottom: 80px; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">Taoquen <span>For professionals</span></a>
+        <div class="nav-links">
+          <a href="dwq.html">Dragon&rsquo;s Way</a>
+          <a href="programs.html">Programs</a>
+          <a href="four-energy-gates.html">Self-Care</a>
+          <a href="tcm.html">Learn TCM</a>
+        </div>
+        <a href="qi-assessment.html" class="nav-cta">Start free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">For people <strong>28&ndash;38</strong> in tech, finance, consulting, and high-output roles</span>
+      <h1>You did everything right.<br>So why does your body feel <em>twenty years older?</em></h1>
+      <p class="hero-sub">A 15-minute daily Qigong practice for the burnout cycle &mdash; built for people who cannot take a sabbatical, cannot quit their job, and cannot keep running on caffeine and adrenaline forever.</p>
+      <div class="hero-ctas">
+        <a href="qi-assessment.html" class="btn btn-primary">Start with the assessment &rarr;</a>
+        <a href="#cycle" class="btn btn-secondary">See the burnout cycle</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pain">
+    <div class="container">
+      <h2>Sound familiar?</h2>
+      <p class="pain-lead">If you nod at five or more, you are not "just tired." You are in a Qi pattern that compounds quietly until something gives.</p>
+      <div class="pain-grid">
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You wake up tired. You go to bed tired. There is no "rested" anymore.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">Three coffees before lunch. Two more by 4pm. Wine to come down.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">Your weekends are recovery, not life. Sunday afternoon already feels like Monday.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You cannot remember the last time you felt sharp without a stimulant.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">Your back, your jaw, your shoulders, or your gut have been holding tension for years.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You can run a meeting. You cannot sit still for ten minutes.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You doomscroll until 1am even though you said you would stop.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You used to be patient. Now small things set you off.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You have tried meditation apps, breathwork videos, productivity systems &mdash; nothing has stuck.</span></div>
+        <div class="pain-item"><span class="pain-item-marker">&rsaquo;</span><span class="pain-item-text">You are 30-something and you already feel like the future is something to survive.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cycle" id="cycle">
+    <div class="cycle-header">
+      <span class="cycle-label">The Burnout Cycle</span>
+      <h2 class="cycle-title">Why your body keeps borrowing from tomorrow</h2>
+      <p class="cycle-lead">Modern work runs on a feedback loop your nervous system was not designed for. Once you understand it, you can start to step out of it &mdash; one practice at a time.</p>
+    </div>
+    <div class="container">
+      <div class="cycle-flow">
+        <div class="cycle-step">
+          <div class="cycle-step-num">01</div>
+          <h3 class="cycle-step-title">Overdrive</h3>
+          <p class="cycle-step-text">Long hours, constant context-switching, stimulants. The body burns Qi faster than it can rebuild it.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-step-num">02</div>
+          <h3 class="cycle-step-title">Borrowing</h3>
+          <p class="cycle-step-text">When daily Qi runs out, the body pulls from deep reserves. You feel "fine" but you are spending capital.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-step-num">03</div>
+          <h3 class="cycle-step-title">Compensation</h3>
+          <p class="cycle-step-text">Anxiety rises, sleep degrades, body tension locks in. You compensate with more caffeine, more screens, less rest.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-step-num">04</div>
+          <h3 class="cycle-step-title">Collapse</h3>
+          <p class="cycle-step-text">A specific symptom appears &mdash; chronic insomnia, autoimmune flare, panic attacks. The bill comes due.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shift">
+    <div class="shift-inner">
+      <span class="shift-label">The Way Out</span>
+      <h2>You do not need another app.<br>You need <em>your body back.</em></h2>
+      <p>Productivity tools manage the symptom &mdash; the to-do list, the calendar, the time block. They do not refill the reserve you are spending from. They cannot. Only the practice can do that.</p>
+      <p>Qigong rebuilds Qi at the source. Done daily, even 15 minutes begins to reverse the borrowing pattern. The nervous system relearns how to settle. The body begins to repair what it has been postponing. This is not theory &mdash; it is what 5,000 years of Traditional Chinese Medicine has been built around.</p>
+
+      <div class="shift-stat-grid">
+        <div>
+          <div class="shift-stat-num">15 min</div>
+          <div class="shift-stat-label">Daily practice<br>Fits before your first standup</div>
+        </div>
+        <div>
+          <div class="shift-stat-num">6 wks</div>
+          <div class="shift-stat-label">To feel a measurable shift<br>In sleep, energy, and steadiness</div>
+        </div>
+        <div>
+          <div class="shift-stat-num">0 apps</div>
+          <div class="shift-stat-label">No subscription, no streak<br>Just the practice and your body</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="compare-header">
+      <span class="cycle-label">Honest comparison</span>
+      <h2 class="cycle-title">What this is &mdash; and what it is not</h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card no">
+        <span class="compare-card-label">What it is not</span>
+        <h3 class="compare-card-title">Another wellness product</h3>
+        <ul>
+          <li>Not a meditation app with streaks and badges</li>
+          <li>Not a 10-minute breathwork video on loop</li>
+          <li>Not a biohacking stack or supplement protocol</li>
+          <li>Not "mindfulness" you can do in line at Starbucks</li>
+          <li>Not something you can do passively while watching Netflix</li>
+        </ul>
+      </div>
+      <div class="compare-card yes">
+        <span class="compare-card-label">What it is</span>
+        <h3 class="compare-card-title">A real daily practice from a real tradition</h3>
+        <ul>
+          <li>A live, small-group program taught by a certified teacher</li>
+          <li>15 minutes of actual Qigong movement &mdash; done daily, attentively</li>
+          <li>Rooted in the Wu Ming tradition of Grand Master Nan Lu</li>
+          <li>Designed to rebuild Qi at the source, not just to relax you</li>
+          <li>A practice you can carry for the rest of your career &mdash; and beyond</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule">
+    <div class="schedule-grid">
+      <div class="schedule-text">
+        <span class="schedule-card-label">How it fits</span>
+        <h2>Built for a work week, not a retreat.</h2>
+        <p>You do not need to take time off. You do not need a special room or expensive equipment. The practice is designed to be done in 15 minutes, in your apartment, before or after work.</p>
+        <p>The full program is six weeks. Live sessions are scheduled in the evenings (US East and West) and on weekends &mdash; so it fits around your job, not the other way around.</p>
+      </div>
+      <div class="schedule-card">
+        <span class="schedule-card-label">A typical day</span>
+        <h3>15 minutes. Twice.</h3>
+        <p class="schedule-card-sub">No streak app. No habit-stack. Just two short anchors that hold the day together.</p>
+        <div class="schedule-card-time">
+          <span class="schedule-card-when">7:00 AM</span>
+          <span class="schedule-card-what">Morning Four Energy Gates &mdash; before your first email.</span>
+        </div>
+        <div class="schedule-card-time">
+          <span class="schedule-card-when">Mid-day</span>
+          <span class="schedule-card-what">A 60-second reset between meetings (taught in week 2).</span>
+        </div>
+        <div class="schedule-card-time">
+          <span class="schedule-card-when">9:30 PM</span>
+          <span class="schedule-card-what">Evening practice &mdash; calms the nervous system before sleep.</span>
+        </div>
+        <a href="qi-assessment.html" class="schedule-card-cta">See if this fits you &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testi">
+    <div class="testi-header">
+      <span class="cycle-label">From our students</span>
+      <h2 class="cycle-title">Real shifts, real schedules</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">I was billing 60-hour weeks and pretending I had a wellness routine. Three weeks in, I started sleeping through the night for the first time in two years. I did not change my hours. I changed what I did before bed.</p>
+        <div class="testi-attr">
+          <span class="testi-name">Marcus T.</span>
+          <span class="testi-role">Senior consultant &middot; 31</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">I run engineering at a Series C. I do not have time for "wellness." This is 15 minutes. I did not believe it would do anything. By week four my anxiety was quieter than it had been since college.</p>
+        <div class="testi-attr">
+          <span class="testi-name">Priya S.</span>
+          <span class="testi-role">VP Engineering &middot; 34</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">Tried every productivity hack, every meditation app, every supplement. None of it stuck. This stuck because there is nothing to optimize &mdash; you just do the practice and the body responds.</p>
+        <div class="testi-attr">
+          <span class="testi-name">Alex R.</span>
+          <span class="testi-role">Product manager &middot; 29</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">My doctor told me my cortisol was through the roof and to "manage stress." I had no idea what that meant in practice. This is what it meant. I wish I had found it five years ago.</p>
+        <div class="testi-attr">
+          <span class="testi-name">Diana K.</span>
+          <span class="testi-role">Finance director &middot; 37</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview">
+    <div class="preview-header">
+      <span class="cycle-label">The Taoquen programs</span>
+      <h2 class="cycle-title">Pick the depth that fits your schedule</h2>
+    </div>
+    <div class="preview-grid">
+      <a href="four-energy-gates.html" class="preview-card">
+        <span class="preview-tag">Free &middot; Daily Practice</span>
+        <h3 class="preview-name">Four Energy Gates</h3>
+        <p class="preview-len">15 min/day &middot; free forever</p>
+        <p class="preview-desc">The starting practice. Four key points, your entire energy network. Fits between meetings.</p>
+        <span class="preview-link">Start free &rarr;</span>
+      </a>
+      <a href="dwq.html" class="preview-card">
+        <span class="preview-tag">Six-Week Program</span>
+        <h3 class="preview-name">Dragon&rsquo;s Way Qigong&reg;</h3>
+        <p class="preview-len">6 weeks &middot; live small group</p>
+        <p class="preview-desc">A complete reset &mdash; movement, eating-for-healing, and Five Element consciousness. Evenings and weekends.</p>
+        <span class="preview-link">Learn more &rarr;</span>
+      </a>
+      <a href="programs.html" class="preview-card">
+        <span class="preview-tag">Foundation Practice</span>
+        <h3 class="preview-name">3E Qigong</h3>
+        <p class="preview-len">Ongoing &middot; the Three Essentials</p>
+        <p class="preview-desc">Focused work on the body&rsquo;s core energy centers &mdash; for sustained practice over years.</p>
+        <span class="preview-link">See all programs &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Stop the cycle.<br><em>Without quitting your job.</em></h2>
+      <p class="final-cta-lead">Start with the free 3-minute Qi Assessment. It identifies the specific organ patterns most active in your body right now &mdash; and shows you which Taoquen program fits where you are.</p>
+      <a href="qi-assessment.html" class="final-cta-btn">Take the Free Assessment &rarr;</a>
+      <a href="programs.html" class="final-cta-btn-secondary">Browse the programs</a>
+      <p class="final-cta-meta">Free &nbsp;&middot;&nbsp; 3 minutes &nbsp;&middot;&nbsp; No account needed</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span>&copy; Taoquen &middot; TCM Healing Studio</span>
+        <span>Wu Ming Qigong &middot; <a href="https://www.grandmasternanlu.com" target="_blank" rel="noopener">Grand Master Nan Lu</a> &middot; <a href="https://www.tcmworld.org" target="_blank" rel="noopener">TCMWorld.org</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <span class="bottom-bar-brand">Taoquen</span>
+    <a href="mailto:hello@taoquen.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@taoquen.com</a>
+    <a href="tel:+15550001234"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 (555) 000-1234</a>
+    <a href="dwq-promo.html" style="font-size:0.75rem;color:rgba(255,255,255,0.55);white-space:nowrap;">Learn About Dragon&rsquo;s Way &rarr;</a>
+    <a href="checkout.html?plan=standard" class="bottom-bar-cta">Reserve a Spot &rarr;</a>
+  </div>
+
+</body>
+</html>

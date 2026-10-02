@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can You Digest the Universe? — The Five Stages · Dragon's Way Qigong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;
+        --smooth:#c9a86a; --smooth2:#1e8c4a; --stuck:#d63a2e;}
+  html{font-size:16px;-webkit-font-smoothing:antialiased;}
+  body{font-family:'Inter',sans-serif;color:var(--cream);
+    background:var(--bg);
+    min-height:100vh;padding:30px 18px 48px;display:flex;flex-direction:column;align-items:center;}
+  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.7rem);
+    line-height:1.06;text-align:center;margin-bottom:12px;}
+  h1 em{font-style:italic;color:#8b6914;}
+  .lede{max-width:720px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 24px;}
+  .lede b{color:var(--cream);font-weight:500;}
+
+  .tool{width:100%;max-width:1100px;
+    background:#ffffff;
+    border:1px solid #e3dbc8;border-radius:20px;
+    box-shadow:0 24px 60px -30px rgba(70,50,10,.18);
+    padding:24px;}
+
+  /* picker */
+  .pick-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 2px 10px;}
+  .cats{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+  .cat{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    background:#ffffff;border:1px solid #e3dcc9;border-radius:8px;padding:8px 14px;cursor:pointer;transition:.15s;}
+  .cat:hover{color:var(--cream);border-color:rgba(201,168,106,.4);}
+  .cat.on{color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border-color:var(--gold);font-weight:600;}
+  .items{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .item{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;color:var(--cream);
+    background:#ffffff;border:1px solid #e3dcc9;border-radius:22px;padding:8px 14px;cursor:pointer;transition:.15s;user-select:none;}
+  .item .ii{font-size:.98rem;}
+  .item:hover{border-color:rgba(201,168,106,.5);background:rgba(201,168,106,.1);}
+  .item.on{background:linear-gradient(135deg,rgba(201,168,106,.28),rgba(201,168,106,.14));border-color:var(--gold);color:#5f4a0e;box-shadow:0 0 16px -5px var(--gold);}
+
+  /* pipeline */
+  .pipe-wrap{position:relative;margin:6px 4px 6px;padding-top:6px;}
+  .pipe{position:relative;display:flex;justify-content:space-between;align-items:flex-start;}
+  .flowline{position:absolute;left:7%;right:7%;top:30px;height:4px;border-radius:3px;background:rgba(44,44,40,.10);overflow:hidden;}
+  .flowfill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:3px;background:var(--smooth);transition:width .5s ease,background .3s;}
+  .node{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;width:19%;cursor:pointer;}
+  .node .dot{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+    background:radial-gradient(circle at 50% 38%,#fdf9ee,#f1e8d2);border:2px solid #e0d8c2;
+    box-shadow:0 0 0 4px #ffffff;transition:.25s;filter:grayscale(.6) opacity(.55);}
+  .node .nnum{position:absolute;top:-2px;right:calc(50% - 38px);width:20px;height:20px;border-radius:50%;font-size:.62rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid rgba(139,105,20,.5);color:var(--gold);}
+  .node .nname{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;transition:.2s;line-height:1.25;}
+  .node.done .dot{filter:none;border-color:rgba(201,168,106,.5);}
+  .node.active .dot{filter:none;transform:scale(1.12);border-color:var(--gold);box-shadow:0 0 22px rgba(201,168,106,.8),0 0 0 4px #ffffff;}
+  .node.active .nname{color:var(--cream);}
+  .node.spirit .dot{border-color:rgba(201,168,106,.4);}
+  .node.spirit.active .dot{box-shadow:0 0 30px #e8c97a,0 0 0 4px #ffffff;}
+  /* stuck styling */
+  .pipe.stuck .flowfill{background:linear-gradient(90deg,var(--smooth),var(--stuck));}
+  .node.broke .dot{border-color:var(--stuck);box-shadow:0 0 20px -4px var(--stuck),0 0 0 4px #ffffff;}
+
+  /* token */
+  .token{position:absolute;top:30px;width:16px;height:16px;border-radius:50%;transform:translate(-50%,-50%);z-index:3;
+    background:radial-gradient(circle at 38% 32%,#fff,var(--gold));box-shadow:0 0 16px 4px rgba(201,168,106,.8);
+    transition:left .55s cubic-bezier(.45,0,.25,1);opacity:0;}
+  .token.show{opacity:1;}
+  .pipe.stuck ~ .token, .token.stuck{background:radial-gradient(circle at 38% 32%,#fff,var(--stuck));box-shadow:0 0 16px 4px rgba(255,90,77,.8);}
+
+  /* stage detail */
+  .stage-detail{margin-top:20px;border-left:3px solid var(--accent,#c9a86a);padding:6px 0 6px 18px;min-height:96px;transition:border-color .3s;}
+  .sd-stage{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#c9a86a);margin-bottom:5px;}
+  .sd-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;margin-bottom:8px;}
+  .sd-def{font-size:.8rem;line-height:1.55;color:var(--muted);margin-bottom:9px;}
+  .sd-item{font-size:.92rem;line-height:1.6;color:#4a4030;}
+  .sd-item .who{color:#8b6914;font-style:italic;}
+
+  /* manifestation card */
+  .manifest{margin-top:18px;border-radius:14px;padding:18px 20px;display:none;animation:rise .4s ease;}
+  .manifest.show{display:block;}
+  @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .manifest.smooth{background:linear-gradient(160deg,#fdf8ec,#f6eedb);border:1px solid rgba(201,168,106,.5);box-shadow:0 0 40px -20px rgba(201,168,106,.6);}
+  .manifest.stuck{background:rgba(214,58,46,.06);border:1px solid rgba(214,58,46,.4);}
+  .mf-tag{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px;}
+  .manifest.smooth .mf-tag{color:#9a7434;} .manifest.stuck .mf-tag{color:#c0392b;}
+  .mf-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;margin-bottom:6px;}
+  .manifest.smooth .mf-title{color:#8b6914;} .manifest.stuck .mf-title{color:#c0392b;}
+  .mf-body{font-size:.9rem;line-height:1.62;color:#4a4030;}
+  .mf-verdict{margin-top:10px;font-size:.74rem;letter-spacing:.04em;}
+  .manifest.smooth .mf-verdict{color:var(--smooth2);} .manifest.stuck .mf-verdict{color:#c0392b;}
+
+  /* controls */
+  .controls{display:flex;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap;}
+  .go-btn{font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#1a0a06;
+    background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:26px;padding:13px 26px;cursor:pointer;
+    box-shadow:0 6px 26px -8px rgba(201,168,106,.7);transition:transform .12s,box-shadow .12s;}
+  .go-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(201,168,106,.9);}
+  .step-btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);
+    background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);border-radius:22px;padding:11px 18px;cursor:pointer;transition:.15s;}
+  .step-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);}
+  .hint{font-size:.72rem;color:var(--muted);margin-left:auto;}
+  @media(max-width:600px){.hint{margin-left:0;width:100%;}}
+
+  /* CTA + credit */
+  .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
+    background:#faf8f2;border:1px solid rgba(139,105,20,.35);border-radius:18px;box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
+  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta h3 em{font-style:italic;color:#8b6914;}
+  .cta p{max-width:540px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
+  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0a06;
+    background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;cursor:pointer;text-decoration:none;font-weight:600;
+    box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
+  .cta-note{margin-top:11px;font-size:.65rem;color:#998b6e;font-style:italic;}
+  .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;line-height:1.7;color:#998b6e;}
+  .credit strong{color:var(--gold);font-weight:600;}
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Dragon's Way Qigong® · Digesting the Universe</div>
+  <h1>Can You <em>Digest</em> the Universe?</h1>
+  <p class="lede">Master Lu teaches that healthy metabolism moves through <b>five stages</b> — and you don't just
+  digest food. You digest <b>emotions</b> and <b>information</b> the same way. The first four stages are physical;
+  the fifth is invisible — <b>spirit</b> — and it's the reason the other four exist. Pick something you've taken in,
+  and watch how far it gets.</p>
+
+  <div class="tool">
+
+    <div class="pick-head">Choose something to take in</div>
+    <div class="cats" id="cats"></div>
+    <div class="items" id="items"></div>
+
+    <!-- pipeline -->
+    <div class="pipe-wrap">
+      <div class="pipe" id="pipe">
+        <div class="flowline"><div class="flowfill" id="flowfill"></div></div>
+      </div>
+      <div class="token" id="token"></div>
+    </div>
+
+    <!-- active stage detail -->
+    <div class="stage-detail" id="stageDetail">
+      <div class="sd-stage" id="sdStage">Ready</div>
+      <div class="sd-name" id="sdName">Pick something above, then press Begin</div>
+      <div class="sd-def" id="sdDef">Everything you take in — food, emotion, information — must pass through all five stages to truly nourish you.</div>
+      <div class="sd-item" id="sdItem"></div>
+    </div>
+
+    <!-- manifestation -->
+    <div class="manifest" id="manifest">
+      <div class="mf-tag">Stage 5 · What it manifests as</div>
+      <div class="mf-title" id="mfTitle">—</div>
+      <div class="mf-body" id="mfBody">—</div>
+      <div class="mf-verdict" id="mfVerdict">—</div>
+    </div>
+
+    <!-- controls -->
+    <div class="controls">
+      <button class="go-btn" id="goBtn">Begin Digestion →</button>
+      <button class="step-btn" id="stepBtn">Step ›</button>
+      <button class="step-btn" id="resetBtn">↺ Reset</button>
+      <div class="hint" id="hint">Tip: you can also click any stage on the pipeline.</div>
+    </div>
+
+  </div>
+
+
+  <p class="credit">
+    Built on the <strong>Five Stages of Healthy Metabolism Function</strong> from <strong>Digesting the Universe</strong>
+    by Grand Master Nan&nbsp;Lu — Receiving, Digesting, Processing, Transformation, and the manifestation of Spirit.
+    In life these happen at once, faster than the speed of light; here they're slowed down to see.<br>
+    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
+  </p>
+
+<script>
+(function(){
+  const STAGES = [
+    {key:'receive', name:'Receiving',     icon:'🤲', def:'You agree to take something in from outside. It’s a choice made at the mind level — based on what you believe will benefit you.'},
+    {key:'digest',  name:'Digesting',     icon:'🔥', def:'You break it into smaller pieces — by heat, moisture or action — so the body can decide what it needs.'},
+    {key:'process', name:'Processing',    icon:'⚙️', def:'Each organ selects the ingredients it needs and skips what it doesn’t, sending requests to the others.'},
+    {key:'transform',name:'Transformation',icon:'🦋', def:'The chosen essence is transformed into Qi, blood and what each organ needs — a kind of spiritual alchemy.'},
+    {key:'manifest',name:'Manifesting · Spirit', icon:'✨', def:'The invisible final stage — the reason the first four exist. Healthy function lets your spirit and purpose show.'}
+  ];
+
+  const ITEMS = {
+    Food:[
+      {key:'warm', icon:'🍲', label:'Warm cooked meal', quality:'smooth',
+       text:['You choose warmth — a decision your Stomach already welcomes.',
+             'Heat and moisture break it down with ease; the Stomach ripens it without strain.',
+             'Each organ selects the rich essence it needs from the meal.',
+             'Essence becomes Qi and blood — the food is transformed together with you.'],
+       mf:{title:'Vibrant, steady energy', body:'Fully digested, the meal feeds body and spirit alike. Your energy is even and your mind clear — fuel for your purpose.'}},
+      {key:'salad', icon:'🥗', label:'Raw cold salad', quality:'stuck', breakAt:1,
+       text:['You believe it’s healthy, so you take it in — based on belief, not the body’s need.',
+             'Its cold essence stalls the Stomach; digestion needs a warmth it can’t supply.',
+             'Little usable essence is selected; much of it simply passes through.',
+             'Weak transformation makes dampness and bloating instead of clean Qi.'],
+       mf:{title:'Tired and foggy — “but I ate well?”', body:'The cold halted the process early, so spirit goes underfed despite a “healthy” plate. The picture was only half right.'}},
+      {key:'crave', icon:'🍫', label:'A craving, honored', quality:'smooth',
+       text:['Your body asks for something specific — and you listen instead of overriding it.',
+             'Because it’s what you truly needed, it breaks down readily.',
+             'The organ that asked selects exactly the frequency it was missing.',
+             'It transforms into the very Qi the body had been searching for.'],
+       mf:{title:'The body’s request, answered', body:'You trusted the message over the mind, and balance returns. Remember — the body never lies.'}}
+    ],
+    Emotion:[
+      {key:'release', icon:'🌬️', label:'Anger, expressed & released', quality:'smooth',
+       text:['A feeling arrives; you take it in honestly rather than denying it.',
+             'Moved through breath, words or tears, it breaks down and starts to flow.',
+             'The message under the anger is selected; the rest moves on.',
+             'It transforms into released tension and renewed Liver flow.'],
+       mf:{title:'Lighter, clearer, flowing', body:'Expressed and digested, the emotion leaves no residue. Liver Qi moves freely again.'}},
+      {key:'worry', icon:'🌀', label:'Worry, held & chewed', quality:'stuck', breakAt:2,
+       text:['You take the worry in and turn it over, again and again.',
+             'You start to break it down — but overthinking jams the Spleen, the very organ that should digest.',
+             'Nothing is resolved or selected; the loop just keeps running.',
+             'It transforms into stagnation: bloating, fatigue, a knotted gut.'],
+       mf:{title:'Stuck in the loop', body:'Undigested worry settles into the body. The mind ate, but nothing nourished the spirit.'}},
+      {key:'joy', icon:'💛', label:'Joy & gratitude', quality:'smooth',
+       text:['You open and receive it fully, without guarding your Heart.',
+             'It needs no breaking down — only welcoming.',
+             'The Heart takes it in and shares its warmth with every organ.',
+             'It transforms into open, flowing Shen — the spirit of the Heart.'],
+       mf:{title:'Radiant spirit', body:'Joy digested becomes Shen made visible — it shows on your face and in your effect on others.'}}
+    ],
+    Information:[
+      {key:'insight', icon:'💡', label:'An insight or teaching', quality:'smooth',
+       text:['You choose to take in a new idea with an open mind.',
+             'You break it down, testing it against your own experience.',
+             'You keep what serves you and let the rest go.',
+             'It transforms into understanding you can actually live by.'],
+       mf:{title:'Wisdom you embody', body:'Digested, information becomes wisdom — not just stored, but expressed in how you live.'}},
+      {key:'scroll', icon:'📱', label:'Endless scrolling', quality:'stuck', breakAt:1,
+       text:['You take in a flood of input without really choosing it.',
+             'There’s too much to break down — the stream never pauses.',
+             'Nothing gets selected; it piles up unprocessed.',
+             'It transforms into noise: scattered attention, a restless mind.'],
+       mf:{title:'Overloaded, undigested', body:'Information overload never reaches spirit. You consumed everything and metabolized nothing.'}},
+      {key:'nature', icon:'🌿', label:'Silence in Nature', quality:'smooth',
+       text:['You receive stillness and Nature’s Qi — easy to take in.',
+             'There’s nothing harsh to break down; the body simply absorbs.',
+             'Each organ drinks the calm frequency it needs.',
+             'It transforms into restored Qi and a settled mind.'],
+       mf:{title:'Restored and whole', body:'The simplest input digests most completely — Nature feeds the spirit directly.'}}
+    ]
+  };
+
+  const $=id=>document.getElementById(id);
+  const catsEl=$('cats'), itemsEl=$('items'), pipe=$('pipe'), token=$('token'),
+        flowfill=$('flowfill'), manifest=$('manifest');
+  let curCat='Food', curItem=null, stage=-1, timer=null, nodeEls=[];
+
+  // build pipeline nodes
+  STAGES.forEach((s,i)=>{
+    const n=document.createElement('div');
+    n.className='node'+(i===4?' spirit':''); n.dataset.i=i;
+    n.innerHTML='<div class="dot">'+s.icon+'<span class="nnum">'+(i+1)+'</span></div><div class="nname">'+s.name+'</div>';
+    n.addEventListener('click',()=>{ if(curItem){ stopAuto(); gotoStage(i); } });
+    pipe.appendChild(n); nodeEls.push(n);
+  });
+
+  // build category tabs
+  Object.keys(ITEMS).forEach((c,i)=>{
+    const b=document.createElement('div'); b.className='cat'+(i===0?' on':''); b.textContent=c;
+    b.addEventListener('click',()=>{ curCat=c; document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('on',x.textContent===c)); buildItems(); });
+    catsEl.appendChild(b);
+  });
+
+  function buildItems(){
+    itemsEl.innerHTML='';
+    ITEMS[curCat].forEach((it,i)=>{
+      const b=document.createElement('div'); b.className='item'; b.dataset.key=it.key;
+      b.innerHTML='<span class="ii">'+it.icon+'</span>'+it.label;
+      b.addEventListener('click',()=>{ selectItem(it,b); });
+      itemsEl.appendChild(b);
+    });
+  }
+
+  function selectItem(it,b){
+    curItem=it;
+    document.querySelectorAll('.item').forEach(x=>x.classList.toggle('on',x===b));
+    resetPipe();
+    $('sdStage').textContent='Ready'; $('sdName').textContent='Now digesting: '+it.label;
+    $('sdDef').textContent='Press Begin to move it through the five stages — or step through one at a time.';
+    $('sdItem').textContent='';
+  }
+
+  function resetPipe(){
+    stopAuto(); stage=-1;
+    nodeEls.forEach(n=>n.classList.remove('active','done','broke'));
+    pipe.classList.remove('stuck'); token.classList.remove('show','stuck');
+    flowfill.style.width='0'; flowfill.style.background='';   // let CSS (.pipe.stuck) drive colour
+    manifest.classList.remove('show','smooth','stuck');
+    $('stageDetail').style.setProperty('--accent','#8b6914');
+  }
+
+  function positionToken(i){
+    const n=nodeEls[i], dot=n.querySelector('.dot');
+    const wrapRect=token.parentElement.getBoundingClientRect();
+    const dotRect=dot.getBoundingClientRect();
+    const left=dotRect.left+dotRect.width/2-wrapRect.left;
+    token.style.left=left+'px';
+    // flow fill up to this node
+    const pct=(left/wrapRect.width)*100;
+    flowfill.style.width=Math.min(100,pct)+'%';
+  }
+
+  function gotoStage(i){
+    stage=i;
+    const it=curItem, stuck=it.quality==='stuck', broke=stuck && it.breakAt!=null && i>=it.breakAt;
+    token.classList.add('show'); token.classList.toggle('stuck', broke);
+    pipe.classList.toggle('stuck', stuck);
+    positionToken(i);
+
+    nodeEls.forEach((n,j)=>{
+      n.classList.toggle('active', j===i);
+      n.classList.toggle('done', j<i || (j===i));
+      n.classList.toggle('broke', stuck && it.breakAt!=null && j>=it.breakAt && j<=i);
+    });
+
+    const accent = broke ? 'var(--stuck)' : (i===4?'#9a7434':'#8b6914');
+    $('stageDetail').style.setProperty('--accent', accent);
+    const S=STAGES[i];
+    $('sdStage').textContent='Stage '+(i+1)+' of 5';
+    $('sdName').textContent=S.name;
+    $('sdDef').textContent=S.def;
+    // item text: stages 0-3 from text[]; stage 4 handled by manifest
+    if(i<4){ $('sdItem').innerHTML='<span class="who">'+it.icon+' '+it.label+':</span> '+it.text[i]; manifest.classList.remove('show'); }
+    else {
+      $('sdItem').innerHTML='<span class="who">'+it.icon+' '+it.label+':</span> '+(stuck?'It never fully arrives here — the process stalled earlier.':'It completes the journey and becomes part of you.');
+      showManifest(it);
+    }
+  }
+
+  function showManifest(it){
+    const stuck=it.quality==='stuck';
+    manifest.className='manifest show '+(stuck?'stuck':'smooth');
+    $('mfTitle').textContent=it.mf.title;
+    $('mfBody').textContent=it.mf.body;
+    $('mfVerdict').textContent = stuck
+      ? '✗ Stuck — it never reached spirit. This is where imbalance begins.'
+      : '✓ Fully digested — it reached the fifth stage and fed your spirit.';
+  }
+
+  function nextStage(){
+    if(!curItem) return;
+    if(stage>=4){ return; }
+    gotoStage(stage+1);
+  }
+  function startAuto(){
+    if(!curItem) return;
+    stopAuto(); if(stage>=4) resetPipe();
+    timer=setInterval(()=>{ if(stage>=4){ stopAuto(); return; } gotoStage(stage+1); }, 1150);
+    gotoStage(stage<0?0:stage);
+  }
+  function stopAuto(){ if(timer){ clearInterval(timer); timer=null; } }
+
+  $('goBtn').addEventListener('click',()=>{ if(!curItem){ flashHint('Pick something above first ☝'); return; } startAuto(); });
+  $('stepBtn').addEventListener('click',()=>{ if(!curItem){ flashHint('Pick something above first ☝'); return; } stopAuto(); nextStage(); });
+  $('resetBtn').addEventListener('click',()=>{ if(curItem) resetPipe(); });
+  function flashHint(m){ const h=$('hint'); const o=h.textContent; h.textContent=m; h.style.color='#8b6914'; setTimeout(()=>{h.textContent=o;h.style.color='';},1600); }
+
+  window.addEventListener('resize',()=>{ if(stage>=0) positionToken(stage); });
+
+  buildItems();
+
+  // report height to parent (iframe auto-size)
+  function postHeight(){ const h=Math.ceil(document.body.scrollHeight);
+    if(window.parent&&window.parent!==window) window.parent.postMessage({digestHeight:h},'*'); }
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight);
+  document.addEventListener('click',()=>setTimeout(postHeight,200),true);
+  setTimeout(postHeight,200); setTimeout(postHeight,900);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Frameworks — One Body, Two Lenses · Dragon's Way Qigong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{--bg:#ffffff;--cream:#2c2c28;--gold:#8b6914;--muted:#6b5a30;
+        --steel:#46586a; --steel-dim:#5d6b7a;}
+  html{font-size:16px;-webkit-font-smoothing:antialiased;}
+  body{font-family:'Inter',sans-serif;color:var(--cream);
+    background:var(--bg);
+    min-height:100vh;padding:30px 18px 48px;display:flex;flex-direction:column;align-items:center;}
+  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
+    line-height:1.06;text-align:center;margin-bottom:12px;}
+  h1 em{font-style:italic;color:#8b6914;}
+  .lede{max-width:720px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 24px;}
+  .lede b{color:var(--cream);font-weight:500;}
+
+  .tool{width:100%;max-width:1100px;
+    background:#ffffff;
+    border:1px solid #e3dbc8;border-radius:20px;
+    box-shadow:0 24px 60px -30px rgba(70,50,10,.18);
+    padding:24px;}
+
+  /* subject selector */
+  .pick-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);margin:2px 2px 10px;}
+  .subjects{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+  .subj{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;color:var(--cream);
+    background:#ffffff;border:1px solid #e3dcc9;border-radius:22px;
+    padding:8px 14px;cursor:pointer;transition:.15s;user-select:none;}
+  .subj .si{font-size:.95rem;}
+  .subj:hover{border-color:rgba(201,168,106,.5);background:rgba(201,168,106,.1);}
+  .subj.on{background:linear-gradient(135deg,rgba(201,168,106,.28),rgba(201,168,106,.14));
+    border-color:var(--gold);color:#5f4a0e;box-shadow:0 0 16px -5px var(--gold);}
+
+  /* the two lenses */
+  .lenses{display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch;gap:0;}
+  @media(max-width:760px){.lenses{grid-template-columns:1fr;gap:14px;}}
+  .panel{position:relative;border-radius:16px;padding:22px 22px 20px;cursor:pointer;
+    transition:opacity .3s,transform .3s,box-shadow .3s,filter .3s;}
+  .panel .pframe{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;}
+  .panel .pkind{font-family:'Cinzel',serif;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+  .panel .psubj{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:600;margin-bottom:8px;}
+  .panel .pbody{font-size:.9rem;line-height:1.62;margin-bottom:14px;}
+  .panel .ptags{display:flex;flex-wrap:wrap;gap:7px;}
+  .panel .ptag{font-size:.66rem;border-radius:7px;padding:5px 10px;letter-spacing:.02em;}
+  .panel .pchip{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.64rem;
+    font-family:'Cinzel',serif;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:20px;}
+
+  /* WEST — cool, clinical, fragmented */
+  .west{background:linear-gradient(165deg,#f2f5f8,#e7edf3);
+    border:1px solid rgba(93,107,122,.32);}
+  .west .pframe{color:var(--steel-dim);}
+  .west .pkind{color:var(--steel);}
+  .west .psubj{color:#2e3a46;}
+  .west .pbody{color:#46535f;}
+  .west .ptag{background:rgba(143,163,184,.14);border:1px solid rgba(93,107,122,.3);color:#46535f;}
+
+  /* TCM — warm, gold, connected, glowing */
+  .tcm{background:linear-gradient(165deg,#fdf8ec,#f6eedb);
+    border:1px solid rgba(201,168,106,.5);box-shadow:inset 0 0 40px -18px rgba(201,168,106,.45),0 0 30px -16px rgba(201,168,106,.5);}
+  .tcm .pframe{color:#9a7434;}
+  .tcm .pkind{color:var(--gold);}
+  .tcm .psubj{color:#8b6914;}
+  .tcm .pbody{color:#4a4030;}
+  .tcm .ptag{background:rgba(201,168,106,.14);border:1px solid rgba(201,168,106,.4);color:#6b5417;}
+  .tcm .pchip{background:rgba(201,168,106,.16);border:1px solid rgba(201,168,106,.5);color:#8b6914;}
+
+  /* center divider */
+  .vs{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+  @media(max-width:760px){.vs{flex-direction:row;}}
+  .vs-line{flex:1;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,106,.5),transparent);}
+  @media(max-width:760px){.vs-line{height:1px;width:auto;background:linear-gradient(to right,transparent,rgba(201,168,106,.5),transparent);}}
+  .vs-orb{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.06em;color:var(--gold);font-weight:700;
+    background:radial-gradient(circle at 50% 50%,rgba(201,168,106,.25),#ffffff);
+    border:1px solid rgba(201,168,106,.5);box-shadow:0 0 18px -6px var(--gold);}
+
+  /* focus interaction */
+  .lenses.focus-west .tcm,.lenses.focus-tcm .west{opacity:.42;filter:saturate(.6);}
+  .lenses.focus-west .west,.lenses.focus-tcm .tcm{transform:translateY(-2px);}
+  .panel .phint{position:absolute;top:14px;right:16px;font-size:.58rem;letter-spacing:.06em;
+    text-transform:uppercase;color:rgba(44,44,40,.45);opacity:0;transition:.2s;}
+  .panel:hover .phint{opacity:.7;}
+
+  .synth{margin-top:20px;padding:14px 16px;border-left:3px solid var(--gold);border-radius:8px;
+    background:#faf8f2;font-size:.84rem;line-height:1.62;color:#4a4030;}
+  .synth b{color:var(--cream);} .synth .src{color:var(--gold);font-style:italic;}
+
+  /* CTA */
+  .cta{width:100%;max-width:1100px;margin-top:22px;padding:26px 28px;text-align:center;
+    background:#faf8f2;
+    border:1px solid rgba(139,105,20,.35);border-radius:18px;box-shadow:0 16px 44px -28px rgba(70,50,10,.3);}
+  .cta-pre{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:8px;}
+  .cta h3{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:8px;line-height:1.2;}
+  .cta h3 em{font-style:italic;color:#8b6914;}
+  .cta p{max-width:540px;margin:0 auto 18px;font-size:.86rem;line-height:1.65;color:var(--muted);}
+  .cta-btn{display:inline-block;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:#1a0a06;background:linear-gradient(135deg,#e8c97a,#c9a86a);border:none;border-radius:30px;padding:13px 30px;
+    cursor:pointer;text-decoration:none;font-weight:600;box-shadow:0 6px 28px -6px rgba(201,168,106,.6);transition:transform .15s,box-shadow .15s;}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(201,168,106,.85);}
+  .cta-note{margin-top:11px;font-size:.65rem;color:#998b6e;font-style:italic;}
+
+  .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;line-height:1.7;color:#998b6e;}
+  .credit strong{color:var(--gold);font-weight:600;}
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Dragon's Way Qigong® · Tao Quantum Entanglement</div>
+  <h1>Two <em>Frameworks</em>, One Body</h1>
+  <p class="lede">The same body, the same symptom — seen two completely different ways. Western science looks for
+  <b>differentiation</b>: it separates, isolates, and treats the part. Traditional Chinese Medicine looks for
+  <b>Oneness</b>: it connects, relates, and treats the whole. <i>"From the differentiation perspective, the Liver and
+  Gallbladder are two countries separated by a great distance. From the similarity perspective, everything is Oneness."</i>
+  Pick a subject — and flip between the lenses.</p>
+
+  <div class="tool">
+
+    <div class="pick-head">Choose what to look at</div>
+    <div class="subjects" id="subjects"></div>
+
+    <div class="lenses" id="lenses">
+      <!-- WEST -->
+      <div class="panel west" id="panelWest" data-side="west">
+        <div class="phint">click to focus</div>
+        <div class="pframe">Differentiation · Newtonian</div>
+        <div class="pkind">Western Lens</div>
+        <div class="psubj" id="wSubj">—</div>
+        <div class="pbody" id="wBody">—</div>
+        <div class="ptags" id="wTags"></div>
+      </div>
+
+      <!-- divider -->
+      <div class="vs"><div class="vs-line"></div><div class="vs-orb">VS</div><div class="vs-line"></div></div>
+
+      <!-- TCM -->
+      <div class="panel tcm" id="panelTcm" data-side="tcm">
+        <div class="phint">click to focus</div>
+        <div class="pframe">Oneness · Relativistic</div>
+        <div class="pkind">TCM / Quantum Lens</div>
+        <div class="psubj" id="tSubj">—</div>
+        <div class="pbody" id="tBody">—</div>
+        <div class="ptags" id="tTags"></div>
+        <div class="pchip" id="tChip" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="synth" id="synth"></div>
+
+  </div>
+
+
+  <p class="credit">
+    Built on the two-frameworks teaching in <strong>Digesting the Universe</strong> by Grand Master Nan&nbsp;Lu — bridging
+    modern science (relativity, quantum entanglement, the holographic principle) with traditional Chinese medicine
+    (Qi, Yin-Yang, Five Elements, the meridian network).<br>
+    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
+  </p>
+
+<script>
+(function(){
+  const SUBJECTS = [
+    {key:'body', icon:'🧍', label:'The Body',
+     west:{subj:'A machine of separate parts',
+       body:'An assembly of distinct organs and systems, each studied — and treated — on its own, often by a different specialist.',
+       tags:['Reductionist','Parts in isolation','A specialist per organ']},
+     tcm:{subj:'One connected whole',
+       body:'An integrated family of organs and a microcosm of Nature. The parts cooperate constantly and communicate faster than the speed of light.',
+       tags:['Oneness','Integrated family','Microcosm of Nature'], principle:'Quantum Entanglement'}},
+
+    {key:'organ', icon:'☯', label:'Liver & Gallbladder',
+     west:{subj:'Two separate organs',
+       body:'Two distinct organs. As the ancient sage said, seen this way they are “two countries separated by a great distance.”',
+       tags:['Separate organs','Treated individually']},
+     tcm:{subj:'One inseparable partnership',
+       body:'A single system governing the smooth flow of Qi, blood, bile and emotion. Within the body they are inseparably close.',
+       tags:['One system','Smooth flow','Partnership'], principle:'Nonlocality · Oneness'}},
+
+    {key:'food', icon:'🍎', label:'Food',
+     west:{subj:'Calories & nutrients',
+       body:'Calories, vitamins, minerals and macros — the chemical and physical properties you can weigh and measure.',
+       tags:['Calories & macros','Chemical properties','Measurable only']},
+     tcm:{subj:'A message from Nature',
+       body:'A carrier of Qi and essence. What matters most is its energetic nature — warming or cooling — and the living information it brings.',
+       tags:['Qi & essence','Warm / cool nature','Message from Nature'], principle:'E = mc²'}},
+
+    {key:'cough', icon:'🤧', label:'A Symptom (Cough)',
+     west:{subj:'A symptom to suppress',
+       body:'Quiet the cough and treat the lungs — the problem is assumed to live where it shows itself.',
+       tags:['Suppress the symptom','Treat the site']},
+     tcm:{subj:'A clue to the root',
+       body:'Two coughs can have two different causes. The root may sit in the Liver, the Kidney, or a relationship between organs — far from the lungs.',
+       tags:['Find the root','Organ relationships','Same sign ≠ same cause'], principle:'Seeing Connections'}},
+
+    {key:'pain', icon:'🦴', label:'Pain & Arthritis',
+     west:{subj:'A worn, inflamed joint',
+       body:'Inflammation and wear-and-tear in one isolated joint, named and treated by its location.',
+       tags:['Local inflammation','Wear & tear']},
+     tcm:{subj:'Qi that has become stuck',
+       body:'Qi stagnation — energy that stopped flowing. Since matter and energy are interchangeable, move the Qi and the stuck mass can resolve.',
+       tags:['Qi stagnation','Stuck energy','Move the flow'], principle:'Relativity · E=mc²'}},
+
+    {key:'holo', icon:'🔬', label:'A Part & the Whole',
+     west:{subj:'A part is just a part',
+       body:'A sample, a slice, a single reading — examined on its own terms, separate from the body it came from.',
+       tags:['Part = part','Isolated sample']},
+     tcm:{subj:'The part holds the whole',
+       body:'“Every strand of hair on the gold lion is the gold lion.” Your face, tongue and pulse each mirror the entire body — outer reflects inner.',
+       tags:['Part holds the whole','Outer reflects inner','Face · tongue · pulse'], principle:'Holographic Principle'}},
+
+    {key:'time', icon:'⏳', label:'Healing & Time',
+     west:{subj:'A fixed dose, a linear clock',
+       body:'A set dosage on a straight timeline; the visible, physical body is the thing being treated.',
+       tags:['Linear time','Fixed dosage','Visible body only']},
+     tcm:{subj:'The invisible moves first',
+       body:'Space-time is relative, and the invisible drives the visible. Shift Qi at the energetic level and the physical follows — sometimes from a distance.',
+       tags:['Relative space-time','Invisible → visible','Nonlocal'], principle:'Space-Time · Nonlocality'}},
+
+    {key:'speed', icon:'⚡', label:'How the Body Talks',
+     west:{subj:'Chemical signals, crawling',
+       body:'Hormones and drugs — chemical messengers that travel at less than one centimeter per second.',
+       tags:['Chemical signals','< 1 cm / second']},
+     tcm:{subj:'Light-speed meridians',
+       body:'The meridian network carries energy signals at 186,000 miles per second — the speed of light. The body answers itself instantly.',
+       tags:['Meridian signals','186,000 mi / sec','Instant'], principle:'Speed of Light'}}
+  ];
+
+  // synthesis line per subject (the takeaway)
+  const SYNTH = {
+    body:'Both lenses are looking at the same body — one sees the parts, the other sees how they move as one.',
+    organ:'Neither organ is wrong; the difference is whether you see the gap between them, or the bond.',
+    food:'An apple has calories <i>and</i> a message. The visible nutrition is only half the picture.',
+    cough:'Same cough, two roots. Treating where it shows can miss why it’s there.',
+    pain:'Where one lens sees damaged tissue, the other sees energy waiting to move again.',
+    holo:'If the part contains the whole, your face and tongue are a full-body report.',
+    time:'Change the invisible Qi first, and the visible body follows.',
+    speed:'Your body isn’t waiting on chemistry — it’s already answered at the speed of light.'
+  };
+
+  const $=id=>document.getElementById(id);
+  const subjectsEl=$('subjects'), lenses=$('lenses');
+  let current=0, focus=null;
+
+  // build subject pills
+  SUBJECTS.forEach((s,i)=>{
+    const b=document.createElement('div');
+    b.className='subj'+(i===0?' on':'');
+    b.innerHTML='<span class="si">'+s.icon+'</span>'+s.label;
+    b.addEventListener('click',()=>{ current=i; renderSubject();
+      document.querySelectorAll('.subj').forEach((x,j)=>x.classList.toggle('on',j===i)); });
+    subjectsEl.appendChild(b);
+  });
+
+  function tagHTML(tags,cls){ return tags.map(t=>'<span class="ptag">'+t+'</span>').join(''); }
+
+  function renderSubject(){
+    const s=SUBJECTS[current];
+    $('wSubj').textContent=s.west.subj; $('wBody').textContent=s.west.body;
+    $('tSubj').textContent=s.tcm.subj;  $('tBody').textContent=s.tcm.body;
+    $('wTags').innerHTML=tagHTML(s.west.tags); $('tTags').innerHTML=tagHTML(s.tcm.tags);
+    const chip=$('tChip');
+    if(s.tcm.principle){ chip.style.display='inline-flex'; chip.innerHTML='◇ '+s.tcm.principle+' — modern physics echo'; }
+    else chip.style.display='none';
+    $('synth').innerHTML='<span class="src">The takeaway:</span> '+SYNTH[s.key];
+    // brief crossfade
+    [ $('panelWest'),$('panelTcm') ].forEach(p=>{ p.animate?p.animate([{opacity:.45},{opacity:1}],{duration:260,easing:'ease'}):0; });
+  }
+
+  // click a panel to focus it (dim the other); click again to release
+  [ $('panelWest'),$('panelTcm') ].forEach(p=>{
+    p.addEventListener('click',()=>{
+      const side=p.dataset.side;
+      focus = (focus===side)?null:side;
+      lenses.classList.toggle('focus-west', focus==='west');
+      lenses.classList.toggle('focus-tcm',  focus==='tcm');
+    });
+  });
+
+  renderSubject();
+
+  // report height to parent (iframe auto-size)
+  function postHeight(){ const h=Math.ceil(document.body.scrollHeight);
+    if(window.parent&&window.parent!==window) window.parent.postMessage({framesHeight:h},'*'); }
+  window.addEventListener('load',postHeight); window.addEventListener('resize',postHeight);
+  document.addEventListener('click',()=>setTimeout(postHeight,160),true);
+  setTimeout(postHeight,200); setTimeout(postHeight,800);
+})();
+</script>
+</body>
+</html>

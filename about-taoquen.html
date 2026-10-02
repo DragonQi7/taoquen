@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Taoquen — What Is Qi? | Taoquen</title>
+  <meta name="description" content="Taoquen is a TCM Wellness Academy in the Wu Ming lineage of Grand Master Nan Lu. Before you meet the school, meet its subject: Qi — the four levels, the meridian clock, the invisible body, and why Qi must be experienced, not explained.">
+  <meta name="keywords" content="What is Qi, About Taoquen, Qi levels, meridian clock, energy body, Wu Ming Qigong, Grand Master Nan Lu, TCM Wellness Academy, Tao Quantum Entanglement">
+  <link rel="canonical" href="https://taoquen.com/about-taoquen.html">
+  <meta name="theme-color" content="#141806">
+
+  <!-- Favicon (inline 道-seal mark) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141806'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c8901a' stroke-width='1.7'/%3E%3Crect x='20.5' y='3.5' width='7.5' height='7.5' rx='1' fill='%23b73f2a'/%3E%3C/svg%3E">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://taoquen.com/about-taoquen.html">
+  <meta property="og:title" content="About Taoquen — What Is Qi?">
+  <meta property="og:description" content="The four levels of Qi, the meridian clock, the invisible body, the Qi account — and the academy built on one conviction: Qi must be experienced, not explained.">
+  <meta property="og:image" content="og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Taoquen — What Is Qi?">
+  <meta name="twitter:description" content="A TCM Wellness Academy in the unbroken Wu Ming lineage of Grand Master Nan Lu.">
+  <meta name="twitter:image" content="og-cover.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@400;500&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Taoquen — What Is Qi?",
+    "url": "https://taoquen.com/about-taoquen.html",
+    "description": "About Taoquen — a TCM Wellness Academy teaching Wu Ming Qigong live, online, in small groups, in the lineage of Grand Master Nan Lu. An introduction to Qi: its four levels, the meridian clock, and the invisible body.",
+    "about": {
+      "@type": "Organization",
+      "name": "Taoquen — Tao Quantum Entanglement™",
+      "url": "https://taoquen.com/",
+      "sameAs": ["https://www.tcmworld.org", "https://www.grandmasternanlu.com"]
+    }
+  }
+  </script>
+
+  <style>
+  /* ============================================================
+     1 · DESIGN TOKENS (shared with index.html)
+     ============================================================ */
+  :root{
+    --paper:#fdfbf2; --paper-2:#f5f2e4; --paper-3:#edeadb;
+    --jade:#141806; --jade-2:#2a3010;
+    --gold:#c8901a; --gold-lit:#e8a830; --gold-warm:#e8a04a;
+    --vermillion:#b73f2a;
+    --green:#5a8a3a;
+    --text:#141806; --text-muted:#6f5410; --text-soft:#4a4010; --text-invert:#fff8f4;
+    --line:rgba(20,24,6,.12); --line-gold:rgba(200,144,26,.22);
+    --glass:rgba(253,251,242,.78);
+    --ease:cubic-bezier(0.16,1,0.3,1);
+    --pad:clamp(76px,9vw,128px);
+    --measure:68ch;
+    --maxw:1180px;
+  }
+
+  /* ============================================================
+     2 · RESET + BASE
+     ============================================================ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  html.lenis,html.lenis body{height:auto;}
+  .lenis.lenis-smooth{scroll-behavior:auto !important;}
+
+  body{
+    background:var(--paper); color:var(--text);
+    font-family:'Inter',system-ui,sans-serif; font-weight:300;
+    font-size:1rem; line-height:1.8;
+    overflow-x:hidden; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  body.is-loading{overflow:hidden;}
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif; line-height:1.14; font-weight:600; letter-spacing:-0.01em; color:var(--jade);}
+  p{max-width:var(--measure);}
+  a{color:var(--gold); text-decoration:none; transition:color .25s var(--ease);}
+  a:hover{color:var(--gold-lit);}
+  img,svg,canvas{display:block; max-width:100%;}
+  button{font:inherit; color:inherit; background:none; border:none; cursor:pointer;}
+  ::selection{background:rgba(200,144,26,.24); color:var(--jade);}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:2px;}
+
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,40px);}
+  .eyebrow{
+    font-family:'Cinzel',serif; font-size:.66rem; font-weight:700; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--gold); opacity:.6;}
+  .glyph-cjk{font-family:'Noto Serif SC',serif;}
+  .sec{position:relative; padding:var(--pad) 0;}
+  .sec > .wrap{position:relative; z-index:2;}
+  .sec-head{max-width:720px; margin-bottom:clamp(38px,5vw,64px);}
+  .sec-head h2{font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;}
+  .sec-head .lede{margin-top:18px; color:var(--text-soft); font-size:1.04rem;}
+  .serif-i{font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;}
+
+  /* ghosted CJK background glyphs */
+  .ghost{
+    position:absolute; z-index:0; font-family:'Noto Serif SC',serif; line-height:1;
+    color:rgba(20,24,6,.04); pointer-events:none; user-select:none;
+    font-size:clamp(220px,34vw,480px); will-change:transform;
+  }
+
+  /* buttons */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'Cinzel',serif; font-size:.72rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    padding:17px 30px; border:1px solid var(--gold); color:var(--jade);
+    background:linear-gradient(120deg,var(--gold) 0%,var(--gold-lit) 55%,var(--gold) 100%);
+    background-size:200% 100%; background-position:0% 0;
+    transition:background-position .6s var(--ease), box-shadow .4s var(--ease), transform .4s var(--ease);
+    position:relative; white-space:nowrap; will-change:transform;
+  }
+  .btn:hover{background-position:100% 0; box-shadow:0 14px 34px -16px rgba(200,144,26,.55); transform:translateY(-2px); color:var(--jade);}
+  .btn-ghost{background:transparent; color:var(--text-invert); border:1px solid rgba(255,248,244,.34);}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-lit); background:rgba(200,144,26,.08); box-shadow:none;}
+  .link-arrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Cinzel',serif; font-size:.7rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
+  }
+  .link-arrow .ar{transition:transform .35s var(--ease); display:inline-block;}
+  .link-arrow:hover .ar{transform:translateX(6px);}
+
+  /* seal chip (vermillion — scarce) */
+  .seal{
+    width:34px; height:34px; background:var(--vermillion); transform:rotate(-2deg);
+    display:inline-flex; align-items:center; justify-content:center; flex:none;
+    box-shadow:0 3px 12px -3px rgba(183,63,42,.55);
+  }
+  .seal span{font-family:'Noto Serif SC',serif; color:#f6efe0; font-size:17px; line-height:1;}
+
+  /* pull quote */
+  .pull{
+    margin:34px 0 8px; padding:26px 0 26px 30px; border-left:2px solid var(--gold);
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+    font-size:clamp(1.3rem,2.2vw,1.7rem); line-height:1.45; color:var(--jade); max-width:34ch;
+  }
+  .pull small{display:block; margin-top:12px; font-family:'Cinzel',serif; font-style:normal; font-size:.58rem; letter-spacing:.26em; text-transform:uppercase; color:var(--text-muted);}
+
+  /* ============================================================
+     3 · REVEAL SYSTEM
+     ============================================================ */
+  .reveal{opacity:1; transform:none;}
+  .js .reveal{opacity:0; transform:translateY(30px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .js .reveal.in{opacity:1; transform:none;}
+  .d1{transition-delay:.08s!important;} .d2{transition-delay:.16s!important;} .d3{transition-delay:.24s!important;} .d4{transition-delay:.32s!important;}
+  .ww{display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:.12em; margin-bottom:-.12em;}
+  .wi{display:inline-block; will-change:transform;}
+
+  /* ============================================================
+     4 · ATMOSPHERE — grain, vignette, cursor, rail, HUD
+     ============================================================ */
+  #grain{
+    position:fixed; inset:-100%; z-index:2000; pointer-events:none; opacity:.038;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+    animation:grainShift 7s steps(9) infinite;
+  }
+  @keyframes grainShift{
+    0%{transform:translate(0,0);} 22%{transform:translate(-6%,4%);} 44%{transform:translate(4%,-7%);}
+    66%{transform:translate(-3%,-4%);} 88%{transform:translate(6%,5%);} 100%{transform:translate(0,0);}
+  }
+  #vignette{position:fixed; inset:0; z-index:1999; pointer-events:none;
+    background:radial-gradient(130% 110% at 50% 42%, transparent 62%, rgba(20,24,6,.16) 100%);}
+
+  #cursorDot,#cursorRing{position:fixed; top:0; left:0; z-index:2100; pointer-events:none; border-radius:50%; display:none;}
+  #cursorDot{width:5px; height:5px; background:var(--gold-lit); transform:translate(-50%,-50%);}
+  #cursorRing{
+    width:34px; height:34px; border:1px solid rgba(200,144,26,.55); transform:translate(-50%,-50%);
+    transition:width .3s var(--ease), height .3s var(--ease), border-color .3s, background .3s;
+  }
+  #cursorRing.on{width:58px; height:58px; border-color:var(--gold-lit); background:rgba(200,144,26,.07);}
+  @media (pointer:fine){ .js-cursor #cursorDot,.js-cursor #cursorRing{display:block;} }
+
+  .srail{
+    position:fixed; right:clamp(10px,2vw,26px); top:50%; transform:translateY(-50%);
+    z-index:1500; display:flex; flex-direction:column; gap:14px;
+  }
+  .srail a{
+    width:9px; height:9px; border-radius:50%; border:1px solid rgba(200,144,26,.6);
+    background:transparent; display:block; position:relative;
+    transition:background .3s, transform .3s var(--ease);
+  }
+  .srail a:hover{transform:scale(1.35);}
+  .srail a.on{background:var(--gold); box-shadow:0 0 10px rgba(200,144,26,.6);}
+  .srail a .tip{
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:'Cinzel',serif; font-size:.56rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--text-muted); background:var(--glass); padding:4px 10px; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .25s;
+    border:1px solid var(--line);
+  }
+  .srail a:hover .tip{opacity:1;}
+  @media (max-width:900px){ .srail{display:none;} }
+
+  #chapterHud{
+    position:fixed; left:clamp(10px,2vw,26px); bottom:26px; z-index:1500;
+    display:flex; align-items:center; gap:12px;
+    font-family:'Cinzel',serif; font-size:.58rem; font-weight:600; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--text-muted);
+    opacity:0; transform:translateY(8px); transition:opacity .6s var(--ease), transform .6s var(--ease);
+  }
+  #chapterHud.on{opacity:1; transform:none;}
+  #chapterHud .ch-rule{width:26px; height:1px; background:var(--gold); opacity:.7;}
+  #chapterHud .glyph-cjk{font-size:1.1em;}
+  @media (max-width:900px){ #chapterHud{display:none;} }
+
+  /* ============================================================
+     5 · PRELOADER
+     ============================================================ */
+  #preloader{
+    position:fixed; inset:0; z-index:3000; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:26px;
+    background:linear-gradient(160deg,#141806,#1a2008);
+    transition:opacity .8s var(--ease), visibility .8s;
+  }
+  #preloader.done{opacity:0; visibility:hidden;}
+  html:not(.js) #preloader{display:none;}
+  .pre-seal{position:relative; width:104px; height:104px;}
+  .pre-seal .pre-ring{stroke-dasharray:289; stroke-dashoffset:289;}
+  .pre-seal .pre-glyph{font-family:'Noto Serif SC',serif; font-size:44px; fill:#e8a830; opacity:0;}
+  .pre-stamp{
+    position:absolute; inset:26px; background:var(--vermillion); transform:rotate(-2deg) scale(0);
+    display:flex; align-items:center; justify-content:center; z-index:-1; opacity:0;
+  }
+  .pre-word{
+    font-family:'Cormorant Garamond',serif; font-size:1.7rem; letter-spacing:.06em; color:#fff8f4;
+    display:flex; flex-direction:column; align-items:center; gap:6px; opacity:0; transform:translateY(12px);
+  }
+  .pre-word span{font-size:.72rem; font-style:italic; color:rgba(255,248,244,.55); letter-spacing:.04em;}
+  .pre-skip{
+    position:absolute; bottom:34px; font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:.26em;
+    text-transform:uppercase; color:rgba(255,248,244,.4); transition:color .3s;
+  }
+  .pre-skip:hover{color:var(--gold-lit);}
+
+  /* ============================================================
+     6 · NAV + DRAWER
+     ============================================================ */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:1000; padding:20px 0;
+    transition:padding .45s var(--ease), background .45s var(--ease), box-shadow .45s var(--ease);
+  }
+  .nav.scrolled{
+    padding:11px 0; background:var(--glass);
+    -webkit-backdrop-filter:blur(16px) saturate(1.2); backdrop-filter:blur(16px) saturate(1.2);
+    box-shadow:0 1px 0 var(--line), 0 12px 40px -28px rgba(20,24,6,.5);
+  }
+  .nav.scrolled::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:1.5px;
+    background:linear-gradient(90deg,transparent,var(--jade) 22%,var(--gold) 50%,var(--jade) 78%,transparent);
+  }
+  .nav-in{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+
+  .lockup{position:relative; display:inline-flex; flex-direction:column; line-height:1; padding-right:14px;}
+  .lockup-name{font-family:'Cormorant Garamond',serif; font-weight:500; font-size:1.6rem; letter-spacing:.04em; text-transform:lowercase; color:var(--text-invert); transition:color .45s;}
+  .lockup-sub{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.7rem; color:rgba(255,248,244,.62); margin-top:4px; transition:color .45s;}
+  .nav.scrolled .lockup-name{color:var(--jade);}
+  .nav.scrolled .lockup-sub{color:var(--text-muted);}
+  .lockup-seal{
+    position:absolute; top:-5px; right:0; width:15px; height:15px; background:var(--vermillion);
+    transform:rotate(-2deg); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 2px 8px -2px rgba(183,63,42,.6);
+  }
+  .lockup-seal span{font-family:'Noto Serif SC',serif; font-size:9px; color:#f6efe0; line-height:1;}
+
+  .nav-links{display:flex; align-items:center; gap:clamp(16px,2.4vw,34px); list-style:none;}
+  .nav-links a{
+    font-family:'Cinzel',serif; font-size:.64rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    color:rgba(255,248,244,.82); position:relative; padding:6px 0;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
+    background:var(--gold); transform:scaleX(0); transform-origin:right;
+    transition:transform .4s var(--ease);
+  }
+  .nav-links a:hover{color:var(--gold-lit);}
+  .nav-links a:hover::after{transform:scaleX(1); transform-origin:left;}
+  .nav.scrolled .nav-links a{color:var(--text-soft);}
+  .nav.scrolled .nav-links a:hover{color:var(--gold);}
+  .nav-links .btn{padding:12px 22px; font-size:.62rem;}
+  .nav-links .btn::after{display:none;}
+  .nav-links li a.btn, .nav.scrolled .nav-links li a.btn{color:var(--jade);}
+  .nav-links li a.btn:hover, .nav.scrolled .nav-links li a.btn:hover{color:var(--jade);}
+
+  .nav-burger{display:none; flex-direction:column; gap:5px; padding:8px; z-index:1101;}
+  .nav-burger span{width:24px; height:1.6px; background:var(--text-invert); transition:transform .4s var(--ease), opacity .3s, background .45s;}
+  .nav.scrolled .nav-burger span{background:var(--jade);}
+  @media (max-width:1320px){
+    .nav-links{gap:clamp(10px,1.4vw,20px);}
+    .nav-links a{font-size:.58rem; letter-spacing:.14em;}
+    .nav-links .btn{padding:11px 16px;}
+  }
+  @media (max-width:1024px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+
+  .drawer{
+    position:fixed; inset:0; z-index:1100; background:linear-gradient(165deg,#141806,#1a2008 60%,#10140a);
+    display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
+    padding:clamp(28px,8vw,64px); gap:8px;
+    clip-path:circle(0% at calc(100% - 44px) 40px); visibility:hidden;
+    transition:clip-path .7s var(--ease), visibility .7s;
+  }
+  .drawer.open{clip-path:circle(150% at calc(100% - 44px) 40px); visibility:visible;}
+  .drawer a{
+    font-family:'Playfair Display',serif; font-size:clamp(1.6rem,7vw,2.4rem); color:var(--text-invert);
+    padding:10px 0; opacity:0; transform:translateY(18px); transition:opacity .5s var(--ease), transform .5s var(--ease), color .3s;
+  }
+  .drawer.open a{opacity:1; transform:none;}
+  .drawer a:hover{color:var(--gold-lit);}
+  .drawer-close{position:absolute; top:22px; right:26px; font-size:2rem; color:var(--text-invert); line-height:1; padding:8px;}
+  .drawer-sub{font-family:'Cinzel',serif; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;}
+
+  .skip{
+    position:fixed; top:-60px; left:16px; z-index:4000; background:var(--jade); color:var(--gold-lit);
+    padding:12px 20px; font-family:'Cinzel',serif; font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+    transition:top .3s;
+  }
+  .skip:focus{top:16px;}
+
+  /* ============================================================
+     7 · HERO — THE QUESTION
+     ============================================================ */
+  .hero{
+    position:relative; min-height:96svh; display:flex; flex-direction:column; justify-content:center;
+    color:var(--text-invert); padding:150px 0 90px; isolation:isolate; overflow:hidden;
+    background:
+      radial-gradient(110% 80% at 50% 6%, rgba(200,144,26,.16) 0%, transparent 54%),
+      linear-gradient(160deg,#141806 0%,#1a2008 46%,#10140a 100%);
+  }
+  #qiRiver{position:absolute; inset:0; z-index:0; width:100%; height:100%; pointer-events:none;}
+  .hero-glyph{
+    position:absolute; right:-4%; top:50%; transform:translateY(-50%); z-index:0;
+    font-family:'Noto Serif SC',serif; font-size:clamp(300px,44vw,620px); line-height:1;
+    color:rgba(232,168,48,.06); pointer-events:none; user-select:none;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:
+      radial-gradient(88% 64% at 30% 52%, rgba(10,12,4,.55) 0%, rgba(10,12,4,.14) 58%, transparent 78%),
+      linear-gradient(180deg, rgba(10,12,4,.42) 0%, transparent 26%, transparent 66%, rgba(10,12,4,.55) 100%);
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-eyebrow{color:var(--gold-lit);}
+  .hero-eyebrow::before{background:var(--gold-lit);}
+  .hero h1{
+    margin-top:26px; color:var(--text-invert);
+    font-size:clamp(2.5rem,6.6vw,5.2rem); font-weight:600; letter-spacing:-0.015em; line-height:1.08;
+    max-width:18ch;
+  }
+  .hero h1 .hl-line{display:block; overflow:hidden; padding-bottom:.08em; margin-bottom:-.08em;}
+  .js .hero h1 .hl-in{display:inline-block; transform:translateY(112%); will-change:transform;}
+  .hero h1 em{font-style:italic; font-family:'Playfair Display',serif; color:var(--gold-lit);}
+  .hero-sub{
+    margin-top:30px; font-size:clamp(1.02rem,1.6vw,1.2rem); color:rgba(255,248,244,.78);
+    max-width:54ch; font-weight:300;
+  }
+  .hero-sub strong{color:var(--gold-lit); font-weight:400;}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:16px; margin-top:42px;}
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:2;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    font-family:'Cinzel',serif; font-size:.56rem; letter-spacing:.34em; text-transform:uppercase; color:rgba(255,248,244,.5);
+  }
+  .scroll-cue::after{
+    content:""; width:1px; height:44px;
+    background:linear-gradient(var(--gold-lit),transparent);
+    animation:cueDrop 2.4s var(--ease) infinite;
+  }
+  @keyframes cueDrop{0%{transform:scaleY(0); transform-origin:top;} 55%{transform:scaleY(1); transform-origin:top;} 56%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;}}
+
+  /* ============================================================
+     8 · CHAPTER 壹 — LIFE IS QI (breathing figure)
+     ============================================================ */
+  .life{background:var(--paper); overflow:hidden;}
+  .life-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(36px,6vw,84px); align-items:center; position:relative; z-index:1;}
+  .breath-fig{max-width:420px; margin:0 auto; width:100%;}
+  .breath-fig svg{width:100%; height:auto;}
+  .breath-core{transform-origin:center; animation:coreBreathe 5.5s ease-in-out infinite;}
+  .breath-halo{transform-origin:center; animation:haloBreathe 5.5s ease-in-out infinite;}
+  @keyframes coreBreathe{0%,100%{transform:scale(.82); opacity:.75;} 50%{transform:scale(1.12); opacity:1;}}
+  @keyframes haloBreathe{0%,100%{transform:scale(.9); opacity:.25;} 50%{transform:scale(1.25); opacity:.55;}}
+  .breath-cap{margin-top:14px; text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.92rem; color:var(--text-muted);}
+  .life-copy p{margin-top:20px; color:var(--text-soft);}
+  .life-copy p:first-of-type{margin-top:26px; font-size:1.06rem; color:var(--text);}
+
+  /* ============================================================
+     9 · CHAPTER 貳 — FOUR LEVELS OF QI (dark, interactive rings)
+     ============================================================ */
+  .levels{background:linear-gradient(175deg,var(--jade) 0%,var(--jade-2) 130%); color:var(--text-invert); overflow:hidden;}
+  .levels .sec-head h2{color:var(--text-invert);}
+  .levels .sec-head .lede{color:rgba(255,248,244,.66);}
+  .levels .eyebrow{color:var(--gold-lit);}
+  .levels .eyebrow::before{background:var(--gold-lit);}
+  .levels::before{
+    content:"氣"; position:absolute; right:-40px; bottom:-60px; font-family:'Noto Serif SC',serif;
+    font-size:clamp(200px,28vw,420px); color:rgba(232,168,48,.05); line-height:1; pointer-events:none;
+  }
+  .lv-grid{display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(34px,5vw,72px); align-items:center;}
+  .lv-viz{position:relative; max-width:480px; margin:0 auto; width:100%;}
+  .lv-viz svg{width:100%; height:auto; overflow:visible;}
+  .lv-ring{cursor:pointer; transition:opacity .4s;}
+  .lv-ring circle{fill:none; transition:stroke .4s, stroke-width .4s, filter .4s;}
+  .lv-ring text{
+    font-family:'Cinzel',serif; font-size:11.5px; letter-spacing:.22em; text-transform:uppercase;
+    fill:rgba(255,248,244,.55); text-anchor:middle; transition:fill .4s; pointer-events:none;
+  }
+  .lv-ring.on circle{stroke:var(--gold-lit); stroke-width:2; filter:drop-shadow(0 0 8px rgba(232,168,48,.7));}
+  .lv-ring.on text{fill:var(--gold-lit);}
+  .lv-core-t{font-family:'Noto Serif SC',serif; font-size:40px; fill:#e8a830; text-anchor:middle;}
+  .lv-core-s{font-family:'Cinzel',serif; font-size:10px; letter-spacing:.28em; fill:rgba(232,168,48,.7); text-anchor:middle; text-transform:uppercase;}
+  .lv-panel{position:relative; min-height:17em;}
+  .lv-pane{
+    position:absolute; inset:0; opacity:0; visibility:hidden; transform:translateY(14px);
+    transition:opacity .5s var(--ease), transform .5s var(--ease), visibility .5s;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .lv-pane.on{opacity:1; visibility:visible; transform:none;}
+  .lv-pane .lv-k{font-family:'Cinzel',serif; font-size:.6rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase; color:var(--gold-lit);}
+  .lv-pane h3{color:var(--text-invert); font-size:clamp(1.5rem,2.6vw,2rem);}
+  .lv-pane h3 .glyph-cjk{font-size:.9em; margin-right:10px; color:var(--gold-lit);}
+  .lv-pane p{color:rgba(255,248,244,.72); font-size:.98rem;}
+  .lv-pane .lv-ex{
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.04rem; color:rgba(255,248,244,.85);
+    padding-left:22px; border-left:1px solid rgba(232,168,48,.4);
+  }
+  .lv-btns{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap;}
+  .lv-btn{
+    font-family:'Cinzel',serif; font-size:.6rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+    padding:10px 16px; border:1px solid rgba(232,168,48,.34); color:rgba(255,248,244,.7);
+    transition:border-color .3s, color .3s, background .3s;
+  }
+  .lv-btn:hover{border-color:var(--gold-lit); color:var(--gold-lit);}
+  .lv-btn[aria-pressed="true"]{background:rgba(232,168,48,.14); border-color:var(--gold-lit); color:var(--gold-lit);}
+
+  /* ============================================================
+     10 · CHAPTER 叁 — THE MERIDIAN CLOCK
+     ============================================================ */
+  .clock{background:var(--paper-2); overflow:hidden;}
+  .ck-grid{display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(34px,5vw,72px); align-items:center;}
+  .ck-viz{position:relative; max-width:520px; margin:0 auto; width:100%;}
+  .ck-viz svg{width:100%; height:auto; overflow:visible;}
+  .ck-seg{cursor:pointer;}
+  .ck-seg path{fill:rgba(200,144,26,.08); stroke:var(--paper-2); stroke-width:2; transition:fill .35s;}
+  .ck-seg:hover path{fill:rgba(200,144,26,.22);}
+  .ck-seg.story path{fill:rgba(200,144,26,.18);}
+  .ck-seg.on path{fill:rgba(200,144,26,.42);}
+  .ck-seg.now path{stroke:var(--gold); stroke-width:1.5;}
+  .ck-seg text{
+    font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    fill:var(--text-soft); text-anchor:middle; pointer-events:none;
+  }
+  .ck-seg.on text{fill:var(--jade); font-weight:700;}
+  .ck-hours{font-family:'Inter',sans-serif; font-size:8.5px; fill:var(--text-muted); text-anchor:middle; pointer-events:none;}
+  .ck-center-o{font-family:'Playfair Display',serif; font-size:21px; fill:var(--jade); text-anchor:middle; font-weight:600;}
+  .ck-center-h{font-family:'Cinzel',serif; font-size:10px; letter-spacing:.24em; fill:var(--gold); text-anchor:middle; text-transform:uppercase;}
+  .ck-center-l{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:12.5px; fill:var(--text-soft); text-anchor:middle;}
+  .ck-nowdot{fill:var(--green); }
+  .ck-nowdot.pulse{animation:nowPulse 2.4s ease-in-out infinite;}
+  @keyframes nowPulse{0%,100%{opacity:1;} 50%{opacity:.3;}}
+  .ck-now-cap{margin-top:14px; text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.98rem; color:var(--text-muted);}
+  .ck-now-cap b{color:var(--text-soft); font-weight:500;}
+  .case{
+    border:1px solid var(--line); background:var(--paper); padding:clamp(20px,2.4vw,30px);
+    display:flex; flex-direction:column; gap:10px; position:relative; overflow:hidden;
+    transition:border-color .4s, box-shadow .5s var(--ease);
+  }
+  .case + .case{margin-top:18px;}
+  .case:hover{border-color:var(--line-gold); box-shadow:0 22px 48px -34px rgba(20,24,6,.3);}
+  .case-k{font-family:'Cinzel',serif; font-size:.56rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold);}
+  .case h3{font-size:1.2rem;}
+  .case p{font-size:.93rem; color:var(--text-soft);}
+  .case .glyph-bg{
+    position:absolute; right:-14px; bottom:-26px; font-family:'Noto Serif SC',serif;
+    font-size:5.5rem; color:rgba(20,24,6,.04); line-height:1; pointer-events:none;
+  }
+  .ck-more{margin-top:22px;}
+
+  /* ============================================================
+     11 · CHAPTER 肆 — THE INVISIBLE BODY
+     ============================================================ */
+  .ebody{background:var(--paper); overflow:hidden;}
+  .eb-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(36px,6vw,84px); align-items:center;}
+  .eb-fig{max-width:440px; margin:0 auto; width:100%;}
+  .eb-fig svg{width:100%; height:auto;}
+  .eb-meridian{
+    fill:none; stroke:var(--gold); stroke-width:1.6; stroke-linecap:round;
+    stroke-dasharray:5 9; opacity:.85;
+    animation:meridianFlow 3.2s linear infinite;
+  }
+  @keyframes meridianFlow{to{stroke-dashoffset:-28;}}
+  .eb-cap{display:flex; justify-content:space-around; margin-top:12px; gap:10px;}
+  .eb-cap span{
+    font-family:'Cinzel',serif; font-size:.56rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--text-muted); text-align:center;
+  }
+  .eb-copy p{margin-top:20px; color:var(--text-soft);}
+  .eb-copy p:first-of-type{margin-top:26px; font-size:1.06rem; color:var(--text);}
+  .kv-pair{display:flex; gap:0; margin-top:28px; border:1px solid var(--line); max-width:520px;}
+  .kv-pair > div{flex:1; padding:18px 20px;}
+  .kv-pair > div + div{border-left:1px solid var(--line);}
+  .kv-pair .kv-k{font-family:'Cinzel',serif; font-size:.56rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--text-muted);}
+  .kv-pair .kv-v{font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--jade); margin-top:6px;}
+  .kv-pair .kv-s{font-size:.8rem; color:var(--text-muted); margin-top:4px;}
+
+  /* ============================================================
+     12 · CHAPTER 伍 — THE QI ACCOUNT (dark, interactive)
+     ============================================================ */
+  .acct{background:linear-gradient(175deg,var(--jade) 0%,var(--jade-2) 130%); color:var(--text-invert); overflow:hidden;}
+  .acct .sec-head h2{color:var(--text-invert);}
+  .acct .sec-head .lede{color:rgba(255,248,244,.66);}
+  .acct .eyebrow{color:var(--gold-lit);}
+  .acct .eyebrow::before{background:var(--gold-lit);}
+  .acct-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,72px); align-items:center;}
+  .acct-viz{max-width:480px; margin:0 auto; width:100%;}
+  .acct-viz svg{width:100%; height:auto; overflow:visible;}
+  #acctBeam{transition:transform 1s var(--ease); transform-origin:260px 96px;}
+  #acctPanL,#acctPanR{transition:transform 1s var(--ease);}
+  .acct-verdict{
+    margin-top:18px; text-align:center; min-height:3.2em;
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.08rem; color:rgba(255,248,244,.85);
+  }
+  .acct-chips{display:flex; flex-direction:column; gap:18px;}
+  .acct-chips .acg-k{
+    font-family:'Cinzel',serif; font-size:.6rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase;
+    color:rgba(255,248,244,.55); display:flex; align-items:center; gap:12px;
+  }
+  .acct-chips .acg-k::after{content:""; flex:1; height:1px; background:rgba(255,248,244,.14);}
+  .acct-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .ac-chip{
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.02rem; line-height:1.35;
+    padding:11px 20px; border:1px solid rgba(255,248,244,.22); border-radius:999px; color:rgba(255,248,244,.75);
+    transition:border-color .35s, color .35s, background .35s, box-shadow .45s var(--ease), transform .35s var(--ease);
+  }
+  .ac-chip:hover{transform:translateY(-2px); border-color:rgba(232,168,48,.5);}
+  .ac-chip[aria-pressed="true"]{border-color:var(--gold-lit); color:var(--gold-lit); background:rgba(232,168,48,.1); box-shadow:0 0 0 1px rgba(232,168,48,.5);}
+  .ac-chip.drain[aria-pressed="true"]{border-color:#e88a6a; color:#e88a6a; background:rgba(183,63,42,.14); box-shadow:0 0 0 1px rgba(183,63,42,.5);}
+
+  /* ============================================================
+     13 · CHAPTER 陸 — QI IN FOOD (apple vs salad)
+     ============================================================ */
+  .food{background:var(--paper-2); overflow:hidden;}
+  .food-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.4vw,28px); align-items:stretch;}
+  .food-card{
+    background:var(--paper); border:1px solid var(--line); padding:clamp(24px,3vw,40px);
+    display:flex; flex-direction:column; gap:16px; position:relative; overflow:hidden;
+    transition:border-color .4s, box-shadow .5s var(--ease), transform .5s var(--ease);
+  }
+  .food-card:hover{border-color:var(--line-gold); transform:translateY(-4px); box-shadow:0 26px 54px -34px rgba(20,24,6,.32);}
+  .food-k{font-family:'Cinzel',serif; font-size:.58rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase; color:var(--text-muted);}
+  .food-card h3{font-size:1.35rem;}
+  .food-card p{font-size:.94rem; color:var(--text-soft);}
+  .food-fig{margin:6px auto; max-width:280px; width:100%;}
+  .food-fig svg{width:100%; height:auto; overflow:visible;}
+  .apple-ring{animation:ringTurn 40s linear infinite; transform-origin:130px 120px;}
+  @keyframes ringTurn{to{transform:rotate(360deg);}}
+  .food-tag{
+    align-self:flex-start; font-family:'Cinzel',serif; font-size:.54rem; font-weight:700; letter-spacing:.2em;
+    text-transform:uppercase; padding:6px 12px; border:1px solid var(--line-gold); color:var(--gold);
+  }
+  .food-q{
+    margin:clamp(30px,4.5vw,50px) auto 0; text-align:center; max-width:56ch;
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:clamp(1.25rem,2.2vw,1.6rem); line-height:1.5; color:var(--jade);
+  }
+  .food-q small{display:block; margin-top:12px; font-family:'Cinzel',serif; font-style:normal; font-size:.56rem; letter-spacing:.26em; text-transform:uppercase; color:var(--text-muted);}
+
+  /* ============================================================
+     14 · CHAPTER 柒 — THE SCHOOL
+     ============================================================ */
+  .school{background:var(--paper); overflow:hidden;}
+  .school-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(36px,6vw,84px); align-items:start; position:relative; z-index:1;}
+  .school-copy p{margin-top:20px; color:var(--text-soft);}
+  .school-copy p:first-of-type{margin-top:26px; font-size:1.06rem; color:var(--text);}
+  .humility{
+    margin-top:30px; padding:26px 30px; background:var(--paper-2); border:1px solid var(--line);
+    display:flex; gap:18px; align-items:flex-start;
+  }
+  .humility p{margin:0; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.08rem; line-height:1.55; color:var(--text);}
+  .humility small{display:block; margin-top:10px; font-family:'Cinzel',serif; font-style:normal; font-size:.56rem; letter-spacing:.24em; text-transform:uppercase; color:var(--text-muted);}
+  .school-links{display:flex; flex-wrap:wrap; gap:26px; margin-top:30px;}
+  .school-src{margin-top:22px; font-size:.8rem; color:var(--text-muted); max-width:none;}
+  .school-facts{display:flex; flex-direction:column; gap:14px;}
+  .fact{
+    border:1px solid var(--line); background:var(--paper-2); padding:22px 26px;
+    display:flex; gap:18px; align-items:flex-start;
+    transition:border-color .4s, box-shadow .5s var(--ease);
+  }
+  .fact:hover{border-color:var(--line-gold); box-shadow:0 20px 44px -34px rgba(20,24,6,.3);}
+  .fact .glyph-cjk{
+    font-size:1.5rem; color:var(--gold); width:44px; height:44px; flex:none;
+    border:1px solid var(--line-gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .fact h4{font-size:1.05rem;}
+  .fact p{font-size:.88rem; color:var(--text-soft); margin-top:4px;}
+
+  /* ============================================================
+     15 · MARQUEE + ENROLL + FOOTER
+     ============================================================ */
+  .marquee{
+    background:var(--paper-3); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:22px 0; overflow:hidden; position:relative; z-index:3;
+  }
+  .marquee-track{display:flex; width:max-content; animation:marq 46s linear infinite;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee-track span{
+    font-family:'Cinzel',serif; font-size:.68rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase;
+    color:var(--text-muted); padding:0 26px; white-space:nowrap; display:inline-flex; align-items:center; gap:26px;
+  }
+  .marquee-track span::after{content:"✶"; color:var(--gold); font-size:.8em;}
+  @keyframes marq{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  .enroll{
+    background:linear-gradient(120deg,var(--jade) 0%,var(--jade-2) 100%); color:var(--text-invert);
+    position:relative; overflow:hidden; z-index:3;
+  }
+  .enroll::before{
+    content:"氣"; position:absolute; right:-20px; top:50%; transform:translateY(-50%);
+    font-family:'Noto Serif SC',serif; font-size:16rem; color:rgba(232,168,48,.06); line-height:1; pointer-events:none;
+  }
+  .enroll-in{display:flex; flex-wrap:wrap; align-items:center; gap:clamp(22px,4vw,54px); position:relative; z-index:1;}
+  .enroll-txt{flex:1; min-width:260px;}
+  .enroll-k{font-family:'Cinzel',serif; font-size:.6rem; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--gold-lit); display:inline-flex; align-items:center; gap:10px;}
+  .enroll-k::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
+  .enroll h2{color:var(--text-invert); font-size:clamp(1.7rem,3.4vw,2.6rem); margin-top:14px;}
+  .enroll p{color:rgba(255,248,244,.7); margin-top:12px; font-size:.98rem;}
+  .enroll-cta{display:flex; flex-wrap:wrap; gap:16px;}
+
+  .footer{background:var(--jade); color:rgba(255,248,244,.66); padding:clamp(56px,7vw,90px) 0 36px; position:relative; overflow:hidden;}
+  .footer::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:1.5px;
+    background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);
+  }
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:clamp(28px,4vw,56px);}
+  .foot-brand .lockup-name{color:var(--text-invert);}
+  .foot-brand .lockup-sub{color:rgba(255,248,244,.55);}
+  .foot-brand p{margin-top:18px; font-size:.88rem; max-width:30ch;}
+  .foot-col h4{
+    font-family:'Cinzel',serif; font-size:.6rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px;
+  }
+  .foot-col ul{list-style:none; display:flex; flex-direction:column; gap:11px;}
+  .foot-col a{color:rgba(255,248,244,.66); font-size:.9rem;}
+  .foot-col a:hover{color:var(--gold-lit);}
+  .foot-base{
+    margin-top:clamp(40px,5vw,64px); padding-top:24px; border-top:1px solid rgba(255,248,244,.1);
+    display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
+    font-size:.78rem; color:rgba(255,248,244,.4);
+  }
+  .foot-base .glyph-cjk{color:rgba(232,168,48,.5);}
+
+  /* ============================================================
+     16 · RESPONSIVE
+     ============================================================ */
+  @media (max-width:1020px){
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:880px){
+    .life-grid,.lv-grid,.ck-grid,.eb-grid,.acct-grid,.food-grid,.school-grid{grid-template-columns:1fr;}
+    .hero h1{max-width:none;}
+    .lv-panel{min-height:0;}
+    .lv-pane{position:relative; display:none;}
+    .lv-pane.on{display:flex;}
+    .breath-fig,.eb-fig{max-width:340px;}
+    .ck-viz{max-width:420px;}
+    .kv-pair{flex-direction:column;}
+    .kv-pair > div + div{border-left:none; border-top:1px solid var(--line);}
+  }
+  @media (max-width:640px){
+    .scroll-cue{display:none;}
+    .enroll-cta{width:100%;}
+    .enroll-cta .btn{justify-content:center;}
+  }
+
+  /* ============================================================
+     17 · REDUCED MOTION
+     ============================================================ */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.001s!important; animation-iteration-count:1!important; transition-duration:.001s!important;}
+    #qiRiver,#preloader,#cursorDot,#cursorRing{display:none!important;}
+    #grain{animation:none!important; opacity:.03;}
+    .js .reveal{opacity:1; transform:none;}
+    .js .hero h1 .hl-in{transform:none;}
+    .marquee-track{animation:none;}
+    .breath-core,.breath-halo,.eb-meridian,.apple-ring,.ck-nowdot.pulse{animation:none!important;}
+  }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-seal">
+      <div class="pre-stamp"><span class="glyph-cjk" style="color:#f6efe0;font-size:30px;">道</span></div>
+      <svg width="104" height="104" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="pre-ring" cx="50" cy="50" r="46" fill="none" stroke="#c8901a" stroke-width="1.2"/>
+        <text class="pre-glyph" x="50" y="52" text-anchor="middle" dominant-baseline="central">道</text>
+      </svg>
+    </div>
+    <div class="pre-word">taoquen<span>entangle with the tao</span></div>
+    <button class="pre-skip" id="preSkip" type="button">Skip</button>
+  </div>
+
+  <!-- ATMOSPHERE -->
+  <div id="vignette" aria-hidden="true"></div>
+  <div id="grain" aria-hidden="true"></div>
+  <div id="cursorRing" aria-hidden="true"></div>
+  <div id="cursorDot" aria-hidden="true"></div>
+
+  <!-- SCROLL PROGRESS RAIL -->
+  <nav id="srail" class="srail" aria-label="Jump to section"></nav>
+
+  <!-- CHAPTER HUD -->
+  <div id="chapterHud" aria-hidden="true"><span class="ch-rule"></span><span id="chapterHudTxt">Prologue · The question</span></div>
+
+  <div class="page">
+
+  <!-- ===================== NAV ===================== -->
+  <header>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <div class="wrap nav-in">
+        <a href="index.html" class="lockup" aria-label="Taoquen home">
+          <span class="lockup-name">taoquen</span>
+          <span class="lockup-sub">Entangle with the Tao</span>
+          <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="tcm.html">Learn TCM</a></li>
+          <li><a href="dwq.html">Dragon&rsquo;s Way</a></li>
+          <li><a href="four-energy-gates.html">Self-Care</a></li>
+          <li><a href="qi-assessment.html">Free Assessment</a></li>
+          <li><a href="free-class.html">Free Class</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="dwq-promo.html" class="btn">Enroll</a></li>
+          <li><a href="login.html">Log In</a></li>
+        </ul>
+        <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- mobile drawer -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <span class="drawer-sub">Taoquen · TCM Wellness Academy</span>
+    <a href="tcm.html" style="transition-delay:.08s">Learn TCM</a>
+    <a href="dwq.html" style="transition-delay:.13s">Dragon&rsquo;s Way</a>
+    <a href="four-energy-gates.html" style="transition-delay:.18s">Self-Care</a>
+    <a href="qi-assessment.html" style="transition-delay:.23s">Free Assessment</a>
+    <a href="free-class.html" style="transition-delay:.28s">Free Class</a>
+    <a href="programs.html" style="transition-delay:.33s">Programs</a>
+    <a href="dwq-promo.html" style="transition-delay:.38s">Enroll</a>
+    <a href="login.html" style="transition-delay:.43s">Log In</a>
+  </div>
+
+  <main id="main">
+
+  <!-- ===================== 1 · HERO — THE QUESTION ===================== -->
+  <section class="hero" id="top" data-rail="Prologue" data-ch="Prologue · The question">
+    <canvas id="qiRiver" aria-hidden="true"></canvas>
+    <span class="hero-glyph" aria-hidden="true">氣</span>
+    <div class="wrap">
+      <span class="eyebrow hero-eyebrow reveal">About Taoquen · The Academy of Qi</span>
+      <h1 id="heroTitle" aria-label="Everything here begins with one question: what is Qi?">
+        <span class="hl-line"><span class="hl-in">Everything here begins </span></span>
+        <span class="hl-line"><span class="hl-in">with one question: </span></span>
+        <span class="hl-line"><span class="hl-in">what is <em>Qi?</em></span></span>
+      </h1>
+      <p class="hero-sub reveal d2">
+        Taoquen is a TCM Wellness Academy in the Wu Ming lineage of <strong>Grand Master Nan Lu</strong>.
+        Before you meet the school, meet its subject — the one word every class,
+        every program, and every practice comes back to.
+      </p>
+      <div class="hero-cta reveal d3">
+        <a class="btn" href="#life">Begin with the question <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost" href="free-class.html">Try a Free Class</a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Follow the Qi</div>
+  </section>
+
+  <!-- ===================== 2 · CHAPTER 壹 — LIFE IS QI ===================== -->
+  <section class="sec life" id="life" data-rail="壹 · Life is Qi" data-ch="Chapter 壹 · Life is Qi" aria-labelledby="lifeH">
+    <span class="ghost" style="top:-60px; right:-50px;" data-parallax="0.05" aria-hidden="true">生</span>
+    <div class="wrap">
+      <div class="life-grid">
+        <figure class="breath-fig reveal" aria-label="A figure breathing: a golden core of Qi held inside the body">
+          <svg viewBox="0 0 420 480" role="img">
+            <defs>
+              <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#e8a830" stop-opacity=".95"/>
+                <stop offset="45%" stop-color="#e8a830" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#e8a830" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- dispersal arrows (the return) -->
+            <g stroke="#c8901a" stroke-width="1" stroke-dasharray="3 6" opacity=".35" fill="none">
+              <path d="M210 60 C 210 34 210 20 210 8"/>
+              <path d="M120 130 C 92 108 70 92 48 78"/>
+              <path d="M300 130 C 328 108 350 92 372 78"/>
+              <path d="M96 300 C 66 310 42 318 20 326"/>
+              <path d="M324 300 C 354 310 378 318 400 326"/>
+            </g>
+            <!-- body -->
+            <g transform="translate(210,64)">
+              <circle cx="0" cy="0" r="34" fill="none" stroke="#141806" stroke-width="1.8"/>
+              <path d="M0 34 C -58 50 -64 140 -52 214 L -34 388 L -12 388 L -6 232 L 6 232 L 12 388 L 34 388 L 52 214 C 64 140 58 50 0 34 Z"
+                    fill="none" stroke="#141806" stroke-width="1.8"/>
+              <path d="M-50 70 C -74 118 -84 158 -92 196 M50 70 C 74 118 84 158 92 196"
+                    fill="none" stroke="#141806" stroke-width="1.8" stroke-linecap="round"/>
+            </g>
+            <!-- the contained Qi -->
+            <g class="breath-halo"><circle cx="210" cy="240" r="86" fill="url(#coreGrad)"/></g>
+            <g class="breath-core">
+              <circle cx="210" cy="240" r="40" fill="url(#coreGrad)"/>
+              <circle cx="210" cy="240" r="14" fill="#e8a830" opacity=".9"/>
+            </g>
+            <text x="210" y="466" text-anchor="middle" font-family="Cinzel,serif" font-size="11" letter-spacing="3" fill="#6f5410">QI CONTAINED — LIFE</text>
+          </svg>
+          <figcaption class="breath-cap">While it is held, you are alive. The practice is learning to hold more.</figcaption>
+        </figure>
+        <div class="life-copy">
+          <span class="eyebrow reveal">Chapter 壹 — Life is Qi</span>
+          <h2 id="lifeH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">Not a metaphor. The definition of being alive.</h2>
+          <p class="reveal d2">Ask a Western dictionary and Qi is “vital energy” — a poetic idea. Ask the classics and the answer is starker. Master Zhuangzi defined human life itself by it: Qi held inside the body <em>is</em> life. Qi dispersed back to its source is death. Nothing mystical added — that is the whole equation.</p>
+          <blockquote class="pull reveal">
+            “When Qi is contained inside the body, you have life. When the Qi spreads out of the body, your life ends.”
+            <small>Zhuangzi — as taught in the lineage</small>
+          </blockquote>
+          <p class="reveal">Modern physics quietly agrees on the exchange rate: E&nbsp;=&nbsp;mc² — energy and matter are interchangeable. The lectures we teach from put it simply: <em class="serif-i">Qi&nbsp;=&nbsp;mc².</em> Your body is matter; your life is the energy moving through it. Change the energy and the matter follows.</p>
+          <p class="reveal">So “what is Qi?” is not trivia. It is the most practical question you can ask about your health, your emotions, and your energy — and it unfolds in four levels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3 · CHAPTER 貳 — FOUR LEVELS ===================== -->
+  <section class="sec levels" id="levels" data-rail="貳 · Four levels" data-ch="Chapter 貳 · The four levels of Qi" aria-labelledby="levelsH">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Chapter 貳 — The four levels</span>
+        <h2 id="levelsH" class="reveal d1">Qi is deeper than “energy.”</h2>
+        <p class="lede reveal d2">“Energy” is only the first floor. The teachings map four levels inside the one word — touch each ring and go deeper.</p>
+      </div>
+      <div class="lv-grid">
+        <div class="lv-viz reveal">
+          <svg viewBox="0 0 480 480" role="img" aria-label="Four concentric rings: power, information, consciousness, life source">
+            <g class="lv-ring on" data-lv="0" role="button" tabindex="0" aria-label="Level one, power">
+              <circle cx="240" cy="240" r="90" stroke="rgba(232,168,48,.8)" stroke-width="1.4"/>
+              <text x="240" y="168">1 · Power</text>
+            </g>
+            <g class="lv-ring" data-lv="1" role="button" tabindex="0" aria-label="Level two, information">
+              <circle cx="240" cy="240" r="136" stroke="rgba(232,168,48,.55)" stroke-width="1.2"/>
+              <text x="240" y="122">2 · Information</text>
+            </g>
+            <g class="lv-ring" data-lv="2" role="button" tabindex="0" aria-label="Level three, consciousness">
+              <circle cx="240" cy="240" r="182" stroke="rgba(232,168,48,.38)" stroke-width="1.1"/>
+              <text x="240" y="76">3 · Consciousness</text>
+            </g>
+            <g class="lv-ring" data-lv="3" role="button" tabindex="0" aria-label="Level four, the life source">
+              <circle cx="240" cy="240" r="228" stroke="rgba(232,168,48,.26)" stroke-width="1"/>
+              <text x="240" y="30">4 · Life Source</text>
+            </g>
+            <circle cx="240" cy="240" r="52" fill="rgba(232,168,48,.1)" stroke="#e8a830" stroke-width="1.4"/>
+            <text class="lv-core-t" x="240" y="252">氣</text>
+            <text class="lv-core-s" x="240" y="278">Qi</text>
+          </svg>
+        </div>
+        <div>
+          <div class="lv-panel" id="lvPanel">
+            <div class="lv-pane on" data-lv="0">
+              <span class="lv-k">Level 1 — the obvious floor</span>
+              <h3><span class="glyph-cjk">力</span>Power</h3>
+              <p>Yes, Qi is energy — but ask <em>what kind</em>. Muscle Qi is not tendon Qi; knee Qi is not elbow Qi. And half of your power is invisible: focus, patience, inner peace, creativity. Each is its own kind of Qi.</p>
+              <p class="lv-ex">“I have no energy today” — is that mental energy, emotional energy, or physical energy? The answer changes everything.</p>
+            </div>
+            <div class="lv-pane" data-lv="1">
+              <span class="lv-k">Level 2 — Qi carries a message</span>
+              <h3><span class="glyph-cjk">息</span>Information</h3>
+              <p>Qi tells you <em>who, where, how, and when</em>. A symptom is never random noise — its timing, its location, and its season are all data.</p>
+              <p class="lv-ex">Hay fever: why spring, and not summer? Spring belongs to the liver. Itchy eyes? The eyes are the liver’s window. One allergy — that much information.</p>
+            </div>
+            <div class="lv-pane" data-lv="2">
+              <span class="lv-k">Level 3 — Qi has a purpose</span>
+              <h3><span class="glyph-cjk">神</span>Consciousness</h3>
+              <p>Every season’s Qi carries a purpose: spring’s wisdom says <em>“this is the moment to grow.”</em> The tree knows it, the farmer knows it — the practice is learning to know it too, in your own body.</p>
+              <p class="lv-ex">Different Qi carries different consciousness — which is why the same exercise, in the wrong season or direction, gives a different result.</p>
+            </div>
+            <div class="lv-pane" data-lv="3">
+              <span class="lv-k">Level 4 — the most profound</span>
+              <h3><span class="glyph-cjk">道</span>The Life Source</h3>
+              <p>Your body’s Qi is not privately yours — it is universal Qi, on loan. “You are the child of the universe” is not a greeting card; at this level it is a technical statement.</p>
+              <p class="lv-ex">“While I practice Qigong, I practice universal Qi inside of me — whatever I show, I show the image of the universe.”</p>
+            </div>
+          </div>
+          <div class="lv-btns reveal" role="group" aria-label="Choose a level of Qi">
+            <button type="button" class="lv-btn" data-lv="0" aria-pressed="true">1 · Power</button>
+            <button type="button" class="lv-btn" data-lv="1" aria-pressed="false">2 · Information</button>
+            <button type="button" class="lv-btn" data-lv="2" aria-pressed="false">3 · Consciousness</button>
+            <button type="button" class="lv-btn" data-lv="3" aria-pressed="false">4 · Life Source</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4 · CHAPTER 叁 — THE MERIDIAN CLOCK ===================== -->
+  <section class="sec clock" id="clock" data-rail="叁 · Qi keeps time" data-ch="Chapter 叁 · Qi keeps time" aria-labelledby="clockH">
+    <span class="ghost" style="bottom:-70px; left:-60px;" data-parallax="0.05" aria-hidden="true">時</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Chapter 叁 — Qi keeps time</span>
+        <h2 id="clockH" class="reveal d1">Your Qi runs on a clock. Symptoms read it aloud.</h2>
+        <p class="lede reveal d2">Each meridian receives its strongest supply during its own two hours. When something always happens at the same time of night — that timing is the diagnosis.</p>
+      </div>
+      <div class="ck-grid">
+        <div class="ck-viz reveal">
+          <svg id="ckSvg" viewBox="0 0 520 520" role="img" aria-label="The 24-hour meridian clock — twelve organs, two hours each"></svg>
+          <p class="ck-now-cap" id="ckNowCap" aria-live="polite"></p>
+        </div>
+        <div>
+          <article class="case reveal">
+            <span class="glyph-bg" aria-hidden="true">夜</span>
+            <span class="case-k">Case · from the lectures</span>
+            <h3>The midnight migraine</h3>
+            <p>Twenty years of migraines, always near midnight, every test normal, nothing worked. The clue was never on a scan — it was on the clock: 11&nbsp;pm–1&nbsp;am belongs to the gallbladder, and the temples are its territory. Treat the liver and gallbladder — not the pain — and the twenty-year problem ended in two treatments.</p>
+          </article>
+          <article class="case reveal d1">
+            <span class="glyph-bg" aria-hidden="true">肺</span>
+            <span class="case-k">Case · from the lectures</span>
+            <h3>The 3&nbsp;am cough</h3>
+            <p>Coughing at 3–4 in the morning, like clockwork? Those are the lung meridian’s hours. The lung itself is usually fine — the cough is the <em>effect</em>. The meridian simply doesn’t have enough Qi to meet its own supply time. Strengthen the energy, and the organ stops sounding the alarm.</p>
+          </article>
+          <p class="ck-more reveal d2"><a class="link-arrow" href="qi-body-clock.html">Explore the full Qi Body Clock <span class="ar" aria-hidden="true">→</span></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5 · CHAPTER 肆 — THE INVISIBLE BODY ===================== -->
+  <section class="sec ebody" id="body" data-rail="肆 · Two bodies" data-ch="Chapter 肆 · The invisible body" aria-labelledby="bodyH">
+    <span class="ghost" style="top:-50px; right:-60px;" data-parallax="0.06" aria-hidden="true">經</span>
+    <div class="wrap">
+      <div class="eb-grid">
+        <figure class="eb-fig reveal" aria-label="Two figures: the visible physical body, and the energy body traced with flowing meridians">
+          <svg viewBox="0 0 440 460" role="img">
+            <!-- visible body -->
+            <g transform="translate(110,40)">
+              <circle cx="0" cy="0" r="30" fill="rgba(20,24,6,.08)" stroke="#141806" stroke-width="1.6"/>
+              <path d="M0 30 C -50 44 -56 122 -46 188 L -30 356 L -10 356 L -5 204 L 5 204 L 10 356 L 30 356 L 46 188 C 56 122 50 44 0 30 Z"
+                    fill="rgba(20,24,6,.08)" stroke="#141806" stroke-width="1.6"/>
+              <path d="M-44 62 C -64 104 -72 140 -80 174 M44 62 C 64 104 72 140 80 174"
+                    fill="none" stroke="#141806" stroke-width="1.6" stroke-linecap="round"/>
+            </g>
+            <!-- energy body -->
+            <g transform="translate(330,40)">
+              <circle cx="0" cy="0" r="30" fill="none" stroke="rgba(20,24,6,.25)" stroke-width="1.2" stroke-dasharray="3 4"/>
+              <path d="M0 30 C -50 44 -56 122 -46 188 L -30 356 L -10 356 L -5 204 L 5 204 L 10 356 L 30 356 L 46 188 C 56 122 50 44 0 30 Z"
+                    fill="none" stroke="rgba(20,24,6,.25)" stroke-width="1.2" stroke-dasharray="3 4"/>
+              <path d="M-44 62 C -64 104 -72 140 -80 174 M44 62 C 64 104 72 140 80 174"
+                    fill="none" stroke="rgba(20,24,6,.25)" stroke-width="1.2" stroke-dasharray="3 4" stroke-linecap="round"/>
+              <!-- meridians -->
+              <path class="eb-meridian" d="M0 -28 C -16 60 -20 160 -16 350"/>
+              <path class="eb-meridian" style="animation-delay:-1s" d="M0 -28 C 16 60 20 160 16 350"/>
+              <path class="eb-meridian" style="animation-delay:-2s" d="M0 4 C -34 70 -58 120 -78 172"/>
+              <path class="eb-meridian" style="animation-delay:-1.6s" d="M0 4 C 34 70 58 120 78 172"/>
+              <path class="eb-meridian" style="animation-delay:-.6s" d="M0 34 C 0 120 0 200 0 200"/>
+              <g fill="#c8901a">
+                <circle cx="0" cy="-28" r="3"/><circle cx="-16" cy="160" r="3"/><circle cx="16" cy="160" r="3"/>
+                <circle cx="-78" cy="172" r="3"/><circle cx="78" cy="172" r="3"/><circle cx="0" cy="200" r="3"/>
+                <circle cx="-16" cy="330" r="3"/><circle cx="16" cy="330" r="3"/>
+              </g>
+            </g>
+          </svg>
+          <div class="eb-cap">
+            <span>The body you can see<br>— yang —</span>
+            <span>The body you can’t<br>— yin —</span>
+          </div>
+        </figure>
+        <div class="eb-copy">
+          <span class="eyebrow reveal">Chapter 肆 — Two bodies</span>
+          <h2 id="bodyH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">You are wearing a second body.</h2>
+          <p class="reveal d2">Inside the physical body runs an entire energy body — the meridians, the network your Qi travels. Blood is yang: everyone can see it. Qi is yin: almost no one can. And in this tradition the rule is blunt — <em>the real strength is always at the invisible part.</em></p>
+          <p class="reveal">The meridians come with an unusual lease agreement. The teachings say they are yours to use, but never yours to own — like a leased car, issued at birth and returned to the life source at the end. You can donate your organs. <strong>You cannot donate your meridians.</strong></p>
+          <p class="reveal">This is why the same treatments touch different depths: acupuncture nudges the meridians; herbs reach the organs and only knock on the meridians’ door. But to change the root — and to find what else this body can do — the change must happen at the meridian level. And the only practice that works there directly is Qigong.</p>
+          <div class="kv-pair reveal">
+            <div>
+              <span class="kv-k">Everyone has</span>
+              <span class="kv-v" style="display:block;">Organ Qi</span>
+              <span class="kv-s" style="display:block;">you have organs, you eat food — you have Qi</span>
+            </div>
+            <div>
+              <span class="kv-k">Practice awakens</span>
+              <span class="kv-v" style="display:block;">Meridian Qi</span>
+              <span class="kv-s" style="display:block;">reached only through the right Qigong</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6 · CHAPTER 伍 — THE QI ACCOUNT ===================== -->
+  <section class="sec acct" id="account" data-rail="伍 · The Qi account" data-ch="Chapter 伍 · The Qi account" aria-labelledby="acctH">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Chapter 伍 — The Qi account</span>
+        <h2 id="acctH" class="reveal d1">Qi is a bank account. Most of us only withdraw.</h2>
+        <p class="lede reveal d2">Qi accumulates like savings: increase the income, cut the expenses. Every physical and emotional condition is an energy debt. Tap a day’s deposits and withdrawals — watch the balance move.</p>
+      </div>
+      <div class="acct-grid">
+        <div class="acct-viz reveal">
+          <svg viewBox="0 0 520 340" role="img" aria-label="A balance scale weighing Qi income against Qi expense">
+            <g stroke="rgba(255,248,244,.5)" stroke-width="3" fill="none">
+              <line x1="260" y1="96" x2="260" y2="252"/>
+            </g>
+            <path d="M198 252 L 322 252 L 300 286 L 220 286 Z" fill="rgba(255,248,244,.1)" stroke="rgba(255,248,244,.4)" stroke-width="1.5"/>
+            <g id="acctBeam">
+              <line x1="100" y1="96" x2="420" y2="96" stroke="#e8a830" stroke-width="3.5" stroke-linecap="round"/>
+              <g id="acctPanL">
+                <line x1="100" y1="96" x2="82" y2="150" stroke="rgba(232,168,48,.6)" stroke-width="1.5"/>
+                <line x1="100" y1="96" x2="118" y2="150" stroke="rgba(232,168,48,.6)" stroke-width="1.5"/>
+                <path d="M64 150 A 36 36 0 0 0 136 150 Z" fill="rgba(232,168,48,.22)" stroke="#e8a830" stroke-width="1.6"/>
+                <text x="100" y="204" text-anchor="middle" font-family="Cinzel,serif" font-size="12" letter-spacing="2.5" fill="#e8a830">INCOME</text>
+                <text x="100" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,248,244,.55)">practice · letting go</text>
+              </g>
+              <g id="acctPanR">
+                <line x1="420" y1="96" x2="402" y2="150" stroke="rgba(232,168,48,.6)" stroke-width="1.5"/>
+                <line x1="420" y1="96" x2="438" y2="150" stroke="rgba(232,168,48,.6)" stroke-width="1.5"/>
+                <path d="M384 150 A 36 36 0 0 0 456 150 Z" fill="rgba(183,63,42,.28)" stroke="#e88a6a" stroke-width="1.6"/>
+                <text x="420" y="204" text-anchor="middle" font-family="Cinzel,serif" font-size="12" letter-spacing="2.5" fill="#e88a6a">EXPENSE</text>
+                <text x="420" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,248,244,.55)">worry · anger · rushing</text>
+              </g>
+              <circle cx="260" cy="96" r="7" fill="#e8a830"/>
+            </g>
+            <text x="260" y="322" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="15" fill="rgba(255,248,244,.5)">“It is just like saving money — increase your income, cut your expenses.”</text>
+          </svg>
+          <p class="acct-verdict" id="acctVerdict" aria-live="polite">Your Qi is a bank account. Tap what fills a day — and what drains it.</p>
+        </div>
+        <div class="acct-chips reveal d1">
+          <div>
+            <span class="acg-k">Withdrawals — the expense account</span>
+            <div class="acct-row" id="acctDrains">
+              <button type="button" class="ac-chip drain" data-v="-2" aria-pressed="false">Worrying all day</button>
+              <button type="button" class="ac-chip drain" data-v="-2" aria-pressed="false">Anger held overnight</button>
+              <button type="button" class="ac-chip drain" data-v="-1" aria-pressed="false">Fear on repeat</button>
+              <button type="button" class="ac-chip drain" data-v="-2" aria-pressed="false">Rushing everything, urgently</button>
+              <button type="button" class="ac-chip drain" data-v="-1" aria-pressed="false">Running on empty anyway</button>
+            </div>
+          </div>
+          <div>
+            <span class="acg-k">Deposits — the income account</span>
+            <div class="acct-row" id="acctGains">
+              <button type="button" class="ac-chip" data-v="3" aria-pressed="false">20 minutes of practice</button>
+              <button type="button" class="ac-chip" data-v="2" aria-pressed="false">Letting one thing go</button>
+              <button type="button" class="ac-chip" data-v="1" aria-pressed="false">Time inside the season</button>
+              <button type="button" class="ac-chip" data-v="1" aria-pressed="false">Eating with attention</button>
+            </div>
+          </div>
+          <p style="color:rgba(255,248,244,.6); font-size:.9rem; max-width:52ch;">The engine metaphor from the lectures: nobody parks the car and leaves the engine running — yet we worry continuously. A real practice teaches all three: how to <em style="color:var(--gold-lit); font-style:normal;">increase</em> energy, how to <em style="color:var(--gold-lit); font-style:normal;">save</em> it, and how to <em style="color:var(--gold-lit); font-style:normal;">use</em> it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7 · CHAPTER 陸 — QI IN FOOD ===================== -->
+  <section class="sec food" id="food" data-rail="陸 · Qi in food" data-ch="Chapter 陸 · Qi is in your food" aria-labelledby="foodH">
+    <span class="ghost" style="top:-40px; left:-70px;" data-parallax="0.05" aria-hidden="true">食</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Chapter 陸 — Qi is in your food</span>
+        <h2 id="foodH" class="reveal d1">A salad and an apple are not the same meal.</h2>
+        <p class="lede reveal d2">Every diet counts the visible — calories, vitamins, macros. The teachings ask about the invisible: how much time, information, and consciousness is in the food?</p>
+      </div>
+      <div class="food-grid">
+        <article class="food-card reveal">
+          <span class="food-k">Three to four weeks</span>
+          <h3>The salad</h3>
+          <div class="food-fig" aria-hidden="true">
+            <svg viewBox="0 0 260 240">
+              <ellipse cx="130" cy="150" rx="72" ry="40" fill="rgba(90,138,58,.25)" stroke="#5a8a3a" stroke-width="1.6"/>
+              <path d="M66 138 q22 -52 64 -52 q42 0 64 52" fill="rgba(90,138,58,.14)" stroke="#5a8a3a" stroke-width="1.6"/>
+              <path d="M96 116 q34 -28 68 0" fill="none" stroke="#5a8a3a" stroke-width="1.4"/>
+              <rect x="34" y="46" width="192" height="22" rx="4" fill="none" stroke="rgba(20,24,6,.25)" stroke-dasharray="4 4"/>
+              <text x="130" y="61" text-anchor="middle" font-family="Cinzel,serif" font-size="9" letter-spacing="2" fill="#6f5410">GREENHOUSE</text>
+              <text x="130" y="218" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="13" fill="#6f5410">seed → lettuce in a month, under glass</text>
+            </svg>
+          </div>
+          <p>From seed to leaf in under a month, most likely in a greenhouse. It is food — but think about the time. How much can a month hold?</p>
+        </article>
+        <article class="food-card reveal d1">
+          <span class="food-tag">One full year</span>
+          <span class="food-k">Four seasons, one fruit</span>
+          <h3>The apple</h3>
+          <div class="food-fig" aria-hidden="true">
+            <svg viewBox="0 0 260 240">
+              <g class="apple-ring">
+                <circle cx="130" cy="120" r="86" fill="none" stroke="#c8901a" stroke-width="1.4" stroke-dasharray="5 6"/>
+              </g>
+              <g font-family="Cinzel,serif" font-size="8.5" fill="#6f5410" text-anchor="middle" letter-spacing="1.5">
+                <text x="130" y="18">SPRING · FLOWERS · BEES</text>
+                <text x="130" y="232">FALL · HARVEST</text>
+                <text x="20" y="124" text-anchor="start">WINTER</text>
+                <text x="240" y="124" text-anchor="end">SUMMER</text>
+              </g>
+              <circle cx="130" cy="124" r="40" fill="rgba(183,63,42,.8)" stroke="#8a2f1e" stroke-width="1.6"/>
+              <path d="M130 84 q4 -16 16 -21" fill="none" stroke="#4a4010" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M133 74 q18 -10 26 3 q-15 10 -26 -3" fill="#5a8a3a"/>
+            </svg>
+          </div>
+          <p>The tree survives a winter of cold it is <em>required</em> to have, catches spring’s exact moment, cooperates with the bees, holds on through storms — a complete cycle of natural law, delivered into your hand.</p>
+        </article>
+      </div>
+      <p class="food-q reveal">
+        “When you eat this apple — what did you eat? Energy, information, or consciousness?”
+        <small>The question that changes every meal</small>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== 8 · CHAPTER 柒 — THE SCHOOL ===================== -->
+  <section class="sec school" id="school" data-rail="柒 · The school" data-ch="Chapter 柒 · The school" aria-labelledby="schoolH">
+    <span class="ghost" style="bottom:-60px; right:-50px;" data-parallax="0.05" aria-hidden="true">院</span>
+    <div class="wrap">
+      <div class="school-grid">
+        <div class="school-copy">
+          <span class="eyebrow reveal">Chapter 柒 — The school</span>
+          <h2 id="schoolH" class="reveal d1" style="font-size:clamp(1.9rem,4vw,3rem); margin-top:16px;">You cannot read your way to Qi. Not even here.</h2>
+          <p class="reveal d2">Everything above is a map — and the teachings are clear about maps: the real Qi experience happens <em>without the mind</em>. You can memorize every level and still not know what Qi feels like, the way no description of water teaches you to swim. At some point, someone who has experienced it has to pass it to you directly.</p>
+          <p class="reveal">That is what Taoquen is for. The name is short for <em class="serif-i">Tao Quantum Entanglement™</em> — entangle with the Tao — and the academy teaches one thing: pure Wu Ming Qigong, live and in small groups online, in the unbroken lineage of Grand Master Nan Lu, so that Qi stops being a page and becomes an experience in your own body.</p>
+          <div class="humility reveal">
+            <span class="seal" aria-hidden="true"><span>道</span></span>
+            <p>“I am a student of Grand Master Nan Lu. Everything I teach comes from his tradition — his ideas, his framework, his decades of wisdom. My role is to share what I experienced, not to own what I learned.”
+              <small>The instructor</small>
+            </p>
+          </div>
+          <div class="school-links reveal">
+            <a class="link-arrow" href="my-story.html">Meet the instructor <span class="ar" aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="programs.html">See the programs <span class="ar" aria-hidden="true">→</span></a>
+          </div>
+          <p class="school-src reveal">Teachings on this page are drawn from the <em>Principles of Life</em> lecture series in the Wu Ming tradition. The source: <a href="https://www.tcmworld.org" rel="noopener" target="_blank">TCMWorld.org</a> · <a href="https://www.grandmasternanlu.com" rel="noopener" target="_blank">GrandMasterNanLu.com</a></p>
+        </div>
+        <div class="school-facts">
+          <div class="fact reveal">
+            <span class="glyph-cjk" aria-hidden="true">傳</span>
+            <div>
+              <h4>An unbroken lineage</h4>
+              <p>Wu Ming Qigong, passed master to student for over 2,500 years, carried today by Grand Master Nan Lu — founder of the TCM World Foundation in New York.</p>
+            </div>
+          </div>
+          <div class="fact reveal d1">
+            <span class="glyph-cjk" aria-hidden="true">生</span>
+            <div>
+              <h4>Live, small, online</h4>
+              <p>Qi is transmitted, not streamed. Every class is taught in real time, in groups small enough that the teacher knows your body and your progress.</p>
+            </div>
+          </div>
+          <div class="fact reveal d2">
+            <span class="glyph-cjk" aria-hidden="true">驗</span>
+            <div>
+              <h4>Experience before theory</h4>
+              <p>You practice first; the framework then explains what you already felt. Because you cannot understand TCM until you have experienced Qi.</p>
+            </div>
+          </div>
+          <div class="fact reveal d3">
+            <span class="glyph-cjk" aria-hidden="true">純</span>
+            <div>
+              <h4>One system, kept pure</h4>
+              <p>The tradition warns against mixing energy practices — each system guides Qi in its own direction. Here you go deep in one, not shallow in five.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 9 · LINEAGE MARQUEE ===================== -->
+  <aside class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>What is Qi?</span>
+      <span>Power · Information · Consciousness · Life Source</span>
+      <span>Wu Ming Qigong</span>
+      <span>Grand Master Nan Lu</span>
+      <span>Tao Quantum Entanglement™</span>
+      <span>The answer lies within</span>
+    </div>
+  </aside>
+
+  <!-- ===================== 10 · EPILOGUE — CTA ===================== -->
+  <section class="sec enroll" id="enroll" data-rail="Epilogue" data-ch="Epilogue · From words to Qi" aria-labelledby="enrollH">
+    <div class="wrap enroll-in">
+      <div class="enroll-txt">
+        <span class="enroll-k reveal">Epilogue — from words to Qi</span>
+        <h2 id="enrollH" class="reveal d1">The page ends where the practice begins.</h2>
+        <p class="reveal d2">Start free — a live class, or the daily Four Energy Gates practice — and let your body answer the question this page can only ask. No theory required. Bring a body.</p>
+      </div>
+      <div class="enroll-cta reveal d3">
+        <a class="btn" href="free-class.html">Join a Free Class <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="programs.html">See All Programs</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="index.html" class="lockup" aria-label="Taoquen home">
+            <span class="lockup-name">taoquen</span>
+            <span class="lockup-sub">Entangle with the Tao</span>
+            <span class="lockup-seal" aria-hidden="true"><span class="glyph-cjk">道</span></span>
+          </a>
+          <p>A TCM Wellness Academy. Find your path, write your story, build it on Qi — in the Wu Ming tradition of Grand Master Nan Lu.</p>
+        </div>
+        <nav class="foot-col" aria-label="Programs">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="dwq.html">Dragon’s Way Qigong®</a></li>
+            <li><a href="four-energy-gates.html">Four Energy Gates</a></li>
+            <li><a href="programs.html">3E Qigong</a></li>
+            <li><a href="free-class.html">Free Class</a></li>
+          </ul>
+        </nav>
+        <nav class="foot-col" aria-label="Learn">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="tcm.html">Learn TCM</a></li>
+            <li><a href="qi-assessment.html">Qi Assessment</a></li>
+            <li><a href="blog/index.html">Articles</a></li>
+            <li><a href="conditions.html">Conditions</a></li>
+          </ul>
+        </nav>
+        <nav class="foot-col" aria-label="Academy">
+          <h4>Academy</h4>
+          <ul>
+            <li><a href="about-taoquen.html">About Taoquen</a></li>
+            <li><a href="my-story.html">My Story</a></li>
+            <li><a href="students.html">For Students</a></li>
+            <li><a href="wellness-program.html">For Professionals</a></li>
+            <li><a href="login.html">Log In</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="foot-base">
+        <span>© 2026 Taoquen — Tao Quantum Entanglement™. All rights reserved.</span>
+        <span class="glyph-cjk" aria-hidden="true">道 可 道 非 常 道</span>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.page -->
+
+  <!-- CDN deps -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <script>
+  (function(){
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var FINE = window.matchMedia('(pointer: fine)').matches;
+  var hasGSAP = typeof window.gsap !== 'undefined';
+  if (hasGSAP && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- LENIS SMOOTH SCROLL ---------- */
+  var lenis = null;
+  if (!RM && typeof window.Lenis !== 'undefined' && hasGSAP){
+    lenis = new Lenis({ duration:1.15, smoothWheel:true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+  function scrollToEl(el){
+    if (lenis) lenis.scrollTo(el, {offset:-70});
+    else el.scrollIntoView({behavior: RM ? 'auto' : 'smooth'});
+  }
+
+  /* ---------- THE QI RIVER — hero canvas ----------
+     Streams of gold motes drift along layered currents:
+     Qi flowing, never held, always moving. */
+  (function(){
+    var cv = doc.getElementById('qiRiver');
+    if (!cv || RM) return;
+    var ctx = cv.getContext('2d');
+    if (!ctx) return;
+    var W = 0, H = 0, raf = null, t = 0, motes = [];
+    var mouse = {y:.5}, mouseT = {y:.5};
+
+    function size(){
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      motes = [];
+      var n = Math.min(110, Math.round(W/12));
+      for (var i = 0; i < n; i++){
+        motes.push({
+          x:Math.random()*W,
+          lane:.25 + Math.random()*.55,       /* base y as fraction of H */
+          amp:14 + Math.random()*36,          /* sine amplitude */
+          k:.0016 + Math.random()*.0022,      /* wavelength */
+          v:.25 + Math.random()*.55,          /* speed px/frame */
+          r:.7 + Math.random()*1.5,
+          o:.1 + Math.random()*.4,
+          ph:Math.random()*Math.PI*2
+        });
+      }
+    }
+    function frame(){
+      raf = null;
+      t += .012;
+      mouse.y += (mouseT.y-mouse.y)*.04;
+      ctx.clearRect(0,0,W,H);
+      var tilt = (mouse.y-.5)*40;
+      for (var i = 0; i < motes.length; i++){
+        var m = motes[i];
+        m.x += m.v;
+        if (m.x > W + 20){ m.x = -20; }
+        var y = H*m.lane + Math.sin(m.x*m.k + m.ph + t)*m.amp + tilt*(m.lane-.5);
+        var edge = Math.min(m.x/120, (W-m.x)/120, 1);
+        if (edge < 0) edge = 0;
+        ctx.globalAlpha = m.o * edge;
+        ctx.fillStyle = '#e8a830';
+        ctx.beginPath(); ctx.arc(m.x, y, m.r, 0, Math.PI*2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      queue();
+    }
+    function visible(){ return !doc.hidden && window.scrollY < window.innerHeight*1.3; }
+    function queue(){ if (visible() && raf === null) raf = requestAnimationFrame(frame); }
+    window.addEventListener('scroll', queue, {passive:true});
+    doc.addEventListener('visibilitychange', queue);
+    window.addEventListener('pointermove', function(e){ mouseT.y = e.clientY/window.innerHeight; }, {passive:true});
+    var rT = null;
+    window.addEventListener('resize', function(){ clearTimeout(rT); rT = setTimeout(size, 160); });
+    size();
+    queue();
+  })();
+
+  /* ---------- PRELOADER (plays once per session, shared with home) ---------- */
+  (function(){
+    var pre = doc.getElementById('preloader');
+    if (!pre) return;
+    var seen = false;
+    try{ seen = sessionStorage.getItem('tq-pre') === '1'; }catch(e){}
+    function finish(instant){
+      try{ sessionStorage.setItem('tq-pre','1'); }catch(e){}
+      pre.classList.add('done');
+      doc.body.classList.remove('is-loading');
+      heroIn(instant);
+      window.setTimeout(function(){ if (pre.parentNode) pre.parentNode.removeChild(pre); }, instant ? 50 : 900);
+    }
+    if (RM || seen || !hasGSAP){ finish(true); return; }
+    doc.body.classList.add('is-loading');
+    var tl = gsap.timeline({onComplete:function(){ finish(false); }});
+    tl.to('.pre-stamp',{scale:1,opacity:1,duration:.5,ease:'power4.out'})
+      .to('.pre-ring',{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},'-=.15')
+      .to('.pre-glyph',{opacity:1,duration:.4},'-=.35')
+      .to('.pre-word',{opacity:1,y:0,duration:.55,ease:'power3.out'},'-=.25')
+      .to({},{duration:.45});
+    var skip = doc.getElementById('preSkip');
+    function bail(){ tl.kill(); finish(true); }
+    if (skip) skip.addEventListener('click', bail);
+    doc.addEventListener('keydown', function(e){ if (e.key==='Escape' && !pre.classList.contains('done')) bail(); }, {once:false});
+    /* watchdog: if frames are throttled and the timeline stalls, never trap the visitor */
+    window.setTimeout(function(){ if (!pre.classList.contains('done')) bail(); }, 4200);
+  })();
+
+  /* ---------- HERO KINETIC HEADLINE ---------- */
+  var heroPlayed = false;
+  function heroIn(instant){
+    if (heroPlayed) return; heroPlayed = true;
+    var lines = doc.querySelectorAll('.hero .hl-in');
+    if (RM || !hasGSAP){
+      for (var i=0;i<lines.length;i++) lines[i].style.transform = 'none';
+      return;
+    }
+    gsap.fromTo(lines, {yPercent:112}, {yPercent:0, duration: instant ? .9 : 1.15, stagger:.13, ease:'power4.out'});
+    /* settle guard: entrance is ≤1.5s, so by now landing is a no-op in healthy
+       browsers — but guarantees the headline in frame-throttled ones */
+    window.setTimeout(function(){
+      gsap.killTweensOf(lines);
+      for (var i=0;i<lines.length;i++) lines[i].style.transform = 'none';
+    }, 3200);
+  }
+
+  /* ---------- NAV ---------- */
+  var nav = doc.getElementById('nav');
+  function navState(){ nav.classList.toggle('scrolled', window.scrollY > 44); }
+  window.addEventListener('scroll', navState, {passive:true});
+  navState();
+
+  /* ---------- DRAWER ---------- */
+  (function(){
+    var burger = doc.getElementById('burger'), drawer = doc.getElementById('drawer'), closeBtn = doc.getElementById('drawerClose');
+    if (!burger || !drawer) return;
+    function set(open){
+      drawer.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      doc.body.style.overflow = open ? 'hidden' : '';
+      if (open) closeBtn.focus(); else burger.focus();
+    }
+    burger.addEventListener('click', function(){ set(true); });
+    closeBtn.addEventListener('click', function(){ set(false); });
+    drawer.addEventListener('click', function(e){ if (e.target.tagName === 'A') set(false); });
+    doc.addEventListener('keydown', function(e){ if (e.key==='Escape' && drawer.classList.contains('open')) set(false); });
+  })();
+
+  /* ---------- CUSTOM CURSOR ---------- */
+  (function(){
+    if (RM || !FINE) return;
+    root.classList.add('js-cursor');
+    var dot = doc.getElementById('cursorDot'), ring = doc.getElementById('cursorRing');
+    var x=innerWidth/2,y=innerHeight/2,rx=x,ry=y;
+    doc.addEventListener('pointermove', function(e){ x=e.clientX; y=e.clientY; dot.style.left=x+'px'; dot.style.top=y+'px'; }, {passive:true});
+    (function loop(){
+      rx += (x-rx)*.16; ry += (y-ry)*.16;
+      ring.style.left = rx+'px'; ring.style.top = ry+'px';
+      requestAnimationFrame(loop);
+    })();
+    doc.addEventListener('pointerover', function(e){
+      ring.classList.toggle('on', !!(e.target.closest && e.target.closest('a,button,.lv-ring,.ck-seg,.ac-chip')));
+    }, {passive:true});
+  })();
+
+  /* ---------- SCROLL RAIL + CHAPTER HUD ---------- */
+  (function(){
+    var rail = doc.getElementById('srail');
+    var secs = doc.querySelectorAll('[data-rail]');
+    if (!rail || !secs.length) return;
+    var dots = {};
+    secs.forEach(function(s){
+      var a = doc.createElement('a');
+      a.href = '#'+s.id;
+      a.innerHTML = '<span class="tip">'+s.getAttribute('data-rail')+'</span>';
+      a.setAttribute('aria-label', s.getAttribute('data-rail'));
+      a.addEventListener('click', function(e){ e.preventDefault(); scrollToEl(s); });
+      rail.appendChild(a); dots[s.id] = a;
+    });
+    var hud = doc.getElementById('chapterHud');
+    var hudTxt = doc.getElementById('chapterHudTxt');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          for (var k in dots) dots[k].classList.remove('on');
+          dots[en.target.id].classList.add('on');
+          if (hud && hudTxt){
+            var ch = en.target.getAttribute('data-ch');
+            if (ch){ hudTxt.textContent = ch; hud.classList.toggle('on', en.target.id !== 'top'); }
+          }
+        }
+      });
+    }, {rootMargin:'-42% 0px -42% 0px'});
+    secs.forEach(function(s){ io.observe(s); });
+  })();
+
+  /* ---------- REVEALS ---------- */
+  (function(){
+    var els = doc.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.14, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+
+  /* ---------- PARALLAX GHOST GLYPHS ---------- */
+  (function(){
+    if (RM || !hasGSAP || !window.ScrollTrigger) return;
+    doc.querySelectorAll('[data-parallax]').forEach(function(el){
+      var f = parseFloat(el.getAttribute('data-parallax')) || .05;
+      gsap.to(el,{yPercent:-100*f*8, ease:'none',
+        scrollTrigger:{trigger:el.parentElement, start:'top bottom', end:'bottom top', scrub:1.2}});
+    });
+  })();
+
+  /* ---------- FOUR LEVELS OF QI — ring explorer ---------- */
+  (function(){
+    var rings = doc.querySelectorAll('.lv-ring');
+    var panes = doc.querySelectorAll('#lvPanel .lv-pane');
+    var btns  = doc.querySelectorAll('.lv-btn');
+    if (!rings.length || !panes.length) return;
+    function select(lv){
+      rings.forEach(function(r){ r.classList.toggle('on', r.getAttribute('data-lv') === lv); });
+      panes.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-lv') === lv); });
+      btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-lv') === lv)); });
+    }
+    rings.forEach(function(r){
+      r.addEventListener('click', function(){ select(r.getAttribute('data-lv')); });
+      r.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); select(r.getAttribute('data-lv')); }
+      });
+      if (FINE) r.addEventListener('mouseenter', function(){ select(r.getAttribute('data-lv')); });
+    });
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ select(b.getAttribute('data-lv')); });
+    });
+  })();
+
+  /* ---------- THE MERIDIAN CLOCK ---------- */
+  (function(){
+    var svg = doc.getElementById('ckSvg');
+    var nowCap = doc.getElementById('ckNowCap');
+    if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var CX = 260, CY = 260, R1 = 128, R2 = 232;
+    /* segment i covers hours [23+2i, 1+2i) mod 24, centred from the top */
+    var ORGANS = [
+      {n:'Gallbladder', s:'GB',     h:'11 pm – 1 am', story:true,  line:'The midnight window — where the 20-year migraine lived.'},
+      {n:'Liver',       s:'Liver',  h:'1 – 3 am',     story:true,  line:'Deep-night repair — the liver’s own two hours.'},
+      {n:'Lung',        s:'Lung',   h:'3 – 5 am',     story:true,  line:'The 3 am cough answers here — the lung is only the effect.'},
+      {n:'Large Intestine', s:'L. Int.', h:'5 – 7 am',  story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Stomach',     s:'Stomach',h:'7 – 9 am',     story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Spleen',      s:'Spleen', h:'9 – 11 am',    story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Heart',       s:'Heart',  h:'11 am – 1 pm', story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Small Intestine', s:'S. Int.', h:'1 – 3 pm', story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Bladder',     s:'Bladder',h:'3 – 5 pm',     story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Kidney',      s:'Kidney', h:'5 – 7 pm',     story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Pericardium', s:'Pericard.', h:'7 – 9 pm',  story:false, line:'Its meridian’s two hours of strongest supply.'},
+      {n:'Triple Burner', s:'San Jiao', h:'9 – 11 pm', story:false, line:'Its meridian’s two hours of strongest supply.'}
+    ];
+    function pol(r, deg){
+      var a = (deg-90)*Math.PI/180;
+      return [CX + r*Math.cos(a), CY + r*Math.sin(a)];
+    }
+    function wedge(a0, a1){
+      var p1 = pol(R2,a0), p2 = pol(R2,a1), p3 = pol(R1,a1), p4 = pol(R1,a0);
+      return 'M'+p1[0].toFixed(1)+','+p1[1].toFixed(1)+
+        ' A'+R2+','+R2+' 0 0 1 '+p2[0].toFixed(1)+','+p2[1].toFixed(1)+
+        ' L'+p3[0].toFixed(1)+','+p3[1].toFixed(1)+
+        ' A'+R1+','+R1+' 0 0 0 '+p4[0].toFixed(1)+','+p4[1].toFixed(1)+' Z';
+    }
+    function el(n, at){
+      var e = doc.createElementNS(NS, n);
+      for (var k in at) e.setAttribute(k, at[k]);
+      return e;
+    }
+    var segs = [];
+    var nowSeg = Math.floor(((new Date().getHours()+1)%24)/2);
+    var center = {o:null, h:null, l:null};
+
+    function show(i){
+      segs.forEach(function(s, j){ s.classList.toggle('on', j === i); });
+      var d = ORGANS[i];
+      center.o.textContent = d.n;
+      center.h.textContent = d.h;
+      setCenterLine(d.line);
+    }
+    function setCenterLine(txt){
+      /* wrap the italic line to two rows max */
+      while (center.l.firstChild) center.l.removeChild(center.l.firstChild);
+      var words = txt.split(' '), row = '', rows = [];
+      words.forEach(function(w){
+        if ((row+' '+w).trim().length > 26){ rows.push(row.trim()); row = w; }
+        else row += ' '+w;
+      });
+      if (row.trim()) rows.push(row.trim());
+      rows.slice(0,3).forEach(function(r, k){
+        var ts = el('tspan', {x:CX, dy: k === 0 ? 0 : 15});
+        ts.textContent = r;
+        center.l.appendChild(ts);
+      });
+    }
+
+    for (var i = 0; i < 12; i++){
+      var a0 = i*30 - 15, a1 = i*30 + 15;
+      var g = el('g', {'class':'ck-seg' + (ORGANS[i].story ? ' story' : '') + (i === nowSeg ? ' now' : '')});
+      g.setAttribute('role','button');
+      g.setAttribute('tabindex','0');
+      g.setAttribute('aria-label', ORGANS[i].n + ', ' + ORGANS[i].h);
+      g.appendChild(el('path', {d:wedge(a0,a1)}));
+      var mid = pol((R1+R2)/2, i*30);
+      var tx = el('text', {x:mid[0].toFixed(1), y:(mid[1]-3).toFixed(1)});
+      tx.textContent = ORGANS[i].s;
+      g.appendChild(tx);
+      var th = el('text', {'class':'ck-hours', x:mid[0].toFixed(1), y:(mid[1]+11).toFixed(1)});
+      th.textContent = ORGANS[i].h.replace(/ /g,'');
+      g.appendChild(th);
+      if (i === nowSeg){
+        var np = pol(R2+12, i*30);
+        var dot = el('circle', {'class':'ck-nowdot' + (RM ? '' : ' pulse'), cx:np[0].toFixed(1), cy:np[1].toFixed(1), r:'5'});
+        svg.appendChild(dot);
+      }
+      (function(idx){
+        g.addEventListener('click', function(){ show(idx); });
+        g.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); show(idx); }
+        });
+        if (FINE) g.addEventListener('mouseenter', function(){ show(idx); });
+      })(i);
+      svg.appendChild(g);
+      segs.push(g);
+    }
+    /* centre readout */
+    svg.appendChild(el('circle', {cx:CX, cy:CY, r:R1-24, fill:'rgba(253,251,242,.7)', stroke:'rgba(200,144,26,.3)', 'stroke-width':'1'}));
+    center.h = el('text', {'class':'ck-center-h', x:CX, y:CY-34});
+    center.o = el('text', {'class':'ck-center-o', x:CX, y:CY-6});
+    center.l = el('text', {'class':'ck-center-l', x:CX, y:CY+22});
+    svg.appendChild(center.h); svg.appendChild(center.o); svg.appendChild(center.l);
+    show(nowSeg);
+    if (nowCap){
+      nowCap.innerHTML = 'Right now it is the <b>' + ORGANS[nowSeg].n.toLowerCase() + '</b>’s hour — ' + ORGANS[nowSeg].h + '. The clock is already running in you.';
+    }
+  })();
+
+  /* ---------- THE QI ACCOUNT — balance beam ---------- */
+  (function(){
+    var beam = doc.getElementById('acctBeam');
+    var verdict = doc.getElementById('acctVerdict');
+    var chips = doc.querySelectorAll('.ac-chip');
+    if (!beam || !chips.length) return;
+    function update(){
+      var net = 0, touched = false;
+      chips.forEach(function(c){
+        if (c.getAttribute('aria-pressed') === 'true'){
+          net += parseInt(c.getAttribute('data-v'), 10);
+          touched = true;
+        }
+      });
+      /* positive net = income heavier = left pan sinks (beam rotates counter-clockwise) */
+      var ang = Math.max(-12, Math.min(12, -net*2.4));
+      beam.style.transform = 'rotate(' + ang + 'deg)';
+      /* pans hang plumb: counter-rotate around their hang points */
+      var panL = doc.getElementById('acctPanL'), panR = doc.getElementById('acctPanR');
+      if (panL){ panL.style.transformOrigin = '100px 96px'; panL.style.transform = 'rotate(' + (-ang) + 'deg)'; }
+      if (panR){ panR.style.transformOrigin = '420px 96px'; panR.style.transform = 'rotate(' + (-ang) + 'deg)'; }
+      if (!touched){
+        verdict.textContent = 'Your Qi is a bank account. Tap what fills a day — and what drains it.';
+      } else if (net > 0){
+        verdict.textContent = 'Net income. Qi accumulates — “increase your income, cut your expenses.”';
+      } else if (net === 0){
+        verdict.textContent = 'Breaking even. Nothing is saved — and the engine is still running.';
+      } else {
+        verdict.textContent = 'Net drain. “Every physical and emotional condition is your energy debt.”';
+      }
+    }
+    chips.forEach(function(c){
+      c.addEventListener('click', function(){
+        c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true'));
+        update();
+      });
+    });
+    update();
+  })();
+
+  /* ---------- WORD-SPLIT TITLES ---------- */
+  (function(){
+    if (RM || !hasGSAP || !window.ScrollTrigger) return;
+    doc.querySelectorAll('.sec-head h2, .life-copy h2, .eb-copy h2, .school-copy h2, .enroll h2').forEach(function(h){
+      if (h.querySelector('.ww')) return;
+      var label = h.textContent.replace(/\s+/g,' ').trim();
+      h.setAttribute('aria-label', label);
+      var walk = Array.prototype.slice.call(h.childNodes);
+      walk.forEach(function(node){
+        if (node.nodeType !== 3 || !node.textContent.trim()) return;
+        var frag = doc.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function(part){
+          if (!part) return;
+          if (/^\s+$/.test(part)){ frag.appendChild(doc.createTextNode(' ')); return; }
+          var ww = doc.createElement('span'); ww.className = 'ww'; ww.setAttribute('aria-hidden','true');
+          var wi = doc.createElement('span'); wi.className = 'wi'; wi.textContent = part;
+          ww.appendChild(wi); frag.appendChild(ww);
+        });
+        h.replaceChild(frag, node);
+      });
+      var words = h.querySelectorAll('.wi');
+      h.classList.remove('reveal','d1','d2');
+      h.classList.add('in');
+      gsap.fromTo(words, {yPercent:112}, {
+        yPercent:0, duration:.9, stagger:.05, ease:'power4.out',
+        scrollTrigger:{trigger:h, start:'top 86%', once:true}
+      });
+    });
+  })();
+
+  /* ---------- MAGNETIC BUTTONS ---------- */
+  (function(){
+    if (RM || !FINE || !hasGSAP) return;
+    doc.querySelectorAll('.btn').forEach(function(btn){
+      var qx = gsap.quickTo(btn, 'x', {duration:.4, ease:'power3.out'});
+      var qy = gsap.quickTo(btn, 'y', {duration:.4, ease:'power3.out'});
+      btn.addEventListener('pointermove', function(e){
+        var r = btn.getBoundingClientRect();
+        qx(((e.clientX - r.left)/r.width - .5) * 12);
+        qy(((e.clientY - r.top)/r.height - .5) * 8);
+      });
+      btn.addEventListener('pointerleave', function(){ qx(0); qy(0); });
+    });
+  })();
+
+  /* ---------- MARQUEE (seamless loop; speed reacts to scroll velocity) ---------- */
+  (function(){
+    var track = doc.getElementById('marqueeTrack');
+    if (!track) return;
+    track.innerHTML += track.innerHTML;
+    if (RM || !hasGSAP || !window.ScrollTrigger) return;
+    track.style.animation = 'none';
+    var tween = gsap.to(track, {xPercent:-50, repeat:-1, ease:'none', duration:46});
+    ScrollTrigger.create({
+      trigger:'.marquee', start:'top bottom', end:'bottom top',
+      onUpdate:function(self){
+        var v = Math.min(Math.abs(self.getVelocity())/900, 3.2);
+        tween.timeScale(1 + v);
+        gsap.to(tween, {timeScale:1, duration:.8, overwrite:'auto', ease:'power2.out'});
+      }
+    });
+  })();
+
+  /* ---------- ANCHOR SMOOTHING ---------- */
+  doc.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1);
+      var el = doc.getElementById(id);
+      if (el){ e.preventDefault(); scrollToEl(el); }
+    });
+  });
+
+  })();
+  </script>
+</body>
+</html>

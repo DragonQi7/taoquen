@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Prism of Qi — Five Element Light · Dragon's Way Qigong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#ffffff; --cream:#2c2c28; --gold:#8b6914; --muted:#6b5a30;
+  }
+  html{font-size:16px;-webkit-font-smoothing:antialiased;}
+  body{
+    font-family:'Inter',sans-serif;color:var(--cream);
+    background:var(--bg);
+    min-height:100vh;padding:30px 18px 48px;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);opacity:.85;text-align:center;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.8rem);
+    line-height:1.06;text-align:center;margin-bottom:12px;}
+  h1 em{font-style:italic;color:#8b6914;}
+  .lede{max-width:680px;text-align:center;color:var(--muted);font-size:.95rem;line-height:1.7;margin:0 auto 26px;}
+
+  .tool{width:100%;max-width:1100px;
+    background:#ffffff;
+    border:1px solid #e3dbc8;border-radius:20px;
+    box-shadow:0 24px 60px -30px rgba(70,50,10,.18);
+    padding:24px;}
+
+  /* ── State bar ── */
+  .statebar{display:flex;align-items:center;gap:14px;margin-bottom:18px;padding:12px 16px;
+    border:1px solid #e8e1d0;border-radius:12px;background:#faf8f2;}
+  .swatch{flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+    background:#fff;box-shadow:0 0 18px rgba(255,255,255,.6);transition:.15s;}
+  .state-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;transition:color .2s;}
+  .state-sub{font-size:.82rem;color:var(--muted);margin-top:1px;}
+
+  /* ── Optical scene ── */
+  .scene{--heat:0;--glow:1;position:relative;height:380px;border-radius:14px;overflow:hidden;
+    background:radial-gradient(900px 460px at 30% 50%, #23211e 0%, #121110 75%);
+    box-shadow:inset 0 0 150px rgba(0,0,0,calc(var(--heat)*.6)),
+               inset 0 0 90px rgba(255,255,255,calc(var(--glow)*.06)),
+               inset 0 0 0 1px rgba(255,255,255,.05);transition:box-shadow .15s linear;}
+  @media(max-width:760px){.scene{height:300px;}}
+
+  .source{position:absolute;left:3%;top:50%;width:16px;height:16px;transform:translateY(-50%);
+    border-radius:50%;background:#fff;
+    box-shadow:0 0 18px 6px rgba(255,255,255,calc(var(--glow)*.85)),0 0 40px 14px rgba(255,240,210,calc(var(--glow)*.45));}
+  .tag{position:absolute;font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(255,255,255,.5);white-space:nowrap;}
+  .tag.src{left:1.5%;top:calc(50% + 16px);}
+  .tag.prm1{left:15%;top:calc(50% + 48px);transform:translateX(-50%);}
+  .tag.scr{left:29%;top:2.5%;color:rgba(255,255,255,.55);}
+  .tag.out{left:90%;top:calc(50% + 44px);transform:translateX(-50%);text-align:center;color:rgba(255,255,255,.62);}
+
+  .beam{position:absolute;top:50%;height:7px;transform:translateY(-50%);border-radius:4px;}
+  .beam-in{left:5%;width:9%;
+    background:linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,calc(var(--glow)*.95)));
+    box-shadow:0 0 16px 3px rgba(255,255,255,calc(var(--glow)*.55));}
+  .beam-out{left:73%;width:15%;height:9px;}  /* color + opacity set by JS (white output) */
+
+  .prism{position:absolute;top:50%;width:90px;height:80px;transform:translate(-50%,-50%);
+    clip-path:polygon(50% 4%,96% 96%,4% 96%);
+    background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(190,210,255,.06) 55%,rgba(255,255,255,.12));
+    box-shadow:0 0 26px rgba(180,200,255,.22);filter:drop-shadow(0 6px 12px rgba(0,0,0,.5));}
+  .prism::before{content:"";position:absolute;inset:0;clip-path:polygon(50% 4%,96% 96%,4% 96%);
+    background:linear-gradient(120deg,rgba(255,255,255,.5),transparent 22%);mix-blend-mode:screen;}
+  .prism1{left:15%;}
+  .prism2{left:68%;transform:translate(-50%,-50%) scaleX(-1);}   /* mirror = recombiner */
+
+  /* fans: dispersion (prism1→screen) and recombination (screen→prism2)
+     top/height MUST match .screen so the wide edge lines up with the box */
+  .fan{position:absolute;top:8%;height:84%;filter:saturate(1.2) blur(.3px);
+    background:linear-gradient(to bottom,#fff,#fff);}
+  .fan-out{left:18%;width:11%;clip-path:polygon(0% 42%,0% 58%,100% 0%,100% 100%);}
+  .fan-out::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 40% 80% at 0% 50%,rgba(255,255,255,.85),rgba(255,255,255,0) 60%);
+    mix-blend-mode:screen;}
+  .fan-in{left:55%;width:13%;clip-path:polygon(0% 0%,0% 100%,100% 42%,100% 58%);}
+  .fan-in::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 45% 80% at 100% 50%,rgba(255,255,255,calc(var(--glow)*.9)),rgba(255,255,255,0) 60%);
+    mix-blend-mode:screen;}
+
+  /* spectrum screen: 5 element bands (centre) — framed glass projection */
+  .screen{position:absolute;left:29%;top:8%;width:26%;height:84%;
+    display:flex;flex-direction:column;gap:2px;border-radius:11px;overflow:hidden;
+    box-shadow:0 0 0 1px rgba(201,168,106,.55),0 0 0 5px rgba(18,17,15,.55),
+               0 0 26px rgba(201,168,106,.18),0 16px 42px rgba(0,0,0,.6);}
+  .screen::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:11px;
+    background:linear-gradient(118deg,rgba(255,255,255,.18),rgba(255,255,255,0) 26%,rgba(255,255,255,0) 72%,rgba(255,255,255,.06));
+    mix-blend-mode:screen;}
+  .screen::after{content:"";position:absolute;top:0;left:-40%;width:34%;height:100%;z-index:6;pointer-events:none;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.13),transparent);
+    animation:sheen 7.5s ease-in-out infinite;}
+  @keyframes sheen{0%,100%{left:-40%}55%{left:130%}}
+
+  /* recombined white output orb (right) */
+  .orb{position:absolute;left:90%;top:50%;width:56px;height:56px;border-radius:50%;
+    transform:translate(-50%,-50%);background:#fff;
+    box-shadow:0 0 34px 8px rgba(255,255,255,.6);transition:width .14s,height .14s,box-shadow .14s,filter .14s;}
+  .band{position:relative;flex:1;display:flex;align-items:center;padding:0 14px;overflow:hidden;
+    transition:opacity .14s linear,filter .14s linear,box-shadow .14s linear;}
+  .band::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to bottom,rgba(255,255,255,.28),rgba(255,255,255,0) 42%,rgba(0,0,0,.18));}
+  .band .ico{position:relative;z-index:2;width:19px;height:19px;flex:0 0 auto;margin-right:10px;color:#fff;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.55));}
+  .band .ico svg{display:block;width:100%;height:100%;}
+  .band .btext{position:relative;z-index:2;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .band .bnm{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.85);font-weight:600;line-height:1.1;}
+  .band .bsub{font-size:.56rem;color:rgba(255,255,255,.92);text-shadow:0 1px 4px rgba(0,0,0,.9);}
+  .band .dim-flag{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;opacity:0;
+    text-shadow:0 1px 3px rgba(0,0,0,.9);transition:opacity .14s;}
+  .band.dim .dim-flag{opacity:.85;}
+  .band .glyph{position:absolute;right:14px;top:50%;transform:translateY(-50%);z-index:1;
+    font-family:"Microsoft YaHei","Songti SC","SimSun","PingFang SC",serif;font-weight:700;font-size:2.15rem;
+    line-height:1;color:rgba(255,255,255,.20);pointer-events:none;text-shadow:0 2px 6px rgba(0,0,0,.25);transition:opacity .14s;}
+  .band.metal .bnm,.band.metal .bsub{color:#241f18;text-shadow:0 1px 2px rgba(255,255,255,.45);}
+  .band.metal .ico{color:#2a241c;filter:drop-shadow(0 1px 1px rgba(255,255,255,.45));}
+  .band.metal .dim-flag{color:#241f18;text-shadow:none;}
+  .band.metal .glyph{color:rgba(40,32,20,.18);text-shadow:0 1px 2px rgba(255,255,255,.35);}
+
+  /* ── Controls (5 element sliders) ── */
+  .controls-head-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    margin:22px 2px 10px;flex-wrap:wrap;}
+  .controls-head{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);}
+  .reset-btn{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--cream);background:rgba(139,105,20,.06);border:1px solid rgba(139,105,20,.4);
+    border-radius:20px;padding:7px 16px;cursor:pointer;transition:.15s;white-space:nowrap;}
+  .reset-btn:hover{background:rgba(201,168,106,.16);border-color:var(--gold);box-shadow:0 0 16px -4px var(--gold);}
+
+  /* nourishing-cycle diagram (nodes dim as their Qi weakens) */
+  .cycle-strip{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:0 2px 14px;
+    padding:10px 14px;border:1px solid #e8e1d0;border-radius:10px;background:#faf8f2;}
+  .cyc-label{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-right:6px;}
+  .cyc-node{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:var(--cream);
+    transition:opacity .14s linear;}
+  .cyc-node i{width:11px;height:11px;border-radius:50%;background:var(--nc);
+    box-shadow:0 0 8px var(--nc);transition:box-shadow .14s,transform .14s;}
+  .cyc-arr{color:var(--gold);opacity:.7;font-size:.8rem;}
+  .cyc-arr.loop{font-size:.9rem;}
+  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+  @media(max-width:880px){.cards{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.cards{grid-template-columns:1fr;}}
+  .card{--c:#888;border:1px solid #e6dfcd;border-radius:12px;padding:14px 13px;
+    background:#fbfaf5;transition:border-color .15s,box-shadow .15s,background .15s;}
+  .card.dim{border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 0 22px -6px var(--c);background:#fffdf6;}
+  .card-top{display:flex;align-items:center;gap:8px;margin-bottom:2px;}
+  .chip{width:13px;height:13px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);flex:0 0 auto;}
+  .el{font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .org{font-size:.66rem;color:var(--muted);margin-bottom:2px;}
+  .emo{font-size:.64rem;color:var(--gold);opacity:.9;margin-bottom:10px;}
+  .emo b{color:var(--cream);font-weight:500;}
+
+  /* slider-wrap: a transparent-track range (thumb = your setting) over an
+     effective-Qi fill bar (= actual Qi after the whole system's influence) */
+  .slider-wrap{position:relative;height:20px;margin:4px 0 5px;}
+  .qi-track{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:8px;
+    border-radius:5px;background:rgba(44,44,40,.10);overflow:hidden;}
+  .qi-fill{height:100%;border-radius:5px;background:var(--c);width:100%;
+    transition:width .14s linear,opacity .14s linear;}
+  .slider{position:absolute;left:0;top:0;width:100%;height:20px;margin:0;background:transparent;
+    -webkit-appearance:none;appearance:none;outline:none;cursor:pointer;z-index:3;}
+  .slider::-webkit-slider-runnable-track{height:8px;background:transparent;}
+  .slider::-moz-range-track{height:8px;background:transparent;}
+  .slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-5px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff,var(--c));border:2px solid #fff;
+    box-shadow:0 0 8px var(--c),0 1px 3px rgba(0,0,0,.25);cursor:grab;}
+  .slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;border:2px solid #fff;
+    background:radial-gradient(circle at 35% 30%,#fff,var(--c));box-shadow:0 0 8px var(--c);cursor:grab;}
+  .scale{display:flex;justify-content:space-between;font-size:.54rem;letter-spacing:.06em;
+    text-transform:uppercase;color:rgba(44,44,40,.5);margin-bottom:8px;}
+  .qi-val{font-size:.62rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:8px;}
+  .qi-val b{color:var(--cream);}
+
+  .drag-note{font-size:.62rem;line-height:1.45;color:#9a6e08;margin:0 0 9px;display:none;}
+  .drag-note b{color:#6b4e06;font-weight:600;}
+  .card.dragged .drag-note{display:block;}
+  .balanced{font-size:.66rem;color:#1e8c4a;display:flex;align-items:center;gap:5px;}
+  .signs-h{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ct,var(--c));
+    margin-bottom:5px;}
+  .signs{list-style:none;font-size:.66rem;line-height:1.6;color:#4a4030;}
+  .signs li{opacity:0;transform:translateY(-2px);animation:signIn .25s ease forwards;}
+  @keyframes signIn{to{opacity:.95;transform:none;}}
+  .signs li::before{content:"•";color:var(--c);margin-right:6px;}
+
+  /* Journey of Health — physical disease progression (driven by overall Qi) */
+  .journey{margin-top:24px;padding:18px 18px 16px;border:1px solid #e8e1d0;border-radius:14px;
+    background:#faf8f2;}
+  .journey-head{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:16px;}
+  .journey-head span{font-family:'Inter',sans-serif;letter-spacing:.02em;text-transform:none;font-size:.7rem;color:var(--muted);}
+  .journey-track{position:relative;display:flex;justify-content:space-between;margin:0 4px 18px;}
+  .journey-track::before{content:"";position:absolute;left:6%;right:6%;top:10px;height:3px;border-radius:2px;
+    background:linear-gradient(to right,#1e9e50,#1d7fd6,#e07f00,#d63a2e,#7c3aed);opacity:.4;}
+  .jstep{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;width:19%;}
+  .jstep .jdot{width:22px;height:22px;border-radius:50%;background:var(--jc);opacity:.4;transform:scale(.78);
+    box-shadow:0 0 0 3px #faf8f2;transition:.18s;}
+  .jstep .jlabel{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);text-align:center;transition:.18s;}
+  .jstep.passed .jdot{opacity:.7;}
+  .jstep.active .jdot{opacity:1;transform:scale(1.3);box-shadow:0 0 18px var(--jc),0 0 0 3px #faf8f2;}
+  .jstep.active .jlabel{color:var(--cream);}
+  .journey-detail{border-left:3px solid var(--jdc,#1e9e50);padding:11px 15px;border-radius:9px;
+    background:#ffffff;transition:border-color .18s;}
+  .jd-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:3px;color:#1e9e50;}
+  .jd-desc{font-size:.78rem;color:#4a4030;line-height:1.55;margin-bottom:9px;}
+  .jd-conditions{list-style:none;display:flex;flex-wrap:wrap;gap:7px;}
+  .jd-conditions li{font-size:.68rem;background:rgba(44,44,40,.04);border:1px solid rgba(44,44,40,.14);
+    border-radius:7px;padding:5px 10px;color:#3a3630;animation:signIn .25s ease forwards;}
+  .jd-conditions:empty::after{content:"No physical illness — the body is well.";color:#1e8c4a;font-size:.74rem;}
+  .journey-hope{margin-top:11px;font-size:.72rem;color:var(--muted);font-style:italic;}
+
+  .credit{width:100%;max-width:1100px;margin-top:20px;text-align:center;font-size:.7rem;
+    line-height:1.7;color:#998b6e;}
+  .credit strong{color:var(--gold);font-weight:600;}
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Dragon's Way Qigong® · Five Element Consciousness Framework</div>
+  <h1>The Prism of <em>Qi</em></h1>
+  <p class="lede">When white light passes whole through the prism, the Five Elements are in balance — this is health.
+  But the five are <strong>one connected system</strong>. Lower any element and — through the nourishing cycle
+  (Wood→Fire→Earth→Metal→Water→Wood) — it drags the others down with it: their colors dim, organ imbalances
+  appear, and the whole light fades. Restore the balance and the light returns to white.</p>
+
+  <div class="tool">
+
+    <!-- Wholeness state -->
+    <div class="statebar">
+      <div>
+        <div class="state-main" id="stateMain">The Light Is Whole</div>
+        <div class="state-sub" id="stateSub">Five Elements in harmony — Qi flows smoothly.</div>
+      </div>
+    </div>
+
+    <!-- Optical scene: white in → disperse → 5 elements → recombine → white out -->
+    <div class="scene" id="scene">
+      <div class="source"></div>
+      <div class="tag src">White Light In</div>
+      <div class="beam beam-in"></div>
+      <div class="prism prism1"></div>
+      <div class="tag prm1">Prism</div>
+      <div class="fan fan-out" id="fanOut"></div>
+      <div class="tag scr">Five&nbsp;Elements</div>
+      <div class="screen" id="screen"></div>
+      <div class="fan fan-in" id="fanIn"></div>
+      <div class="prism prism2"></div>
+      <div class="beam beam-out" id="beamOut"></div>
+      <div class="orb" id="orb"></div>
+      <div class="tag out">Whole&nbsp;Light&nbsp;Out</div>
+    </div>
+
+    <!-- Journey of Health: where lasting imbalance leads (per the Gold Book) -->
+    <div class="journey" id="journey">
+      <div class="journey-head">The Journey of Health
+        <span>— when imbalance persists it progresses: energy → organs → physical disease (Dragon's Way Qigong)</span></div>
+      <div class="journey-track" id="journeyTrack"></div>
+      <div class="journey-detail" id="journeyDetail">
+        <div class="jd-name" id="jdName">True Health &amp; Wellness</div>
+        <div class="jd-desc" id="jdDesc">Organs in balance · Qi flows freely · emotions stable.</div>
+        <ul class="jd-conditions" id="jdConditions"></ul>
+      </div>
+      <div class="journey-hope">↩ You can return to a previous level of health at any point — restore the balance and the light returns to white.</div>
+    </div>
+
+    <!-- Element sliders -->
+    <div class="controls-head-row">
+      <div class="controls-head">Adjust one element's Qi — watch it pull the whole cycle down</div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
+        <button class="reset-btn" id="resetBtn">☯ Qigong Practice</button>
+        <span style="font-size:.6rem;color:var(--muted);letter-spacing:.05em;font-style:italic;">Press here to see what happens with Qigong practice</span>
+      </div>
+    </div>
+    <div class="cycle-strip" id="cycleStrip"></div>
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <p class="credit">
+    Built on the <strong>Five Element Consciousness Framework</strong> from <strong>Dragon's Way Qigong®</strong>
+    by Grand Master Nan Lu. Colors, organs, emotions and imbalance signs follow the program's teaching;
+    Water is shown as deep blue (TCM: black/dark blue) and Metal as silver-white.<br>
+    For educational and reflective use only. Not medical advice, diagnosis, or treatment.
+  </p>
+
+<script>
+(function(){
+  // ── Five Elements (Gold Book) — screen order top→bottom is spectral-ish ──
+  const ELEMENTS = [
+    {key:'fire', el:'Fire', organ:'Heart · Small Intestine', emo:'Joy', color:'#ff3b30', char:'火',
+     signs:['Fatigue, lack of energy','Lack of joy, low spirit','Insomnia, nightmares','Depression, anxiety, panic','Irregular heartbeat']},
+    {key:'earth', el:'Earth', organ:'Spleen · Stomach', emo:'Worry / Overthinking', color:'#ffc01e', char:'土',
+     signs:['Worry & overthinking','Bloating, loose stools','Weak or aching muscles','Fatigue, low appetite','Food allergies']},
+    {key:'wood', el:'Wood', organ:'Liver · Gallbladder', emo:'Anger', color:'#3fd06a', char:'木',
+     signs:['Irritability & frustration','Stiffness, poor flexibility','Red, dry or itchy eyes','Stress that won’t release','Low, stuck mood']},
+    {key:'water', el:'Water', organ:'Kidney · Bladder', emo:'Fear', color:'#2f7bff', char:'水',
+     signs:['Fear, anxiety, panic','Memory loss, forgetfulness','Low back & knee pain','Bone loss, hair loss','Ringing in the ears']},
+    {key:'metal', el:'Metal', organ:'Lung · Large Intestine', emo:'Grief / Sadness', color:'#b6bfc9', char:'金',
+     signs:['Persistent sadness','Dry skin, rashes, rosacea','Asthma, chronic cough','Constipation','Fatigue']}
+  ];
+
+  // The Journey of Health — physical progression of lasting imbalance (Dragon's Way Qigong).
+  // Driven by OVERALL Qi: "imbalances... progress to a physical sign... all the way to diabetes and cancers."
+  // text-safe element colours for the light theme (used for headings/labels)
+  const INK = {fire:'#d6362b', earth:'#b8860b', wood:'#1e9e50', water:'#1d5fd6', metal:'#5d6b7a'};
+
+  const JOURNEY = [
+    {min:.85, short:'Health', color:'#1e9e50', name:'True Health & Wellness',
+     desc:'Organs in balance · Qi flows freely · emotions stable · spirit expressed.', conditions:[]},
+    {min:.70, short:'Level 1', color:'#1d7fd6', name:'Level 1 — Qi Out of Balance',
+     desc:'Imbalance begins on the energetic level; medical tests are still normal.',
+     conditions:['Vague discomforts that come & go','Stress, mood swings','Fatigue, headaches','Muscle tension, poor sleep']},
+    {min:.55, short:'Level 2', color:'#e07f00', name:'Level 2 — Organ Dysfunction',
+     desc:'Imbalance settles into the organs and their relationships.',
+     conditions:['Minor digestive issues, bloating','Food allergies','Insomnia, constipation','Emotional imbalances']},
+    {min:.38, short:'Level 3', color:'#d63a2e', name:'Level 3 — Physical Problems Appear',
+     desc:'Now detectable — medical tests confirm physical problems.',
+     conditions:['High blood pressure','High cholesterol & triglycerides','High blood sugar','Overweight','Acid reflux (GERD), ulcers','Reliance on multiple medications']},
+    {min:.0, short:'Level 4', color:'#7c3aed', name:'Level 4 — Metabolic Syndrome',
+     desc:'Chronic disease and risk of serious complications.',
+     conditions:['Hypertension','Type 2 diabetes','Coronary heart disease','Obesity','Stroke, chest pain, heart attack']}
+  ];
+
+  // line-art element icons (filled, inherit colour)
+  const ICONS = {
+    fire:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.3c2.7 3.5 4.5 5.5 4.5 8.8A4.5 4.5 0 0 1 12 15.6a4.5 4.5 0 0 1-4.5-4.5c0-1.5.6-2.7 1.6-3.7.1 1.6.8 2.3 1.6 2.3.8 0 1.2-.9.8-2.2C10.7 5.8 11.1 4 12 2.3z"/><path opacity=".5" d="M12 22a7 7 0 0 0 7-7c0-1.7-.6-3.2-1.5-4.4.2 3.7-2.4 5.9-5 5.9-2 0-3.5-1.2-3.9-3.1C7.6 14.8 7 16.3 7 18a5 5 0 0 0 5 4z"/></svg>',
+    earth:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.4 19.6 9 8.9l2.6 3.8L14.1 7l7.5 12.6z"/></svg>',
+    wood:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="11.2" y="11.5" width="1.6" height="9.5" rx=".8"/><path d="M12.4 13.2c0-3.4 2.5-6.3 6.5-6.3 0 3.4-2.6 6.3-6.5 6.3z"/><path d="M11.6 15.6c0-2.7-2.1-5-5.5-5 0 2.7 2.2 5 5.5 5z"/></svg>',
+    metal:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.2h10l3.6 5.2L12 21 3.4 9.4z"/></svg>',
+    water:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.1S18 9.5 18 13a6 6 0 0 1-12 0c0-3.5 6-9.9 6-9.9z"/></svg>'
+  };
+
+  const screen = document.getElementById('screen');
+  const cards  = document.getElementById('cards');
+  const fanOut = document.getElementById('fanOut');
+  const fanIn  = document.getElementById('fanIn');
+  const scene  = document.getElementById('scene');
+  const orb    = document.getElementById('orb');
+  const beamOut= document.getElementById('beamOut');
+  const stateMain = document.getElementById('stateMain');
+  const stateSub  = document.getElementById('stateSub');
+
+  const vals = {};                 // key -> 0..100 (100 = balanced)
+  const lerp = (a,b,t)=>a+(b-a)*t;
+  function hex(h){return {r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};}
+  const rgba=(c,a)=>`rgba(${Math.round(c.r)},${Math.round(c.g)},${Math.round(c.b)},${a})`;
+  const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+  // calibration so all five element lights at FULL intensity add up to pure white
+  const CAL=(function(){let r=0,g=0,b=0;ELEMENTS.forEach(e=>{const c=hex(e.color);r+=c.r;g+=c.g;b+=c.b;});
+    return {r:255/r,g:255/g,b:255/b};})();
+
+  // build screen bands + control cards
+  ELEMENTS.forEach(e=>{
+    vals[e.key]=100;
+
+    const band=document.createElement('div');
+    band.className='band '+e.key;
+    band.id='band-'+e.key;
+    band.style.background=e.color;
+    band.innerHTML=
+      '<span class="ico">'+ICONS[e.key]+'</span>'+
+      '<span class="btext"><span class="bnm">'+e.el+'</span>'+
+        '<span class="bsub">'+e.organ+'</span>'+
+        '<span class="dim-flag">· dimmed</span></span>'+
+      '<span class="glyph">'+e.char+'</span>';
+    screen.appendChild(band);
+
+    const card=document.createElement('div');
+    card.className='card';card.id='card-'+e.key;card.style.setProperty('--c',e.color);card.style.setProperty('--ct',INK[e.key]);
+    card.innerHTML=
+      '<div class="card-top"><span class="chip"></span><span class="el">'+e.el+'</span></div>'+
+      '<div class="org">'+e.organ+'</div>'+
+      '<div class="emo">Emotion: <b>'+e.emo+'</b></div>'+
+      '<div class="slider-wrap">'+
+        '<div class="qi-track"><div class="qi-fill" id="qf-'+e.key+'"></div></div>'+
+        '<input type="range" class="slider" min="0" max="100" value="100" id="sl-'+e.key+'" '+
+          'aria-label="'+e.el+' ('+e.organ+') Qi level">'+
+      '</div>'+
+      '<div class="scale"><span>Depleted</span><span>Balanced</span></div>'+
+      '<div class="qi-val">Qi: <b id="qv-'+e.key+'">100%</b></div>'+
+      '<div class="drag-note" id="dn-'+e.key+'"></div>'+
+      '<div class="balanced" id="bal-'+e.key+'">● Balanced — Qi flows</div>'+
+      '<div class="signs-wrap" id="sw-'+e.key+'" style="display:none">'+
+        '<div class="signs-h">Signs of imbalance</div>'+
+        '<ul class="signs">'+e.signs.map(s=>'<li>'+s+'</li>').join('')+'</ul>'+
+      '</div>';
+    cards.appendChild(card);
+
+    card.querySelector('#sl-'+e.key).addEventListener('input',ev=>{
+      vals[e.key]=+ev.target.value;render();
+    });
+  });
+
+  // ── Five Element interdependence ──
+  // RING = nourishing/generating cycle. Each element's mother = previous, child = next (cyclic).
+  const RING=['wood','fire','earth','metal','water'];
+  const META={}; ELEMENTS.forEach(e=>META[e.key]=e);
+  const motherOf=k=>RING[(RING.indexOf(k)+RING.length-1)%RING.length];
+  const childOf =k=>RING[(RING.indexOf(k)+1)%RING.length];
+
+  // build the nourishing-cycle diagram (Wood → Fire → Earth → Metal → Water → ↻)
+  const cycleStrip=document.getElementById('cycleStrip');
+  let cyc='<span class="cyc-label">Nourishing cycle</span>';
+  RING.forEach((k,idx)=>{
+    cyc+='<span class="cyc-node" id="cyc-'+k+'" style="--nc:'+META[k].color+'"><i></i>'+META[k].el+'</span>';
+    cyc+= idx<RING.length-1 ? '<span class="cyc-arr">→</span>'
+                            : '<span class="cyc-arr loop">↻</span><span class="cyc-node" style="opacity:.55;--nc:'+META[RING[0]].color+'"><i></i>'+META[RING[0]].el+'</span>';
+  });
+  cycleStrip.innerHTML=cyc;
+
+  // reset button → restore all to balanced (white)
+  document.getElementById('resetBtn').addEventListener('click',()=>{
+    RING.forEach(k=>{ vals[k]=Math.min(100,vals[k]+5); document.getElementById('sl-'+k).value=vals[k]; });
+    render();
+  });
+
+  // build the Journey-of-Health stepper
+  document.getElementById('journeyTrack').innerHTML = JOURNEY.map((j,i)=>
+    '<div class="jstep" id="jstep-'+i+'" style="--jc:'+j.color+'"><span class="jdot"></span><span class="jlabel">'+j.short+'</span></div>'
+  ).join('');
+
+  // Propagate deficiency around the cycle: an element is dragged down when its
+  // mother (can't nourish it) or child (over-draws it) is weak. Cascades to all five.
+  function computeEff(){
+    const SELF=0.42, PASSES=6;
+    let eff={}; RING.forEach(k=>eff[k]=vals[k]);
+    for(let p=0;p<PASSES;p++){
+      const ne={};
+      RING.forEach(k=>{
+        const neigh=(eff[motherOf(k)]+eff[childOf(k)])/2;   // 0..100
+        ne[k]=vals[k]*(SELF+(1-SELF)*(neigh/100));          // never exceeds own Qi
+      });
+      eff=ne;
+    }
+    return eff;
+  }
+
+  // symptoms reveal one-by-one as Qi drops; all five when fully depleted
+  const ONSET=[88,72,56,38,18];                 // % thresholds for 1..5 signs
+  const symCount = p => ONSET.reduce((n,t)=>n+(p<=t?1:0),0);
+
+  function render(){
+    const eff=computeEff();
+    const avg = ELEMENTS.reduce((s,e)=>s+eff[e.key],0)/ELEMENTS.length/100;  // 0..1
+    const gm  = 0.5 + 0.5*avg;                   // GLOBAL fade — all bands weaken as any element dims
+    const fanStops=[]; const symptomatic=[];
+
+    ELEMENTS.forEach((e,i)=>{
+      const v=eff[e.key]/100;       // effective Qi after cascade
+      const src=vals[e.key]/100;    // slider setting
+      const c=hex(e.color);
+      const count=symCount(v*100);  // how many signs to show
+      if(count>0) symptomatic.push({e,v});
+
+      // band intensity = own Qi × global fade  (every band dims when any element dims)
+      const band=document.getElementById('band-'+e.key);
+      band.style.opacity   = ((0.08+0.92*v)*gm).toFixed(3);
+      band.style.filter    = `brightness(${(0.4+0.7*v*gm).toFixed(2)}) saturate(${(0.45+0.85*v).toFixed(2)})`;
+      band.style.boxShadow = `inset 0 0 ${Math.round(30*v*gm)}px ${rgba(c,0.6*v*gm)}`;
+      band.classList.toggle('dim', count>0);
+
+      // both fans share the same spectrum gradient (alpha = Qi × global fade)
+      const col=rgba(c,((0.14+0.74*v)*gm).toFixed(2));
+      fanStops.push(`${col} ${i*20}%`,`${col} ${(i+1)*20}%`);
+
+      // card
+      const card=document.getElementById('card-'+e.key);
+      const dragged=(src-v)>0.06 && v<0.97;       // pulled down by a neighbor
+      card.classList.toggle('dim',count>0);
+      card.classList.toggle('dragged',dragged);
+      document.getElementById('qv-'+e.key).textContent=Math.round(v*100)+'%';
+      document.getElementById('bal-'+e.key).style.display=(count>0||dragged)?'none':'flex';
+
+      // effective-Qi fill recedes on EVERY slider as the system's Qi drops
+      document.getElementById('qf-'+e.key).style.width=Math.max(2,Math.round(v*100))+'%';
+      const cn=document.getElementById('cyc-'+e.key);
+      if(cn){ cn.style.opacity=(0.3+0.7*v).toFixed(2); cn.querySelector('i').style.transform='scale('+(0.7+0.4*v).toFixed(2)+')'; }
+
+      const sw=document.getElementById('sw-'+e.key);
+      sw.style.display = count>0?'block':'none';
+      sw.querySelectorAll('li').forEach((li,idx)=>{ li.style.display = idx<count?'list-item':'none'; });
+
+      if(dragged){
+        const m=motherOf(e.key), ch=childOf(e.key);
+        document.getElementById('dn-'+e.key).innerHTML='↓ '+((eff[m]<=eff[ch])
+          ? 'Under-nourished by its mother, <b>'+META[m].el+'</b> ('+META[m].organ.split(' · ')[0]+').'
+          : 'Drained by its needy child, <b>'+META[ch].el+'</b> ('+META[ch].organ.split(' · ')[0]+').');
+      }
+    });
+
+    const grad=`linear-gradient(to bottom, ${fanStops.join(',')})`;
+    fanOut.style.background=grad; fanIn.style.background=grad;
+    scene.style.setProperty('--heat',(1-avg).toFixed(3));
+    scene.style.setProperty('--glow',avg.toFixed(3));
+
+    // recombined output = ADDITIVE sum of the remaining lights, weighted by intensity,
+    // calibrated so all five at full = white. Fewer / weaker colors → a new hue.
+    let R=0,G=0,B=0;
+    ELEMENTS.forEach(e=>{const w=eff[e.key]/100;const c=hex(e.color);R+=c.r*w;G+=c.g*w;B+=c.b*w;});
+    const col={r:clamp(R*CAL.r,0,255), g:clamp(G*CAL.g,0,255), b:clamp(B*CAL.b,0,255)};
+    const L=(0.299*col.r+0.587*col.g+0.114*col.b)/255;   // perceived brightness 0..1
+    const sz=Math.round(30+30*L);
+    orb.style.background=rgba(col,1);
+    orb.style.width=sz+'px'; orb.style.height=sz+'px';
+    orb.style.filter='none';
+    orb.style.boxShadow=`0 0 ${Math.round(42*L+5)}px ${Math.round(12*L+2)}px ${rgba(col,0.5*L+0.08)}`;
+    beamOut.style.background=`linear-gradient(to right, ${rgba(col,0)}, ${rgba(col,(0.85*L+0.05).toFixed(2))})`;
+    beamOut.style.boxShadow=`0 0 16px 3px ${rgba(col,(0.5*L).toFixed(2))}`;
+    beamOut.style.opacity=(0.2+0.8*L).toFixed(2);
+
+    // headline
+    if(symptomatic.length===0){
+      stateMain.textContent='The Light Is Whole';
+      stateMain.style.color='#2c2c28';
+      stateSub.textContent='Five Elements in harmony — the spectrum recombines to pure white. Energy flows; the body is balanced and healthy.';
+    } else {
+      symptomatic.sort((a,b)=>a.v-b.v);
+      const worst=symptomatic[0].e;
+      stateMain.textContent='Light Refracts — Imbalance';
+      stateMain.style.color=INK[worst.key]||worst.color;
+      const names=symptomatic.map(s=>s.e.el+' ('+s.e.organ.split(' · ')[0]+')').join(', ');
+      stateSub.textContent='Whole light dims to '+Math.round(avg*100)+'% — '+worst.el+'/'+worst.organ.split(' · ')[0]+
+        ' weakest. Out of balance: '+names+'.';
+    }
+
+    // Journey of Health — physical progression tracks OVERALL Qi
+    let jlvl=JOURNEY.findIndex(j=>avg>=j.min); if(jlvl<0) jlvl=JOURNEY.length-1;
+    const J=JOURNEY[jlvl];
+    JOURNEY.forEach((j,i)=>{const el=document.getElementById('jstep-'+i);
+      el.classList.toggle('active',i===jlvl); el.classList.toggle('passed',i<jlvl);});
+    document.getElementById('journeyDetail').style.setProperty('--jdc',J.color);
+    const jn=document.getElementById('jdName'); jn.textContent=J.name; jn.style.color=J.color;
+    document.getElementById('jdDesc').textContent=J.desc;
+    document.getElementById('jdConditions').innerHTML=J.conditions.map(c=>'<li>'+c+'</li>').join('');
+  }
+
+  render();
+
+  // ── Report height to parent (for auto-sizing the iframe in the members area) ──
+  function postHeight(){
+    const h = Math.ceil(document.body.scrollHeight);
+    if(window.parent && window.parent!==window){
+      window.parent.postMessage({prismFullHeight:h},'*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  document.addEventListener('input', ()=>setTimeout(postHeight,160), true);  // signs/journey grow & shrink
+  setTimeout(postHeight, 200);
+  setTimeout(postHeight, 800);
+})();
+</script>
+</body>
+</html>

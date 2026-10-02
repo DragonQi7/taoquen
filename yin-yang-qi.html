@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Way of Qi — Yin &amp; Yang</title>
+<style>
+  :root{
+    --ink:#0b0e14;
+    --ink2:#131826;
+    --paper:#f4efe4;
+    --paper2:#e9e1cf;
+    --gold:#c9a24b;
+    --gold-deep:#9a7423;
+    --jade:#7fc7cd;
+    --jade-dim:#4e8b91;
+    --dim:#98a0ae;
+    --dark-text:#20242e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--ink);
+    color:#f0ede5;
+    font-family:Georgia,'Times New Roman',serif;
+    overflow-x:hidden;
+  }
+
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+  .rv.in{opacity:1;transform:none}
+
+  /* ============ HERO ============ */
+  .hero{text-align:center;padding:64px 20px 24px}
+  .hero .hz{
+    font-size:clamp(28px,4.5vw,40px);
+    letter-spacing:.5em;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-weight:normal;
+    font-size:clamp(30px,6vw,56px);
+    letter-spacing:.12em;
+  }
+  .hero h1 .dark{color:var(--jade)}
+  .hero h1 .amp{color:var(--gold);font-style:italic;padding:0 .15em}
+  .hero h1 .light{color:var(--paper)}
+  .hero .teaching{
+    margin:26px auto 0;
+    max-width:640px;
+    font-style:italic;
+    font-size:clamp(16px,2.4vw,20px);
+    line-height:2;
+    color:var(--dim);
+  }
+  .hero .teaching b{font-weight:normal;color:var(--paper)}
+  .hero .teaching .q{color:var(--jade);font-weight:bold}
+  .hero .teaching .m{color:var(--gold);font-weight:bold}
+
+  /* ============ TAIJI — classic, still ============ */
+  .taiji-zone{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(24px,5vw,70px);
+    padding:46px 20px 10px;
+  }
+  .side-tag{text-align:center}
+  .side-tag .word{
+    font-size:clamp(20px,3vw,28px);
+    letter-spacing:.35em;
+    text-transform:uppercase;
+  }
+  .side-tag .mean{
+    margin-top:8px;
+    font-size:clamp(13px,1.8vw,16px);
+    letter-spacing:.15em;
+    color:var(--dim);
+  }
+  .side-tag .hz2{font-size:clamp(26px,3.6vw,36px);margin-top:10px}
+  .side-tag.yin .word,.side-tag.yin .hz2{color:var(--jade)}
+  .side-tag.yang .word,.side-tag.yang .hz2{color:var(--gold)}
+
+  .taiji{
+    width:clamp(240px,32vw,360px);
+    aspect-ratio:1;
+    flex-shrink:0;
+    filter:drop-shadow(0 16px 40px rgba(0,0,0,.55));
+  }
+  .taiji svg{width:100%;height:100%;display:block}
+
+  /* ============ SPLIT PANELS ============ */
+  .world{
+    margin-top:64px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .half.yin{
+    background:
+      repeating-radial-gradient(circle at 100% 30%, transparent 0 64px, rgba(127,199,205,.06) 64px 65px),
+      linear-gradient(160deg,#0c1018,#101625);
+    padding:56px 48px 64px clamp(24px,5vw,80px);
+    border-top:1px solid rgba(127,199,205,.25);
+  }
+  .half.yang{
+    background:
+      repeating-linear-gradient(0deg, transparent 0 46px, rgba(154,116,35,.10) 46px 47px),
+      repeating-linear-gradient(90deg, transparent 0 46px, rgba(154,116,35,.10) 46px 47px),
+      linear-gradient(200deg,var(--paper),var(--paper2));
+    color:var(--dark-text);
+    padding:56px clamp(24px,5vw,80px) 64px 48px;
+    text-align:right;
+    border-top:1px solid rgba(154,116,35,.4);
+  }
+  .half h2{
+    font-weight:normal;
+    font-size:clamp(24px,3.2vw,34px);
+    letter-spacing:.28em;
+    text-transform:uppercase;
+  }
+  .half.yin h2{color:var(--jade)}
+  .half.yang h2{color:var(--gold-deep)}
+  .half .role{
+    margin-top:10px;
+    font-size:clamp(17px,2.3vw,21px);
+    font-style:italic;
+  }
+  .half.yin .role{color:var(--paper)}
+  .half.yang .role{color:#3a3324}
+  .half .nature{
+    margin-top:6px;
+    font-size:13.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .half.yin .nature{color:var(--jade-dim)}
+  .half.yang .nature{color:#8a7a52}
+
+  .chips{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    max-width:430px;
+  }
+  .half.yang .chips{margin-left:auto;justify-content:flex-end}
+  .chip{
+    position:relative;
+    cursor:default;
+    font-size:16.5px;
+    padding:11px 20px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .half.yin .chip{
+    border-radius:40px;
+    border:1px solid rgba(127,199,205,.45);
+    background:rgba(127,199,205,.06);
+    color:#dff3f4;
+  }
+  .half.yin .chip:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 24px rgba(127,199,205,.35);
+    background:rgba(127,199,205,.13);
+  }
+  .half.yang .chip{
+    border-radius:2px;
+    border:1px solid rgba(154,116,35,.55);
+    background:rgba(255,255,255,.55);
+    color:#2c2618;
+    box-shadow:2px 2px 0 rgba(154,116,35,.25);
+  }
+  .half.yang .chip:hover{
+    transform:translateY(-3px);
+    box-shadow:4px 4px 0 rgba(154,116,35,.35);
+  }
+  .chip .big{font-size:18px}
+  .chip::after{
+    content:attr(data-tip);
+    position:absolute;
+    left:50%;bottom:calc(100% + 10px);
+    transform:translateX(-50%) translateY(4px);
+    width:max-content;
+    max-width:230px;
+    font-size:13px;
+    font-style:italic;
+    line-height:1.5;
+    padding:8px 13px;
+    border-radius:8px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+    z-index:30;
+    text-align:center;
+  }
+  .half.yin .chip::after{
+    background:#12202a;
+    border:1px solid rgba(127,199,205,.5);
+    color:#cfeef0;
+  }
+  .half.yang .chip::after{
+    background:#fffdf6;
+    border:1px solid rgba(154,116,35,.5);
+    color:#3a3324;
+  }
+  .chip:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
+  .hover-hint{
+    margin-top:24px;
+    font-size:13px;
+    font-style:italic;
+    opacity:.55;
+  }
+
+  /* ============ LINE vs CIRCLE ============ */
+  .shapes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:1050px;
+    margin:80px auto 0;
+    gap:40px;
+    padding:0 24px;
+  }
+  .shape-card{
+    text-align:center;
+    padding:40px 28px;
+    border-radius:14px;
+  }
+  .shape-card.line{
+    background:linear-gradient(190deg,var(--paper),var(--paper2));
+    border:1px solid rgba(154,116,35,.45);
+    color:var(--dark-text);
+  }
+  .shape-card.circle{
+    background:linear-gradient(170deg,#0e141f,#0b0f18);
+    border:1px solid rgba(127,199,205,.3);
+  }
+  .shape-card svg{width:min(280px,80%);height:auto}
+  .shape-card h3{
+    font-weight:normal;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    font-size:17px;
+    margin-top:20px;
+  }
+  .shape-card.line h3{color:var(--gold-deep)}
+  .shape-card.circle h3{color:var(--jade)}
+  .shape-card p{
+    margin-top:10px;
+    font-style:italic;
+    font-size:15.5px;
+    line-height:1.7;
+  }
+  .shape-card.line p{color:#6d6248}
+  .shape-card.circle p{color:var(--dim)}
+
+  /* ============ CLOSING ============ */
+  .closing{
+    text-align:center;
+    padding:90px 24px 100px;
+    position:relative;
+  }
+  .closing::before{
+    content:"";
+    position:absolute;top:40px;left:50%;transform:translateX(-50%);
+    width:150px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .closing .big-line{
+    font-size:clamp(22px,4vw,34px);
+    font-style:italic;
+    line-height:1.8;
+    max-width:800px;
+    margin:0 auto;
+  }
+  .closing .big-line .v{color:var(--gold)}
+  .closing .big-line .i{color:var(--jade)}
+  .closing .seal{
+    margin-top:30px;
+    font-size:13px;
+    letter-spacing:.45em;
+    text-transform:uppercase;
+    color:var(--dim);
+  }
+
+  @media (max-width:860px){
+    .taiji-zone{flex-direction:column;gap:26px}
+    .world{grid-template-columns:1fr}
+    .half{padding:48px 26px !important;text-align:center !important}
+    .chips{max-width:none;justify-content:center !important;margin-left:0 !important}
+    .shapes{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero rv in">
+  <div class="hz">陰 陽</div>
+  <h1><span class="dark">Yin</span><span class="amp">&amp;</span><span class="light">Yang</span></h1>
+  <p class="teaching">
+    To learn <b>Qi Gong</b>, you must learn <span class="q">Qi</span>.<br>
+    But Qi is <b>invisible</b> — so study what is visible, <span class="m">the Mind</span>,<br>
+    and let the visible lead you to the invisible.
+  </p>
+</header>
+
+<!-- ================= TAIJI ================= -->
+<section class="taiji-zone rv">
+  <div class="side-tag yin">
+    <div class="word">Yin</div>
+    <div class="mean">QI — the invisible</div>
+    <div class="hz2">氣</div>
+  </div>
+
+  <div class="taiji">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Yin Yang symbol">
+      <defs>
+        <radialGradient id="yinG" cx="38%" cy="35%" r="95%">
+          <stop offset="0%" stop-color="#232c38"/>
+          <stop offset="100%" stop-color="#07090e"/>
+        </radialGradient>
+        <radialGradient id="yangG" cx="42%" cy="30%" r="95%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#e2d9c6"/>
+        </radialGradient>
+      </defs>
+      <!-- gold ring -->
+      <circle cx="100" cy="100" r="99" fill="none" stroke="#c9a24b" stroke-width="1.6"/>
+      <!-- light (yang) base -->
+      <circle cx="100" cy="100" r="96" fill="url(#yangG)"/>
+      <!-- dark (yin) half with classic S-curve -->
+      <path d="M 100,4 A 96,96 0 0 0 100,196 A 48,48 0 0 0 100,100 A 48,48 0 0 1 100,4 Z" fill="url(#yinG)"/>
+      <!-- the two seeds: dark dot in the light half, light dot in the dark half -->
+      <circle cx="100" cy="52" r="13" fill="url(#yinG)"/>
+      <circle cx="100" cy="148" r="13" fill="url(#yangG)"/>
+    </svg>
+  </div>
+
+  <div class="side-tag yang">
+    <div class="word">Yang</div>
+    <div class="mean">MIND — the visible</div>
+    <div class="hz2">心</div>
+  </div>
+</section>
+
+<!-- ================= SPLIT PANELS ================= -->
+<section class="world rv">
+
+  <div class="half yin">
+    <h2>Yin</h2>
+    <div class="role">Qi — the invisible</div>
+    <div class="nature">receptive · flowing · the source</div>
+    <div class="chips">
+      <span class="chip big" data-tip="Qi is the current of life itself — it animates everything.">Life</span>
+      <span class="chip" data-tip="No boundary, no end. It cannot be counted or contained.">Unlimited</span>
+      <span class="chip" data-tip="Knowing without thinking — the felt sense before words.">Intuition</span>
+      <span class="chip" data-tip="Fully here, now — responding to this moment as it unfolds.">Realtime</span>
+      <span class="chip" data-tip="Unplanned and alive — it moves before the mind can script it.">Spontaneous</span>
+      <span class="chip" data-tip="It cannot be fully explained, only experienced.">Mystery</span>
+      <span class="chip" data-tip="Restores from the root, not just the surface.">Healing</span>
+      <span class="chip" data-tip="Music, painting, movement — expression beyond logic.">Arts</span>
+      <span class="chip" data-tip="The living world — it grows without being told how.">Nature</span>
+      <span class="chip" data-tip="Felt in the body before the mind can name them.">Emotions</span>
+      <span class="chip" data-tip="No start, no finish — everything flows and returns.">The Circle ◯</span>
+    </div>
+    <div class="hover-hint">— hover any word —</div>
+  </div>
+
+  <div class="half yang">
+    <h2>Yang</h2>
+    <div class="role">Mind — the visible</div>
+    <div class="nature">active · structured · the known</div>
+    <div class="chips">
+      <span class="chip big" data-tip="The mind lives ahead of you — planning, projecting, never here.">The Future</span>
+      <span class="chip" data-tip="What has been learned, stored, and repeated.">Knowledge</span>
+      <span class="chip" data-tip="Practiced in advance — a script instead of the moment.">Rehearsed</span>
+      <span class="chip" data-tip="Always planning the next move instead of living this one.">Strategizing</span>
+      <span class="chip" data-tip="The endless inner commentary — analysis on repeat.">Thinking</span>
+      <span class="chip" data-tip="Data and facts — pieces, not the whole.">Information</span>
+      <span class="chip" data-tip="The mind externalized into a machine.">AI</span>
+      <span class="chip" data-tip="Bound to projects, deadlines, outcomes — only the known.">Limited</span>
+      <span class="chip" data-tip="It sees the symptom, not the root.">Symptoms</span>
+      <span class="chip" data-tip="Mechanical, repeatable, predictable.">Machines</span>
+      <span class="chip" data-tip="Measures only what can be measured.">Science</span>
+      <span class="chip" data-tip="A straight path: start → end. Point A to point B.">Linear →</span>
+    </div>
+    <div class="hover-hint">— hover any word —</div>
+  </div>
+
+</section>
+
+<!-- ================= LINE vs CIRCLE ================= -->
+<section class="shapes rv">
+  <div class="shape-card line">
+    <svg viewBox="0 0 300 90">
+      <line x1="20" y1="45" x2="258" y2="45" stroke="#9a7423" stroke-width="2.5"/>
+      <polygon points="258,37 278,45 258,53" fill="#9a7423"/>
+      <g fill="none" stroke="#9a7423" stroke-width="2">
+        <line x1="80" y1="35" x2="80" y2="55"/>
+        <line x1="150" y1="35" x2="150" y2="55"/>
+        <line x1="220" y1="35" x2="220" y2="55"/>
+      </g>
+      <g font-family="Georgia" font-size="11" fill="#8a7a52" text-anchor="middle" font-style="italic">
+        <text x="80" y="74">deadline</text>
+        <text x="150" y="74">outcome</text>
+        <text x="220" y="74">deadline</text>
+      </g>
+    </svg>
+    <h3>The Mind is a Line</h3>
+    <p>It moves from A to B — projects, deadlines, outcomes.<br>It always has an end.</p>
+  </div>
+  <div class="shape-card circle">
+    <svg viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="50" fill="none" stroke="#7fc7cd" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="70" cy="70" r="30" fill="none" stroke="rgba(127,199,205,.3)" stroke-width="1.5"/>
+      <circle cx="70" cy="70" r="3.5" fill="#7fc7cd"/>
+    </svg>
+    <h3>Qi is a Circle</h3>
+    <p>It has no beginning and no end — it flows, returns, and renews.<br>It is life moving.</p>
+  </div>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<footer class="closing rv">
+  <p class="big-line">
+    “Study what is <span class="v">visible</span> —<br>
+    and let it carry you to the <span class="i">invisible</span>.”
+  </p>
+  <div class="seal">氣 · 心</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
