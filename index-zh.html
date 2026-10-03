@@ -1709,7 +1709,7 @@
       return;
     }
     /* keep the final transform inline so the CSS hidden state can't re-apply */
-    gsap.fromTo(lines, {yPercent:112}, {yPercent:0, duration: instant ? .9 : 1.15, stagger:.13, ease:'power4.out'});
+    gsap.fromTo(lines, {y:0, yPercent:112}, {y:0, yPercent:0, duration: instant ? .9 : 1.15, stagger:.13, ease:'power4.out'});
     if (typeof qiFieldIntro === 'function') qiFieldIntro(instant);
   }
 

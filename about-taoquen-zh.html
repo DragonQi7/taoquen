@@ -1406,7 +1406,7 @@
       for (var i=0;i<lines.length;i++) lines[i].style.transform = 'none';
       return;
     }
-    gsap.fromTo(lines, {yPercent:112}, {yPercent:0, duration: instant ? .9 : 1.15, stagger:.13, ease:'power4.out'});
+    gsap.fromTo(lines, {y:0, yPercent:112}, {y:0, yPercent:0, duration: instant ? .9 : 1.15, stagger:.13, ease:'power4.out'});
     /* settle guard: entrance is ≤1.5s, so by now landing is a no-op in healthy
        browsers — but guarantees the headline in frame-throttled ones */
     window.setTimeout(function(){
