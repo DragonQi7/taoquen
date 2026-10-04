@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dragon's Way Quest — Learn Master Lu's Teachings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#58cc02; --green-dk:#46a302; --green-lt:#d7ffb8;
+  --blue:#1cb0f6; --blue-dk:#1899d6; --blue-lt:#ddf4ff;
+  --red:#ff4b4b; --red-dk:#ea2b2b; --red-lt:#ffdfe0;
+  --gold:#ffc800; --gold-dk:#e6a800;
+  --purple:#ce82ff; --purple-dk:#a568cc;
+  --teal:#00cd9c; --teal-dk:#00a47d;
+  --orange:#ff9600; --orange-dk:#e08600;
+  --ink:#4b4b4b; --ink-lt:#777; --line:#e5e5e5; --bg:#fbfbf3;
+  --disabled:#e5e5e5; --disabled-ink:#afafaf;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Nunito',-apple-system,'Segoe UI',system-ui,sans-serif;
+  font-weight:700; font-size:17px; line-height:1.45;
+}
+.app{max-width:520px;margin:0 auto;min-height:100vh;position:relative;background:var(--bg);}
+.screen{display:none;padding-bottom:40px;}
+.screen.active{display:block;}
+button{font-family:inherit;font-weight:800;cursor:pointer;border:none;}
+
+/* ============ 3D buttons ============ */
+.btn{
+  display:inline-block;width:100%;padding:14px 18px;border-radius:14px;
+  font-size:16px;letter-spacing:.6px;text-transform:uppercase;color:#fff;
+  background:var(--green);box-shadow:0 4px 0 var(--green-dk);
+  transition:filter .12s;user-select:none;
+}
+.btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--green-dk);}
+.btn.blue{background:var(--blue);box-shadow:0 4px 0 var(--blue-dk);}
+.btn.blue:active{box-shadow:0 0 0 var(--blue-dk);}
+.btn.red{background:var(--red);box-shadow:0 4px 0 var(--red-dk);}
+.btn.red:active{box-shadow:0 0 0 var(--red-dk);}
+.btn.ghost{background:#fff;color:var(--blue);box-shadow:0 4px 0 var(--line);border:2px solid var(--line);}
+.btn.ghost:active{box-shadow:0 0 0 var(--line);}
+.btn:disabled{background:var(--disabled);color:var(--disabled-ink);box-shadow:0 4px 0 #d0d0d0;cursor:default;}
+.btn:disabled:active{transform:none;}
+
+/* ============ Home header ============ */
+.top-stats{
+  position:sticky;top:0;z-index:50;display:flex;gap:8px;align-items:center;
+  padding:12px 16px;background:rgba(251,251,243,.94);backdrop-filter:blur(6px);
+  border-bottom:2px solid var(--line);
+}
+.stat-pill{display:flex;align-items:center;gap:5px;font-size:15px;font-weight:900;padding:4px 8px;border-radius:10px;}
+.stat-pill .em{font-size:18px;}
+.stat-streak{color:#ff9600;}
+.stat-xp{color:#1cb0f6;}
+.stat-lvl{margin-left:auto;color:#fff;background:var(--purple);box-shadow:0 2px 0 var(--purple-dk);font-size:12px;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;}
+.snd-btn{background:none;font-size:18px;padding:2px 4px;}
+.flame-on{animation:flamePulse 1.6s infinite;}
+@keyframes flamePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25) rotate(-4deg)}}
+
+.hero{display:flex;align-items:center;gap:14px;padding:18px 20px 6px;}
+.hero h1{font-size:22px;font-weight:900;margin:0;color:#3c3c3c;}
+.hero p{margin:2px 0 0;font-size:14px;color:var(--ink-lt);}
+.daily{margin:10px 20px 4px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px;}
+.daily .lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-lt);font-weight:800;}
+.bar{height:12px;background:#eee;border-radius:8px;overflow:hidden;margin-top:6px;}
+.bar>div{height:100%;background:var(--gold);border-radius:8px;transition:width .5s;}
+
+/* ============ Path ============ */
+.unit-banner{
+  margin:22px 16px 10px;border-radius:16px;padding:16px 18px;color:#fff;position:relative;overflow:hidden;
+}
+.unit-banner .u-kicker{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;opacity:.85;font-weight:900;}
+.unit-banner h2{margin:2px 0 3px;font-size:19px;font-weight:900;}
+.unit-banner p{margin:0;font-size:13px;opacity:.92;}
+.unit-banner .u-count{position:absolute;top:14px;right:16px;font-size:12px;font-weight:900;background:rgba(255,255,255,.25);padding:3px 9px;border-radius:9px;}
+.unit-banner .u-icon{position:absolute;bottom:-14px;right:-6px;font-size:64px;opacity:.22;transform:rotate(-12deg);}
+.path{display:flex;flex-direction:column;align-items:center;padding:6px 0 8px;}
+.node-wrap{position:relative;margin:9px 0;transition:transform .2s;}
+.node{
+  width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:30px;position:relative;border:none;
+}
+.node.done{background:var(--gold);box-shadow:0 6px 0 var(--gold-dk);}
+.node.active{box-shadow:0 6px 0 rgba(0,0,0,.22);animation:nodeBreath 2s infinite;}
+.node.locked{background:var(--disabled);box-shadow:0 6px 0 #d0d0d0;filter:grayscale(1);opacity:.75;cursor:default;}
+.node:not(.locked):active{transform:translateY(5px);box-shadow:0 1px 0 rgba(0,0,0,.2);}
+@keyframes nodeBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.node .ring{position:absolute;inset:-9px;border-radius:50%;border:4px solid rgba(0,0,0,.08);}
+.node.active .ring{border-color:currentColor;opacity:.35;animation:ringPulse 1.6s infinite;}
+@keyframes ringPulse{0%{transform:scale(.92);opacity:.5}70%{transform:scale(1.08);opacity:0}100%{opacity:0}}
+.start-tip{
+  position:absolute;top:-38px;left:50%;transform:translateX(-50%);
+  background:#fff;color:var(--green);border:2px solid var(--line);border-radius:10px;
+  padding:4px 12px;font-size:12px;font-weight:900;letter-spacing:1px;white-space:nowrap;z-index:5;
+  animation:bobble 1.2s infinite;
+}
+.start-tip:after{content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:#fff;border-right:2px solid var(--line);border-bottom:2px solid var(--line);}
+@keyframes bobble{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+.stars{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:-1px;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.15);}
+.node-label{text-align:center;font-size:12px;color:var(--ink-lt);font-weight:800;margin-top:14px;max-width:110px;line-height:1.2;}
+.practice-cta{margin:26px 20px 8px;}
+.foot-note{margin:30px 20px 10px;font-size:12px;color:#9a9a8f;text-align:center;line-height:1.5;}
+
+/* ============ Lesson ============ */
+.lesson-top{display:flex;align-items:center;gap:12px;padding:14px 16px 6px;}
+.quit-x{background:none;font-size:22px;color:#b5b5b5;padding:4px;}
+.lesson-bar{flex:1;height:16px;background:#e5e5e5;border-radius:10px;overflow:hidden;}
+.lesson-bar>div{height:100%;background:var(--green);border-radius:10px;transition:width .4s;position:relative;}
+.lesson-bar>div:after{content:"";position:absolute;top:3px;left:8px;right:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);}
+.hearts{font-size:15px;font-weight:900;color:var(--red);display:flex;gap:2px;align-items:center;}
+.q-area{padding:10px 20px 170px;}
+.q-title{font-size:20px;font-weight:900;color:#3c3c3c;margin:12px 0 18px;}
+.q-instr{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-lt);font-weight:900;margin-top:14px;}
+
+.opt{
+  display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);
+  border-radius:14px;box-shadow:0 3px 0 var(--line);padding:13px 15px;margin:9px 0;
+  font-size:16px;font-weight:800;color:var(--ink);transition:background .12s;
+}
+.opt .k{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:2px solid var(--line);border-radius:8px;font-size:13px;color:var(--ink-lt);margin-right:10px;}
+.opt.sel{border-color:var(--blue);background:var(--blue-lt);box-shadow:0 3px 0 var(--blue);color:var(--blue-dk);}
+.opt.sel .k{border-color:var(--blue);color:var(--blue-dk);}
+.opt.correct{border-color:var(--green);background:var(--green-lt);box-shadow:0 3px 0 var(--green);color:#3f8f00;}
+.opt.wrong{border-color:var(--red);background:var(--red-lt);box-shadow:0 3px 0 var(--red);color:var(--red-dk);animation:shake .4s;}
+.opt:disabled{cursor:default;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.tf-row{display:flex;gap:12px;}
+.tf-row .opt{text-align:center;font-size:18px;}
+
+.sentence{font-size:19px;font-weight:800;background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px;line-height:2;}
+.blank{display:inline-block;min-width:110px;border-bottom:3px solid #bbb;text-align:center;color:var(--blue-dk);font-weight:900;padding:0 6px;cursor:pointer;}
+.blank.filled{border-bottom-color:var(--blue);}
+.bank{display:flex;flex-wrap:wrap;gap:10px;}
+.chip{
+  background:#fff;border:2px solid var(--line);border-radius:12px;box-shadow:0 3px 0 var(--line);
+  padding:9px 16px;font-size:16px;font-weight:800;color:var(--ink);
+}
+.chip:active{transform:translateY(3px);box-shadow:none;}
+.chip.used{opacity:.35;pointer-events:none;}
+.seq-zone{min-height:52px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;padding:10px 4px;margin-bottom:16px;}
+.seq-zone .chip{background:var(--blue-lt);border-color:var(--blue);color:var(--blue-dk);}
+.seq-num{font-size:12px;opacity:.6;margin-right:4px;}
+
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mchip{
+  background:#fff;border:2px solid var(--line);border-radius:12px;box-shadow:0 3px 0 var(--line);
+  padding:12px 10px;font-size:14.5px;font-weight:800;color:var(--ink);min-height:56px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.mchip.sel{border-color:var(--blue);background:var(--blue-lt);color:var(--blue-dk);box-shadow:0 3px 0 var(--blue);}
+.mchip.lock{border-color:var(--green);background:var(--green-lt);color:#3f8f00;opacity:.45;pointer-events:none;}
+.mchip.bad{border-color:var(--red);background:var(--red-lt);animation:shake .4s;}
+
+/* ============ Footer / feedback ============ */
+.lesson-foot{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;
+  background:#fff;border-top:2px solid var(--line);padding:14px 20px 18px;z-index:60;
+}
+.lesson-foot.ok{background:var(--green-lt);border-top-color:var(--green-lt);}
+.lesson-foot.bad{background:var(--red-lt);border-top-color:var(--red-lt);}
+.fb{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;}
+.fb .fb-ico{font-size:28px;line-height:1;}
+.fb h3{margin:0 0 2px;font-size:18px;font-weight:900;}
+.fb p{margin:0;font-size:14px;font-weight:700;}
+.fb.ok h3,.fb.ok p{color:#3f8f00;}
+.fb.bad h3,.fb.bad p{color:var(--red-dk);}
+.combo-toast{
+  position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:80;
+  background:var(--gold);color:#7a5b00;font-weight:900;padding:8px 18px;border-radius:20px;
+  box-shadow:0 4px 0 var(--gold-dk);font-size:15px;opacity:0;pointer-events:none;transition:opacity .3s, top .3s;
+}
+.combo-toast.show{opacity:1;top:84px;}
+
+/* ============ Tips (lesson intro) ============ */
+.tips-card{margin:14px 20px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:20px;}
+.tips-card h2{margin:0 0 4px;font-size:21px;font-weight:900;color:#3c3c3c;}
+.tips-card .sub{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-lt);font-weight:900;}
+.tip-line{display:flex;gap:10px;margin:14px 0;font-size:15.5px;font-weight:700;color:var(--ink);}
+.tip-line .dot{flex:0 0 auto;font-size:17px;}
+.dragon-say{display:flex;align-items:flex-end;gap:8px;padding:6px 20px 0;}
+.bubble{background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px;font-weight:800;color:var(--ink);position:relative;margin-bottom:16px;}
+.bubble:after{content:"";position:absolute;left:-8px;bottom:12px;width:12px;height:12px;background:#fff;border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg);}
+
+/* ============ Results ============ */
+.results-wrap{text-align:center;padding:40px 24px 20px;}
+.results-wrap h2{font-size:26px;font-weight:900;color:var(--gold-dk);margin:12px 0 4px;}
+.res-cards{display:flex;gap:10px;justify-content:center;margin:22px 0;}
+.res-card{border-radius:14px;padding:3px;min-width:105px;color:#fff;font-weight:900;}
+.res-card .rc-lbl{font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 0 2px;}
+.res-card .rc-val{background:#fff;border-radius:0 0 12px 12px;padding:10px 6px;font-size:20px;}
+.rc-xp{background:var(--gold);}.rc-xp .rc-val{color:var(--gold-dk);}
+.rc-acc{background:var(--green);}.rc-acc .rc-val{color:var(--green-dk);}
+.rc-cmb{background:var(--blue);}.rc-cmb .rc-val{color:var(--blue-dk);}
+.quote{margin:8px auto 26px;max-width:360px;font-size:16px;font-style:italic;color:var(--ink-lt);font-weight:700;}
+.quote b{display:block;font-style:normal;font-size:13px;margin-top:6px;color:#9a9a8f;}
+.big-stars{font-size:40px;letter-spacing:2px;margin-top:6px;}
+
+/* ============ Modal ============ */
+.modal-bg{position:fixed;inset:0;background:rgba(60,60,60,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;}
+.modal-bg.show{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:360px;width:100%;padding:24px;text-align:center;}
+.modal h3{margin:6px 0 8px;font-size:20px;font-weight:900;}
+.modal p{font-size:15px;color:var(--ink-lt);margin:0 0 18px;}
+.modal .btn{margin-top:8px;}
+.modal .m-ico{font-size:44px;}
+
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:90;}
+.pop-in{animation:popIn .35s cubic-bezier(.2,1.6,.4,1);}
+@keyframes popIn{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.slide-in{animation:slideIn .3s ease-out;}
+@keyframes slideIn{0%{transform:translateX(40px);opacity:0}100%{transform:translateX(0);opacity:1}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= HOME ================= -->
+  <div id="home" class="screen active">
+    <div class="top-stats">
+      <div class="stat-pill stat-streak"><span class="em" id="flameEm">🔥</span><span id="streakVal">0</span></div>
+      <div class="stat-pill stat-xp"><span class="em">⚡</span><span id="xpVal">0</span> XP</div>
+      <button class="snd-btn" id="sndBtn" title="Sound on/off">🔊</button>
+      <div class="stat-pill stat-lvl" id="lvlVal">Qi Seedling</div>
+    </div>
+    <div class="hero">
+      <div id="dragonHero"></div>
+      <div>
+        <h1>Dragon's Way Quest</h1>
+        <p>Learn Grand Master Nan Lu's teachings, one lesson at a time.</p>
+      </div>
+    </div>
+    <div class="daily">
+      <div class="lbl"><span>🎯 Daily goal</span><span id="goalLbl">0 / 30 XP</span></div>
+      <div class="bar"><div id="goalBar" style="width:0%"></div></div>
+    </div>
+    <div id="pathArea"></div>
+    <div class="foot-note">Educational content distilled from Grand Master Nan Lu's Dragon's Way Qigong® guidebook,
+    the Five Element Consciousness course and the TCM World teaching library. Not medical advice.</div>
+  </div>
+
+  <!-- ================= TIPS ================= -->
+  <div id="tips" class="screen">
+    <div class="lesson-top">
+      <button class="quit-x" onclick="goHome()">✕</button>
+      <div class="lesson-bar"><div style="width:0%"></div></div>
+    </div>
+    <div class="dragon-say">
+      <div id="dragonTips"></div>
+      <div class="bubble" id="tipsBubble">Ready? Study these, then prove it!</div>
+    </div>
+    <div class="tips-card pop-in" id="tipsCard"></div>
+    <div style="padding:0 20px;"><button class="btn" id="tipsStart">Start lesson</button></div>
+  </div>
+
+  <!-- ================= LESSON ================= -->
+  <div id="lesson" class="screen">
+    <div class="lesson-top">
+      <button class="quit-x" id="quitBtn">✕</button>
+      <div class="lesson-bar"><div id="lessonBar" style="width:0%"></div></div>
+      <div class="hearts" id="heartsBox"></div>
+    </div>
+    <div class="q-area" id="qArea"></div>
+    <div class="lesson-foot" id="lessonFoot">
+      <div id="fbZone"></div>
+      <button class="btn" id="checkBtn" disabled>Check</button>
+    </div>
+  </div>
+
+  <!-- ================= RESULTS ================= -->
+  <div id="results" class="screen">
+    <div class="results-wrap">
+      <div id="dragonWin"></div>
+      <div class="big-stars" id="resStars"></div>
+      <h2 id="resTitle">Lesson complete!</h2>
+      <div class="res-cards">
+        <div class="res-card rc-xp"><div class="rc-lbl">Total XP</div><div class="rc-val" id="resXp">0</div></div>
+        <div class="res-card rc-acc"><div class="rc-lbl">Accuracy</div><div class="rc-val" id="resAcc">0%</div></div>
+        <div class="res-card rc-cmb"><div class="rc-lbl">Best combo</div><div class="rc-val" id="resCmb">0</div></div>
+      </div>
+      <div class="quote" id="resQuote"></div>
+      <div style="max-width:340px;margin:0 auto;"><button class="btn" onclick="goHome()">Continue</button></div>
+    </div>
+  </div>
+
+  <div class="combo-toast" id="comboToast"></div>
+
+  <!-- Quit modal -->
+  <div class="modal-bg" id="quitModal">
+    <div class="modal">
+      <div class="m-ico">🐉</div>
+      <h3>Wait, don't go!</h3>
+      <p>You'll lose your progress in this lesson.</p>
+      <button class="btn blue" id="keepBtn">Keep learning</button>
+      <button class="btn ghost" id="reallyQuitBtn" style="color:var(--red);">Quit</button>
+    </div>
+  </div>
+
+  <!-- Out of hearts modal -->
+  <div class="modal-bg" id="heartsModal">
+    <div class="modal">
+      <div class="m-ico">💔</div>
+      <h3>Out of hearts!</h3>
+      <p>Your Qi ran low. Review the tips and try this lesson again — the dragon believes in you.</p>
+      <button class="btn" id="retryBtn">Try again</button>
+      <button class="btn ghost" id="heartsHomeBtn">Back to path</button>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+</div>
+
+<script>
+"use strict";
+/* =====================================================
+   CONTENT — distilled from Grand Master Nan Lu's
+   teachings (Dragon's Way Qigong guidebook, Five Element
+   Consciousness course, TCM World library transcripts)
+   ===================================================== */
+const QUOTES=[
+ ["The body is a microcosm of Nature.","Grand Master Nan Lu"],
+ ["Everything is energy, and everything is connected.","Grand Master Nan Lu"],
+ ["Symptoms are the body's way of asking for support.","Dragon's Way Qigong"],
+ ["Treat health, not disease.","Xiao Dao teaching"],
+ ["The answers lie within.","Grand Master Nan Lu"],
+ ["There are no accidents.","Five Element teaching"],
+ ["The body never lies.","Grand Master Nan Lu"],
+ ["I already put her down — but you've been carrying her all day long.","The monk's story: let it go"],
+ ["Health is a byproduct of harmony.","TCM World teaching"],
+ ["Use your energy in a positive way to make your life more beautiful.","Grand Master Nan Lu"]
+];
+
+const UNITS=[];
+
+/* ---------------- UNIT 1 ---------------- */
+UNITS.push({
+ title:"Everything Is Energy",
+ desc:"Qi, the two energy banks, and the body's messages",
+ color:"var(--green)", dark:"var(--green-dk)", icon:"⚡",
+ lessons:[
+ {title:"What is Qi?", icon:"⚡",
+  tips:[
+   "Qi is the vital energy — the animating life force in all living things.",
+   "Master Lu's core teaching: everything is energy, all energy has consciousness, all consciousness has purpose.",
+   "The invisible creates the visible — imbalance begins energetically before it ever shows up physically.",
+   "Health is a byproduct of harmony, not a thing to chase."
+  ],
+  questions:[
+   {t:"mc",q:"What is Qi?",opts:["The body's vital energy, or life force","A type of ancient Chinese herb","A breathing technique only","The name of a single meridian"],a:0,why:"Qi is the animating force that guides you through life and determines your health and well-being."},
+   {t:"mc",q:"Complete Master Lu's teaching: “Everything is energy, and all energy has ___.”",opts:["consciousness","weight","temperature","color"],a:0,why:"Everything is energy, all energy has consciousness, all consciousness has purpose."},
+   {t:"tf",q:"Imbalances appear on the energetic level before they become physical symptoms.",a:true,why:"Unaddressed energetic imbalances progress into physical signs — bloating, aches, weight changes and beyond."},
+   {t:"fill",q:"The ___ creates the visible.",bank:["invisible","doctor","muscle","season"],a:"invisible",why:"Deep, unseen energetic patterns produce what we later see in the body."},
+   {t:"mc",q:"In Master Lu's teaching, health is best described as…",opts:["a byproduct of harmony","a prize won at the gym","the absence of a diagnosis","pure genetic luck"],a:0,why:"When body, mind, spirit and Nature are in harmony, health follows naturally."},
+   {t:"tf",q:"You are an energy being — your body reflects what's happening on the energetic level.",a:true,why:"The body is a reflection of your life; all life imbalances affect the smooth flow of energy."},
+   {t:"mc",q:"How did the ancient Chinese masters discover the link between humans and Nature?",opts:["Silent meditation and observing Nature's connections","Laboratory experiments","Dissecting the body","Studying only the stars"],a:0,why:"They sat in silent meditation and observed the connections in the world around them — the basis of TCM."},
+   {t:"match",q:"Match each idea to its meaning",pairs:[["Qi","Vital life-force energy"],["Consciousness","The intelligence within energy"],["Harmony","The condition that creates health"],["The invisible","What creates the visible"]]}
+  ]},
+ {title:"Two Banks of Qi", icon:"🏦",
+  tips:[
+   "You're born with inherited Qi from your parents. It's finite, and its quality can't be improved — like a savings account, stored by the Kidney.",
+   "Acquired Qi is your checking account: it comes from food (via the Spleen/Stomach), Qigong practice and good sleep.",
+   "When the checking account runs low, the body withdraws from your precious inherited savings.",
+   "The secret of Dragon's Way: save your energy — and acquire more."
+  ],
+  questions:[
+   {t:"mc",q:"Where does your inherited Qi come from?",opts:["Your parents","Food","Sunlight","Exercise"],a:0,why:"We come into the world with a finite amount of energy inherited from our parents."},
+   {t:"tf",q:"The quality of your inherited Qi can be improved with hard work.",a:false,why:"It's predetermined by your parents' health. You can only spend it wisely — and acquire new Qi."},
+   {t:"mc",q:"Which organ pair accumulates acquired Qi from the food you eat?",opts:["Spleen & Stomach","Heart & Small Intestine","Lung & Large Intestine","Liver & Gallbladder"],a:0,why:"The Spleen and Stomach turn food into the acquired Qi your body spends every day."},
+   {t:"fill",q:"Inherited Qi is stored by the ___, like a deep well of savings.",bank:["Kidney","Liver","Stomach","Heart"],a:"Kidney",why:"Master Lu: imagine your inherited Qi inside a deep well — draw from it only when needed."},
+   {t:"mc",q:"What happens when your acquired Qi runs low?",opts:["The body draws from inherited Qi reserves","Nothing happens","You automatically gain Qi","The meridians close"],a:0,why:"When the bank of acquired Qi runs low, the body dips into the inherited Qi stored in the Kidney."},
+   {t:"match",q:"Match the Qi banking system",pairs:[["Inherited Qi","Savings account"],["Acquired Qi","Checking account"],["Spleen/Stomach","Source of acquired Qi"],["Kidney","Keeper of inherited Qi"]]},
+   {t:"mc",q:"Which of these is NOT a way to acquire more Qi?",opts:["Worrying harder","Qigong practice","Warm, cooked food","Good sleep"],a:0,why:"Worry drains the Earth element. Qigong, nourishing food and sleep build Qi."},
+   {t:"tf",q:"Sleep is treated as a major energy source, not merely rest.",a:true,why:"Sleep is one of the body's main ways to recharge Qi — skimping on it is spending your savings."}
+  ]},
+ {title:"The Body Never Lies", icon:"💬",
+  tips:[
+   "Symptoms are communication, not the enemy — the body's way of asking for support.",
+   "There are no accidents: the location, timing and cravings of your body all carry meaning.",
+   "“Treat health, not disease”: ask what requirement is missing, not just what the disease is called.",
+   "The body can heal itself when the right conditions are restored."
+  ],
+  questions:[
+   {t:"mc",q:"In Master Lu's teaching, a symptom is best understood as…",opts:["a message asking for support","an enemy to silence","random bad luck","a purely mechanical failure"],a:0,why:"Symptoms are the body's way of asking for support — decode them, don't just mute them."},
+   {t:"fill",q:"“The body never ___.”",bank:["lies","sleeps","stops","complains"],a:"lies",why:"One of Master Lu's most repeated teachings: every signal from the body is honest information."},
+   {t:"tf",q:"“Treat health, not disease” means restoring what's missing rather than chasing disease labels.",a:true,why:"The question is not “What is the disease called?” but “What requirement is missing?”"},
+   {t:"mc",q:"An intense craving for sour foods is a signal from which organ?",opts:["Liver","Lung","Kidney","Heart"],a:0,why:"The Dragon's Way guidebook: your craving for sour foods is a signal from your Liver."},
+   {t:"mc",q:"A feeling of intense worry may indicate an imbalance in which organ function?",opts:["Stomach","Heart","Bladder","Liver"],a:0,why:"Worry and overthinking point to the Stomach/Spleen — the Earth element."},
+   {t:"tf",q:"In TCM, the practitioner's job is to force the body to heal.",a:false,why:"Practitioners don't force healing — they help recreate the conditions that allow the body to heal itself."},
+   {t:"mc",q:"“There are no accidents” means…",opts:["symptom location and timing carry meaning","physical accidents never happen","only fate controls health","doctors are unnecessary"],a:0,why:"Every symptom, its timing and its body location carry a decodable message."},
+   {t:"fill",q:"The body can ___ itself when the right requirements are restored.",bank:["heal","blame","exhaust","replace"],a:"heal",why:"Dragon's Way is built on the body's innate ability to heal itself."}
+  ]},
+ {title:"Meridians & the Organ Clock", icon:"🕐",
+  tips:[
+   "Meridians are the body's energy network — 12 major organ meridians carry Qi and information, connecting organs, emotions and body regions.",
+   "Master Lu's diagnostic logic: location → meridian → organ → element.",
+   "Each organ has a 2-hour peak window on the organ clock. The Large Intestine's is 5–7am.",
+   "The lower back is called “the house of the Kidney.”"
+  ],
+  questions:[
+   {t:"mc",q:"What are meridians?",opts:["Energy pathways connecting organs, emotions and body regions","Blood vessels","Nerve endings","Muscle fibers"],a:0,why:"Meridians are the true energy body — they carry information even faster than biochemical signals."},
+   {t:"mc",q:"How many major organ meridians are there?",opts:["12","5","7","20"],a:0,why:"Twelve major organ meridians, plus central regulating channels like the Ren and Du vessels."},
+   {t:"order",q:"Put Master Lu's diagnostic logic in order",items:["Location","Meridian","Organ","Element"],why:"Start where the symptom appears, map it to a meridian, then to its organ, then to its element."},
+   {t:"fill",q:"The lower back is known as “the house of the ___.”",bank:["Kidney","Liver","Heart","Lung"],a:"Kidney",why:"Lower back pain is read as a Kidney-system message — the house of your deepest reserves."},
+   {t:"mc",q:"On the organ clock, each organ has a peak window of…",opts:["2 hours","30 minutes","12 hours","one week"],a:0,why:"Each organ system takes the lead for a two-hour window every day."},
+   {t:"mc",q:"Symptoms that appear at 5–7am connect to which organ?",opts:["Large Intestine","Heart","Liver","Bladder"],a:0,why:"5–7am is Large Intestine time — morning coughing or bathroom urges at this hour are its signals."},
+   {t:"tf",q:"Waking at the same time every night can be a clue about a specific organ system.",a:true,why:"Timing is diagnostic: waking at a set hour points to a handoff problem between organ systems."},
+   {t:"mc",q:"Pain at the temples or side of the head most often maps to…",opts:["Liver & Gallbladder","Lung & Large Intestine","Heart & Small Intestine","Spleen & Stomach"],a:0,why:"Side-of-head and temple pain travels the Liver/Gallbladder pathways."}
+  ]}
+]});
+/* ---------------- UNIT 2 ---------------- */
+UNITS.push({
+ title:"The Five Elements",
+ desc:"Nature's blueprint: organs, seasons, emotions and cycles",
+ color:"var(--purple)", dark:"var(--purple-dk)", icon:"🌀",
+ lessons:[
+ {title:"Meet the Elements", icon:"🌳",
+  tips:[
+   "The Five Elements — Wood, Fire, Earth, Metal, Water — are Nature's blueprint for the body.",
+   "Each element links to an organ pair: Wood = Liver/Gallbladder, Fire = Heart/Small Intestine, Earth = Spleen/Stomach, Metal = Lung/Large Intestine, Water = Kidney/Urinary Bladder.",
+   "If one organ underperforms, the others compensate to restore balance — the body works as a team."
+  ],
+  questions:[
+   {t:"mc",q:"Which are the Five Elements?",opts:["Wood, Fire, Earth, Metal, Water","Air, Water, Fire, Earth, Spirit","Wood, Wind, Earth, Gold, Rain","Sun, Moon, Earth, Fire, Water"],a:0,why:"Wood, Fire, Earth, Metal and Water — each linked to an organ system, emotion, color, taste and season."},
+   {t:"match",q:"Match each element to its organ",pairs:[["Wood","Liver"],["Fire","Heart"],["Earth","Spleen"],["Metal","Lung"],["Water","Kidney"]]},
+   {t:"mc",q:"The Liver's partner organ is the…",opts:["Gallbladder","Stomach","Bladder","Small Intestine"],a:0,why:"Liver and Gallbladder are the Wood element partners."},
+   {t:"mc",q:"The Heart's partner organ is the…",opts:["Small Intestine","Large Intestine","Gallbladder","Stomach"],a:0,why:"Heart and Small Intestine share the Fire element."},
+   {t:"fill",q:"The Lung partners with the ___ Intestine.",bank:["Large","Small","Middle","Inner"],a:"Large",why:"Lung and Large Intestine — the Metal pair — continually support each other in letting go."},
+   {t:"mc",q:"The Kidney's partner organ is the…",opts:["Urinary Bladder","Gallbladder","Stomach","Small Intestine"],a:0,why:"Kidney and Urinary Bladder are the Water element partners."},
+   {t:"tf",q:"If one organ isn't functioning optimally, the others compensate to restore balance.",a:true,why:"The five circles are one harmonious whole — every organ supports the overall health of the body."},
+   {t:"match",q:"Match the partner organs",pairs:[["Liver","Gallbladder"],["Heart","Small Intestine"],["Spleen","Stomach"],["Lung","Large Intestine"],["Kidney","Urinary Bladder"]]}
+  ]},
+ {title:"Seasons & Colors", icon:"🍂",
+  tips:[
+   "Each element rules a season: Wood–Spring, Fire–Summer, Earth–Late Summer, Metal–Autumn, Water–Winter.",
+   "And a color: green, red, yellow, white, and black (or dark blue).",
+   "Wearing an element's color gives that organ energetic support — wear green to boost your Liver!",
+   "Always sick in the same season? That's an element clue."
+  ],
+  questions:[
+   {t:"match",q:"Match each element to its season",pairs:[["Wood","Spring"],["Fire","Summer"],["Earth","Late Summer"],["Metal","Autumn"],["Water","Winter"]]},
+   {t:"mc",q:"Which season belongs to the Earth element?",opts:["Late Summer","Spring","Winter","Autumn"],a:0,why:"Earth rules Late Summer — the season of grounding and digestion."},
+   {t:"match",q:"Match each element to its color",pairs:[["Wood","Green"],["Fire","Red"],["Earth","Yellow"],["Metal","White"],["Water","Black"]]},
+   {t:"mc",q:"To give your Liver a boost, Master Lu suggests wearing…",opts:["green","red","white","black"],a:0,why:"Green resonates with the Liver — after all, all of Nature turns green in Spring!"},
+   {t:"fill",q:"Winter is the season of the ___ element.",bank:["Water","Fire","Wood","Earth"],a:"Water",why:"Winter belongs to Water — the Kidney/Bladder season of storage and reserves."},
+   {t:"tf",q:"The color yellow energetically connects with the Spleen and Stomach.",a:true,why:"Yellow's frequency connects with the Earth element — wear it to support digestion."},
+   {t:"mc",q:"All of Nature turns green in which season?",opts:["Spring","Summer","Autumn","Winter"],a:0,why:"Spring is Wood's season of renewal and growth."},
+   {t:"mc",q:"Metal's season is…",opts:["Autumn","Summer","Spring","Late Summer"],a:0,why:"Autumn is the Metal season — the Lung's time of release and protection."}
+  ]},
+ {title:"Emotions & Tastes", icon:"😤",
+  tips:[
+   "Each organ speaks through an emotion: Liver–anger, Heart–joy (scattered when imbalanced), Spleen/Stomach–worry, Lung–grief, Kidney–fear.",
+   "And through taste: sour–Liver, bitter–Heart, sweet–Spleen, spicy–Lung, salty–Kidney.",
+   "Recurring emotions and cravings are organ messages — not character flaws."
+  ],
+  questions:[
+   {t:"match",q:"Match each emotion to its organ",pairs:[["Anger","Liver"],["Worry","Spleen/Stomach"],["Grief","Lung"],["Fear","Kidney"],["Joy","Heart"]]},
+   {t:"mc",q:"Chronic frustration and anger point to which element?",opts:["Wood","Fire","Metal","Water"],a:0,why:"Anger and frustration are Wood signals — the Liver/Gallbladder asking for flow."},
+   {t:"match",q:"Match each taste to its organ",pairs:[["Sour","Liver"],["Bitter","Heart"],["Sweet","Spleen"],["Spicy","Lung"],["Salty","Kidney"]]},
+   {t:"mc",q:"Craving salty foods is a message from the…",opts:["Kidney","Heart","Liver","Spleen"],a:0,why:"Salty is the Water taste — a Kidney message."},
+   {t:"fill",q:"Grief and deep sadness are the emotions of the ___.",bank:["Lung","Liver","Kidney","Heart"],a:"Lung",why:"The Lung holds grief; releasing it restores the Metal element's power to let go."},
+   {t:"tf",q:"In TCM, emotions are a form of Qi with direct physical consequences.",a:true,why:"Emotions aren't a side topic — they're energy that directly shapes organ function."},
+   {t:"mc",q:"Overthinking and worry burden which element?",opts:["Earth","Wood","Fire","Water"],a:0,why:"The Earth element — Spleen/Stomach — digests thoughts as well as food. Overthinking overloads it."},
+   {t:"mc",q:"Which emotion belongs to the Heart?",opts:["Joy","Fear","Anger","Grief"],a:0,why:"Joy is the Heart's emotion — imbalance shows as scattered, restless over-excitement."}
+  ]},
+ {title:"The Cycles", icon:"🔄",
+  tips:[
+   "The nurturing (mother–child) cycle: Wood → Fire → Earth → Metal → Water → back to Wood. Each element feeds the next.",
+   "The controlling cycle keeps balance: Wood→Earth, Earth→Water, Water→Fire, Fire→Metal, Metal→Wood.",
+   "Healing strategy: a strong “mother” organ can feed her weak “child” — healing is a team effort."
+  ],
+  questions:[
+   {t:"order",q:"Arrange the nurturing cycle, starting with Wood",items:["Wood","Fire","Earth","Metal","Water"],why:"Wood feeds Fire, Fire creates Earth (ash), Earth births Metal, Metal enriches Water, Water grows Wood."},
+   {t:"mc",q:"In the nurturing cycle, which element is the mother of Fire?",opts:["Wood","Water","Earth","Metal"],a:0,why:"Wood feeds Fire — the Liver is the mother of the Heart."},
+   {t:"mc",q:"Water nourishes which element?",opts:["Wood","Fire","Earth","Metal"],a:0,why:"Water grows Wood — the Kidney is the mother of the Liver."},
+   {t:"tf",q:"In the controlling cycle, Water controls Fire.",a:true,why:"Water puts out Fire — that's how the Kidney keeps the Heart in healthy check."},
+   {t:"mc",q:"Which element does Wood control?",opts:["Earth","Metal","Fire","Water"],a:0,why:"Wood controls Earth — which is why Liver stress so often disturbs the Stomach."},
+   {t:"fill",q:"In the mother–child cycle, Earth is the mother of ___.",bank:["Metal","Wood","Fire","Water"],a:"Metal",why:"Earth births Metal — the Spleen/Stomach nourishes the Lung."},
+   {t:"mc",q:"If the Kidney (Water) is weak, which mother element can feed it?",opts:["Metal","Wood","Fire","Earth"],a:0,why:"Metal enriches Water — supporting the Lung helps refill the Kidney."},
+   {t:"tf",q:"Healing often means finding the strongest organ to support the weaker one — a team effort.",a:true,why:"Master Lu treats healing as relationship repair: build a team, don't isolate one organ."}
+  ]}
+]});
+
+/* ---------------- UNIT 3 ---------------- */
+UNITS.push({
+ title:"Organ Wisdom",
+ desc:"The inner kingdom: CEO, King, Nourishers and Guardians",
+ color:"var(--teal)", dark:"var(--teal-dk)", icon:"🫀",
+ lessons:[
+ {title:"Liver — the CEO", icon:"👓",
+  tips:[
+   "The Liver drives flow, planning and decisions — Master Lu calls it the body's CEO.",
+   "It opens into the eyes, governs the tendons, and houses the Hun spirit.",
+   "Its signals: sour cravings, eye issues, temple headaches, anger and frustration. Its season is Spring."
+  ],
+  questions:[
+   {t:"mc",q:"Which organ is called the body's CEO?",opts:["Liver","Heart","Kidney","Lung"],a:0,why:"The Liver is the CEO — it drives flow, decisions and turning invisible plans into visible action."},
+   {t:"mc",q:"The Liver opens into which sense organ?",opts:["Eyes","Ears","Nose","Tongue"],a:0,why:"The eyes are the Liver's windows — most eye conditions are read through Liver/Gallbladder logic."},
+   {t:"mc",q:"Which tissue does the Liver govern?",opts:["Tendons","Bones","Skin","Muscles"],a:0,why:"Tendons and ligaments belong to the Liver — flexibility of body mirrors flexibility of mind."},
+   {t:"fill",q:"The Liver's spirit is called the ___.",bank:["Hun","Shen","Po","Zhi"],a:"Hun",why:"The Hun governs vision, planning and growth — expressing the invisible into visible form."},
+   {t:"tf",q:"Tendon and ligament problems often connect to the Liver.",a:true,why:"The Liver nourishes the tendons; stiffness and tendon injuries are Wood-element messages."},
+   {t:"mc",q:"The Dragon's Toe Dance stimulates which organ's energy?",opts:["Liver","Kidney","Lung","Heart"],a:0,why:"The guidebook: practice the Toe Dance anywhere — it stimulates Liver energy."},
+   {t:"mc",q:"Frequent temple or side-of-head headaches suggest which pair?",opts:["Liver & Gallbladder","Heart & Small Intestine","Lung & Large Intestine","Spleen & Stomach"],a:0,why:"The Gallbladder meridian runs along the sides of the head."},
+   {t:"tf",q:"Eye conditions like floaters are read through Liver and Gallbladder logic.",a:true,why:"Eyes are heavily tied to the Wood element in Master Lu's difficult-cases teachings."}
+  ]},
+ {title:"Heart — the King", icon:"👑",
+  tips:[
+   "The Heart is “the King of All Organs” — the chairman that houses the Shen, your spirit.",
+   "It opens into the tongue, governs the blood vessels, and rules Summer with the emotion of joy.",
+   "TCM practitioners read the tongue's colors and patterns to identify organ disorders."
+  ],
+  questions:[
+   {t:"mc",q:"Which organ is “the King of All Organs”?",opts:["Heart","Liver","Kidney","Stomach"],a:0,why:"The Heart is the King — the chairman overseeing spirit, joy and coherence."},
+   {t:"fill",q:"The Heart houses the ___ — your spirit.",bank:["Shen","Hun","Yi","Zhi"],a:"Shen",why:"The Shen brings spirit, intuition, connection and overall coherence."},
+   {t:"mc",q:"The Heart's sense organ is the…",opts:["tongue","eye","ear","nose"],a:0,why:"The tongue is the Heart's opening — its colors and patterns map the inner landscape."},
+   {t:"mc",q:"The Heart governs which tissue?",opts:["Blood vessels","Bones","Tendons","Skin"],a:0,why:"Blood vessels are the Fire element's tissue, ruled by the Heart."},
+   {t:"tf",q:"TCM practitioners read tongue colors and patterns to identify organ function disorders.",a:true,why:"The guidebook even includes a tongue map — each region reflects an organ system."},
+   {t:"mc",q:"The Heart's element and season are…",opts:["Fire & Summer","Wood & Spring","Water & Winter","Metal & Autumn"],a:0,why:"Fire blazes in Summer — the Heart's time of joy and circulation."},
+   {t:"mc",q:"The story of the monk who carried a woman across the river teaches…",opts:["let it go","never help strangers","rivers are dangerous","stay silent when angry"],a:0,why:"“I already put her down — but you've been carrying her all day long.” Release what you're still carrying."},
+   {t:"tf",q:"In the body's “business,” the Heart is the chairman overseeing spirit and coherence.",a:true,why:"Heart = chairman, Liver = CEO, Spleen/Stomach = resource managers, Kidney = the foundation."}
+  ]},
+ {title:"Spleen & Stomach — the Nourishers", icon:"🍲",
+  tips:[
+   "The Earth pair digests everything: food, thoughts, information and experience. Their spirit is the Yi.",
+   "They govern the muscles, open into the mouth, and show imbalance as worry and overthinking.",
+   "Your Stomach loves warmth — steady cold, raw or processed food weakens its fire."
+  ],
+  questions:[
+   {t:"mc",q:"Beyond food, the Spleen/Stomach also digest…",opts:["thoughts, emotions and information","only liquids","sunlight","nothing else"],a:0,why:"Everything must be digested — meals, feelings, information and life events."},
+   {t:"mc",q:"The Spleen/Stomach spirit is the…",opts:["Yi","Po","Shen","Hun"],a:0,why:"The Yi digests food, thought and experience into usable essence."},
+   {t:"tf",q:"The Stomach loves cold, raw foods.",a:false,why:"The opposite! The Stomach loves warmth — cook your vegetables and skip the iced drinks."},
+   {t:"mc",q:"The Earth element governs which tissue?",opts:["Muscles","Bones","Skin","Blood vessels"],a:0,why:"Muscles (and lips) belong to Earth — weak digestion often shows as weak muscle tone."},
+   {t:"mc",q:"Adaptive (acquired) immunity links to which organs?",opts:["Stomach & Spleen","Kidney & Bladder","Heart & Small Intestine","Liver & Gallbladder"],a:0,why:"Acquired immunity is built by the Earth pair; inherited immunity lives with the Kidney/Bladder."},
+   {t:"fill",q:"Wear ___ to energetically support the Spleen/Stomach.",bank:["yellow","green","red","white"],a:"yellow",why:"Yellow's frequency connects with the Earth element."},
+   {t:"mc",q:"Which foods support the Earth element?",opts:["Carrots, sweet potatoes & ginger","Iced smoothies","Raw salads","Cold dairy"],a:0,why:"Warming foods grown in the earth — carrots, sweet potato, ginger, turmeric, cinnamon."},
+   {t:"tf",q:"Belly fat is described as stuck Qi and unresolved emotional material in the Stomach area.",a:true,why:"It's framed as stagnant energy asking to be digested — not merely calories."}
+  ]},
+ {title:"Lung & Kidney — Release & Reserve", icon:"🌬️",
+  tips:[
+   "Lung (Metal): the Po spirit. It governs your skin — the body's largest organ — opens into the nose, and releases grief. Its partner, the Large Intestine, helps you let go.",
+   "Kidney (Water): the Zhi spirit. It stores inherited Qi and genetic wisdom, governs the bones, opens into the ears, and holds your will.",
+   "Walnuts — shaped like little brains — are a warming food that supports Kidney Qi."
+  ],
+  questions:[
+   {t:"mc",q:"Which organ provides the Qi that keeps skin radiant?",opts:["Lung","Liver","Heart","Spleen"],a:0,why:"Radiant, wrinkle-free skin is a sign of healthy Lung Qi."},
+   {t:"mc",q:"The Lung's spirit is the…",opts:["Po","Zhi","Hun","Shen"],a:0,why:"The Po receives pure essence, keeps rhythm and boundaries, and lets go."},
+   {t:"tf",q:"Weak Lung Qi can show up as constipation.",a:true,why:"Lung and Large Intestine are partners in releasing — weak Lung Qi can stall the bowel."},
+   {t:"mc",q:"The Kidney stores…",opts:["inherited Qi and genetic wisdom","only water","acquired food Qi","daily thoughts"],a:0,why:"The Kidney is your deep reserve: inherited Qi, ancestral memory and will."},
+   {t:"mc",q:"The Kidney opens into the…",opts:["ears","eyes","mouth","nose"],a:0,why:"Ears belong to Water — tinnitus and hearing changes are read as Kidney messages."},
+   {t:"fill",q:"The Kidney's spirit — your will — is called the ___.",bank:["Zhi","Yi","Po","Hun"],a:"Zhi",why:"The Zhi carries willpower, ancestral memory and long-range survival strength."},
+   {t:"mc",q:"Which warming food supports Kidney Qi and the brain?",opts:["Walnuts","Ice cream","Raw celery","White bread"],a:0,why:"Walnuts look like little brains! The Kidney supports the brain and the bones."},
+   {t:"match",q:"Match each organ to its spirit",pairs:[["Liver","Hun"],["Heart","Shen"],["Spleen","Yi"],["Lung","Po"],["Kidney","Zhi"]]}
+  ]}
+]});
+/* ---------------- UNIT 4 ---------------- */
+UNITS.push({
+ title:"The Dragon's Way",
+ desc:"The 6-week program: Qigong, eating for healing, energy gates",
+ color:"var(--orange)", dark:"var(--orange-dk)", icon:"🐉",
+ lessons:[
+ {title:"The Program", icon:"🗺️",
+  tips:[
+   "Dragon's Way Qigong® is Grand Master Nan Lu's 6-week program, built on the body's ability to heal itself.",
+   "Four components: Wu Ming Qigong practice, the Eating-for-Healing plan, Lifestyle, and herbal supplements (optional but highly recommended).",
+   "The weekly journey: Week 1 “Everything is Energy” → Week 2 Liver/Gallbladder → Week 3 Kidney/Bladder → Week 4 Spleen/Stomach → Week 5 Lung/Large Intestine → Week 6 Heart/Small Intestine."
+  ],
+  questions:[
+   {t:"mc",q:"How long is the Dragon's Way Qigong program?",opts:["6 weeks","30 days","1 year","2 weeks"],a:0,why:"Six weeks — each one deepening your relationship with a different organ system."},
+   {t:"mc",q:"Which of these is NOT a component of the program?",opts:["Strenuous cardio workouts","Wu Ming Qigong","The Eating-for-Healing plan","Lifestyle changes"],a:0,why:"Dragon's Way builds Qi gently — no exhausting workouts required."},
+   {t:"mc",q:"Week 2 focuses on which organ pair?",opts:["Liver/Gallbladder","Heart/Small Intestine","Kidney/Bladder","Lung/Large Intestine"],a:0,why:"After the Week 1 preparation, the journey begins with the Liver and Gallbladder."},
+   {t:"order",q:"Put the organ weeks in program order",items:["Liver/Gallbladder","Kidney/Bladder","Spleen/Stomach","Lung/Large Intestine","Heart/Small Intestine"],why:"Weeks 2 through 6: Liver → Kidney → Spleen/Stomach → Lung → Heart."},
+   {t:"tf",q:"Herbal supplements are a mandatory part of Dragon's Way.",a:false,why:"They're optional but highly recommended — herbs are food carrying messages of Universal wisdom."},
+   {t:"mc",q:"The program's foundational belief is that…",opts:["the body can heal itself","illness is random","only medicine heals","willpower conquers all"],a:0,why:"Master Lu's approach is based on the body's innate ability to heal when conditions are restored."},
+   {t:"fill",q:"Week 1's theme: “Everything is ___.”",bank:["Energy","Effort","Eating","Exercise"],a:"Energy",why:"The preparation week: understanding that everything is energy and everything is connected."},
+   {t:"tf",q:"Herbs are considered food that carry messages of Universal wisdom.",a:true,why:"Much like the program's foods, herbs energetically support and rebuild your foundation."}
+  ]},
+ {title:"Wu Ming Qigong", icon:"🧘",
+  tips:[
+   "You learn 10 Wu Ming Qigong movements — most named for the dragon, like The Dragon's Toe Dance and The Dragon Kicks Forward.",
+   "Movement #10, The Dragon Stands Between Heaven and Earth, is a standing posture eventually held 8 minutes or longer — the body becomes an antenna receiving Universal Qi.",
+   "Week 1 starts gently: movements 1–3 plus #10. Qigong cleans the inside of your body like a shower cleans the outside."
+  ],
+  questions:[
+   {t:"mc",q:"How many Wu Ming Qigong movements are in Dragon's Way?",opts:["10","5","24","108"],a:0,why:"Ten movements, practiced daily as a set once you've learned them all."},
+   {t:"mc",q:"Which movement is #10?",opts:["The Dragon Stands Between Heaven and Earth","The Dragon's Punch","Rocking the Baby Dragon","The Dragon's Twist"],a:0,why:"The signature standing posture — connecting you between Heaven and Earth."},
+   {t:"mc",q:"How long should you eventually hold The Dragon Stands Between Heaven and Earth?",opts:["8 minutes or longer","30 seconds","Exactly 1 minute","3 breaths"],a:0,why:"The guidebook builds you up to holding it for 8 minutes or longer."},
+   {t:"tf",q:"Qigong is described as cleaning the inside of your body, like a shower cleans the outside.",a:true,why:"Just as you shower daily, use Qigong to clean and refresh your energy system daily."},
+   {t:"mc",q:"Which of these is a real Wu Ming movement?",opts:["The Dragon Looks at Its Tail","The Dragon Brushes Its Teeth","The Tiger Leaps","The Crane Sleeps"],a:0,why:"Movement #5 — The Dragon Looks at Its Tail."},
+   {t:"mc",q:"In standing practice, the body is described as…",opts:["an antenna receiving Universal Qi","a locked safe","a furnace burning calories","a stone"],a:0,why:"Posture is reception: standing aligns you to receive the frequency of Universal energy."},
+   {t:"fill",q:"In Week 1 you learn movements 1–3 plus number ___.",bank:["10","7","5","4"],a:"10",why:"The Toe Dance, Kicks Forward, the Twist — and the standing posture, #10."},
+   {t:"mc",q:"Waiting in line at the market is a perfect time to practice…",opts:["The Dragon's Toe Dance","The Dragon Kicks Backward","Rocking the Baby Dragon","The Dragon's Punch"],a:0,why:"The Toe Dance is easy to do anywhere — and it stimulates Liver energy."}
+  ]},
+ {title:"Eating for Healing", icon:"🥣",
+  tips:[
+   "Go beyond nutrients to a food's essence — its relationship with Nature carries a healing message.",
+   "During the program: reduce, then eliminate bread, meat and dairy. Coffee and tea are fine; an occasional glass of wine is OK.",
+   "Eliminate raw vegetables and iced drinks — cook your vegetables; warmth aids digestion.",
+   "This is not a diet of restriction: cravings give insight into what your body really needs."
+  ],
+  questions:[
+   {t:"mc",q:"Which three heavy foods does the program eliminate?",opts:["Bread, meat and dairy","Fruit, rice and tea","Soup, fish and honey","Nuts, beans and eggs"],a:0,why:"Reduce and ultimately eliminate bread, meat and dairy for the six weeks."},
+   {t:"tf",q:"Coffee and tea are forbidden in Dragon's Way.",a:false,why:"Coffee and tea are fine — as is an occasional glass of wine."},
+   {t:"mc",q:"Why cook your vegetables during the program?",opts:["Warm foods aid the body's digestive process","Raw vegetables have no vitamins","Cooking makes food heavier","To reduce flavor"],a:0,why:"Cooked, warm foods spare your digestive fire — the Stomach loves warmth."},
+   {t:"tf",q:"Iced drinks are encouraged to cool down the Stomach.",a:false,why:"Iced drinks are eliminated — cold weakens the Stomach's function."},
+   {t:"mc",q:"A food's “essence” is…",opts:["its relationship with Nature, carrying a message","its calorie count","its price","its color only"],a:0,why:"Essence resonates deep within the body to promote healthy energy flow — beyond vitamins."},
+   {t:"mc",q:"If you crave something not on the food list, Master Lu says…",opts:["go for it — and enjoy every bite","suppress the craving","fast for a day","take a supplement instead"],a:0,why:"Cravings are information. This is an eating plan of awareness, not restriction."},
+   {t:"fill",q:"“This is not a diet of ___.”",bank:["restriction","vegetables","warmth","healing"],a:"restriction",why:"It's an eating plan that embraces fresh, light foods — and listens to the body."},
+   {t:"mc",q:"Almonds, pears and honey are chosen to support which organ?",opts:["Lung","Liver","Kidney","Heart"],a:0,why:"Try baking this trio — it's chosen for its ability to support healthy Lung function."}
+  ]},
+ {title:"The Four Energy Gates", icon:"🚪",
+  tips:[
+   "Four high-value acupressure gates regulate the whole body.",
+   "He Gu (LI4), “Joining Valley,” sits in the web of the hand — it helps issues above the shoulder: sinus, frozen shoulder, tennis elbow and more.",
+   "Tan Zhong (CV17) is the “Chest Center” — the entire body's Qi center. CV4 guards your life-force and original Qi. GB30 is the lower-body gateway for hips and lower back.",
+   "For cold and stagnation pain, Master Lu prefers heat over ice."
+  ],
+  questions:[
+   {t:"mc",q:"Where is He Gu (LI4)?",opts:["The web of the hand, between thumb and index finger","The sole of the foot","Behind the knee","The top of the head"],a:0,why:"“Joining Valley” — the first mystery point, on the Large Intestine meridian."},
+   {t:"mc",q:"He Gu (LI4) is famous for helping issues located…",opts:["above the shoulder","only below the knee","only in the feet","only internally"],a:0,why:"Frozen shoulder, tennis elbow, sinus, tooth and gum problems — all above-the-shoulder territory."},
+   {t:"mc",q:"Tan Zhong (CV17) is known as…",opts:["the Chest Center — the body's Qi center","the foot gate","the wisdom well","the dragon pool"],a:0,why:"CV17 regulates the entire body's Qi — treat this center with great respect."},
+   {t:"mc",q:"CV4 relates to…",opts:["original Qi and life-force","tooth pain only","vision","hearing"],a:0,why:"CV4 guards original Qi: survival power, reproductive health and immune support."},
+   {t:"mc",q:"GB30 is the gateway for…",opts:["the lower body — hips and lower back","the scalp","the tongue","the elbows"],a:0,why:"The lower-body gateway: Gallbladder/Liver function, lower back and structural support."},
+   {t:"match",q:"Match each gate to its role",pairs:[["LI4 He Gu","Upper-body regulation"],["CV17 Tan Zhong","The body's Qi center"],["CV4","Life-force reserve"],["GB30","Lower-body gateway"]]},
+   {t:"tf",q:"For many cold or stagnation pain patterns, Master Lu prefers heat over ice.",a:true,why:"Warmth moves stagnant Qi; ice can freeze the pattern deeper. Think ginger compresses, not ice packs."},
+   {t:"mc",q:"The Large Intestine meridian linked to LI4 peaks at…",opts:["5–7am","noon–2pm","9–11pm","midnight–2am"],a:0,why:"5–7am on the organ clock — morning elimination time."}
+  ]}
+]});
+/* ---------------- UNIT 5 ---------------- */
+UNITS.push({
+ title:"Living the Way",
+ desc:"Emotions, seasons, food wisdom and digesting the universe",
+ color:"var(--red)", dark:"var(--red-dk)", icon:"🌞",
+ lessons:[
+ {title:"Emotional Cleansing", icon:"😢",
+  tips:[
+   "Energy never disappears — suppressed emotion transforms into tension, stagnation or illness.",
+   "Three cleansing practices: Screaming discharges through the Lung; Crying releases through the Liver; the Inner Smile integrates through the Heart.",
+   "Emotional expression is natural self-healing power that adults have been trained to suppress. Daily practice can reverse decades of holding."
+  ],
+  questions:[
+   {t:"match",q:"Match each practice to its pathway",pairs:[["Screaming","Lung"],["Crying","Liver"],["Inner Smile","Heart"],["Suppression","Stagnation"]]},
+   {t:"mc",q:"Energy never disappears — suppressed emotion can become…",opts:["tension, stagnation or illness","nothing at all","pure joy automatically","extra Qi savings"],a:0,why:"Transformation is a law: unexpressed emotion changes form and stores itself in the body."},
+   {t:"mc",q:"Crying converts invisible emotional energy into…",opts:["material release","weakness","cold essence","more anger"],a:0,why:"Tears turn invisible energy into visible, physical release — a Liver-linked cleansing."},
+   {t:"tf",q:"Adults are naturally better at emotional release than children.",a:false,why:"Children scream, cry and smile freely — adults have been trained to suppress this healing power."},
+   {t:"mc",q:"The Inner Smile is linked to which organ?",opts:["Heart","Kidney","Bladder","Stomach"],a:0,why:"After release comes integration — the Heart's inner smile."},
+   {t:"tf",q:"Inner peace is treated as a biological requirement for healing, not a slogan.",a:true,why:"Peace is the condition that lets the body receive and organize healing information."},
+   {t:"mc",q:"In TCM, emotions are…",opts:["a form of Qi with direct physical consequences","imaginary","character flaws","unrelated to organs"],a:0,why:"Emotions are energy in motion — biologically active, not abstract psychology."},
+   {t:"fill",q:"Screaming is linked to the ___ and discharges trapped emotional force.",bank:["Lung","Liver","Heart","Spleen"],a:"Lung",why:"A strong voiced release moves the Metal element — grief and pressure leave with the breath."}
+  ]},
+ {title:"Seasonal Living", icon:"❄️",
+  tips:[
+   "Live with the season: Spring = growth and movement, Summer = joy and circulation, Late Summer = grounding and digestion, Autumn = release, Winter = storage and protection.",
+   "Wind and cold are pathogens that can enter through the skin — don't challenge Nature on windy days.",
+   "A winter injury heals more slowly — protect your reserves in the cold months."
+  ],
+  questions:[
+   {t:"mc",q:"Winter's strategy is…",opts:["storage, caution and protecting reserves","maximum sweating","eating more ice cream","staying up late"],a:0,why:"Winter is Water's season: store, preserve and respect your deep reserves."},
+   {t:"mc",q:"Which of these are classical pathogens in TCM?",opts:["Wind, cold, dampness and heat","WiFi and moonlight","Gravity and light","Sound and shadow"],a:0,why:"The classics name wind, cold, dampness, dryness, heat and fire."},
+   {t:"tf",q:"Master Lu advises staying indoors on windy days rather than challenging Nature.",a:true,why:"“Don't challenge Nature.” Wind and cold can enter through the skin and create internal imbalance."},
+   {t:"mc",q:"Autumn — the Metal season — is the time of…",opts:["release and letting go","sprouting","maximum heat","planting"],a:0,why:"Like trees dropping leaves, Autumn asks the Lung to release and protect."},
+   {t:"match",q:"Match each season to its theme",pairs:[["Spring","Growth"],["Summer","Joy & circulation"],["Late Summer","Grounding"],["Autumn","Release"],["Winter","Storage"]]},
+   {t:"mc",q:"Which “modern pathogens” does Master Lu add to the classical list?",opts:["EMF and overstimulation","Moonlight","Fresh air","Silence"],a:0,why:"EMF, pollution, medication burden and information overload strain the body's energy field."},
+   {t:"tf",q:"A winter injury tends to heal more slowly.",a:true,why:"Natural timing deserves respect — healing follows the seasons too."},
+   {t:"fill",q:"Keeping your skin covered in cold, windy weather supports your ___ function.",bank:["Lung","Liver","Kidney","Heart"],a:"Lung",why:"The Lung governs the skin and surface defenses — cover up to protect it."}
+  ]},
+ {title:"Food Wisdom", icon:"🥕",
+  tips:[
+   "The key question isn't “is it healthy?” but “can you digest it?”",
+   "Food heals by essence and message: walnuts (little brains) warm the Kidney; pears, almonds and honey soothe the Lung; carrots, sweet potato and ginger feed the Earth; green apples cheer the Liver.",
+   "The dandelion — growing fearlessly anywhere — is Master Lu's symbol of emotional resilience."
+  ],
+  questions:[
+   {t:"mc",q:"The most important question to ask about a food is…",opts:["“Can I digest it?”","“Is it trendy?”","“Is it expensive?”","“Is it cold?”"],a:0,why:"Digestibility beats theoretical health — an undigested superfood helps no one."},
+   {t:"match",q:"Match each food to the organ it supports",pairs:[["Walnuts","Kidney"],["Pears","Lung"],["Ginger","Spleen/Stomach"],["Green apples","Liver"]]},
+   {t:"mc",q:"The dandelion symbolizes…",opts:["fearlessness and resilience","weakness","poison","luxury"],a:0,why:"It grows boldly anywhere — eat it to borrow a little of that fearless spirit."},
+   {t:"tf",q:"The same food can help one person and harm another.",a:true,why:"Constitution, season and current imbalance decide whether a food heals or burdens."},
+   {t:"mc",q:"Herbs work through…",opts:["essence, information and consciousness — not chemistry alone","chemistry alone","placebo only","flavor alone"],a:0,why:"True herbal healing reaches the meridian layer; the body still does the healing."},
+   {t:"mc",q:"For cold and stagnation patterns, which kitchen remedies appear in the teachings?",opts:["Ginger and scallion warming compresses","Ice packs","Raw juice cleanses","Frozen yogurt"],a:0,why:"Warmth moves what cold has frozen — ginger, scallion and hot compresses."},
+   {t:"fill",q:"Diabetes is described as a lack of ___ in life, not just a sugar problem.",bank:["sweetness","exercise","protein","medicine"],a:"sweetness",why:"A signature Master Lu teaching: the body speaks in metaphors your life can answer."},
+   {t:"tf",q:"Digestive strength determines how much benefit you get from supplements and medicine.",a:true,why:"If you can't digest and absorb it, even the best remedy passes you by."}
+  ]},
+ {title:"Digesting the Universe", icon:"🌌",
+  tips:[
+   "Everything must be digested — food, emotions, information and life events.",
+   "The five stages of metabolism: Receiving → Digesting → Processing → Transformation → Manifesting.",
+   "The Vital Triangle: Spleen/Stomach (the checking account) + Kidney/Bladder (the savings) + Liver/Gallbladder (the drivers of flow).",
+   "The path of cultivation: know → understand → realize → cultivate → live it."
+  ],
+  questions:[
+   {t:"order",q:"Arrange the five stages of metabolism",items:["Receiving","Digesting","Processing","Transformation","Manifesting"],why:"From what you let in, to essence, to distribution, to change, to the visible result."},
+   {t:"mc",q:"In Master Lu's teaching, “digestion” includes…",opts:["food, emotions, information and life events","food only","water only","thoughts only"],a:0,why:"The Xiao Dao principle: everything must be digested."},
+   {t:"mc",q:"Which organs form the Vital Triangle?",opts:["Spleen/Stomach, Kidney/Bladder, Liver/Gallbladder","Heart, Lung, Brain","Eyes, Ears, Nose","Skin, Bone, Blood"],a:0,why:"Acquired Qi + inherited reserves + the drivers of flow and transformation."},
+   {t:"mc",q:"Innate (inherited) immunity connects to which organs?",opts:["Kidney & Bladder","Stomach & Spleen","Heart & Small Intestine","Lung & Large Intestine"],a:0,why:"Kidney-level immunity is described as wisdom-based and ancestral."},
+   {t:"tf",q:"A person can look structurally normal on scans and still be functionally ill.",a:true,why:"Scans show structure; TCM reads function — dynamic patterns appear long before structural damage."},
+   {t:"fill",q:"Higher-level healing changes the ___ that produces the pattern, not only the symptom.",bank:["consciousness","bandage","schedule","weather"],a:"consciousness",why:"Change the intelligence behind the pattern and the symptom loses its reason to exist."},
+   {t:"mc",q:"Allergies are framed as…",opts:["the body communicating a deeper organ need","pure bad luck","contagious conditions","imaginary reactions"],a:0,why:"Often cold-essence related — a message about what an organ system requires."},
+   {t:"order",q:"Arrange Master Lu's path of cultivation",items:["Know","Understand","Realize","Cultivate","Live it"],why:"Knowledge becomes wisdom only when it's finally lived."}
+  ]}
+]});
+/* =====================================================
+   ENGINE
+   ===================================================== */
+const $=id=>document.getElementById(id);
+const LEVELS=[[0,"Qi Seedling"],[120,"Energy Student"],[300,"Meridian Explorer"],[600,"Element Adept"],[1000,"Qi Cultivator"],[1500,"Dragon Master"]];
+const GOAL=30;
+
+/* ---------- state ---------- */
+let state={xp:0,streak:0,lastDay:"",xpToday:0,xpDay:"",sound:true,done:{},mistakes:[]};
+function save(){try{localStorage.setItem("dwq_quest_v1",JSON.stringify(state));}catch(e){}}
+function load(){try{const s=localStorage.getItem("dwq_quest_v1");if(s)state=Object.assign(state,JSON.parse(s));}catch(e){}}
+function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function yesterday(){const d=new Date(Date.now()-864e5);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+
+/* ---------- utils ---------- */
+function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function levelFor(xp){let t=LEVELS[0][1];for(const[n,l]of LEVELS){if(xp>=n)t=l;}return t;}
+
+/* ---------- sound ---------- */
+let AC=null;
+function tone(f,dur,type,when,vol){const o=AC.createOscillator(),g=AC.createGain();o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(0.0001,AC.currentTime+when);g.gain.exponentialRampToValueAtTime(vol||0.18,AC.currentTime+when+0.015);g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+when+dur);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+when);o.stop(AC.currentTime+when+dur+0.05);}
+function sfx(kind){
+  if(!state.sound)return;
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    if(AC.state==="suspended")AC.resume();
+    if(kind==="click")tone(650,0.06,"sine",0,0.08);
+    else if(kind==="ok"){tone(660,0.12,"sine",0);tone(880,0.16,"sine",0.1);}
+    else if(kind==="bad"){tone(190,0.22,"sawtooth",0,0.12);}
+    else if(kind==="win"){[523,659,784,1047].forEach((f,i)=>tone(f,0.18,"sine",i*0.12,0.16));}
+    else if(kind==="match"){tone(760,0.09,"sine",0,0.1);}
+  }catch(e){}
+}
+
+/* ---------- dragon mascot ---------- */
+function dragonSVG(size,mood){
+  const hat=mood==="win"?'<polygon points="60,4 47,30 73,30" fill="#ffc800" stroke="#e6a800" stroke-width="2"/><circle cx="60" cy="5" r="4" fill="#ff4b4b"/>':"";
+  const eyes=mood==="win"
+    ?'<path d="M42 56 l6 4 -6 4" stroke="#3c3c3c" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 56 l-6 4 6 4" stroke="#3c3c3c" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    :'<circle cx="45" cy="60" r="8.5" fill="#fff"/><circle cx="75" cy="60" r="8.5" fill="#fff"/><circle cx="47" cy="61" r="4.2" fill="#3c3c3c"/><circle cx="73" cy="61" r="4.2" fill="#3c3c3c"/><circle cx="48.5" cy="59" r="1.5" fill="#fff"/><circle cx="74.5" cy="59" r="1.5" fill="#fff"/>';
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 120 120" aria-hidden="true">'
+   +'<ellipse cx="24" cy="52" rx="9" ry="14" fill="#46a302" transform="rotate(18 24 52)"/>'
+   +'<ellipse cx="96" cy="52" rx="9" ry="14" fill="#46a302" transform="rotate(-18 96 52)"/>'
+   +hat
+   +(mood==="win"?"":'<path d="M44 28 q-4 -16 8 -18 q2 10 -1 16 Z" fill="#46a302"/><path d="M76 28 q4 -16 -8 -18 q-2 10 1 16 Z" fill="#46a302"/>')
+   +'<ellipse cx="60" cy="68" rx="42" ry="40" fill="#58cc02"/>'
+   +'<ellipse cx="60" cy="88" rx="25" ry="17" fill="#d7ffb8"/>'
+   +eyes
+   +'<ellipse cx="60" cy="76" rx="13" ry="9" fill="#8ee000"/>'
+   +'<circle cx="55.5" cy="74.5" r="1.8" fill="#3f8f00"/><circle cx="64.5" cy="74.5" r="1.8" fill="#3f8f00"/>'
+   +'<path d="M50 86 q10 8 20 0" stroke="#3f8f00" stroke-width="3.5" fill="none" stroke-linecap="round"/>'
+   +'<circle cx="36" cy="72" r="4.5" fill="#ffb3c1" opacity=".7"/><circle cx="84" cy="72" r="4.5" fill="#ffb3c1" opacity=".7"/>'
+   +'</svg>';
+}
+
+/* ---------- flatten lessons ---------- */
+const FLAT=[];
+UNITS.forEach((u,ui)=>u.lessons.forEach((l,li)=>FLAT.push({ui,li})));
+function keyOf(ui,li){return ui+"-"+li;}
+function firstOpenIdx(){for(let i=0;i<FLAT.length;i++){const f=FLAT[i];if(!state.done[keyOf(f.ui,f.li)])return i;}return FLAT.length;}
+
+/* ---------- home ---------- */
+function refreshStats(){
+  $("streakVal").textContent=state.streak;
+  $("xpVal").textContent=state.xp;
+  $("lvlVal").textContent=levelFor(state.xp);
+  $("flameEm").className=state.lastDay===today()?"em flame-on":"em";
+  if(state.xpDay!==today()){state.xpToday=0;state.xpDay=today();}
+  $("goalLbl").textContent=Math.min(state.xpToday,GOAL)+" / "+GOAL+" XP"+(state.xpToday>=GOAL?" ✓":"");
+  $("goalBar").style.width=Math.min(100,state.xpToday/GOAL*100)+"%";
+  $("sndBtn").textContent=state.sound?"🔊":"🔇";
+}
+function renderHome(){
+  refreshStats();
+  $("dragonHero").innerHTML=dragonSVG(64,"happy");
+  const open=firstOpenIdx();
+  let html="",g=0;
+  const offs=[0,-70,-95,-70,0,70,95,70];
+  UNITS.forEach((u,ui)=>{
+    const doneCnt=u.lessons.reduce((n,_,li)=>n+(state.done[keyOf(ui,li)]?1:0),0);
+    html+='<div class="unit-banner" style="background:linear-gradient(135deg,'+u.color+','+u.dark+');">'
+        +'<div class="u-kicker">Unit '+(ui+1)+'</div><h2>'+esc(u.title)+'</h2><p>'+esc(u.desc)+'</p>'
+        +'<div class="u-count">'+doneCnt+' / '+u.lessons.length+'</div><div class="u-icon">'+u.icon+'</div></div>';
+    html+='<div class="path">';
+    u.lessons.forEach((l,li)=>{
+      const idx=g++,k=keyOf(ui,li);
+      const st=state.done[k]?"done":(idx===open?"active":(idx<open?"done":"locked"));
+      const off=offs[idx%offs.length];
+      const stars=state.done[k]?'<div class="stars">'+"⭐".repeat(state.done[k])+'</div>':"";
+      const tip=st==="active"?'<div class="start-tip">START</div>':"";
+      const style=st==="active"?'style="background:'+u.color+';color:'+u.color+';"':(st==="done"?"":"");
+      html+='<div class="node-wrap" style="transform:translateX('+off+'px)">'
+          +tip
+          +'<button class="node '+st+'" '+style+' onclick="tryStart('+ui+','+li+','+idx+')"><span class="ring"></span><span>'
+          +(st==="locked"?"🔒":l.icon)+'</span>'+stars+'</button>'
+          +'<div class="node-label">'+esc(l.title)+'</div></div>';
+    });
+    html+='</div>';
+  });
+  if(state.mistakes.length){
+    html+='<div class="practice-cta"><button class="btn blue" onclick="startPractice()">🛠️ Practice your '+state.mistakes.length+' mistake'+(state.mistakes.length>1?"s":"")+'</button></div>';
+  }
+  if(firstOpenIdx()>=FLAT.length){
+    html+='<div class="practice-cta" style="text-align:center;font-weight:900;color:var(--gold-dk);font-size:18px;">🏆 You completed the whole path — Dragon Master!</div>';
+  }
+  $("pathArea").innerHTML=html;
+}
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));$(id).classList.add("active");window.scrollTo(0,0);}
+function goHome(){renderHome();show("home");}
+
+/* ---------- lesson session ---------- */
+var S=null; // session (var: reachable on window for debugging)
+function tryStart(ui,li,idx){
+  const k=keyOf(ui,li);
+  if(!state.done[k]&&idx>firstOpenIdx())return;
+  sfx("click");
+  openTips(ui,li,false);
+}
+function openTips(ui,li,practice){
+  const l=UNITS[ui].lessons[li];
+  $("dragonTips").innerHTML=dragonSVG(56,"happy");
+  $("tipsBubble").textContent=shuffle(["Study these, then show me!","A calm mind learns fastest.","Breathe. Then begin.","Small steps build big Qi!"])[0];
+  let h='<div class="sub">Unit '+(ui+1)+" · Lesson "+(li+1)+'</div><h2>'+l.icon+" "+esc(l.title)+"</h2>";
+  l.tips.forEach(t=>{h+='<div class="tip-line"><span class="dot">🐉</span><span>'+t+"</span></div>";});
+  $("tipsCard").innerHTML=h;
+  $("tipsStart").onclick=()=>{sfx("click");startLesson(ui,li,false);};
+  show("tips");
+}
+function startLesson(ui,li,practice){
+  const l=UNITS[ui].lessons[li];
+  S={ui,li,practice:false,queue:shuffle(l.questions.map((q,qi)=>({q,ref:keyOf(ui,li)+"-"+qi}))),
+     total:l.questions.length,cleared:0,hearts:5,answers:0,correct:0,combo:0,bestCombo:0,xp:0,heartsLost:0,cur:null,mode:"idle"};
+  show("lesson");
+  nextQ();
+}
+function startPractice(){
+  sfx("click");
+  const picks=shuffle(state.mistakes).slice(0,10);
+  const qs=picks.map(ref=>{const[a,b,c]=ref.split("-").map(Number);return {q:UNITS[a].lessons[b].questions[c],ref};});
+  if(!qs.length)return;
+  S={ui:-1,li:-1,practice:true,queue:shuffle(qs),total:qs.length,cleared:0,hearts:null,
+     answers:0,correct:0,combo:0,bestCombo:0,xp:0,heartsLost:0,cur:null,mode:"idle"};
+  show("lesson");
+  nextQ();
+}
+function updateBar(){
+  $("lessonBar").style.width=(S.cleared/S.total*100)+"%";
+  $("heartsBox").innerHTML=S.practice?'<span style="color:var(--blue);">∞ practice</span>'
+    :"❤️".repeat(S.hearts)+'<span style="filter:grayscale(1);opacity:.45;">'+"❤️".repeat(5-S.hearts)+"</span>";
+}
+function nextQ(){
+  if(!S.queue.length){finishLesson();return;}
+  S.cur=S.queue.shift();
+  S.mode="answering";S.sel=null;
+  updateBar();
+  renderQ(S.cur.q);
+  setFoot("check",null);
+}
+
+/* ---------- renderers ---------- */
+function renderQ(q){
+  const A=$("qArea");
+  let h="";
+  if(q.t==="mc"){
+    h+='<div class="q-instr">Choose the best answer</div><div class="q-title">'+q.q+"</div>";
+    S.mcMap=shuffle(q.opts.map((o,i)=>({o,i})));
+    S.mcMap.forEach((m,i)=>{h+='<button class="opt" data-i="'+i+'" onclick="pickOpt(this)"><span class="k">'+(i+1)+"</span>"+esc(m.o)+"</button>";});
+  }
+  else if(q.t==="tf"){
+    h+='<div class="q-instr">True or false?</div><div class="q-title">'+q.q+'</div><div class="tf-row">'
+      +'<button class="opt" data-v="true" onclick="pickOpt(this)">✅ True</button>'
+      +'<button class="opt" data-v="false" onclick="pickOpt(this)">❌ False</button></div>';
+  }
+  else if(q.t==="fill"){
+    S.fillVal=null;
+    const parts=q.q.split("___");
+    h+='<div class="q-instr">Complete the sentence</div>'
+      +'<div class="sentence">'+esc(parts[0])+'<span class="blank" id="blankSlot" onclick="clearBlank()">&nbsp;</span>'+esc(parts[1]||"")+"</div>"
+      +'<div class="bank">'+shuffle(q.bank).map(w=>'<button class="chip" onclick="fillWord(this)" data-w="'+esc(w)+'">'+esc(w)+"</button>").join("")+"</div>";
+  }
+  else if(q.t==="order"){
+    S.seq=[];
+    let items=shuffle(q.items);
+    if(items.join("|")===q.items.join("|"))items=shuffle(q.items);
+    h+='<div class="q-instr">Tap in the correct order</div><div class="q-title">'+q.q+"</div>"
+      +'<div class="seq-zone" id="seqZone"></div>'
+      +'<div class="bank" id="seqBank">'+items.map(w=>'<button class="chip" onclick="seqAdd(this)" data-w="'+esc(w)+'">'+esc(w)+"</button>").join("")+"</div>";
+  }
+  else if(q.t==="match"){
+    S.matchLeft=null;S.matchDone=0;
+    const L=shuffle(q.pairs.map((p,i)=>({t:p[0],i}))),R=shuffle(q.pairs.map((p,i)=>({t:p[1],i})));
+    h+='<div class="q-instr">Tap the matching pairs</div><div class="q-title">'+q.q+"</div><div class='match-grid'>";
+    const rows=Math.max(L.length,R.length);
+    for(let r=0;r<rows;r++){
+      h+=L[r]?'<button class="mchip" data-side="L" data-i="'+L[r].i+'" onclick="matchTap(this)">'+esc(L[r].t)+"</button>":"<span></span>";
+      h+=R[r]?'<button class="mchip" data-side="R" data-i="'+R[r].i+'" onclick="matchTap(this)">'+esc(R[r].t)+"</button>":"<span></span>";
+    }
+    h+="</div>";
+  }
+  A.innerHTML='<div class="slide-in">'+h+"</div>";
+}
+
+/* ---------- interactions ---------- */
+function pickOpt(el){
+  if(S.mode!=="answering")return;
+  sfx("click");
+  document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel"));
+  el.classList.add("sel");
+  S.sel=el;
+  $("checkBtn").disabled=false;
+}
+function fillWord(el){
+  if(S.mode!=="answering")return;
+  sfx("click");
+  document.querySelectorAll(".bank .chip").forEach(c=>c.classList.remove("used"));
+  el.classList.add("used");
+  S.fillVal=el.dataset.w;
+  const b=$("blankSlot");b.textContent=S.fillVal;b.classList.add("filled");
+  $("checkBtn").disabled=false;
+}
+function clearBlank(){
+  if(S.mode!=="answering")return;
+  S.fillVal=null;
+  const b=$("blankSlot");if(b){b.innerHTML="&nbsp;";b.classList.remove("filled");}
+  document.querySelectorAll(".bank .chip").forEach(c=>c.classList.remove("used"));
+  $("checkBtn").disabled=true;
+}
+function seqAdd(el){
+  if(S.mode!=="answering")return;
+  sfx("click");
+  el.classList.add("used");
+  S.seq.push(el.dataset.w);
+  renderSeq();
+  $("checkBtn").disabled=S.seq.length!==S.cur.q.items.length;
+}
+function seqRemove(i){
+  if(S.mode!=="answering")return;
+  const w=S.seq.splice(i,1)[0];
+  const chips=document.querySelectorAll("#seqBank .chip");
+  for(const c of chips){if(c.dataset.w===w&&c.classList.contains("used")){c.classList.remove("used");break;}}
+  renderSeq();
+  $("checkBtn").disabled=true;
+}
+function renderSeq(){
+  $("seqZone").innerHTML=S.seq.map((w,i)=>'<button class="chip" onclick="seqRemove('+i+')"><span class="seq-num">'+(i+1)+"</span>"+esc(w)+"</button>").join("");
+}
+function matchTap(el){
+  if(S.mode!=="answering")return;
+  const side=el.dataset.side;
+  if(side==="L"){
+    document.querySelectorAll('.mchip[data-side="L"]').forEach(c=>c.classList.remove("sel"));
+    el.classList.add("sel");S.matchLeft=el;sfx("click");return;
+  }
+  if(!S.matchLeft){el.classList.add("bad");setTimeout(()=>el.classList.remove("bad"),400);return;}
+  if(el.dataset.i===S.matchLeft.dataset.i){
+    sfx("match");
+    el.classList.add("lock");S.matchLeft.classList.remove("sel");S.matchLeft.classList.add("lock");
+    S.matchLeft=null;S.matchDone++;
+    if(S.matchDone===S.cur.q.pairs.length){answer(true,"Perfect matching!");}
+  }else{
+    sfx("bad");
+    el.classList.add("bad");S.matchLeft.classList.add("bad");
+    const L=S.matchLeft;
+    setTimeout(()=>{el.classList.remove("bad");L.classList.remove("bad");},450);
+  }
+}
+
+/* ---------- check / feedback ---------- */
+function setFoot(mode,ok){
+  const f=$("lessonFoot"),b=$("checkBtn"),z=$("fbZone");
+  if(mode==="check"){
+    f.className="lesson-foot";z.innerHTML="";
+    b.textContent="Check";b.disabled=true;b.className="btn";
+    b.onclick=doCheck;
+    if(S.cur.q.t==="match")b.style.visibility="hidden";else b.style.visibility="visible";
+  }else{
+    b.style.visibility="visible";
+    f.className="lesson-foot "+(ok?"ok":"bad");
+    b.textContent="Continue";b.disabled=false;b.className="btn "+(ok?"":"red");
+    b.onclick=proceed;
+  }
+}
+function doCheck(){
+  if(S.mode!=="answering")return;
+  const q=S.cur.q;let ok=false,detail="";
+  if(q.t==="mc"){const m=S.mcMap[Number(S.sel.dataset.i)];ok=m.i===q.a;
+    if(ok)S.sel.classList.replace("sel","correct");
+    else{S.sel.classList.replace("sel","wrong");
+      document.querySelectorAll(".opt").forEach(o=>{const mm=S.mcMap[Number(o.dataset.i)];if(mm&&mm.i===q.a)o.classList.add("correct");});
+      detail=q.opts[q.a];}
+    document.querySelectorAll(".opt").forEach(o=>o.disabled=true);}
+  else if(q.t==="tf"){ok=(S.sel.dataset.v==="true")===q.a;
+    if(ok)S.sel.classList.replace("sel","correct");else S.sel.classList.replace("sel","wrong");
+    detail=q.a?"True":"False";
+    document.querySelectorAll(".opt").forEach(o=>o.disabled=true);}
+  else if(q.t==="fill"){ok=S.fillVal===q.a;detail=q.a;
+    const b=$("blankSlot");b.style.color=ok?"var(--green-dk)":"var(--red-dk)";}
+  else if(q.t==="order"){ok=S.seq.join("|")===q.items.join("|");detail=q.items.join(" → ");}
+  answer(ok,detail);
+}
+function answer(ok,detail){
+  S.mode="feedback";S.answers++;
+  const q=S.cur.q;
+  if(ok){
+    S.correct++;S.cleared++;S.combo++;S.bestCombo=Math.max(S.bestCombo,S.combo);
+    const gain=S.practice?5:10;S.xp+=gain;
+    sfx("ok");
+    if(S.combo>=3){const t=$("comboToast");t.textContent="🔥 "+S.combo+" in a row! +"+gain+" XP";t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1300);}
+    if(S.practice){const i=state.mistakes.indexOf(S.cur.ref);if(i>-1){state.mistakes.splice(i,1);save();}}
+    $("fbZone").innerHTML='<div class="fb ok"><div class="fb-ico">✅</div><div><h3>'+shuffle(["Excellent!","Nicely done!","Correct!","Your Qi is strong!","Beautiful!"])[0]+"</h3><p>"+(q.why||"")+"</p></div></div>";
+  }else{
+    S.combo=0;
+    sfx("bad");
+    if(!S.practice){
+      if(!state.mistakes.includes(S.cur.ref)){state.mistakes.push(S.cur.ref);save();}
+      S.hearts--;S.heartsLost++;
+    }
+    S.queue.push(S.cur); // requeue until mastered
+    const corr=detail?'<b>Answer: '+esc(detail)+"</b><br>":"";
+    $("fbZone").innerHTML='<div class="fb bad"><div class="fb-ico">❌</div><div><h3>Not quite…</h3><p>'+corr+(q.why||"")+"</p></div></div>";
+    updateBar();
+    if(!S.practice&&S.hearts<=0){setFoot("continue",false);$("checkBtn").style.visibility="hidden";setTimeout(()=>$("heartsModal").classList.add("show"),650);return;}
+  }
+  updateBar();
+  setFoot("continue",ok);
+}
+function proceed(){sfx("click");nextQ();}
+
+/* ---------- finish ---------- */
+function finishLesson(){
+  $("comboToast").classList.remove("show");
+  const acc=S.answers?Math.round(S.correct/S.answers*100):100;
+  const perfect=S.heartsLost===0&&!S.practice;
+  if(perfect)S.xp+=20;
+  state.xp+=S.xp;
+  if(state.xpDay!==today()){state.xpToday=0;state.xpDay=today();}
+  state.xpToday+=S.xp;
+  if(!S.practice){
+    const k=keyOf(S.ui,S.li);
+    const stars=S.heartsLost===0?3:(S.heartsLost<=2?2:1);
+    state.done[k]=Math.max(state.done[k]||0,stars);
+    $("resStars").textContent="⭐".repeat(stars);
+  }else{$("resStars").textContent="🛠️";}
+  const t=today();
+  if(state.lastDay!==t){state.streak=(state.lastDay===yesterday())?state.streak+1:1;state.lastDay=t;}
+  save();
+  $("dragonWin").innerHTML=dragonSVG(110,"win");
+  $("resTitle").textContent=S.practice?"Practice complete!":(perfect?"Perfect lesson!":"Lesson complete!");
+  $("resXp").textContent="+"+S.xp;
+  $("resAcc").textContent=acc+"%";
+  $("resCmb").textContent=S.bestCombo;
+  const qu=QUOTES[Math.floor(Math.random()*QUOTES.length)];
+  $("resQuote").innerHTML="“"+esc(qu[0])+"”<b>— "+esc(qu[1])+"</b>";
+  show("results");
+  sfx("win");
+  confetti();
+}
+
+/* ---------- confetti ---------- */
+function confetti(){
+  const c=$("confetti"),x=c.getContext("2d");
+  c.width=innerWidth;c.height=innerHeight;
+  const cols=["#58cc02","#1cb0f6","#ffc800","#ff4b4b","#ce82ff","#ff9600"];
+  const P=Array.from({length:130},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*0.5,r:4+Math.random()*6,co:cols[Math.floor(Math.random()*cols.length)],vy:2+Math.random()*3.5,vx:-1.5+Math.random()*3,ro:Math.random()*Math.PI,vr:-0.1+Math.random()*0.2}));
+  let t=0;
+  (function tick(){
+    x.clearRect(0,0,c.width,c.height);
+    P.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.ro+=p.vr;
+      x.save();x.translate(p.x,p.y);x.rotate(p.ro);x.fillStyle=p.co;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);x.restore();});
+    t++;
+    if(t<180)requestAnimationFrame(tick);else x.clearRect(0,0,c.width,c.height);
+  })();
+}
+
+/* ---------- modals / misc ---------- */
+$("quitBtn").onclick=()=>{$("quitModal").classList.add("show");};
+$("keepBtn").onclick=()=>{$("quitModal").classList.remove("show");};
+$("reallyQuitBtn").onclick=()=>{$("quitModal").classList.remove("show");goHome();};
+$("retryBtn").onclick=()=>{$("heartsModal").classList.remove("show");openTips(S.ui,S.li,false);};
+$("heartsHomeBtn").onclick=()=>{$("heartsModal").classList.remove("show");goHome();};
+$("sndBtn").onclick=()=>{state.sound=!state.sound;save();refreshStats();if(state.sound)sfx("click");};
+
+document.addEventListener("keydown",e=>{
+  if(!$("lesson").classList.contains("active"))return;
+  if(e.key==="Enter"){const b=$("checkBtn");if(!b.disabled&&b.style.visibility!=="hidden")b.click();}
+  if(S&&S.mode==="answering"&&/^[1-9]$/.test(e.key)){
+    const opts=document.querySelectorAll(".opt");
+    const i=Number(e.key)-1;
+    if(opts[i])pickOpt(opts[i]);
+  }
+});
+
+/* ---------- boot ---------- */
+load();
+renderHome();
+</script>
+</body>
+</html>
