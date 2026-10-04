@@ -217,6 +217,15 @@ button{font-family:inherit;font-weight:800;cursor:pointer;border:none;}
 </style>
 </head>
 <body>
+<div id="tq-back" style="max-width:520px;margin:0 auto;padding:10px 16px 0;">
+  <a href="members-main.html" id="tq-back-a" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:#777;text-decoration:none;padding:6px 12px;border:2px solid #e5e5e5;border-radius:12px;background:#fff;">&#8592; <span>Members area</span></a>
+</div>
+<script>
+  /* came from the Chinese members page? go back there */
+  if (/[?&]lang=zh\b/.test(location.search) || /members-main-zh\.html/.test(document.referrer)) {
+    var a = document.getElementById('tq-back-a'); a.href = 'members-main-zh.html'; a.lastChild.textContent = '會員專區';
+  }
+</script>
 <div class="app">
 
   <!-- ================= HOME ================= -->
