@@ -119,7 +119,7 @@ button{font:inherit;cursor:pointer}
 .ans dd{margin:0}
 
 /* browser frame */
-.frame{border:1px solid #cfc6b0;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -35px rgba(40,30,10,.45)}
+.frame{border:1px solid #cfc6b0;border-radius:14px;overflow:clip;background:#fff;box-shadow:0 30px 70px -35px rgba(40,30,10,.45)}
 .chrome{display:flex;align-items:center;gap:14px;padding:10px 14px;background:#ece8de;border-bottom:1px solid #d7cfbc}
 .chrome .dots{display:flex;gap:6px}
 .chrome .dots i{width:11px;height:11px;border-radius:50%;background:#d0c6b0}
@@ -218,6 +218,140 @@ button{font:inherit;cursor:pointer}
 .skin:hover{transform:scale(1.12)}
 .skin[aria-pressed="true"]{box-shadow:0 0 0 2px var(--gold)}
 .credit{opacity:.7;font-size:.75rem}
+
+/* ---- program-centred site + enroll page ---- */
+.ubar{position:sticky;top:57px;z-index:20;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 16px;padding:9px 16px;background:var(--sink);color:var(--sbg);font-size:.84rem;text-align:center}
+.ubar .ub-d{opacity:.7;font-size:.78rem}
+.cd{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.cd b{font-weight:700;font-size:1.05em;margin-left:2px}
+.scta.sm{padding:6px 14px;font-size:.78rem}
+.cohort{margin-top:18px;font-size:.88rem;opacity:.8}
+.dwprog{background:var(--card)}
+.prog-head{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.dwprog .lede{font-size:1.06rem;opacity:.85;max-width:640px;margin:0}
+.pkg{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;background:#fff}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.facts span{border:1.5px solid var(--soft);border-radius:999px;padding:5px 13px;font-size:.82rem;font-weight:600;color:var(--c1)}
+.site h3.sub{font-family:var(--serif);font-weight:600;font-size:1.25rem;margin:40px 0 16px;color:var(--sink)}
+.comps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.comp{background:var(--sbg);border-radius:14px;padding:18px}
+.comp .cn{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c2);color:var(--on2);font-weight:700;font-size:.8rem;margin-bottom:10px}
+.comp b{display:block;font-family:var(--serif);font-size:1.08rem;color:var(--c1);margin-bottom:4px}
+.comp p{margin:0;font-size:.88rem;opacity:.82}
+.weeks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:w}
+.weeks li{border:1px solid var(--soft);border-left:4px solid var(--c2);border-radius:12px;padding:16px 18px;background:var(--card)}
+.wn{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--c2)}
+.wo{font-family:var(--serif);font-weight:600;font-size:1.08rem;line-height:1.3;margin:6px 0;color:var(--c1)}
+.wm{font-size:.8rem;opacity:.65}
+.pcta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:30px;font-size:.9rem}
+.fitg{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:20px}
+.fitg>div{border-radius:16px;padding:22px 26px}
+.fitg .yes{background:var(--card);border:2px solid var(--c1)}
+.fitg .no{background:transparent;border:1.5px dashed var(--soft)}
+.fitg h4{margin:0 0 10px;font-size:1rem}
+.fitg ul{margin:0;padding-left:0;list-style:none;display:grid;gap:8px}
+.fitg li{padding-left:26px;position:relative;font-size:.95rem}
+.fitg .yes li::before{content:"✓";position:absolute;left:0;color:var(--c2);font-weight:700}
+.fitg .no li::before{content:"✕";position:absolute;left:0;opacity:.5}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.slot2{border:1.5px dashed var(--soft);border-radius:14px;padding:22px;font-family:var(--serif);font-size:1.6rem;color:var(--c2);text-align:center}
+.slot2 small{display:block;font-family:var(--sans);font-size:.78rem;color:var(--sink);opacity:.6;margin-top:8px}
+.start.dim{background:var(--soft);color:var(--sink)}
+.ev.hot{border:2px solid var(--c2)}
+.final{text-align:center;background:var(--c1);color:var(--on1)}
+.final h2{max-width:760px;margin:0 auto 14px;color:var(--on1)}
+.final .kick{color:var(--on1);opacity:.75}
+.final .fcd{margin-bottom:20px;opacity:.9}
+.back2{font-size:.88rem;font-weight:600;color:var(--c1);text-decoration:none}
+.ohero{text-align:center;background:var(--sbg);padding-bottom:40px!important}
+.ohero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.6vw,2.7rem);color:var(--c1);margin:0 0 12px;line-height:1.15}
+.ohero p{margin:0;opacity:.85}
+.ocd{display:inline-block;margin-top:18px;background:var(--card);border:1px solid var(--soft);border-radius:12px;padding:10px 22px;font-size:1.05rem}
+.ocd .cd b{font-size:1.5rem;color:var(--c2);font-family:var(--serif)}
+.site section.alt{background:var(--card)}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.paths>div{border-radius:16px;padding:22px 26px}
+.paths h4{margin:0 0 8px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.paths p{margin:0;font-size:1rem;line-height:1.6}
+.pa{background:var(--soft);opacity:.85}
+.pb{background:var(--c1);color:var(--on1)}
+.pclose{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--c1);margin:22px 0 0;text-align:center}
+.math{border-left:4px solid var(--c2);padding-left:24px;max-width:720px}
+.math p{margin:0 0 8px;font-size:1.04rem}
+.math .punch{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--c1);margin-top:14px}
+.anchor{border:1px solid var(--soft);border-radius:14px;overflow:hidden}
+.ar{display:grid;grid-template-columns:1.2fr .7fr 1.4fr;gap:12px;padding:12px 18px;border-top:1px solid var(--soft);font-size:.93rem}
+.ar.ah{border-top:0;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.6}
+.ar.us{background:var(--c1);color:var(--on1);font-weight:700}
+.stack{max-width:720px;border:1px solid var(--soft);border-radius:16px;overflow:hidden;background:var(--card);margin-top:16px}
+.si{display:flex;justify-content:space-between;gap:16px;padding:13px 20px;border-top:1px solid var(--soft);font-size:.95rem}
+.si:first-child{border-top:0}
+.si b{white-space:nowrap}
+.si.bonus{background:var(--sbg)}
+.si.bonus span::before{content:"🎁 "}
+.si.tot{font-weight:700}
+.si.tot s{opacity:.6}
+.si.price{background:var(--c2);color:var(--on2);font-size:1.15rem;font-weight:700;align-items:center}
+.si.price small{font-weight:500;font-size:.8rem;opacity:.9}
+.ovf{font-size:.9rem;opacity:.7;margin:12px 0 0;font-style:italic}
+.tiers{display:grid;gap:12px;margin-top:18px;max-width:760px}
+.tier{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--soft);border-radius:14px;padding:16px 20px;background:var(--sbg)}
+.tier.now{border:2px solid var(--c2);background:var(--card)}
+.tn{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--c1);color:var(--on1);font-weight:700}
+.tier b{display:block}
+.tier small{opacity:.65}
+.tier p{margin:4px 0 0;font-size:.92rem}
+.loss{font-weight:600;color:var(--c2);margin:14px 0 0}
+.scarce{display:flex;gap:18px;align-items:center;margin-top:20px;max-width:760px;border-radius:14px;padding:14px;background:var(--sbg);border:1px solid var(--soft)}
+.scarce img{width:84px;height:84px;object-fit:cover;border-radius:10px;flex:none}
+.scarce>div{flex:1}
+.sbar{height:8px;border-radius:9px;background:var(--soft);margin:10px 0 4px;overflow:hidden}
+.sbar i{display:block;height:100%;background:var(--c2)}
+.ptog{display:inline-flex;border:1.5px solid var(--soft);border-radius:999px;padding:3px;margin-top:10px;background:var(--card)}
+.ptog button{border:0;background:none;border-radius:999px;padding:7px 18px;font-weight:600;font-size:.86rem;color:var(--sink)}
+.ptog button.on{background:var(--c1);color:var(--on1)}
+.pnote{font-size:.85rem;opacity:.7;margin:8px 0 0}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--soft);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.plan.rec{border:2px solid var(--c2);box-shadow:0 22px 44px -28px rgba(0,0,0,.45);transform:translateY(-6px)}
+.plan h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0;color:var(--c1)}
+.psub{font-size:.86rem;opacity:.7}
+.pr{display:none;flex-direction:column;gap:2px;margin:8px 0}
+.pay-full .pf,.pay-mo .pm{display:flex}
+.pr b{font-family:var(--serif);font-size:2rem;line-height:1.1;color:var(--sink)}
+.pr s{font-size:.85rem;opacity:.55}
+.pr em{font-style:normal;font-size:.8rem;font-weight:700;color:var(--c2)}
+.plan ul{margin:0 0 12px;padding:0;list-style:none;display:grid;gap:6px;font-size:.9rem}
+.plan li::before{content:"✓ ";color:var(--c2);font-weight:700}
+.plan .buy{margin-top:auto;text-align:center}
+.ckmsg{margin:16px 0 0;padding:12px 16px;border-radius:10px;background:var(--sbg);border:1px dashed var(--c2);font-size:.9rem}
+.secure{font-size:.8rem;opacity:.6;margin:14px 0 0}
+.guar{display:flex;gap:24px;align-items:center;max-width:780px}
+.seal{flex:none;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--c2);border:3px double var(--c2)}
+.guar h3{font-family:var(--serif);margin:0 0 6px;font-size:1.3rem;color:var(--c1)}
+.guar p{margin:0}
+.sig{margin-top:8px;font-family:var(--serif);font-style:italic;opacity:.75}
+.objs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.obj{background:var(--card);border:1px solid var(--soft);border-radius:14px;padding:18px 20px}
+.obj b{display:block;font-family:var(--serif);font-size:1.08rem;margin-bottom:6px;color:var(--c1)}
+.obj p{margin:0;font-size:.92rem;opacity:.85}
+@media (max-width:900px){
+  .prog-head,.fitg,.paths{grid-template-columns:1fr}
+  .pkg{max-width:240px}
+  .comps{grid-template-columns:1fr 1fr}
+  .weeks,.slots,.plans,.objs{grid-template-columns:1fr}
+  .plan.rec{transform:none}
+  .ar{grid-template-columns:1fr auto;}
+  .ar span:nth-child(3){grid-column:1/-1;opacity:.75;font-size:.85rem}
+  .ar.ah span:nth-child(3){display:none}
+  .ubar{top:53px;font-size:.78rem}
+  .ubar .ub-d{display:none}
+}
+@media (max-width:560px){
+  .comps{grid-template-columns:1fr}
+  .guar{flex-direction:column;align-items:flex-start}
+}
+
 /* marketing notes */
 .note{display:none;position:absolute;top:14px;right:14px;z-index:5;max-width:300px;background:#fff8e1;border:1px solid #e9cf86;color:#4a3b12;border-radius:10px;padding:10px 13px;font-size:.8rem;line-height:1.45;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);font-family:var(--sans)}
 .note b{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#a07a12;margin-bottom:3px}
@@ -763,6 +897,456 @@ DATA.zh = {
   ]
 };
 
+DATA.en.dw = {
+  ui: {
+    enroll: "Enroll now", enrollShort: "Enroll", freeIntro: "Try a free intro class",
+    nextCohort: "Next 6-week class starts", closes: "Enrollment closes", left: "left",
+    d: "d", h: "h", m: "m", s: "s",
+    bar: "Enrollment for the next 6-week class closes in",
+    progKick: "The program", progH: "Dragon's Way Qigong® — 6-Week Energy Program",
+    progP: "Reawaken the body's innate ability to heal — by learning to build, save and move your Qi. Created by Grand Master Nan Lu, taught by certified instructors.",
+    facts: ["6 weeks", "1 class a week", "10–15 min a day", "Any fitness level", "Studio or online"],
+    compTitle: "Four parts, one system", weeksTitle: "Six weeks, one organ system at a time",
+    fitTitle: "Is this for you?", forYou: "This is for you if…", notYou: "It's not for you if…",
+    guide: "Your guide", ladderTitle: "After the 6 weeks", ladderSub: "Same movements. Completely different experience.",
+    ladderNow: "You start here", ladderNext: "Next level",
+    proofTitle: "What students say", proofSlot: "Your students' words go here — real quotes from your own classes build more trust than anything you write yourself.",
+    finalKick: "Enrollment is open",
+    backSite: "← Back to the website",
+    // offer page
+    offerKick: "Enroll · Dragon's Way Qigong® · 6 weeks",
+    twoTitle: "Two paths. One choice.", pathA: "Six weeks from now — as usual", pathB: "Six weeks from now — with Dragon's Way",
+    roiTitle: "Here is the math.",
+    anchorTitle: "What else would you spend this on?", anchorCols: ["Option", "Cost", "What you get"],
+    stackTitle: "Everything you get", stackTotal: "Total value", stackPrice: "Your price today",
+    orPay: "or", save: "Save",
+    overflow: "There was more than fits into six classes — so these come with it as gifts.",
+    tiersTitle: "The sooner you enroll, the more you get", tierLoss: "Every step down loses something you can't get back.",
+    scarce: "The first 20 students also receive the printed Dragon's Way book.", scarceLeft: "7 of 20 left",
+    plansTitle: "Choose your path", payFull: "Pay in full", payMonthly: "Monthly",
+    payFullNote: "Pay once, start immediately", payMonthlyNote: "Spread the tuition across the program",
+    separately: "Separately", popular: "Recommended for you", choose: "Choose",
+    guarTitle: "30-day guarantee",
+    guarText: "Practice for 30 days. If it isn't what you hoped for, email me and I'll refund you in full — no conditions, no hoops. Keep the guidebook anyway. The only person carrying risk on this page is me.",
+    objTitle: "Still deciding?",
+    demoPrices: "Example prices — each instructor sets their own.",
+    checkoutDemo: "Demo — checkout isn't connected. On a real site this opens payment.",
+    secure: "Secure checkout · Cancel monthly plans any time"
+  },
+  components: [
+    ["Wu Ming Qigong", "Ten ancient Wu Ming movements that gently yet profoundly increase your Qi — about 10–15 minutes a day."],
+    ["Eating-for-Healing", "Food chosen for its energy, not just its nutrients: what costs your body Qi, and what builds it back."],
+    ["Lifestyle", "Small daily shifts in rest, stress and rhythm that stop the energy leaks."],
+    ["Herbal support", "Optional whole-food herbal support that helps the body rebalance."]
+  ],
+  weeks: [
+    ["Week 1", "Everything is energy", "Preparation"],
+    ["Week 2", "Liver & Gallbladder", "Wood · Spring · Anger"],
+    ["Week 3", "Kidney & Bladder", "Water · Winter · Fear"],
+    ["Week 4", "Spleen & Stomach", "Earth · Late summer · Worry"],
+    ["Week 5", "Lung & Large Intestine", "Metal · Autumn · Grief"],
+    ["Week 6", "Heart & Small Intestine", "Fire · Summer · Joy"]
+  ],
+  stack: [
+    ["6 live weekly classes with your instructor", 600],
+    ["Dragon's Way practice video — teaching + practice modules", 147],
+    ["6-week guidebook & body journal", 67],
+    ["Eating-for-Healing food guide & recipes", 97],
+    ["Private student group + weekly Q&A", 180]
+  ],
+  plans: [
+    { name: "Dragon's Way 6-Week", sub: "Body level — the foundation", full: 497, mo: [3, 177], sep: 1291,
+      inc: ["The full 6-week program", "All bonuses in your tier", "30-day guarantee"] },
+    { name: "Body + Mind Path", sub: "6-Week + Emotional Freedom Through Qi", full: 897, mo: [6, 159], sep: 1094,
+      inc: ["Everything in the 6-Week", "Emotional Freedom Through Qi (6 weeks)", "Priority seat in the next cohort"] },
+    { name: "Complete Dragon's Way Path", sub: "All three levels — Body, Mind, Spirit", full: 1297, mo: [12, 119], sep: 1791,
+      inc: ["All three 6-week programs", "Lifetime access to class replays", "Two private sessions"] }
+  ],
+  tiers: [
+    ["Early bird", "Before the free intro class", "Printed Dragon's Way book + a private 30-minute session + the standard package"],
+    ["Intro night", "During the free intro class", "A private 30-minute session + the standard package"],
+    ["Before the deadline", "Until enrollment closes", "The standard package"]
+  ],
+  notes: {
+    bar: "Sticky urgency bar: the deadline is visible at every scroll position, with a live countdown.",
+    hero: "The program is the centerpiece; the niche is the angle — the headline speaks your clients' pain in the program's language.",
+    program: "Modules are named by what they fix, not what they teach — each week is an outcome for this niche.",
+    fit: "Qualifies the right people just before the price — and politely turns away the wrong ones.",
+    proof: "Social proof slot — use real student quotes only.",
+    two: "Two-path story: paint the familiar pain, paint the transformed version, then a binary close.",
+    roi: "Cost of inaction: “Here is the math.” The program is framed as cheaper than not doing it.",
+    anchor: "Comparative anchoring: the price is shown next to what people already spend.",
+    stack: "Value stack: every part priced separately, total shown before the price.",
+    tiers: "Bonus cascade rewards speed. Scarcity is real and specific (first 20).",
+    plans: "Dual pricing removes the yes/no choice; the bundle ladder makes the next level the natural upgrade.",
+    guar: "Risk reversal: the risk moves to the instructor.",
+    obj: "Calm reframes for the three classic objections: I'm fine / no time / too expensive.",
+    close: "Close with hope, not pressure — then repeat the deadline."
+  }
+};
+
+Object.assign(DATA.en.ex[0], {
+  cohort: "2026-10-27", rec: 0,
+  hero: {
+    eyebrow: "Dragon's Way Qigong® · 6-week program · Portland",
+    h1: "Your tension isn't random. In 6 weeks, learn to read it — and release it yourself.",
+    sub: "A 6-week energy program of ten gentle movements, eating-for-healing and simple daily habits — for massage clients who feel better on the table and want it to last.",
+    cta: "Enroll now", cta2: "Try a free intro class"
+  },
+  weekOut: [
+    "Find where your energy is leaking",
+    "Release the tension your muscles and tendons hold",
+    "Rebuild the reserve that protects your back and knees",
+    "End the heaviness and fatigue after meals",
+    "Breathe out what your shoulders are carrying",
+    "Sleep deeply and wake up rested"
+  ],
+  fit: ["You feel better after a massage — but it never lasts", "Tension in your neck, shoulders or back keeps coming back", "You're tired even after a full night's sleep", "You want something you can do yourself, at home"],
+  notFit: ["You want a quick fix with no daily practice", "You're looking for a workout or a stretching class"],
+  bonus: ["Bonus: self-massage + qigong workshop for neck & shoulders", 200],
+  paths: [
+    "You've had three more massages. The knot in your shoulder is back by Thursday. You're still sleeping badly — and still wondering what else to try.",
+    "You have a 15-minute practice that keeps your energy moving. Your muscles soften between sessions. You know what your body is telling you — and what to do about it."
+  ],
+  pathClose: "Which six weeks are you choosing?",
+  roi: ["A massage every two weeks: $110 × 26 = $2,860 a year.", "Relief that lasts two or three days.", "Dragon's Way: $497 — once. The practice is yours for life."],
+  roiPunch: "That's less than five massages.",
+  anchor: [["Weekend spa", "$550", "Temporary relief, same tension"], ["Massage membership (1 year)", "$1,320+", "Feels great, wears off"], ["Pain clinic visit", "$150 / visit", "Manages the symptom"], ["Dragon's Way 6-Week", "$497", "A daily practice that's yours for life"]],
+  objections: [
+    ["“I'm stiff and out of shape.”", "Perfect. The movements are slow and simple and can be done standing or seated. Stiff bodies are exactly who this was made for."],
+    ["“I don't have time.”", "10–15 minutes a day and one class a week. Most students practice before breakfast."],
+    ["“It's expensive.”", "It costs less than five massages — and it keeps working between them."]
+  ],
+  close: "Your body has been sending you messages for years. In six weeks, you'll be able to read them."
+});
+
+Object.assign(DATA.en.ex[1], {
+  cohort: "2026-11-02", rec: 1,
+  hero: {
+    eyebrow: "Dragon's Way Qigong® · 6 weeks · for high performers",
+    h1: "Stress lives in your liver, your lungs, your kidneys. In 6 weeks, learn to move it out.",
+    sub: "A 6-week energy program — 15 minutes a day, online at 7 am — for executives and founders who are achieving without thriving.",
+    cta: "Enroll now", cta2: "Join the free masterclass"
+  },
+  weekOut: [
+    "Audit where your energy really goes",
+    "Release frustration before it becomes headaches and insomnia",
+    "Stop running on reserves — refill the tank",
+    "Quiet the overthinking and fix stress digestion",
+    "Let go of what you can't control",
+    "Calm the mind, sharpen focus, sleep again"
+  ],
+  fit: ["You're successful on paper and running on empty", "You're wired at night and tired all day", "Stress shows up in your body — jaw, gut, sleep", "You'll commit 15 minutes a day for 6 weeks"],
+  notFit: ["You want another productivity hack", "You're not willing to change anything about your day"],
+  bonus: ["Bonus: 15-minute desk reset audio series", 200],
+  paths: [
+    "Q4 is over. You got through it on coffee and willpower. You're wired at midnight and already dreading January.",
+    "You start each day with 15 minutes that clear your head. You sleep. You walk into hard meetings calm — and leave with energy to spare."
+  ],
+  pathClose: "Which version of the next six weeks are you choosing?",
+  roi: ["Executive coaching: $500 an hour. A wellness retreat: $3,000+ — and back in the inbox on Monday.", "Burnout recovery: months of lost momentum.", "The Body + Mind Path: $897 — a practice you take into every meeting for the rest of your career."],
+  roiPunch: "Less than two hours of coaching.",
+  anchor: [["Weekend retreat", "$3,000+", "Rested until Monday"], ["Executive coaching", "$500 / hour", "Better strategy, same body"], ["Meditation app (1 year)", "$70", "Good intentions, rarely opened"], ["Body + Mind Path", "$897", "A 15-minute practice you'll keep"]],
+  objections: [
+    ["“I have no time.”", "15 minutes, first thing in the morning. No equipment, no change of clothes. The busiest clients are the ones who notice it most."],
+    ["“Is this ‘woo’?”", "It comes from a medical system thousands of years old, and the results are practical: deeper sleep, steadier energy, a calmer nervous system. Judge it by week 2."],
+    ["“It's expensive.”", "It costs less than two hours of executive coaching — and it works on what coaching can't reach: your body."]
+  ],
+  close: "Your body already knows how much you're carrying. Learn to put it down before it makes you."
+});
+
+Object.assign(DATA.en.ex[2], {
+  cohort: "2026-11-10", rec: 0,
+  hero: {
+    eyebrow: "Dragon's Way Qigong® · 6 weeks · Old Pasadena",
+    h1: "Your symptoms have a map. In 6 weeks, learn to read it — and support every treatment at home.",
+    sub: "The 6-week program I give my patients: ten gentle movements, eating-for-healing and daily rhythm, organized by the Five Elements.",
+    cta: "Enroll now", cta2: "Come to the free talk"
+  },
+  weekOut: [
+    "Learn the map your practitioner uses",
+    "Support the Liver: stress, PMS, eyes and tendons",
+    "Rebuild Kidney Qi: energy, lower back, vitality",
+    "Strengthen digestion: bloating, cravings, fatigue",
+    "Protect the Lung: immunity, skin, letting go",
+    "Calm the Heart: sleep, anxiety, joy"
+  ],
+  fit: ["You're in treatment and want results to last longer", "Digestive, sleep, hormonal or energy issues keep coming back", "You want to understand your own body", "You love the Five Elements and want to go deeper"],
+  notFit: ["You expect qigong to replace medical care", "You want someone else to do all the work"],
+  bonus: ["Bonus: Five-Element seasonal self-care calendar + one tune-up treatment", 200],
+  paths: [
+    "You've had six treatments. You felt great after every one — and the old pattern crept back in between.",
+    "You practice every morning. Your treatments build on each other. You understand what your body is saying — in the same language your practitioner speaks."
+  ],
+  pathClose: "Which six weeks are you choosing?",
+  roi: ["Weekly treatments: $120 × 12 = $1,440 for one course of care.", "When you practice between visits, each treatment goes further.", "The 6-week program: $497."],
+  roiPunch: "About four treatments — and it works every day in between.",
+  anchor: [["More treatments", "$120 / visit", "Progress fades between visits"], ["Supplements", "$80+ / month", "Guesswork"], ["Wellness retreat", "$1,500+", "One good week"], ["Dragon's Way 6-Week", "$497", "The tools to support every treatment"]],
+  objections: [
+    ["“I already get acupuncture.”", "Treatment moves Qi in the clinic; practice keeps it moving at home. Together they go further than either alone."],
+    ["“I don't have time.”", "10 minutes a day and one class a week — the same time as a cup of tea."],
+    ["“It's expensive.”", "About the cost of four treatments — and it supports every treatment that follows."]
+  ],
+  close: "Your symptoms already contain the clues. Learn to read them before they get louder."
+});
+
+Object.assign(DATA.en.ui, {
+  fieldProgram: "Program", fieldStart: "Next 6-week class starts", fieldPrice: "Price", fieldBundles: "Bundles to offer",
+  guarOpt: "30-day money-back guarantee", guarHint: "Removes the risk of saying yes", orMonthly: "or"
+});
+DATA.en.ui.steps.push("Program & pricing");
+DATA.en.ui.prompts.push("Set up your Dragon's Way program and pricing.");
+DATA.en.ex[0].build = [
+  "Centerpiece: Dragon's Way Qigong® — 6-Week Energy Program",
+  "Niche angle: massage clients → “I've tried everything and nothing sticks”",
+  "Six weeks renamed as outcomes for people who hold tension",
+  "Urgency bar + countdown to enrollment close",
+  "Enroll page: two paths, the math, value stack, bonus tiers, 3 plans, guarantee",
+  "Your bio and “why” placed as the guide section",
+  "FAQ + blog added; free intro class leads the events"
+];
+DATA.en.ex[1].build = [
+  "Centerpiece: Dragon's Way Qigong® — 6-Week Energy Program",
+  "Niche angle: high-stress professionals → “Stress lives in your liver, your lungs, your kidneys”",
+  "Six weeks renamed as outcomes for people achieving without thriving",
+  "Urgency bar + countdown to enrollment close",
+  "Enroll page: Body + Mind Path recommended for this niche",
+  "Your burnout story placed as the guide section",
+  "FAQ added, blog skipped; free masterclass leads the events"
+];
+DATA.en.ex[2].build = [
+  "Centerpiece: Dragon's Way Qigong® — 6-Week Energy Program",
+  "Niche angle: acupuncture patients → “Your symptoms have a map”",
+  "Six weeks renamed by organ system — the language your patients already hear",
+  "Urgency bar + countdown to enrollment close",
+  "Enroll page: two paths, the math, value stack, bonus tiers, 3 plans, guarantee",
+  "Your clinical experience placed as the guide section",
+  "Blog added, FAQ skipped; free talk leads the events"
+];
+
+DATA.zh.dw = {
+  ui: {
+    enroll: "立即報名", enrollShort: "報名", freeIntro: "參加免費入門課",
+    nextCohort: "下一期 6 週課程開課", closes: "報名截止", left: "剩餘",
+    d: "天", h: "時", m: "分", s: "秒",
+    bar: "下一期 6 週課程報名倒數",
+    progKick: "課程", progH: "龍之道氣功®——6 週能量課程",
+    progP: "透過學習培養、保存與運行你的氣，喚醒身體與生俱來的療癒能力。由 Nan Lu 大師創立，認證導師授課。",
+    facts: ["6 週", "每週 1 堂課", "每天 10–15 分鐘", "任何體能程度", "教室或線上"],
+    compTitle: "四個部分，一個系統", weeksTitle: "六週，一次一個臟腑系統",
+    fitTitle: "這適合你嗎？", forYou: "適合你，如果……", notYou: "不適合你，如果……",
+    guide: "你的導師", ladderTitle: "6 週之後", ladderSub: "同樣的動作，完全不同的體驗。",
+    ladderNow: "從這裡開始", ladderNext: "下一個層次",
+    proofTitle: "學員怎麼說", proofSlot: "這裡放你學員的話——來自你自己課堂的真實分享，比你自己寫的任何文字都更能建立信任。",
+    finalKick: "報名開放中",
+    backSite: "← 回到網站",
+    offerKick: "報名 · 龍之道氣功® · 6 週",
+    twoTitle: "兩條路，一個選擇。", pathA: "六週後——一切照舊", pathB: "六週後——有了龍之道",
+    roiTitle: "來算一算。",
+    anchorTitle: "你還會把這筆錢花在哪裡？", anchorCols: ["選項", "花費", "你得到什麼"],
+    stackTitle: "你會得到的一切", stackTotal: "總價值", stackPrice: "今天的價格",
+    orPay: "或", save: "省下",
+    overflow: "內容多到六堂課裝不下——所以這些以贈禮的方式一起送給你。",
+    tiersTitle: "越早報名，得到越多", tierLoss: "每晚一步，就會失去一樣無法再取回的東西。",
+    scarce: "前 20 名學員另外獲贈實體版《龍之道》書籍。", scarceLeft: "20 份中剩 7 份",
+    plansTitle: "選擇你的道路", payFull: "一次付清", payMonthly: "分期付款",
+    payFullNote: "一次付款，立即開始", payMonthlyNote: "把學費分攤在課程期間",
+    separately: "分開購買", popular: "為你推薦", choose: "選擇",
+    guarTitle: "30 天保證",
+    guarText: "練習 30 天。如果不是你所期待的，寄一封信給我，我會全額退款——沒有條件，沒有關卡。指南手冊你可以留著。這一頁上唯一承擔風險的人，是我。",
+    objTitle: "還在考慮嗎？",
+    demoPrices: "範例價格——每位導師自行訂價。",
+    checkoutDemo: "示範——結帳尚未連接。在真實網站上，這裡會開啟付款頁面。",
+    secure: "安全結帳 · 分期方案可隨時取消"
+  },
+  components: [
+    ["無名氣功", "十個古老的無名氣功動作，溫和而深刻地增強你的氣——每天約 10–15 分鐘。"],
+    ["食療飲食", "依據食物的能量來選擇，而不只是營養：什麼會耗費身體的氣，什麼能把它補回來。"],
+    ["生活方式", "在休息、壓力與作息上的小小日常調整，堵住能量的漏洞。"],
+    ["草本補充品", "可選擇的天然草本支持，幫助身體重新平衡。"]
+  ],
+  weeks: [
+    ["第 1 週", "萬物皆是能量", "準備週"],
+    ["第 2 週", "肝與膽", "木 · 春 · 怒"],
+    ["第 3 週", "腎與膀胱", "水 · 冬 · 恐"],
+    ["第 4 週", "脾與胃", "土 · 長夏 · 思"],
+    ["第 5 週", "肺與大腸", "金 · 秋 · 悲"],
+    ["第 6 週", "心與小腸", "火 · 夏 · 喜"]
+  ],
+  stack: [
+    ["6 堂每週導師直播課", 600],
+    ["龍之道練習影片——教學 + 練習模組", 147],
+    ["6 週指南手冊與身體日誌", 67],
+    ["食療飲食指南與食譜", 97],
+    ["學員私人社群 + 每週問答", 180]
+  ],
+  plans: [
+    { name: "龍之道 6 週課程", sub: "身體層次——基礎", full: 497, mo: [3, 177], sep: 1291,
+      inc: ["完整 6 週課程", "你所屬梯次的所有贈禮", "30 天保證"] },
+    { name: "身心之路", sub: "6 週課程 + 透過氣獲得情緒自由", full: 897, mo: [6, 159], sep: 1094,
+      inc: ["6 週課程的全部內容", "透過氣獲得情緒自由（6 週）", "下一期優先保留名額"] },
+    { name: "完整龍之道之路", sub: "三個層次——身、心、靈", full: 1297, mo: [12, 119], sep: 1791,
+      inc: ["三個 6 週課程", "終身觀看課程重播", "兩次私人課程"] }
+  ],
+  tiers: [
+    ["早鳥", "免費入門課之前", "實體版《龍之道》書籍 + 30 分鐘私人課程 + 標準方案"],
+    ["入門課當晚", "免費入門課進行時", "30 分鐘私人課程 + 標準方案"],
+    ["截止之前", "直到報名截止", "標準方案"]
+  ],
+  notes: {
+    bar: "置頂的急迫感橫幅：每個捲動位置都看得到截止時間，附即時倒數。",
+    hero: "課程是主角，專長是切入角度——標題用課程的語言說出你客戶的痛點。",
+    program: "模組以「解決什麼」命名，而不是「教什麼」——每一週都是這個族群的一個成果。",
+    fit: "在價格出現之前篩選出對的人——也禮貌地讓不適合的人離開。",
+    proof: "社會認同的位置——只使用真實的學員分享。",
+    two: "兩條路的故事：描繪熟悉的痛苦，描繪改變後的樣子，再給一個二選一的結尾。",
+    roi: "不行動的代價：「來算一算。」把課程定位成比不做更便宜。",
+    anchor: "比較錨定：把價格放在大家本來就會花的錢旁邊。",
+    stack: "價值堆疊：每個部分分別標價，總價值先於價格出現。",
+    tiers: "贈禮階梯獎勵行動速度；稀缺性真實而具體（前 20 名）。",
+    plans: "雙重定價消除了「要或不要」的選擇；方案階梯讓下一個層次成為自然的升級。",
+    guar: "風險逆轉：把風險轉移到導師身上。",
+    obj: "針對三個經典疑慮的平靜回應：我很好／沒時間／太貴。",
+    close: "以希望而不是壓力收尾——然後再重複一次截止時間。"
+  }
+};
+
+Object.assign(DATA.zh.ex[0], {
+  hero: {
+    eyebrow: "龍之道氣功® · 6 週課程 · 波特蘭",
+    h1: "你的緊繃不是偶然。用 6 週學會解讀它——並且自己釋放它。",
+    sub: "一個 6 週的能量課程：十個溫和的動作、食療飲食與簡單的日常習慣——給在按摩床上感覺很好、卻希望效果能持久的按摩客戶。",
+    cta: "立即報名", cta2: "參加免費入門課"
+  },
+  weekOut: [
+    "找出你的能量從哪裡流失",
+    "釋放肌肉與筋所積存的緊繃",
+    "補回保護腰背與膝蓋的儲備",
+    "告別飯後的沉重與疲倦",
+    "把肩膀扛著的東西呼出去",
+    "睡得深沉，醒來精神飽滿"
+  ],
+  fit: ["按摩後你感覺很好——但總是維持不久", "肩頸或背部的緊繃反覆回來", "睡滿一整晚還是覺得累", "你想要一個能自己在家做的方法"],
+  notFit: ["你想要不需要每天練習的速效方法", "你在找健身課或伸展課"],
+  bonus: ["贈禮：肩頸自我按摩 + 氣功工作坊", 200],
+  paths: [
+    "你又按摩了三次。肩膀上的結到週四又回來了。你依然睡不好——依然在想還能試什麼。",
+    "你有了一套 15 分鐘的練習，讓能量持續流動。肌肉在兩次療程之間就會自己放鬆。你知道身體在告訴你什麼——也知道該怎麼做。"
+  ],
+  pathClose: "你要選擇哪一種六週？",
+  roi: ["每兩週按摩一次：$110 × 26 = 一年 $2,860。", "放鬆的效果只維持兩三天。", "龍之道：$497——一次。這套練習終身屬於你。"],
+  roiPunch: "比五次按摩還便宜。",
+  anchor: [["週末水療", "$550", "暫時放鬆，緊繃依舊"], ["按摩會員（一年）", "$1,320+", "很舒服，但會退去"], ["疼痛診所", "每次 $150", "控制症狀"], ["龍之道 6 週課程", "$497", "一套終身屬於你的每日練習"]],
+  objections: [
+    ["「我身體很僵硬、體能也不好。」", "那正好。動作緩慢而簡單，站著或坐著都能做。身體僵硬的人，正是這套功法要幫助的對象。"],
+    ["「我沒有時間。」", "每天 10–15 分鐘，每週一堂課。多數學員在早餐前練習。"],
+    ["「太貴了。」", "它比五次按摩還便宜——而且在兩次按摩之間持續發揮作用。"]
+  ],
+  close: "你的身體多年來一直在傳送訊息給你。六週之後，你將能讀懂它們。"
+});
+
+Object.assign(DATA.zh.ex[1], {
+  hero: {
+    eyebrow: "龍之道氣功® · 6 週 · 給高成就者",
+    h1: "壓力住在你的肝、你的肺、你的腎。用 6 週學會把它移出去。",
+    sub: "一個 6 週的能量課程——每天 15 分鐘，早上 7 點線上進行——給有成就卻不健旺的高階主管與創辦人。",
+    cta: "立即報名", cta2: "參加免費大師課"
+  },
+  weekOut: [
+    "盤點你的能量真正花在哪裡",
+    "在挫折變成頭痛與失眠之前釋放它",
+    "別再靠儲備撐著——把油箱加滿",
+    "安靜過度思考，修復壓力造成的腸胃問題",
+    "放下你無法控制的事",
+    "讓心平靜、專注更敏銳、重新睡好覺"
+  ],
+  fit: ["你在紙面上很成功，身體卻快沒油了", "晚上亢奮，白天疲倦", "壓力出現在身體上——下巴、腸胃、睡眠", "你願意 6 週內每天投入 15 分鐘"],
+  notFit: ["你想要的是另一個效率技巧", "你不願意改變生活中的任何一件事"],
+  bonus: ["贈禮：15 分鐘辦公桌重整音檔系列", 200],
+  paths: [
+    "第四季結束了。你靠咖啡和意志力撐過去。半夜依然亢奮，已經開始害怕一月的到來。",
+    "你每天以 15 分鐘清空腦袋展開一天。你睡得著了。你平靜地走進艱難的會議——離開時還有餘力。"
+  ],
+  pathClose: "接下來的六週，你要選擇哪一個版本？",
+  roi: ["高階主管教練：每小時 $500。一次健康靜修：$3,000 以上——週一又回到收件匣。", "倦怠復原：好幾個月失去的動能。", "身心之路：$897——一套你能帶進往後職涯每一場會議的練習。"],
+  roiPunch: "不到兩小時的教練費。",
+  anchor: [["週末靜修", "$3,000+", "休息到週一"], ["高階主管教練", "每小時 $500", "更好的策略，同樣的身體"], ["冥想 App（一年）", "$70", "立意良好，很少打開"], ["身心之路", "$897", "一套你會持續下去的 15 分鐘練習"]],
+  objections: [
+    ["「我沒有時間。」", "早上第一件事，15 分鐘。不需要器材，也不必換衣服。最忙碌的客戶，往往最能感受到差別。"],
+    ["「這是玄學嗎？」", "它來自一套數千年歷史的醫學體系，成果也很實際：睡得更深、能量更穩定、神經系統更平靜。到第二週再來判斷。"],
+    ["「太貴了。」", "它不到兩小時的高階主管教練費——而且作用在教練碰不到的地方：你的身體。"]
+  ],
+  close: "你的身體早已知道你扛了多少。在它逼你放下之前，學會自己放下。"
+});
+
+Object.assign(DATA.zh.ex[2], {
+  hero: {
+    eyebrow: "龍之道氣功® · 6 週 · 帕薩迪納舊城區",
+    h1: "你的症狀有一張地圖。用 6 週學會解讀它——並在家支持每一次治療。",
+    sub: "我給病人的 6 週課程：十個溫和的動作、食療飲食與日常作息，依五行來安排。",
+    cta: "立即報名", cta2: "參加免費講座"
+  },
+  weekOut: [
+    "學會你的醫師所用的那張地圖",
+    "照顧肝：壓力、經前不適、眼睛與筋",
+    "補回腎氣：精力、腰部、活力",
+    "強化消化：腹脹、嘴饞、疲倦",
+    "保護肺：免疫、皮膚、放下",
+    "安定心：睡眠、焦慮、喜悅"
+  ],
+  fit: ["你正在接受治療，希望效果維持得更久", "消化、睡眠、荷爾蒙或精力問題反覆出現", "你想了解自己的身體", "你喜歡五行，想更深入"],
+  notFit: ["你期望氣功取代醫療照護", "你希望所有事都由別人替你做"],
+  bonus: ["贈禮：五行季節自我照顧行事曆 + 一次調理治療", 200],
+  paths: [
+    "你做了六次治療。每次結束都感覺很好——但舊的模式在兩次之間又悄悄回來。",
+    "你每天早上練習。每一次治療都建立在前一次之上。你理解身體在說什麼——用的是和你的醫師相同的語言。"
+  ],
+  pathClose: "你要選擇哪一種六週？",
+  roi: ["每週治療：$120 × 12 = 一個療程 $1,440。", "當你在兩次就診之間練習，每一次治療都走得更遠。", "6 週課程：$497。"],
+  roiPunch: "大約四次治療的費用——而且在兩次之間每天都發揮作用。",
+  anchor: [["更多次治療", "每次 $120", "效果在兩次之間退去"], ["營養補充品", "每月 $80+", "憑感覺猜"], ["健康靜修", "$1,500+", "美好的一週"], ["龍之道 6 週課程", "$497", "支持每一次治療的工具"]],
+  objections: [
+    ["「我已經在做針灸了。」", "治療在診所裡推動氣；練習讓它在家裡持續流動。兩者結合，比任何一個單獨進行都走得更遠。"],
+    ["「我沒有時間。」", "每天 10 分鐘，每週一堂課——跟喝一杯茶的時間差不多。"],
+    ["「太貴了。」", "大約是四次治療的費用——而且支持之後的每一次治療。"]
+  ],
+  close: "你的症狀早已藏著線索。在它們變得更大聲之前，學會讀懂它們。"
+});
+
+Object.assign(DATA.zh.ui, {
+  fieldProgram: "課程", fieldStart: "下一期 6 週課程開課日", fieldPrice: "價格", fieldBundles: "提供的方案組合",
+  guarOpt: "30 天退款保證", guarHint: "消除說「好」的風險", orMonthly: "或"
+});
+DATA.zh.ui.steps.push("課程與價格");
+DATA.zh.ui.prompts.push("設定你的龍之道課程與價格。");
+DATA.zh.ex[0].build = [
+  "主角：龍之道氣功®——6 週能量課程",
+  "專長角度：按摩客戶 →「我什麼都試過了，但沒有一樣持久」",
+  "把六週重新命名為長期緊繃者想要的成果",
+  "急迫感橫幅 + 報名截止倒數",
+  "報名頁：兩條路、算一算、價值堆疊、贈禮階梯、3 種方案、保證",
+  "把你的簡介和「為什麼」放成導師介紹",
+  "加入常見問題與部落格；免費入門課排在活動第一"
+];
+DATA.zh.ex[1].build = [
+  "主角：龍之道氣功®——6 週能量課程",
+  "專長角度：高壓專業人士 →「壓力住在你的肝、你的肺、你的腎」",
+  "把六週重新命名為「有成就卻不健旺」的人想要的成果",
+  "急迫感橫幅 + 報名截止倒數",
+  "報名頁：為這個族群推薦「身心之路」",
+  "把你的倦怠故事放成導師介紹",
+  "加入常見問題、略過部落格；免費大師課排在活動第一"
+];
+DATA.zh.ex[2].build = [
+  "主角：龍之道氣功®——6 週能量課程",
+  "專長角度：針灸病人 →「你的症狀有一張地圖」",
+  "依臟腑系統命名六週——病人早已熟悉的語言",
+  "急迫感橫幅 + 報名截止倒數",
+  "報名頁：兩條路、算一算、價值堆疊、贈禮階梯、3 種方案、保證",
+  "把你的臨床經歷放成導師介紹",
+  "加入部落格、略過常見問題；免費講座排在活動第一"
+];
+
 </script>
 <script>
 (function(){
@@ -862,7 +1446,7 @@ DATA.zh = {
     $('#bStart').title = NV.startT; $('#bEnd').title = NV.endT;
     $('#bStart').onclick = () => { paused = false; playFrom(0); };
     $('#bPrev').onclick = () => { paused = true; playFrom(Math.max(0, step - 1)); };
-    $('#bNext').onclick = () => { paused = true; if (step >= 7) finish(); else playFrom(step + 1); };
+    $('#bNext').onclick = () => { paused = true; if (step >= NSTEP - 1) finish(); else playFrom(step + 1); };
     $('#bEnd').onclick = () => { run++; showSite(); };
     $('#bPlay').onclick = () => { paused = !paused; setPlay(); };
     [...$('#steps').children].forEach((li, i) => { li.style.cursor = 'pointer'; li.onclick = () => { paused = true; playFrom(i); }; });
@@ -875,9 +1459,9 @@ DATA.zh = {
   function setStep(s){
     [...$('#steps').children].forEach((li, i) => { li.className = i < s ? 'done' : i === s ? 'on' : ''; if (i < s) li.firstChild.textContent = '✓'; else li.firstChild.textContent = i + 1; });
     const on = $('#steps').children[s]; if (on && on.scrollIntoView && innerWidth < 900) on.parentNode.scrollLeft = on.offsetLeft - 20;
-    $('#wcount').textContent = (L === 'zh' ? '第 ' + (s + 1) + ' 步，共 8 步' : 'Step ' + (s + 1) + ' of 8');
+    $('#wcount').textContent = (L === 'zh' ? '第 ' + (s + 1) + ' 步，共 ' + NSTEP + ' 步' : 'Step ' + (s + 1) + ' of ' + NSTEP);
     $('#wq').textContent = U.prompts[s];
-    $('#prog').style.width = (s / 8 * 100) + '%';
+    $('#prog').style.width = (s / NSTEP * 100) + '%';
   }
   async function animStep(s, e, r){
     const F = $('#fields'); let els;
@@ -919,6 +1503,21 @@ DATA.zh = {
         F.innerHTML = e.events.map(ev => '<div class="evrow"><div class="dt">' + esc(fmt(ev.d, {month: 'short', day: 'numeric'})) + '</div><div class="tt">' + esc(ev.title) + '</div></div>').join('');
         for (const row of F.querySelectorAll('.evrow')){ await A(480, r); row.classList.add('in'); }
         break;
+      case 8: {
+        const W = DATA[L].dw, p0 = W.plans[0], mon = n => '$' + n.toLocaleString('en-US');
+        F.innerHTML = field(U.fieldProgram) + field(U.fieldStart) + field(U.fieldPrice) +
+          '<div><div class="fl">' + esc(U.fieldBundles) + '</div><div class="chips">' + W.plans.map(p => '<span class="chip">' + esc(p.name) + '</span>').join('') + '</div></div>' +
+          '<div class="tg"><div><b>' + esc(U.guarOpt) + '</b><small>' + esc(U.guarHint) + '</small></div><div><div class="sw"></div><div class="sw-l">' + esc(U.no) + '</div></div></div>';
+        els = F.querySelectorAll('.inp');
+        await type(els[0], W.plans[0].name, r);
+        await type(els[1], new Intl.DateTimeFormat(U.locale, {weekday: 'short', month: 'long', day: 'numeric'}).format(dObj(e.cohort)), r);
+        await type(els[2], mon(p0.full) + '  ·  ' + U.orMonthly + ' ' + p0.mo[0] + ' × ' + mon(p0.mo[1]), r);
+        const ch = F.querySelectorAll('.chip');
+        for (const c of ch){ await A(300, r); c.classList.add('on'); }
+        ch[e.rec].classList.add('hl');
+        await A(400, r); $('.sw', F).classList.add('on'); $('.sw-l', F).textContent = U.yes;
+        break;
+      }
     }
   }
   async function building(e, r){
@@ -928,14 +1527,14 @@ DATA.zh = {
     await sleep(900, r);
   }
 
-  let step = 0;
+  let step = 0; const NSTEP = 9;
   async function playFrom(s0){
     run++; const r = run; phase = 'wiz'; setPill();
     const e = EX(cur);
     if (!$('#steps')) wizShell();
     setPlay();
     try {
-      for (let s = s0; s < 8; s++){
+      for (let s = s0; s < NSTEP; s++){
         step = s; setStep(s);
         fast = paused;                 // paused + manual jump -> show the step filled in
         await animStep(s, e, r);
@@ -974,8 +1573,10 @@ DATA.zh = {
   });
 
   // ---------- generated site ----------
+  const DW = DATA[L].dw, D = DW.ui;
+  const money = n => '$' + n.toLocaleString('en-US');
   function note(e, k){
-    const t = e.notes[k]; if (!t) return '';
+    const t = DW.notes[k] || e.notes[k]; if (!t) return '';
     return '<div class="note"><b>' + esc(U.noteLabel) + '</b>' + esc(t) + '</div>';
   }
   function cal(e){
@@ -987,47 +1588,146 @@ DATA.zh = {
     for (let d = 1; d <= n; d++) g += '<span' + (hit.has(d) ? ' class="e"' : '') + '>' + d + '</span>';
     return '<div class="cal"><h4>' + esc(new Intl.DateTimeFormat(U.locale, {month: 'long', year: 'numeric'}).format(f)) + '</h4><div class="g">' + g + '</div></div>';
   }
-  function siteHTML(e){
-    const N = U.nav, order = [e.lead].concat([0, 1, 2].filter(x => x !== e.lead));
-    const links = [['about', N.about], ['programs', N.programs]].concat(e.faq ? [['faq', N.faq]] : [], e.blog ? [['blog', N.blog]] : [], [['events', N.events], ['contact', N.contact]]);
-    const mono = (sz) => '<div class="mono"' + (sz ? ' style="width:' + sz + 'px;height:' + sz + 'px"' : '') + '>' + esc(e.initials) + '</div>';
-    let h = '<nav class="snav"><div class="slogo">' + esc(e.site) + '</div><div class="slinks">' +
-      links.map(l => '<a href="#s-' + l[0] + '">' + esc(l[1]) + '</a>').join('') +
-      '</div><a class="scta" href="#s-contact">' + esc(e.hero.cta) + '</a></nav>';
+  // enrollment deadline: 3 days before the class starts, 11:59 pm (demo: never in the past)
+  function deadline(e){
+    const c = dObj(e.cohort); const d = new Date(c.getFullYear(), c.getMonth(), c.getDate() - 3, 23, 59, 0);
+    return d.getTime() > Date.now() + 3600e3 ? d : new Date(Date.now() + ((5 * 24 + 7) * 60 + 23) * 60e3);
+  }
+  const fmtLong = d => new Intl.DateTimeFormat(U.locale, {weekday: 'short', month: 'long', day: 'numeric'}).format(d);
+  const cd = e => '<span class="cd" data-t="' + deadline(e).getTime() + '"></span>';
+  function tick(){
+    document.querySelectorAll('.cd').forEach(el => {
+      let t = Math.max(0, +el.dataset.t - Date.now()) / 1000;
+      const dd = Math.floor(t / 86400), hh = Math.floor(t % 86400 / 3600), mm = Math.floor(t % 3600 / 60), ss = Math.floor(t % 60);
+      const P2 = n => String(n).padStart(2, '0');
+      el.innerHTML = '<b>' + dd + '</b>' + D.d + ' <b>' + P2(hh) + '</b>' + D.h + ' <b>' + P2(mm) + '</b>' + D.m + ' <b>' + P2(ss) + '</b>' + D.s;
+    });
+  }
+  setInterval(tick, 1000);
+  const mono = e => '<div class="mono">' + esc(e.initials) + '</div>';
+  const enrollBtn = (label, cls) => '<a class="scta' + (cls ? ' ' + cls : '') + '" href="#enroll" data-go="enroll">' + esc(label || D.enroll) + '</a>';
+  function ubar(e){
+    return '<div class="ubar">' + note(e, 'bar') + '<span>' + esc(D.bar) + '</span>' + cd(e) + '<span class="ub-d">' + esc(D.closes) + ' ' + esc(fmtLong(deadline(e))) + '</span>' + enrollBtn(D.enrollShort, 'sm') + '</div>';
+  }
+  function footer(e){
+    return '<footer class="sfoot"><div><b>' + esc(e.site) + '</b><br>' + esc(U.footer) + '</div><div>' + esc(U.powered) + '<br><span class="credit">' + (L === 'zh' ? '照片：Unsplash' : 'Photos: Unsplash') + '</span></div></footer>';
+  }
+  function siteHome(e){
+    const N = U.nav;
+    const links = [['program', N.programs], ['about', N.about]].concat(e.faq ? [['faq', N.faq]] : [], e.blog ? [['blog', N.blog]] : [], [['events', N.events], ['contact', N.contact]]);
+    const cohort = fmtLong(dObj(e.cohort));
+    let h = ubar(e);
+    h += '<nav class="snav"><div class="slogo">' + esc(e.site) + '</div><div class="slinks">' +
+      links.map(l => '<a href="#s-' + l[0] + '">' + esc(l[1]) + '</a>').join('') + '</div>' + enrollBtn(D.enrollShort) + '</nav>';
+    // hero — the program, told in the niche's language
     h += '<section class="shero">' + note(e, 'hero') + '<div><div class="kick">' + esc(e.hero.eyebrow) + '</div><h1>' + esc(e.hero.h1) + '</h1><p>' + esc(e.hero.sub) +
-      '</p><div class="ctas"><a class="scta" href="#s-contact">' + esc(e.hero.cta) + '</a><a class="scta ghost" href="#s-programs">' + esc(e.hero.cta2) + '</a></div></div>' +
-      '<div class="hpic"><img alt="" src="' + IMG(e.photos[1], 900) + '"><div class="badge">' + mono() + '<span>' + esc(e.person) + '</span></div></div></section>';
-    h += '<section class="sdw" id="s-about">' + note(e, 'about') + '<div class="kick">Dragon\'s Way Qigong®</div><h2>' + esc(U.dwAbout) + '</h2><div class="story"><div><p class="big">' + esc(e.story[0]) + '</p>' + (e.storyPic ? '<img class="spic" alt="" loading="lazy" src="' + IMG(e.storyPic, 900) + '">' : '') +
-      '</div><div class="rest">' + e.story.slice(1).map((p, i, a) => '<p' + (i === a.length - 1 ? ' class="inv"' : '') + '>' + esc(p) + '</p>').join('') + '</div></div></section>';
-    h += '<section id="s-programs">' + note(e, 'programs') + '<div class="kick">' + esc(U.progTitle) + '</div><h2>' + esc(U.progSub) + '</h2><div class="pgrid">' +
-      order.map(k => '<div class="pcard' + (k === e.lead ? ' lead' : '') + '">' + (k === e.lead ? '<span class="start">' + esc(U.startHere) + '</span>' : '') +
-        '<div class="lv">' + esc(U.level[k]) + '</div><h3>' + esc(P[k].name) + '</h3><div class="tg2">' + esc(P[k].tag) + '</div><p>' + esc(P[k].body) + '</p>' +
-        (k === e.lead ? '<p class="leadline">' + esc(e.leadLine) + '</p>' : '') + '<div class="wk">' + esc(U.weeks) + '</div></div>').join('') + '</div></section>';
-    h += '<section class="me">' + note(e, 'me') + mono() + '<div><div class="kick">' + esc(U.meet) + '</div><h2>' + esc(e.person) + '</h2><div class="who">' + esc(e.location) +
+      '</p><div class="ctas">' + enrollBtn(e.hero.cta) + '<a class="scta ghost" href="#s-events">' + esc(e.hero.cta2) + '</a></div>' +
+      '<div class="cohort">' + esc(D.nextCohort) + ': <b>' + esc(cohort) + '</b></div></div>' +
+      '<div class="hpic"><img alt="" src="' + IMG(e.photos[1], 900) + '"><div class="badge">' + mono(e) + '<span>' + esc(e.person) + '</span></div></div></section>';
+    // the problem (six-step story)
+    h += '<section class="sdw" id="s-why">' + note(e, 'about') + '<div class="kick">Dragon\'s Way Qigong®</div><h2>' + (L === 'zh' ? '似曾相識嗎？' : 'Sound familiar?') + '</h2><div class="story"><div><p class="big">' + esc(e.story[0]) + '</p>' + (e.storyPic ? '<img class="spic" alt="" loading="lazy" src="' + IMG(e.storyPic, 900) + '">' : '') +
+      '</div><div class="rest">' + e.story.slice(1, -1).map(p => '<p>' + esc(p) + '</p>').join('') + '<p class="inv">' + esc(e.story[e.story.length - 1]) + '</p></div></div></section>';
+    // CENTERPIECE — the Dragon's Way program
+    h += '<section class="dwprog" id="s-program">' + note(e, 'program') + '<div class="prog-head"><div><div class="kick">' + esc(D.progKick) + '</div><h2>' + esc(D.progH) + '</h2><p class="lede">' + esc(D.progP) + '</p>' +
+      '<div class="facts">' + D.facts.map(f => '<span>' + esc(f) + '</span>').join('') + '</div></div>' +
+      '<img class="pkg" alt="Dragon\'s Way" loading="lazy" src="images/DW-Package2.jpg"></div>' +
+      '<h3 class="sub">' + esc(D.compTitle) + '</h3><div class="comps">' + DW.components.map((c, i) => '<div class="comp"><span class="cn">' + (i + 1) + '</span><b>' + esc(c[0]) + '</b><p>' + esc(c[1]) + '</p></div>').join('') + '</div>' +
+      '<h3 class="sub">' + esc(D.weeksTitle) + '</h3><ol class="weeks">' + DW.weeks.map((w, i) => '<li><div class="wn">' + esc(w[0]) + '</div><div class="wo">' + esc(e.weekOut[i]) + '</div><div class="wm">' + esc(w[1]) + ' · ' + esc(w[2]) + '</div></li>').join('') + '</ol>' +
+      '<div class="pcta">' + enrollBtn() + '<span>' + esc(D.nextCohort) + ': <b>' + esc(cohort) + '</b> · ' + esc(D.closes) + ' ' + cd(e) + '</span></div></section>';
+    // who it's for
+    h += '<section class="fit">' + note(e, 'fit') + '<div class="kick">' + esc(U.nicheChips[e.niche]) + '</div><h2>' + esc(D.fitTitle) + '</h2><div class="fitg"><div class="yes"><h4>' + esc(D.forYou) + '</h4><ul>' + e.fit.map(x => '<li>' + esc(x) + '</li>').join('') +
+      '</ul></div><div class="no"><h4>' + esc(D.notYou) + '</h4><ul>' + e.notFit.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div></section>';
+    // your guide
+    h += '<section class="me" id="s-about">' + note(e, 'me') + mono(e) + '<div><div class="kick">' + esc(D.guide) + '</div><h2>' + esc(e.person) + '</h2><div class="who">' + esc(e.location) +
       '</div><p style="margin:0">' + esc(e.bio) + '</p><blockquote><b>' + esc(U.whyTitle) + '</b>“' + esc(e.why) + '”</blockquote></div>' +
       '<div class="gal">' + e.photos.concat([]).reverse().map(p => '<img alt="" loading="lazy" src="' + IMG(p, 700) + '">').join('') + '</div></section>';
+    // social proof slot
+    h += '<section class="proof">' + note(e, 'proof') + '<div class="kick">' + esc(D.proofTitle) + '</div><div class="slots">' + [1, 2, 3].map(() => '<div class="slot2">“ … ”<small>' + esc(D.proofSlot) + '</small></div>').join('') + '</div></section>';
+    // the path after the 6 weeks
+    h += '<section id="s-path">' + note(e, 'programs') + '<div class="kick">' + esc(D.ladderTitle) + '</div><h2>' + esc(D.ladderSub) + '</h2><div class="pgrid">' +
+      [0, 1, 2].map(k => '<div class="pcard' + (k === 0 ? ' lead' : '') + '"><span class="start' + (k ? ' dim' : '') + '">' + esc(k === 0 ? D.ladderNow : D.ladderNext) + '</span><div class="lv">' + esc(U.level[k]) + '</div><h3>' + esc(k === 0 ? DW.plans[0].name : P[k].name) + '</h3><div class="tg2">' + esc(P[k].tag) + '</div><p>' + esc(P[k].body) + '</p><div class="wk">' + esc(U.weeks) + '</div></div>').join('') + '</div></section>';
     if (e.faq) h += '<section id="s-faq">' + note(e, 'faq') + '<div class="kick">' + esc(N.faq) + '</div><h2>' + esc(U.faqTitle) + '</h2><div class="faqs">' +
       e.faqs.map((q, i) => '<details' + (i === 0 ? ' open' : '') + '><summary>' + esc(q[0]) + '</summary><p>' + esc(q[1]) + '</p></details>').join('') + '</div></section>';
     if (e.blog) h += '<section id="s-blog" style="background:var(--card)">' + note(e, 'blog') + '<div class="kick">' + esc(N.blog) + '</div><h2>' + esc(U.blogTitle) + '</h2><div class="posts">' +
       e.posts.map((p, i) => '<article class="post"><img alt="" loading="lazy" src="' + IMG((e.blogPics || [])[i] || e.photos[(i + 1) % 3], 700) + '"><div><h3>' + esc(p[0]) + '</h3><p>' + esc(p[1]) + '</p><a href="#s-blog">' + esc(U.readMore) + '</a></div></article>').join('') + '</div></section>';
     h += '<section id="s-events">' + note(e, 'events') + '<div class="kick">' + esc(N.events) + '</div><h2>' + esc(U.eventsTitle) + '</h2><div class="evwrap">' + cal(e) + '<div class="evs">' +
-      e.events.map(ev => '<div class="ev"><div class="tile"><small>' + esc(fmt(ev.d, {month: 'short'})) + '</small><b>' + dObj(ev.d).getDate() + '</b></div><div class="info"><b>' + esc(ev.title) +
-        (ev.free ? '<span class="free">' + FREE + '</span>' : '') + '</b><span>' + esc(fmt(ev.d, {weekday: 'short'})) + ' · ' + esc(ev.t) + ' · ' + esc(ev.where) + '</span></div><a class="scta" href="#s-contact">' + esc(U.register) + '</a></div>').join('') +
+      e.events.map(ev => { const isCohort = ev.d === e.cohort;
+        return '<div class="ev' + (isCohort ? ' hot' : '') + '"><div class="tile"><small>' + esc(fmt(ev.d, {month: 'short'})) + '</small><b>' + dObj(ev.d).getDate() + '</b></div><div class="info"><b>' + esc(ev.title) +
+        (ev.free ? '<span class="free">' + FREE + '</span>' : '') + '</b><span>' + esc(fmt(ev.d, {weekday: 'short'})) + ' · ' + esc(ev.t) + ' · ' + esc(ev.where) + '</span></div>' +
+        (isCohort ? enrollBtn(D.enrollShort) : '<a class="scta ghost" href="#s-contact">' + esc(U.register) + '</a>') + '</div>'; }).join('') +
       '</div></div></section>';
     h += '<section class="contact" id="s-contact">' + note(e, 'contact') + '<div><div class="kick">' + esc(N.contact) + '</div><h2>' + esc(U.contactTitle) + '</h2><div class="cform">' +
       '<label>' + esc(U.formName) + '</label><div class="f"></div><label>' + esc(U.formEmail) + '</label><div class="f"></div><label>' + esc(U.formMsg) + '</label><div class="f t"></div>' +
       '<div><button class="scta" type="button">' + esc(U.formSend) + '</button> <small style="opacity:.6">' + esc(U.formDemo) + '</small></div></div></div>' +
       '<div class="cinfo"><div><small>' + esc(U.contactEmail) + '</small>' + esc(e.email) + '</div><div><small>' + esc(U.contactPhone) + '</small>' + esc(e.phone) +
       '</div><div><small>' + esc(U.contactWhere) + '</small>' + esc(e.where) + '</div></div></section>';
-    h += '<footer class="sfoot"><div><b>' + esc(e.site) + '</b><br>' + esc(U.footer) + '</div><div>' + esc(U.powered) + '<br><span class="credit">' + (L === 'zh' ? '照片：Unsplash' : 'Photos: Unsplash') + '</span></div></footer>';
-    return h;
+    h += '<section class="final">' + note(e, 'close') + '<div class="kick">' + esc(D.finalKick) + '</div><h2>' + esc(e.close) + '</h2><div class="fcd">' + esc(D.closes) + ' ' + cd(e) + '</div>' + enrollBtn() + '</section>';
+    return h + footer(e);
+  }
+  function siteEnroll(e){
+    const plan0 = DW.plans[0], stack = DW.stack.concat([e.bonus]), total = stack.reduce((a, x) => a + x[1], 0);
+    let h = ubar(e);
+    h += '<nav class="snav"><div class="slogo">' + esc(e.site) + '</div><a class="back2" href="#home" data-go="home">' + esc(D.backSite) + '</a></nav>';
+    h += '<section class="ohero"><div class="kick">' + esc(D.offerKick) + '</div><h1>' + esc(D.progH) + '</h1><p>' + esc(D.nextCohort) + ': <b>' + esc(fmtLong(dObj(e.cohort))) + '</b> · ' + esc(D.closes) + ': <b>' + esc(fmtLong(deadline(e))) + '</b></p>' +
+      '<div class="ocd">' + cd(e) + '</div></section>';
+    // two paths
+    h += '<section>' + note(e, 'two') + '<h2>' + esc(D.twoTitle) + '</h2><div class="paths"><div class="pa"><h4>' + esc(D.pathA) + '</h4><p>' + esc(e.paths[0]) + '</p></div><div class="pb"><h4>' + esc(D.pathB) + '</h4><p>' + esc(e.paths[1]) + '</p></div></div><p class="pclose">' + esc(e.pathClose) + '</p></section>';
+    // the math + anchoring
+    h += '<section class="alt">' + note(e, 'roi') + '<div class="math"><h2>' + esc(D.roiTitle) + '</h2>' + e.roi.map(x => '<p>' + esc(x) + '</p>').join('') + '<p class="punch">' + esc(e.roiPunch) + '</p></div>' +
+      '<h3 class="sub">' + esc(D.anchorTitle) + '</h3><div class="anchor" role="table">' + '<div class="ar ah" role="row">' + D.anchorCols.map(c => '<span role="columnheader">' + esc(c) + '</span>').join('') + '</div>' +
+      e.anchor.map((r, i, a) => '<div class="ar' + (i === a.length - 1 ? ' us' : '') + '" role="row">' + r.map(c => '<span role="cell">' + esc(c) + '</span>').join('') + '</div>').join('') + '</div>' + note(e, 'anchor') + '</section>';
+    // value stack
+    h += '<section>' + note(e, 'stack') + '<h2>' + esc(D.stackTitle) + '</h2><div class="stack">' + stack.map((x, i) => '<div class="si' + (i === stack.length - 1 ? ' bonus' : '') + '"><span>' + esc(x[0]) + '</span><b>' + money(x[1]) + '</b></div>').join('') +
+      '<div class="si tot"><span>' + esc(D.stackTotal) + '</span><b><s>' + money(total) + '</s></b></div><div class="si price"><span>' + esc(D.stackPrice) + '</span><b>' + money(plan0.full) + ' <small>' + esc(D.orPay) + ' ' + plan0.mo[0] + ' × ' + money(plan0.mo[1]) + '</small></b></div></div>' +
+      '<p class="ovf">' + esc(D.overflow) + '</p></section>';
+    // bonus cascade + scarcity
+    h += '<section class="alt">' + note(e, 'tiers') + '<h2>' + esc(D.tiersTitle) + '</h2><div class="tiers">' + DW.tiers.map((t, i) => '<div class="tier' + (i === 0 ? ' now' : '') + '"><div class="tn">' + (i + 1) + '</div><div><b>' + esc(t[0]) + '</b><small>' + esc(t[1]) + '</small><p>' + esc(t[2]) + '</p></div></div>').join('') + '</div>' +
+      '<p class="loss">' + esc(D.tierLoss) + '</p><div class="scarce"><img alt="" src="images/book_dragons-way.jpg"><div><b>' + esc(D.scarce) + '</b><div class="sbar"><i style="width:65%"></i></div><small>' + esc(D.scarceLeft) + '</small></div></div></section>';
+    // plans: dual pricing + bundle ladder
+    h += '<section id="s-plans">' + note(e, 'plans') + '<h2>' + esc(D.plansTitle) + '</h2><div class="ptog" role="group"><button type="button" class="on" data-pay="full">' + esc(D.payFull) + '</button><button type="button" data-pay="mo">' + esc(D.payMonthly) + '</button></div>' +
+      '<p class="pnote" data-full="' + esc(D.payFullNote) + '" data-mo="' + esc(D.payMonthlyNote) + '">' + esc(D.payFullNote) + '</p><div class="plans pay-full">' +
+      DW.plans.map((p, i) => '<div class="plan' + (i === e.rec ? ' rec' : '') + '">' + (i === e.rec ? '<span class="start">' + esc(D.popular) + '</span>' : '') + '<h3>' + esc(p.name) + '</h3><div class="psub">' + esc(p.sub) + '</div>' +
+        '<div class="pr pf"><b>' + money(p.full) + '</b><s>' + esc(D.separately) + ' ' + money(p.sep) + '</s><em>' + esc(D.save) + ' ' + money(p.sep - p.full) + '</em></div>' +
+        '<div class="pr pm"><b>' + p.mo[0] + ' × ' + money(p.mo[1]) + '</b><s>' + esc(D.separately) + ' ' + money(p.sep) + '</s></div>' +
+        '<ul>' + p.inc.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul><button type="button" class="scta' + (i === e.rec ? '' : ' ghost') + ' buy">' + esc(D.choose) + ' →</button></div>').join('') +
+      '</div><p class="ckmsg" hidden>' + esc(D.checkoutDemo) + '</p><p class="secure">' + esc(D.secure) + ' · ' + esc(D.demoPrices) + '</p></section>';
+    // guarantee
+    h += '<section class="alt">' + note(e, 'guar') + '<div class="guar"><div class="seal">30</div><div><h3>' + esc(D.guarTitle) + '</h3><p>' + esc(D.guarText) + '</p><div class="sig">— ' + esc(e.person) + '</div></div></div></section>';
+    // objections
+    h += '<section>' + note(e, 'obj') + '<h2>' + esc(D.objTitle) + '</h2><div class="objs">' + e.objections.map(o => '<div class="obj"><b>' + esc(o[0]) + '</b><p>' + esc(o[1]) + '</p></div>').join('') + '</div></section>';
+    // hope close + deadline repeated
+    h += '<section class="final">' + note(e, 'close') + '<h2>' + esc(e.close) + '</h2><div class="fcd">' + esc(D.closes) + ' ' + cd(e) + '</div><a class="scta" href="#s-plans" data-go="plans">' + esc(D.enroll) + '</a></section>';
+    return h + footer(e);
+  }
+  let view = 'home';
+  function setView(v, keepScroll){
+    view = v;
+    const e = EX(cur), s = $('#site');
+    s.innerHTML = v === 'enroll' ? siteEnroll(e) : siteHome(e);
+    $('#urlpath').textContent = v === 'enroll' ? '/enroll' : '';
+    tick(); wire();
+    if (!keepScroll){ const top = $('#frame').getBoundingClientRect().top + scrollY - 70; window.scrollTo({top: top}); }
+  }
+  function goTo(id){ const el = document.getElementById(id); if (el) window.scrollTo({top: el.getBoundingClientRect().top + scrollY - 110, behavior: 'smooth'}); }
+  function wire(){
+    const s = $('#site');
+    s.querySelectorAll('[data-go]').forEach(a => a.onclick = ev => { ev.preventDefault(); const g = a.dataset.go; if (g === 'plans') goTo('s-plans'); else setView(g); });
+    s.querySelectorAll('a[href^="#s-"]:not([data-go])').forEach(a => a.onclick = ev => { ev.preventDefault(); goTo(a.getAttribute('href').slice(1)); });
+    s.querySelectorAll('.ptog button').forEach(b => b.onclick = () => {
+      s.querySelectorAll('.ptog button').forEach(x => x.classList.toggle('on', x === b));
+      const pl = $('.plans', s); pl.classList.toggle('pay-full', b.dataset.pay === 'full'); pl.classList.toggle('pay-mo', b.dataset.pay === 'mo');
+      const pn = $('.pnote', s); pn.textContent = b.dataset.pay === 'full' ? pn.dataset.full : pn.dataset.mo;
+    });
+    s.querySelectorAll('.buy').forEach(b => b.onclick = () => { const m = $('.ckmsg', s); m.hidden = false; });
   }
   function answers(e){
+    const p0 = DW.plans[0];
     const rows = [[U.steps[0], e.site + ' — ' + e.person + ' · ' + e.location], [U.steps[1], e.bio], [U.steps[2], e.why],
       [U.steps[4], U.nicheChips[e.niche] + ' — ' + e.audience],
       [U.steps[5], U.faqOpt + ': ' + (e.faq ? U.yes : U.no) + ' · ' + U.blogOpt + ': ' + (e.blog ? U.yes : U.no)],
       [U.steps[6], e.email + ' · ' + e.phone + ' · ' + e.where],
-      [U.steps[7], e.events.map(v => fmt(v.d, {month: 'short', day: 'numeric'}) + ' ' + v.title).join(' / ')]];
+      [U.steps[7], e.events.map(v => fmt(v.d, {month: 'short', day: 'numeric'}) + ' ' + v.title).join(' / ')],
+      [U.steps[8], DW.plans[0].name + ' · ' + fmtLong(dObj(e.cohort)) + ' · ' + money(p0.full) + ' / ' + p0.mo[0] + ' × ' + money(p0.mo[1]) + ' · ' + DW.plans[e.rec].name]];
     return '<h3>' + esc(U.answersTitle) + '</h3><dl>' + rows.map(x => '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>').join('') + '</dl>';
   }
   function showSite(){
@@ -1036,22 +1736,22 @@ DATA.zh = {
     stage.innerHTML = '<div class="fade"><div class="tools"><button class="btn" id="replay"></button><button class="btn" id="backStep"></button><button class="btn" id="ansBtn"></button><span class="sp"></span>' +
       '<div class="skins" id="skins"></div><button class="ntoggle" id="nt"><span class="sw" id="ntsw"></span><span></span></button></div>' +
       '<div class="ans" id="ans">' + answers(e) + '</div>' +
-      '<div class="frame" id="frame"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">https://<b>' + esc(e.domain) + '</b></div></div>' +
-      '<div class="site" id="site">' + siteHTML(e) + '</div></div></div>';
+      '<div class="frame" id="frame"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">https://<b>' + esc(e.domain) + '</b><span id="urlpath"></span></div></div>' +
+      '<div class="site" id="site"></div></div></div>';
     $('#replay').textContent = NV.start;
     $('#ansBtn').textContent = U.answers;
     $('#nt span:last-child').textContent = U.notes;
     $('#replay').onclick = () => { paused = false; stage.innerHTML = ''; playFrom(0); };
     $('#backStep').textContent = NV.prev;
-    $('#backStep').onclick = () => { paused = true; stage.innerHTML = ''; playFrom(7); };
+    $('#backStep').onclick = () => { paused = true; stage.innerHTML = ''; playFrom(NSTEP - 1); };
     $('#ansBtn').onclick = () => $('#ans').classList.toggle('open');
     $('#nt').onclick = () => { const on = $('#frame').classList.toggle('show-notes'); $('#ntsw').classList.toggle('on', on); };
     const sk = $('#skins');
     sk.innerHTML = '<span>' + (L === 'zh' ? '配色' : 'Skin') + '</span>' + SKINS.map((t, i) => '<button class="skin" title="' + esc(t[L]) + '" aria-label="' + esc(t[L]) + '" style="background:linear-gradient(135deg,' + t.c1 + ' 50%,' + t.c2 + ' 50%)"></button>').join('');
     [...sk.querySelectorAll('.skin')].forEach((b, i) => b.onclick = () => applySkin(i));
     applySkin(skinOf[cur] != null ? skinOf[cur] : e.skin);
-    const s = $('#site');
-    s.querySelectorAll('a[href^="#s-"]').forEach(a => a.onclick = ev => { ev.preventDefault(); const el = document.getElementById(a.getAttribute('href').slice(1)); if (el) window.scrollTo({top: el.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth'}); });
+    setView(/view=enroll/.test(location.hash) && !showSite.done ? 'enroll' : 'home', true);
+    showSite.done = true;
     const top = $('.tools').getBoundingClientRect().top + scrollY - 70;
     if (scrollY > top) window.scrollTo({top: top});
   }
