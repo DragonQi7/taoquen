@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>龍之道闖關學習——學習 Lu 大師的教導</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#58cc02; --green-dk:#46a302; --green-lt:#d7ffb8;
+  --blue:#1cb0f6; --blue-dk:#1899d6; --blue-lt:#ddf4ff;
+  --red:#ff4b4b; --red-dk:#ea2b2b; --red-lt:#ffdfe0;
+  --gold:#ffc800; --gold-dk:#e6a800;
+  --purple:#ce82ff; --purple-dk:#a568cc;
+  --teal:#00cd9c; --teal-dk:#00a47d;
+  --orange:#ff9600; --orange-dk:#e08600;
+  --ink:#4b4b4b; --ink-lt:#777; --line:#e5e5e5; --bg:#fbfbf3;
+  --disabled:#e5e5e5; --disabled-ink:#afafaf;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Nunito',-apple-system,'Segoe UI',Noto Sans TC,system-ui,sans-serif;
+  font-weight:700; font-size:17px; line-height:1.45;
+}
+.app{max-width:520px;margin:0 auto;min-height:100vh;position:relative;background:var(--bg);}
+.screen{display:none;padding-bottom:40px;}
+.screen.active{display:block;}
+button{font-family:inherit;font-weight:800;cursor:pointer;border:none;}
+
+/* ============ 3D buttons ============ */
+.btn{
+  display:inline-block;width:100%;padding:14px 18px;border-radius:14px;
+  font-size:16px;letter-spacing:.6px;text-transform:uppercase;color:#fff;
+  background:var(--green);box-shadow:0 4px 0 var(--green-dk);
+  transition:filter .12s;user-select:none;
+}
+.btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--green-dk);}
+.btn.blue{background:var(--blue);box-shadow:0 4px 0 var(--blue-dk);}
+.btn.blue:active{box-shadow:0 0 0 var(--blue-dk);}
+.btn.red{background:var(--red);box-shadow:0 4px 0 var(--red-dk);}
+.btn.red:active{box-shadow:0 0 0 var(--red-dk);}
+.btn.ghost{background:#fff;color:var(--blue);box-shadow:0 4px 0 var(--line);border:2px solid var(--line);}
+.btn.ghost:active{box-shadow:0 0 0 var(--line);}
+.btn:disabled{background:var(--disabled);color:var(--disabled-ink);box-shadow:0 4px 0 #d0d0d0;cursor:default;}
+.btn:disabled:active{transform:none;}
+
+/* ============ Home header ============ */
+.top-stats{
+  position:sticky;top:0;z-index:50;display:flex;gap:8px;align-items:center;
+  padding:12px 16px;background:rgba(251,251,243,.94);backdrop-filter:blur(6px);
+  border-bottom:2px solid var(--line);
+}
+.stat-pill{display:flex;align-items:center;gap:5px;font-size:15px;font-weight:900;padding:4px 8px;border-radius:10px;}
+.stat-pill .em{font-size:18px;}
+.stat-streak{color:#ff9600;}
+.stat-xp{color:#1cb0f6;}
+.stat-lvl{margin-left:auto;color:#fff;background:var(--purple);box-shadow:0 2px 0 var(--purple-dk);font-size:12px;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;}
+.snd-btn{background:none;font-size:18px;padding:2px 4px;}
+.flame-on{animation:flamePulse 1.6s infinite;}
+@keyframes flamePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25) rotate(-4deg)}}
+
+.hero{display:flex;align-items:center;gap:14px;padding:18px 20px 6px;}
+.hero h1{font-size:22px;font-weight:900;margin:0;color:#3c3c3c;}
+.hero p{margin:2px 0 0;font-size:14px;color:var(--ink-lt);}
+.daily{margin:10px 20px 4px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px;}
+.daily .lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-lt);font-weight:800;}
+.bar{height:12px;background:#eee;border-radius:8px;overflow:hidden;margin-top:6px;}
+.bar>div{height:100%;background:var(--gold);border-radius:8px;transition:width .5s;}
+
+/* ============ Path ============ */
+.unit-banner{
+  margin:22px 16px 10px;border-radius:16px;padding:16px 18px;color:#fff;position:relative;overflow:hidden;
+}
+.unit-banner .u-kicker{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;opacity:.85;font-weight:900;}
+.unit-banner h2{margin:2px 0 3px;font-size:19px;font-weight:900;}
+.unit-banner p{margin:0;font-size:13px;opacity:.92;}
+.unit-banner .u-count{position:absolute;top:14px;right:16px;font-size:12px;font-weight:900;background:rgba(255,255,255,.25);padding:3px 9px;border-radius:9px;}
+.unit-banner .u-icon{position:absolute;bottom:-14px;right:-6px;font-size:64px;opacity:.22;transform:rotate(-12deg);}
+.path{display:flex;flex-direction:column;align-items:center;padding:6px 0 8px;}
+.node-wrap{position:relative;margin:9px 0;transition:transform .2s;}
+.node{
+  width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:30px;position:relative;border:none;
+}
+.node.done{background:var(--gold);box-shadow:0 6px 0 var(--gold-dk);}
+.node.active{box-shadow:0 6px 0 rgba(0,0,0,.22);animation:nodeBreath 2s infinite;}
+.node.locked{background:var(--disabled);box-shadow:0 6px 0 #d0d0d0;filter:grayscale(1);opacity:.75;cursor:default;}
+.node:not(.locked):active{transform:translateY(5px);box-shadow:0 1px 0 rgba(0,0,0,.2);}
+@keyframes nodeBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.node .ring{position:absolute;inset:-9px;border-radius:50%;border:4px solid rgba(0,0,0,.08);}
+.node.active .ring{border-color:currentColor;opacity:.35;animation:ringPulse 1.6s infinite;}
+@keyframes ringPulse{0%{transform:scale(.92);opacity:.5}70%{transform:scale(1.08);opacity:0}100%{opacity:0}}
+.start-tip{
+  position:absolute;top:-38px;left:50%;transform:translateX(-50%);
+  background:#fff;color:var(--green);border:2px solid var(--line);border-radius:10px;
+  padding:4px 12px;font-size:12px;font-weight:900;letter-spacing:1px;white-space:nowrap;z-index:5;
+  animation:bobble 1.2s infinite;
+}
+.start-tip:after{content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:#fff;border-right:2px solid var(--line);border-bottom:2px solid var(--line);}
+@keyframes bobble{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+.stars{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:-1px;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.15);}
+.node-label{text-align:center;font-size:12px;color:var(--ink-lt);font-weight:800;margin-top:14px;max-width:110px;line-height:1.2;}
+.practice-cta{margin:26px 20px 8px;}
+.foot-note{margin:30px 20px 10px;font-size:12px;color:#9a9a8f;text-align:center;line-height:1.5;}
+
+/* ============ Lesson ============ */
+.lesson-top{display:flex;align-items:center;gap:12px;padding:14px 16px 6px;}
+.quit-x{background:none;font-size:22px;color:#b5b5b5;padding:4px;}
+.lesson-bar{flex:1;height:16px;background:#e5e5e5;border-radius:10px;overflow:hidden;}
+.lesson-bar>div{height:100%;background:var(--green);border-radius:10px;transition:width .4s;position:relative;}
+.lesson-bar>div:after{content:"";position:absolute;top:3px;left:8px;right:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);}
+.hearts{font-size:15px;font-weight:900;color:var(--red);display:flex;gap:2px;align-items:center;}
+.q-area{padding:10px 20px 170px;}
+.q-title{font-size:20px;font-weight:900;color:#3c3c3c;margin:12px 0 18px;}
+.q-instr{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-lt);font-weight:900;margin-top:14px;}
+
+.opt{
+  display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);
+  border-radius:14px;box-shadow:0 3px 0 var(--line);padding:13px 15px;margin:9px 0;
+  font-size:16px;font-weight:800;color:var(--ink);transition:background .12s;
+}
+.opt .k{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:2px solid var(--line);border-radius:8px;font-size:13px;color:var(--ink-lt);margin-right:10px;}
+.opt.sel{border-color:var(--blue);background:var(--blue-lt);box-shadow:0 3px 0 var(--blue);color:var(--blue-dk);}
+.opt.sel .k{border-color:var(--blue);color:var(--blue-dk);}
+.opt.correct{border-color:var(--green);background:var(--green-lt);box-shadow:0 3px 0 var(--green);color:#3f8f00;}
+.opt.wrong{border-color:var(--red);background:var(--red-lt);box-shadow:0 3px 0 var(--red);color:var(--red-dk);animation:shake .4s;}
+.opt:disabled{cursor:default;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.tf-row{display:flex;gap:12px;}
+.tf-row .opt{text-align:center;font-size:18px;}
+
+.sentence{font-size:19px;font-weight:800;background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px;line-height:2;}
+.blank{display:inline-block;min-width:110px;border-bottom:3px solid #bbb;text-align:center;color:var(--blue-dk);font-weight:900;padding:0 6px;cursor:pointer;}
+.blank.filled{border-bottom-color:var(--blue);}
+.bank{display:flex;flex-wrap:wrap;gap:10px;}
+.chip{
+  background:#fff;border:2px solid var(--line);border-radius:12px;box-shadow:0 3px 0 var(--line);
+  padding:9px 16px;font-size:16px;font-weight:800;color:var(--ink);
+}
+.chip:active{transform:translateY(3px);box-shadow:none;}
+.chip.used{opacity:.35;pointer-events:none;}
+.seq-zone{min-height:52px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;padding:10px 4px;margin-bottom:16px;}
+.seq-zone .chip{background:var(--blue-lt);border-color:var(--blue);color:var(--blue-dk);}
+.seq-num{font-size:12px;opacity:.6;margin-right:4px;}
+
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mchip{
+  background:#fff;border:2px solid var(--line);border-radius:12px;box-shadow:0 3px 0 var(--line);
+  padding:12px 10px;font-size:14.5px;font-weight:800;color:var(--ink);min-height:56px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.mchip.sel{border-color:var(--blue);background:var(--blue-lt);color:var(--blue-dk);box-shadow:0 3px 0 var(--blue);}
+.mchip.lock{border-color:var(--green);background:var(--green-lt);color:#3f8f00;opacity:.45;pointer-events:none;}
+.mchip.bad{border-color:var(--red);background:var(--red-lt);animation:shake .4s;}
+
+/* ============ Footer / feedback ============ */
+.lesson-foot{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;
+  background:#fff;border-top:2px solid var(--line);padding:14px 20px 18px;z-index:60;
+}
+.lesson-foot.ok{background:var(--green-lt);border-top-color:var(--green-lt);}
+.lesson-foot.bad{background:var(--red-lt);border-top-color:var(--red-lt);}
+.fb{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;}
+.fb .fb-ico{font-size:28px;line-height:1;}
+.fb h3{margin:0 0 2px;font-size:18px;font-weight:900;}
+.fb p{margin:0;font-size:14px;font-weight:700;}
+.fb.ok h3,.fb.ok p{color:#3f8f00;}
+.fb.bad h3,.fb.bad p{color:var(--red-dk);}
+.combo-toast{
+  position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:80;
+  background:var(--gold);color:#7a5b00;font-weight:900;padding:8px 18px;border-radius:20px;
+  box-shadow:0 4px 0 var(--gold-dk);font-size:15px;opacity:0;pointer-events:none;transition:opacity .3s, top .3s;
+}
+.combo-toast.show{opacity:1;top:84px;}
+
+/* ============ Tips (lesson intro) ============ */
+.tips-card{margin:14px 20px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:20px;}
+.tips-card h2{margin:0 0 4px;font-size:21px;font-weight:900;color:#3c3c3c;}
+.tips-card .sub{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-lt);font-weight:900;}
+.tip-line{display:flex;gap:10px;margin:14px 0;font-size:15.5px;font-weight:700;color:var(--ink);}
+.tip-line .dot{flex:0 0 auto;font-size:17px;}
+.dragon-say{display:flex;align-items:flex-end;gap:8px;padding:6px 20px 0;}
+.bubble{background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px;font-weight:800;color:var(--ink);position:relative;margin-bottom:16px;}
+.bubble:after{content:"";position:absolute;left:-8px;bottom:12px;width:12px;height:12px;background:#fff;border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg);}
+
+/* ============ Results ============ */
+.results-wrap{text-align:center;padding:40px 24px 20px;}
+.results-wrap h2{font-size:26px;font-weight:900;color:var(--gold-dk);margin:12px 0 4px;}
+.res-cards{display:flex;gap:10px;justify-content:center;margin:22px 0;}
+.res-card{border-radius:14px;padding:3px;min-width:105px;color:#fff;font-weight:900;}
+.res-card .rc-lbl{font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 0 2px;}
+.res-card .rc-val{background:#fff;border-radius:0 0 12px 12px;padding:10px 6px;font-size:20px;}
+.rc-xp{background:var(--gold);}.rc-xp .rc-val{color:var(--gold-dk);}
+.rc-acc{background:var(--green);}.rc-acc .rc-val{color:var(--green-dk);}
+.rc-cmb{background:var(--blue);}.rc-cmb .rc-val{color:var(--blue-dk);}
+.quote{margin:8px auto 26px;max-width:360px;font-size:16px;font-style:italic;color:var(--ink-lt);font-weight:700;}
+.quote b{display:block;font-style:normal;font-size:13px;margin-top:6px;color:#9a9a8f;}
+.big-stars{font-size:40px;letter-spacing:2px;margin-top:6px;}
+
+/* ============ Modal ============ */
+.modal-bg{position:fixed;inset:0;background:rgba(60,60,60,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;}
+.modal-bg.show{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:360px;width:100%;padding:24px;text-align:center;}
+.modal h3{margin:6px 0 8px;font-size:20px;font-weight:900;}
+.modal p{font-size:15px;color:var(--ink-lt);margin:0 0 18px;}
+.modal .btn{margin-top:8px;}
+.modal .m-ico{font-size:44px;}
+
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:90;}
+.pop-in{animation:popIn .35s cubic-bezier(.2,1.6,.4,1);}
+@keyframes popIn{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.slide-in{animation:slideIn .3s ease-out;}
+@keyframes slideIn{0%{transform:translateX(40px);opacity:0}100%{transform:translateX(0);opacity:1}}
+</style>
+</head>
+<body>
+<div id="tq-back" style="max-width:520px;margin:0 auto;padding:10px 16px 0;display:flex;justify-content:space-between;align-items:center;">
+  <a href="members-main-zh.html" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:#777;text-decoration:none;padding:6px 12px;border:2px solid #e5e5e5;border-radius:12px;background:#fff;">&#8592; 會員專區</a>
+  <a href="dragons-way-quest.html" lang="en" hreflang="en" style="display:inline-flex;align-items:center;font-size:14px;font-weight:800;color:#a8842f;text-decoration:none;padding:6px 12px;border:2px solid #e8d9b0;border-radius:12px;background:#fff;">EN</a>
+</div>
+
+<div class="app">
+
+  <!-- ================= HOME ================= -->
+  <div id="home" class="screen active">
+    <div class="top-stats">
+      <div class="stat-pill stat-streak"><span class="em" id="flameEm">🔥</span><span id="streakVal">0</span></div>
+      <div class="stat-pill stat-xp"><span class="em">⚡</span><span id="xpVal">0</span> XP</div>
+      <button class="snd-btn" id="sndBtn" title="開啟／關閉聲音">🔊</button>
+      <div class="stat-pill stat-lvl" id="lvlVal">氣之幼苗</div>
+    </div>
+    <div class="hero">
+      <div id="dragonHero"></div>
+      <div>
+        <h1>龍之道闖關學習</h1>
+        <p>一次一課，學習 Nan Lu 大師的教導。</p>
+      </div>
+    </div>
+    <div class="daily">
+      <div class="lbl"><span>🎯 每日目標</span><span id="goalLbl">0 / 30 XP</span></div>
+      <div class="bar"><div id="goalBar" style="width:0%"></div></div>
+    </div>
+    <div id="pathArea"></div>
+    <div class="foot-note">教育內容整理自 Nan Lu 大師的《龍之道氣功®指南》、五行意識課程與 TCM World 教學資料庫。並非醫療建議。</div>
+  </div>
+
+  <!-- ================= TIPS ================= -->
+  <div id="tips" class="screen">
+    <div class="lesson-top">
+      <button class="quit-x" onclick="goHome()">✕</button>
+      <div class="lesson-bar"><div style="width:0%"></div></div>
+    </div>
+    <div class="dragon-say">
+      <div id="dragonTips"></div>
+      <div class="bubble" id="tipsBubble">準備好了嗎？先讀這些，再來證明你學會了！</div>
+    </div>
+    <div class="tips-card pop-in" id="tipsCard"></div>
+    <div style="padding:0 20px;"><button class="btn" id="tipsStart">開始上課</button></div>
+  </div>
+
+  <!-- ================= LESSON ================= -->
+  <div id="lesson" class="screen">
+    <div class="lesson-top">
+      <button class="quit-x" id="quitBtn">✕</button>
+      <div class="lesson-bar"><div id="lessonBar" style="width:0%"></div></div>
+      <div class="hearts" id="heartsBox"></div>
+    </div>
+    <div class="q-area" id="qArea"></div>
+    <div class="lesson-foot" id="lessonFoot">
+      <div id="fbZone"></div>
+      <button class="btn" id="checkBtn" disabled>檢查</button>
+    </div>
+  </div>
+
+  <!-- ================= RESULTS ================= -->
+  <div id="results" class="screen">
+    <div class="results-wrap">
+      <div id="dragonWin"></div>
+      <div class="big-stars" id="resStars"></div>
+      <h2 id="resTitle">完成這一課！</h2>
+      <div class="res-cards">
+        <div class="res-card rc-xp"><div class="rc-lbl">總 XP</div><div class="rc-val" id="resXp">0</div></div>
+        <div class="res-card rc-acc"><div class="rc-lbl">正確率</div><div class="rc-val" id="resAcc">0%</div></div>
+        <div class="res-card rc-cmb"><div class="rc-lbl">最佳連擊</div><div class="rc-val" id="resCmb">0</div></div>
+      </div>
+      <div class="quote" id="resQuote"></div>
+      <div style="max-width:340px;margin:0 auto;"><button class="btn" onclick="goHome()">繼續</button></div>
+    </div>
+  </div>
+
+  <div class="combo-toast" id="comboToast"></div>
+
+  <!-- Quit modal -->
+  <div class="modal-bg" id="quitModal">
+    <div class="modal">
+      <div class="m-ico">🐉</div>
+      <h3>等等，別走！</h3>
+      <p>你會失去這一課的進度。</p>
+      <button class="btn blue" id="keepBtn">繼續學習</button>
+      <button class="btn ghost" id="reallyQuitBtn" style="color:var(--red);">離開</button>
+    </div>
+  </div>
+
+  <!-- Out of hearts modal -->
+  <div class="modal-bg" id="heartsModal">
+    <div class="modal">
+      <div class="m-ico">💔</div>
+      <h3>愛心用完了！</h3>
+      <p>你的氣有點低了。複習一下提示，再挑戰這一課——龍相信你做得到。</p>
+      <button class="btn" id="retryBtn">再試一次</button>
+      <button class="btn ghost" id="heartsHomeBtn">回到路線</button>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+</div>
+
+<script>
+"use strict";
+/* =====================================================
+   CONTENT — distilled from Grand Master Nan Lu's
+   teachings (Dragon's Way Qigong guidebook, Five Element
+   Consciousness course, TCM World library transcripts)
+   ===================================================== */
+const QUOTES=[
+ ["身體是自然的縮影。","Nan Lu 大師"],
+ ["一切都是能量，而一切都相互連結。","Nan Lu 大師"],
+ ["症狀是身體請求支持的方式。","龍之道氣功"],
+ ["治療健康，而不是疾病。","小道教導"],
+ ["答案在你之內。","Nan Lu 大師"],
+ ["沒有什麼是偶然的。","五行教導"],
+ ["身體從不說謊。","Nan Lu 大師"],
+ ["我早就把她放下了——你卻背了她一整天。","和尚的故事：放下"],
+ ["健康是和諧的副產品。","TCM World 教導"],
+ ["以正面的方式運用你的能量，讓你的生活更美好。","Nan Lu 大師"]
+];
+
+const UNITS=[];
+
+/* ---------------- UNIT 1 ---------------- */
+UNITS.push({
+ title:"萬物皆是能量",
+ desc:"氣、兩個能量帳戶，以及身體的訊息",
+ color:"var(--green)", dark:"var(--green-dk)", icon:"⚡",
+ lessons:[
+ {title:"什麼是氣？", icon:"⚡",
+  tips:[
+   "氣是生命能量——一切生命中賦予生機的生命力。",
+   "Lu 大師的核心教導：一切都是能量，一切能量都有意識，一切意識都有目的。",
+   "看不見的創造看得見的——失衡在出現於身體之前，就已經在能量層次開始了。",
+   "健康是和諧的副產品，不是需要追逐的東西。"
+  ],
+  questions:[
+   {t:"mc",q:"什麼是氣？",opts:["身體的生命能量，或生命力","一種古老的中藥","只是一種呼吸技巧","某一條經絡的名稱"],a:0,why:"氣是引導你走過人生、決定你的健康與安康的推動力。"},
+   {t:"mc",q:"完成 Lu 大師的教導：「一切都是能量，而一切能量都有 ___。」",opts:["意識","重量","溫度","顏色"],a:0,why:"一切都是能量，一切能量都有意識，一切意識都有目的。"},
+   {t:"tf",q:"失衡會先出現在能量層次，之後才變成身體的症狀。",a:true,why:"沒有處理的能量失衡會進展成身體的徵兆——腹脹、痠痛、體重變化等等。"},
+   {t:"fill",q:"___ 創造看得見的。",bank:["看不見的","醫生","肌肉","季節"],a:"看不見的",why:"深層、看不見的能量模式，產生我們後來在身體上看到的東西。"},
+   {t:"mc",q:"在 Lu 大師的教導中，健康最好的描述是……",opts:["和諧的副產品","在健身房贏來的獎品","沒有被診斷出疾病","純粹的基因運氣"],a:0,why:"當身體、心智、精神與大自然和諧，健康就會自然隨之而來。"},
+   {t:"tf",q:"你是一個能量的存在——你的身體反映能量層次上正在發生的事。",a:true,why:"身體是你生活的反映；生活中的一切失衡，都會影響能量的順暢流動。"},
+   {t:"mc",q:"古代中國大師如何發現人與自然之間的連結？",opts:["靜坐冥想，觀察大自然中的連結","實驗室實驗","解剖身體","只研究星象"],a:0,why:"他們靜坐冥想，觀察周遭世界的連結——這就是中醫的基礎。"},
+   {t:"match",q:"把每個概念與它的意義配對",pairs:[["氣","生命力能量"],["意識","能量之中的智慧"],["和諧","創造健康的條件"],["看不見的","創造看得見的東西"]]}
+  ]},
+ {title:"氣的兩個帳戶", icon:"🏦",
+  tips:[
+   "你生來就帶著從父母承襲的先天之氣。它是有限的，品質也無法提升——就像一個由腎保管的存款帳戶。",
+   "後天之氣是你的活期帳戶：它來自食物（經由脾胃）、氣功練習與良好的睡眠。",
+   "當活期帳戶見底，身體就會從你珍貴的先天存款中提領。",
+   "龍之道的祕密：節省你的能量——並獲取更多。"
+  ],
+  questions:[
+   {t:"mc",q:"你的先天之氣從哪裡來？",opts:["你的父母","食物","陽光","運動"],a:0,why:"我們來到這個世界時，帶著從父母承襲而來、有限的能量。"},
+   {t:"tf",q:"先天之氣的品質可以透過努力來提升。",a:false,why:"它由父母的健康預先決定。你只能明智地花用它——並獲取新的氣。"},
+   {t:"mc",q:"哪一對臟腑從你吃的食物中累積後天之氣？",opts:["脾與胃","心與小腸","肺與大腸","肝與膽"],a:0,why:"脾與胃把食物轉化為你每天花用的後天之氣。"},
+   {t:"fill",q:"先天之氣由 ___ 儲藏，就像一口儲蓄的深井。",bank:["腎","肝","胃","心"],a:"腎",why:"Lu 大師：想像你的先天之氣在一口深井裡——只在需要時才汲取。"},
+   {t:"mc",q:"當你的後天之氣見底時，會發生什麼？",opts:["身體會動用先天之氣的儲備","什麼都不會發生","你會自動獲得氣","經絡會關閉"],a:0,why:"當後天之氣的帳戶見底，身體就會動用儲藏在腎中的先天之氣。"},
+   {t:"match",q:"配對氣的帳戶系統",pairs:[["先天之氣","存款帳戶"],["後天之氣","活期帳戶"],["脾／胃","後天之氣的來源"],["腎","先天之氣的保管者"]]},
+   {t:"mc",q:"下列哪一項不是獲取更多氣的方法？",opts:["更用力地擔憂","練習氣功","溫熱、煮熟的食物","良好的睡眠"],a:0,why:"擔憂會耗損土行。氣功、滋養的食物與睡眠能累積氣。"},
+   {t:"tf",q:"睡眠被視為主要的能量來源，而不只是休息。",a:true,why:"睡眠是身體為氣充電的主要方式之一——睡得少，就是在花你的存款。"}
+  ]},
+ {title:"身體從不說謊", icon:"💬",
+  tips:[
+   "症狀是溝通，不是敵人——是身體請求支持的方式。",
+   "沒有什麼是偶然的：身體的位置、時間與渴望都帶有意義。",
+   "「治療健康，而不是疾病」：問缺少了什麼條件，而不只是疾病叫什麼名字。",
+   "當正確的條件恢復，身體就能自我療癒。"
+  ],
+  questions:[
+   {t:"mc",q:"在 Lu 大師的教導中，症狀最好被理解為……",opts:["一則請求支持的訊息","需要壓制的敵人","隨機的壞運氣","純粹的機械故障"],a:0,why:"症狀是身體請求支持的方式——去解讀它們，而不只是把它們消音。"},
+   {t:"fill",q:"「身體從不 ___。」",bank:["說謊","睡覺","停止","抱怨"],a:"說謊",why:"Lu 大師最常重複的教導之一：身體發出的每一個訊號都是誠實的資訊。"},
+   {t:"tf",q:"「治療健康，而不是疾病」意味著恢復缺少的東西，而不是追逐疾病的標籤。",a:true,why:"問題不是「這個病叫什麼？」，而是「缺少了什麼條件？」"},
+   {t:"mc",q:"強烈想吃酸的食物，是來自哪一個臟腑的訊號？",opts:["肝","肺","腎","心"],a:0,why:"龍之道指南：你想吃酸的渴望，是來自肝的訊號。"},
+   {t:"mc",q:"強烈的擔憂可能表示哪一個臟腑功能失衡？",opts:["胃","心","膀胱","肝"],a:0,why:"擔憂與過度思考指向胃／脾——土行。"},
+   {t:"tf",q:"在中醫裡，醫者的工作是強迫身體痊癒。",a:false,why:"醫者不是強迫療癒——而是幫助重建讓身體能自我療癒的條件。"},
+   {t:"mc",q:"「沒有什麼是偶然的」意思是……",opts:["症狀的位置與時間帶有意義","身體從不會發生意外","只有命運掌控健康","醫生是不必要的"],a:0,why:"每一個症狀、它的時間與在身體上的位置，都帶有可以解讀的訊息。"},
+   {t:"fill",q:"當正確的條件恢復，身體就能 ___ 自己。",bank:["療癒","責怪","耗盡","取代"],a:"療癒",why:"龍之道建立在身體與生俱來的自癒能力之上。"}
+  ]},
+ {title:"經絡與臟腑時鐘", icon:"🕐",
+  tips:[
+   "經絡是身體的能量網絡——12 條主要臟腑經絡傳遞氣與資訊，連結臟腑、情緒與身體部位。",
+   "Lu 大師的診斷邏輯：位置 → 經絡 → 臟腑 → 五行。",
+   "每個臟腑在臟腑時鐘上都有兩小時的高峰時段。大腸是早上 5–7 點。",
+   "下背被稱為「腎之府」。"
+  ],
+  questions:[
+   {t:"mc",q:"經絡是什麼？",opts:["連結臟腑、情緒與身體部位的能量通道","血管","神經末梢","肌肉纖維"],a:0,why:"經絡才是真正的能量身體——它們傳遞資訊的速度甚至比生化訊號還快。"},
+   {t:"mc",q:"主要的臟腑經絡有幾條？",opts:["12","5","7","20"],a:0,why:"十二條主要臟腑經絡，加上任脈、督脈等中央調節的經脈。"},
+   {t:"order",q:"把 Lu 大師的診斷邏輯排出正確順序",items:["位置","經絡","臟腑","五行"],why:"從症狀出現的地方開始，對應到經絡，再到它的臟腑，再到它的五行。"},
+   {t:"fill",q:"下背被稱為「___ 之府」。",bank:["腎","肝","心","肺"],a:"腎",why:"下背痛被解讀為腎系統的訊息——你最深層儲備的居所。"},
+   {t:"mc",q:"在臟腑時鐘上，每個臟腑的高峰時段是……",opts:["2 小時","30 分鐘","12 小時","一週"],a:0,why:"每個臟腑系統每天都會主導一個兩小時的時段。"},
+   {t:"mc",q:"在早上 5–7 點出現的症狀，與哪一個臟腑有關？",opts:["大腸","心","肝","膀胱"],a:0,why:"早上 5–7 點是大腸的時段——這個時辰早上咳嗽或想上廁所，都是它的訊號。"},
+   {t:"tf",q:"每晚在同一個時間醒來，可能是某個特定臟腑系統的線索。",a:true,why:"時間本身就是診斷：在固定的時辰醒來，指向臟腑系統之間的交接出了問題。"},
+   {t:"mc",q:"太陽穴或頭側的疼痛，最常對應到……",opts:["肝與膽","肺與大腸","心與小腸","脾與胃"],a:0,why:"頭側與太陽穴的疼痛沿著肝／膽的路徑運行。"}
+  ]}
+]});
+/* ---------------- UNIT 2 ---------------- */
+UNITS.push({
+ title:"五行",
+ desc:"大自然的藍圖：臟腑、季節、情緒與循環",
+ color:"var(--purple)", dark:"var(--purple-dk)", icon:"🌀",
+ lessons:[
+ {title:"認識五行", icon:"🌳",
+  tips:[
+   "五行——木、火、土、金、水——是大自然為身體繪製的藍圖。",
+   "每一行都連結一對臟腑：木 = 肝／膽，火 = 心／小腸，土 = 脾／胃，金 = 肺／大腸，水 = 腎／膀胱。",
+   "如果一個臟腑表現不佳，其他臟腑就會代償以恢復平衡——身體是一個團隊。"
+  ],
+  questions:[
+   {t:"mc",q:"五行是哪五個？",opts:["木、火、土、金、水","空氣、水、火、土、靈","木、風、土、金子、雨","日、月、土、火、水"],a:0,why:"木、火、土、金與水——每一行都連結一個臟腑系統、情緒、顏色、味道與季節。"},
+   {t:"match",q:"把每一行與它的臟腑配對",pairs:[["木","肝"],["火","心"],["土","脾"],["金","肺"],["水","腎"]]},
+   {t:"mc",q:"肝的搭檔臟腑是……",opts:["膽","胃","膀胱","小腸"],a:0,why:"肝與膽是木行的夥伴。"},
+   {t:"mc",q:"心的搭檔臟腑是……",opts:["小腸","大腸","膽","胃"],a:0,why:"心與小腸同屬火行。"},
+   {t:"fill",q:"肺與 ___ 腸是夥伴。",bank:["大","小","中","內"],a:"大",why:"肺與大腸——金的一對——在放下這件事上持續相互支持。"},
+   {t:"mc",q:"腎的搭檔臟腑是……",opts:["膀胱","膽","胃","小腸"],a:0,why:"腎與膀胱是水行的夥伴。"},
+   {t:"tf",q:"如果一個臟腑無法發揮最佳功能，其他臟腑就會代償以恢復平衡。",a:true,why:"五個圓是一個和諧的整體——每一個臟腑都支持身體的整體健康。"},
+   {t:"match",q:"配對搭檔臟腑",pairs:[["肝","膽"],["心","小腸"],["脾","胃"],["肺","大腸"],["腎","膀胱"]]}
+  ]},
+ {title:"季節與顏色", icon:"🍂",
+  tips:[
+   "每一行主管一個季節：木–春、火–夏、土–長夏、金–秋、水–冬。",
+   "以及一種顏色：青（綠）、赤（紅）、黃、白，以及黑（或深藍）。",
+   "穿上某一行的顏色，能給對應的臟腑能量上的支持——穿綠色來提振你的肝！",
+   "總是在同一個季節生病？那是五行的線索。"
+  ],
+  questions:[
+   {t:"match",q:"把每一行與它的季節配對",pairs:[["木","春"],["火","夏"],["土","長夏"],["金","秋"],["水","冬"]]},
+   {t:"mc",q:"哪一個季節屬於土行？",opts:["長夏","春","冬","秋"],a:0,why:"土主管長夏——安定與消化的季節。"},
+   {t:"match",q:"把每一行與它的顏色配對",pairs:[["木","青"],["火","赤"],["土","黃"],["金","白"],["水","黑"]]},
+   {t:"mc",q:"要提振你的肝，Lu 大師建議穿……",opts:["綠色","紅色","白色","黑色"],a:0,why:"綠色與肝相應——畢竟，春天時整個大自然都轉為綠色！"},
+   {t:"fill",q:"冬天是 ___ 行的季節。",bank:["水","火","木","土"],a:"水",why:"冬天屬水——腎／膀胱儲藏與蓄積的季節。"},
+   {t:"tf",q:"黃色在能量上與脾和胃相連。",a:true,why:"黃色的頻率與土行相連——穿上它來支持消化。"},
+   {t:"mc",q:"整個大自然在哪個季節轉為綠色？",opts:["春","夏","秋","冬"],a:0,why:"春天是木的季節，更新與生長的時節。"},
+   {t:"mc",q:"金的季節是……",opts:["秋","夏","春","長夏"],a:0,why:"秋天是金的季節——肺釋放與保護的時節。"}
+  ]},
+ {title:"情緒與味道", icon:"😤",
+  tips:[
+   "每個臟腑都透過一種情緒說話：肝–怒、心–喜（失衡時渙散）、脾／胃–思、肺–悲、腎–恐。",
+   "也透過味道：酸–肝、苦–心、甘–脾、辛–肺、鹹–腎。",
+   "反覆出現的情緒與渴望是臟腑的訊息——不是性格缺陷。"
+  ],
+  questions:[
+   {t:"match",q:"把每種情緒與它的臟腑配對",pairs:[["憤怒","肝"],["擔憂","脾／胃"],["悲傷","肺"],["恐懼","腎"],["喜悅","心"]]},
+   {t:"mc",q:"長期的挫折與憤怒指向哪一行？",opts:["木","火","金","水"],a:0,why:"憤怒與挫折是木的訊號——肝／膽在請求流動。"},
+   {t:"match",q:"把每種味道與它的臟腑配對",pairs:[["酸","肝"],["苦","心"],["甘","脾"],["辛","肺"],["鹹","腎"]]},
+   {t:"mc",q:"想吃鹹的食物，是來自……的訊息",opts:["腎","心","肝","脾"],a:0,why:"鹹是水的味道——來自腎的訊息。"},
+   {t:"fill",q:"悲傷與深沉的哀愁是 ___ 的情緒。",bank:["肺","肝","腎","心"],a:"肺",why:"肺承載悲傷；釋放它，能恢復金行放下的力量。"},
+   {t:"tf",q:"在中醫裡，情緒是一種氣，會直接造成身體上的影響。",a:true,why:"情緒不是旁枝末節——它們是直接塑造臟腑功能的能量。"},
+   {t:"mc",q:"過度思考與擔憂會加重哪一行的負擔？",opts:["土","木","火","水"],a:0,why:"土行——脾／胃——消化的不只是食物，還有思緒。過度思考會讓它超載。"},
+   {t:"mc",q:"哪一種情緒屬於心？",opts:["喜悅","恐懼","憤怒","悲傷"],a:0,why:"喜是心的情緒——失衡時表現為渙散、不安的過度興奮。"}
+  ]},
+ {title:"循環", icon:"🔄",
+  tips:[
+   "相生（母子）循環：木 → 火 → 土 → 金 → 水 → 回到木。每一行都滋養下一行。",
+   "相剋循環維持平衡：木→土、土→水、水→火、火→金、金→木。",
+   "療癒策略：強壯的「母」臟腑能滋養虛弱的「子」臟腑——療癒是團隊合作。"
+  ],
+  questions:[
+   {t:"order",q:"從木開始，排出相生循環",items:["木","火","土","金","水"],why:"木生火，火生土（灰燼），土生金，金生水，水生木。"},
+   {t:"mc",q:"在相生循環中，哪一行是火之母？",opts:["木","水","土","金"],a:0,why:"木生火——肝是心之母。"},
+   {t:"mc",q:"水滋養哪一行？",opts:["木","火","土","金"],a:0,why:"水生木——腎是肝之母。"},
+   {t:"tf",q:"在相剋循環中，水剋火。",a:true,why:"水滅火——這就是腎讓心保持在健康範圍內的方式。"},
+   {t:"mc",q:"木剋哪一行？",opts:["土","金","火","水"],a:0,why:"木剋土——這就是為什麼肝的壓力常常擾亂胃。"},
+   {t:"fill",q:"在母子循環中，土是 ___ 之母。",bank:["金","木","火","水"],a:"金",why:"土生金——脾／胃滋養肺。"},
+   {t:"mc",q:"如果腎（水）虛弱，哪一個母行能滋養它？",opts:["金","木","火","土"],a:0,why:"金生水——支持肺有助於補充腎。"},
+   {t:"tf",q:"療癒常常意味著找出最強的臟腑來支持較弱的那一個——這是團隊合作。",a:true,why:"Lu 大師把療癒看作修復關係：建立團隊，而不是孤立某一個臟腑。"}
+  ]}
+]});
+
+/* ---------------- UNIT 3 ---------------- */
+UNITS.push({
+ title:"臟腑智慧",
+ desc:"內在王國：執行長、君王、滋養者與守護者",
+ color:"var(--teal)", dark:"var(--teal-dk)", icon:"🫀",
+ lessons:[
+ {title:"肝——執行長", icon:"👓",
+  tips:[
+   "肝驅動流動、計劃與決策——Lu 大師稱它為身體的執行長。",
+   "它開竅於目，主筋，藏魂。",
+   "它的訊號：想吃酸、眼睛問題、太陽穴頭痛、憤怒與挫折。它的季節是春。"
+  ],
+  questions:[
+   {t:"mc",q:"哪一個臟腑被稱為身體的執行長？",opts:["肝","心","腎","肺"],a:0,why:"肝是執行長——它驅動流動、決策，並把看不見的計劃轉化為看得見的行動。"},
+   {t:"mc",q:"肝開竅於哪一個感官？",opts:["眼睛","耳朵","鼻子","舌頭"],a:0,why:"眼睛是肝的窗戶——大多數眼睛的狀況都透過肝／膽的邏輯來解讀。"},
+   {t:"mc",q:"肝主管哪一種組織？",opts:["筋腱","骨骼","皮膚","肌肉"],a:0,why:"筋與韌帶屬於肝——身體的柔軟度映照心的柔軟度。"},
+   {t:"fill",q:"肝之神稱為 ___。",bank:["魂","神","魄","志"],a:"魂",why:"魂主管願景、計劃與成長——把看不見的化為看得見的形式。"},
+   {t:"tf",q:"筋與韌帶的問題常常與肝有關。",a:true,why:"肝滋養筋；僵硬與筋的損傷是木行的訊息。"},
+   {t:"mc",q:"龍之趾舞刺激哪一個臟腑的能量？",opts:["肝","腎","肺","心"],a:0,why:"指南說：隨時隨地都能練趾舞——它能刺激肝的能量。"},
+   {t:"mc",q:"經常太陽穴或頭側疼痛，表示哪一對臟腑？",opts:["肝與膽","心與小腸","肺與大腸","脾與胃"],a:0,why:"膽經沿著頭的兩側運行。"},
+   {t:"tf",q:"飛蚊症等眼睛狀況，透過肝與膽的邏輯來解讀。",a:true,why:"在 Lu 大師的疑難案例教導中，眼睛與木行密切相關。"}
+  ]},
+ {title:"心——君王", icon:"👑",
+  tips:[
+   "心是「五臟之君」——藏神的主席，也就是你的精神。",
+   "它開竅於舌，主血脈，主管夏天，情志為喜。",
+   "中醫師透過解讀舌頭的顏色與紋路來辨識臟腑失調。"
+  ],
+  questions:[
+   {t:"mc",q:"哪一個臟腑是「五臟之君」？",opts:["心","肝","腎","胃"],a:0,why:"心是君王——統領精神、喜悅與整體協調的主席。"},
+   {t:"fill",q:"心藏 ___——也就是你的精神。",bank:["神","魂","意","志"],a:"神",why:"神帶來精神、直覺、連結與整體的協調。"},
+   {t:"mc",q:"心的感官是……",opts:["舌","眼","耳","鼻"],a:0,why:"舌是心的開竅——它的顏色與紋路描繪出內在的樣貌。"},
+   {t:"mc",q:"心主管哪一種組織？",opts:["血管","骨骼","筋腱","皮膚"],a:0,why:"血脈是火行的組織，由心主管。"},
+   {t:"tf",q:"中醫師透過解讀舌頭的顏色與紋路來辨識臟腑功能失調。",a:true,why:"指南中甚至有一張舌診圖——每個區域都反映一個臟腑系統。"},
+   {t:"mc",q:"心的五行與季節是……",opts:["火與夏","木與春","水與冬","金與秋"],a:0,why:"火在夏天熾盛——是心主喜悅與循環的時節。"},
+   {t:"mc",q:"和尚背女子過河的故事教導我們……",opts:["放下","永遠不要幫助陌生人","河流很危險","生氣時保持沉默"],a:0,why:"「我早就把她放下了——你卻背了她一整天。」放下你仍背著的東西。"},
+   {t:"tf",q:"在身體這家「公司」裡，心是統領精神與協調的主席。",a:true,why:"心 = 主席，肝 = 執行長，脾／胃 = 資源管理者，腎 = 根基。"}
+  ]},
+ {title:"脾與胃——滋養者", icon:"🍲",
+  tips:[
+   "土的這一對消化一切：食物、思緒、資訊與經驗。它們藏意。",
+   "它們主肌肉，開竅於口，失衡時表現為擔憂與過度思考。",
+   "你的胃喜歡溫暖——長期吃生冷或加工食品會削弱它的火。"
+  ],
+  questions:[
+   {t:"mc",q:"除了食物，脾／胃還消化……",opts:["思緒、情緒與資訊","只有液體","陽光","其他什麼都不消化"],a:0,why:"一切都必須被消化——餐點、感受、資訊與人生事件。"},
+   {t:"mc",q:"脾／胃所藏的神是……",opts:["意","魄","神","魂"],a:0,why:"意把食物、思緒與經驗消化成可用的精華。"},
+   {t:"tf",q:"胃喜歡生冷的食物。",a:false,why:"正好相反！胃喜歡溫暖——把蔬菜煮熟，不要喝冰飲。"},
+   {t:"mc",q:"土行主管哪一種組織？",opts:["肌肉","骨骼","皮膚","血管"],a:0,why:"肌肉（與嘴唇）屬於土——消化弱常常表現為肌肉無力。"},
+   {t:"mc",q:"後天（適應性）免疫與哪些臟腑有關？",opts:["脾與胃","腎與膀胱","心與小腸","肝與膽"],a:0,why:"後天免疫由土的這一對建立；先天免疫則與腎／膀胱同在。"},
+   {t:"fill",q:"穿 ___ 色，在能量上支持脾／胃。",bank:["黃","綠","紅","白"],a:"黃",why:"黃色的頻率與土行相連。"},
+   {t:"mc",q:"哪些食物支持土行？",opts:["紅蘿蔔、地瓜與薑","冰沙","生菜沙拉","冰冷的乳製品"],a:0,why:"生長在土裡的溫性食物——紅蘿蔔、地瓜、薑、薑黃、肉桂。"},
+   {t:"tf",q:"腹部脂肪被描述為胃部一帶卡住的氣，以及未消化的情緒。",a:true,why:"它被看成等待被消化的鬱滯能量——而不只是熱量。"}
+  ]},
+ {title:"肺與腎——釋放與儲備", icon:"🌬️",
+  tips:[
+   "肺（金）：藏魄。它主皮膚——身體最大的器官——開竅於鼻，並釋放悲傷。它的搭檔大腸幫助你放下。",
+   "腎（水）：藏志。它儲藏先天之氣與遺傳智慧，主骨，開竅於耳，承載你的意志。",
+   "核桃——形狀像小小的大腦——是一種支持腎氣的溫性食物。"
+  ],
+  questions:[
+   {t:"mc",q:"哪一個臟腑提供讓皮膚光采的氣？",opts:["肺","肝","心","脾"],a:0,why:"光采、無皺紋的皮膚是肺氣健康的徵兆。"},
+   {t:"mc",q:"肺所藏的神是……",opts:["魄","志","魂","神"],a:0,why:"魄接收純淨的精華，維持節奏與界限，並且放下。"},
+   {t:"tf",q:"肺氣虛弱可能表現為便祕。",a:true,why:"肺與大腸是釋放的夥伴——肺氣虛弱可能讓排便停滯。"},
+   {t:"mc",q:"腎儲藏……",opts:["先天之氣與遺傳智慧","只有水","後天的食物之氣","每天的想法"],a:0,why:"腎是你的深層儲備：先天之氣、祖先的記憶與意志。"},
+   {t:"mc",q:"腎開竅於……",opts:["耳朵","眼睛","嘴巴","鼻"],a:0,why:"耳朵屬水——耳鳴與聽力變化被解讀為腎的訊息。"},
+   {t:"fill",q:"腎所藏的神——你的意志——稱為 ___。",bank:["志","意","魄","魂"],a:"志",why:"志承載意志力、祖先的記憶與長遠的生存力量。"},
+   {t:"mc",q:"哪一種溫性食物支持腎氣與大腦？",opts:["核桃","冰淇淋","生芹菜","白麵包"],a:0,why:"核桃看起來像小小的大腦！腎支持大腦與骨骼。"},
+   {t:"match",q:"把每個臟腑與它所藏的神配對",pairs:[["肝","魂"],["心","神"],["脾","意"],["肺","魄"],["腎","志"]]}
+  ]}
+]});
+/* ---------------- UNIT 4 ---------------- */
+UNITS.push({
+ title:"龍之道",
+ desc:"六週課程：氣功、食療飲食、能量門",
+ color:"var(--orange)", dark:"var(--orange-dk)", icon:"🐉",
+ lessons:[
+ {title:"課程", icon:"🗺️",
+  tips:[
+   "龍之道氣功®是 Nan Lu 大師的六週課程，建立在身體自我療癒的能力之上。",
+   "四大組成：無名氣功練習、食療飲食計劃、生活方式，以及草本補充品（選用，但強烈建議）。",
+   "每週的旅程：第 1 週「一切都是能量」→ 第 2 週 肝／膽 → 第 3 週 腎／膀胱 → 第 4 週 脾／胃 → 第 5 週 肺／大腸 → 第 6 週 心／小腸。"
+  ],
+  questions:[
+   {t:"mc",q:"龍之道氣功課程為期多久？",opts:["6 週","30 天","1 年","2 週"],a:0,why:"六週——每一週都加深你與一個不同臟腑系統的關係。"},
+   {t:"mc",q:"下列哪一項不是課程的組成？",opts:["高強度有氧運動","無名氣功","食療飲食計劃","生活方式的改變"],a:0,why:"龍之道溫和地累積氣——不需要讓人筋疲力盡的運動。"},
+   {t:"mc",q:"第 2 週專注於哪一對臟腑？",opts:["肝／膽","心／小腸","腎／膀胱","肺／大腸"],a:0,why:"在第 1 週的準備之後，旅程從肝與膽開始。"},
+   {t:"order",q:"把各週的臟腑依課程順序排列",items:["肝／膽","腎／膀胱","脾／胃","肺／大腸","心／小腸"],why:"第 2 到第 6 週：肝 → 腎 → 脾／胃 → 肺 → 心。"},
+   {t:"tf",q:"草本補充品是龍之道的必要部分。",a:false,why:"它們是選用的，但強烈建議——草本是帶著宇宙智慧訊息的食物。"},
+   {t:"mc",q:"課程的根本信念是……",opts:["身體能自我療癒","疾病是隨機的","只有藥物能治病","意志力能戰勝一切"],a:0,why:"Lu 大師的方法建立在：當條件恢復，身體與生俱來的療癒能力就會發揮。"},
+   {t:"fill",q:"第 1 週的主題：「一切都是 ___。」",bank:["能量","努力","飲食","運動"],a:"能量",why:"準備週：理解一切都是能量，而一切都相互連結。"},
+   {t:"tf",q:"草本被視為帶著宇宙智慧訊息的食物。",a:true,why:"就像課程中的食物，草本在能量上支持並重建你的根基。"}
+  ]},
+ {title:"無名氣功", icon:"🧘",
+  tips:[
+   "你會學到 10 個無名氣功動作——大多以龍命名，例如「龍之趾舞」與「龍向前踢」。",
+   "第 10 式「龍立於天地之間」是一個站樁姿勢，最終要維持 8 分鐘或更久——身體成為接收宇宙之氣的天線。",
+   "第 1 週溫和地開始：第 1–3 式加上第 10 式。氣功清理身體的內在，就像淋浴清潔身體的外在。"
+  ],
+  questions:[
+   {t:"mc",q:"龍之道有幾個無名氣功動作？",opts:["10","5","24","108"],a:0,why:"十個動作，全部學會後每天整套練習。"},
+   {t:"mc",q:"第 10 式是哪一個？",opts:["龍立於天地之間","龍之拳","搖龍寶寶","龍之扭轉"],a:0,why:"招牌的站樁姿勢——讓你連結於天地之間。"},
+   {t:"mc",q:"「龍立於天地之間」最終應該維持多久？",opts:["8 分鐘或更久","30 秒","剛好 1 分鐘","3 次呼吸"],a:0,why:"指南會逐步帶你維持 8 分鐘或更久。"},
+   {t:"tf",q:"氣功被描述為清理身體的內在，就像淋浴清潔身體的外在。",a:true,why:"就像你每天洗澡，每天用氣功清理並更新你的能量系統。"},
+   {t:"mc",q:"下列哪一個是真正的無名氣功動作？",opts:["龍回首望尾","龍刷牙","猛虎躍","仙鶴眠"],a:0,why:"第 5 式——龍回首望尾。"},
+   {t:"mc",q:"在站樁練習中，身體被描述為……",opts:["接收宇宙之氣的天線","一個上鎖的保險箱","燃燒熱量的火爐","一塊石頭"],a:0,why:"姿勢就是接收：站立讓你對準宇宙能量的頻率。"},
+   {t:"fill",q:"第 1 週你會學到第 1–3 式，加上第 ___ 式。",bank:["10","7","5","4"],a:"10",why:"趾舞、向前踢、扭轉——以及站樁姿勢第 10 式。"},
+   {t:"mc",q:"在市場排隊時，正是練習……的好時機",opts:["龍之趾舞","龍向後踢","搖龍寶寶","龍之拳"],a:0,why:"趾舞隨時隨地都能練——而且能刺激肝的能量。"}
+  ]},
+ {title:"食療飲食", icon:"🥣",
+  tips:[
+   "超越營養素，深入食物的精華——它與大自然的關係帶著療癒的訊息。",
+   "課程期間：減少並最終戒除麵包、肉類與乳製品。咖啡與茶都可以；偶爾一杯葡萄酒也無妨。",
+   "戒除生菜與冰飲——把蔬菜煮熟；溫暖有助消化。",
+   "這不是限制型的飲食：渴望能讓你洞察身體真正需要什麼。"
+  ],
+  questions:[
+   {t:"mc",q:"課程戒除哪三種沉重的食物？",opts:["麵包、肉類與乳製品","水果、米飯與茶","湯、魚與蜂蜜","堅果、豆類與蛋"],a:0,why:"在六週中減少並最終戒除麵包、肉類與乳製品。"},
+   {t:"tf",q:"龍之道禁止咖啡與茶。",a:false,why:"咖啡與茶都可以——偶爾一杯葡萄酒也無妨。"},
+   {t:"mc",q:"為什麼課程期間要把蔬菜煮熟？",opts:["溫熱的食物有助身體消化","生菜沒有維生素","煮過會讓食物更沉重","為了降低味道"],a:0,why:"煮熟、溫熱的食物能保護你的消化之火——胃喜歡溫暖。"},
+   {t:"tf",q:"鼓勵喝冰飲來讓胃降溫。",a:false,why:"冰飲要戒除——寒涼會削弱胃的功能。"},
+   {t:"mc",q:"食物的「精華」是……",opts:["它與大自然的關係，帶著一則訊息","它的熱量","它的價格","只有它的顏色"],a:0,why:"精華在身體深處產生共鳴，促進健康的能量流動——超越維生素。"},
+   {t:"mc",q:"如果你想吃的東西不在食物清單上，Lu 大師說……",opts:["吃吧——享受每一口","壓抑這份渴望","斷食一天","改吃補充品"],a:0,why:"渴望是資訊。這是一份覺察的飲食計劃，而不是限制。"},
+   {t:"fill",q:"「這不是一份 ___ 的飲食。」",bank:["限制","蔬菜","溫暖","治療"],a:"限制",why:"這是一份擁抱新鮮、清淡食物——並且聆聽身體——的飲食計劃。"},
+   {t:"mc",q:"杏仁、梨與蜂蜜是為了支持哪一個臟腑而選的？",opts:["肺","肝","腎","心"],a:0,why:"試著把這三樣一起烤——選擇它們是因為能支持健康的肺功能。"}
+  ]},
+ {title:"四能量門", icon:"🚪",
+  tips:[
+   "四個高價值的穴位能量門，調節全身。",
+   "合谷（LI4）「相合之谷」位於手的虎口——它幫助處理肩膀以上的問題：鼻竇、五十肩、網球肘等等。",
+   "膻中（CV17）是「胸口中心」——全身之氣的中心。CV4 守護你的生命力與元氣。GB30 是下半身的門戶，主管髖部與下背。",
+   "對於寒與鬱滯造成的疼痛，Lu 大師偏好熱敷而非冰敷。"
+  ],
+  questions:[
+   {t:"mc",q:"合谷（LI4）在哪裡？",opts:["手的虎口，拇指與食指之間","腳底","膝蓋後方","頭頂"],a:0,why:"「相合之谷」——第一個奧祕穴位，位於大腸經上。"},
+   {t:"mc",q:"合谷（LI4）以幫助處理哪個位置的問題而聞名？",opts:["肩膀以上","只有膝蓋以下","只有雙腳","只有內在"],a:0,why:"五十肩、網球肘、鼻竇、牙齒與牙齦問題——都屬於肩膀以上的範圍。"},
+   {t:"mc",q:"膻中（CV17）被稱為……",opts:["胸口中心——身體的氣之中心","足之門","智慧之井","龍之池"],a:0,why:"CV17 調節全身的氣——要非常尊重這個中心。"},
+   {t:"mc",q:"CV4 與什麼有關？",opts:["元氣與生命力","只有牙痛","視力","聽力"],a:0,why:"CV4 守護元氣：生存的力量、生殖健康與免疫支持。"},
+   {t:"mc",q:"GB30 是什麼的門戶？",opts:["下半身——髖部與下背","頭皮","舌頭","手肘"],a:0,why:"下半身的門戶：膽／肝的功能、下背與結構支撐。"},
+   {t:"match",q:"把每個能量門與它的作用配對",pairs:[["LI4 合谷","調節上半身"],["CV17 膻中","身體的氣之中心"],["CV4","生命力的儲備"],["GB30","下半身的門戶"]]},
+   {t:"tf",q:"對於許多寒或鬱滯造成的疼痛模式，Lu 大師偏好熱敷而非冰敷。",a:true,why:"溫暖能疏通鬱滯的氣；冰敷可能讓模式凍結得更深。想想薑敷，而不是冰袋。"},
+   {t:"mc",q:"與 LI4 相連的大腸經，高峰時段是……",opts:["清晨 5–7 點","中午 12 點–下午 2 點","晚上 9–11 點","午夜–凌晨 2 點"],a:0,why:"臟腑時鐘上的早上 5–7 點——早晨排泄的時間。"}
+  ]}
+]});
+/* ---------------- UNIT 5 ---------------- */
+UNITS.push({
+ title:"活出這條道",
+ desc:"情緒、季節、食物智慧與消化宇宙",
+ color:"var(--red)", dark:"var(--red-dk)", icon:"🌞",
+ lessons:[
+ {title:"情緒清理", icon:"😢",
+  tips:[
+   "能量永遠不會消失——被壓抑的情緒會轉化為緊繃、鬱滯或疾病。",
+   "三種清理練習：喊叫透過肺釋放；哭泣透過肝釋放；內在微笑透過心整合。",
+   "情緒表達是天生的自癒力量，大人卻被訓練去壓抑它。每天的練習能扭轉數十年的壓抑。"
+  ],
+  questions:[
+   {t:"match",q:"把每種練習與它的路徑配對",pairs:[["喊叫","肺"],["哭泣","肝"],["內在微笑","心"],["壓抑","鬱滯"]]},
+   {t:"mc",q:"能量永遠不會消失——被壓抑的情緒可能變成……",opts:["緊繃、鬱滯或疾病","什麼都不會變","自動變成純粹的喜悅","額外的氣存款"],a:0,why:"轉化是一條法則：沒有表達出來的情緒會改變形式，儲存在身體裡。"},
+   {t:"mc",q:"哭泣把看不見的情緒能量轉化為……",opts:["物質上的釋放","軟弱","寒涼的精華","更多的憤怒"],a:0,why:"眼淚把看不見的能量轉化為看得見的身體釋放——一種與肝相連的清理。"},
+   {t:"tf",q:"大人天生比小孩更擅長釋放情緒。",a:false,why:"小孩自由地喊叫、哭泣與微笑——大人卻被訓練去壓抑這份療癒的力量。"},
+   {t:"mc",q:"內在微笑與哪一個臟腑相連？",opts:["心","腎","膀胱","胃"],a:0,why:"釋放之後是整合——心的內在微笑。"},
+   {t:"tf",q:"內在平靜被視為療癒的生理需求，而不是一句口號。",a:true,why:"平靜是讓身體得以接收並整理療癒資訊的條件。"},
+   {t:"mc",q:"在中醫裡，情緒是……",opts:["一種氣，會直接造成身體上的影響","想像出來的","性格缺陷","與臟腑無關"],a:0,why:"情緒是流動中的能量——在生理上是活躍的，而不是抽象的心理學。"},
+   {t:"fill",q:"喊叫與 ___ 相連，能釋放被困住的情緒力量。",bank:["肺","肝","心","脾"],a:"肺",why:"強而有力的發聲釋放能推動金行——悲傷與壓力隨著呼吸離開。"}
+  ]},
+ {title:"順應季節生活", icon:"❄️",
+  tips:[
+   "順應季節生活：春 = 生長與活動，夏 = 喜悅與循環，長夏 = 安定與消化，秋 = 釋放，冬 = 儲藏與保護。",
+   "風與寒是可能從皮膚進入的病邪——在颳風的日子不要挑戰大自然。",
+   "冬天受的傷痊癒得比較慢——在寒冷的月份保護你的儲備。"
+  ],
+  questions:[
+   {t:"mc",q:"冬天的策略是……",opts:["儲藏、謹慎與保護儲備","盡量多流汗","多吃冰淇淋","熬夜"],a:0,why:"冬天是水的季節：儲藏、保存並尊重你的深層儲備。"},
+   {t:"mc",q:"下列哪些是中醫的經典病邪？",opts:["風、寒、濕與熱","WiFi 與月光","重力與光","聲音與影子"],a:0,why:"經典中列出風、寒、暑、濕、燥、火。"},
+   {t:"tf",q:"Lu 大師建議在颳風的日子待在室內，而不是挑戰大自然。",a:true,why:"「不要挑戰大自然。」風與寒可能從皮膚進入，造成體內失衡。"},
+   {t:"mc",q:"秋天——金的季節——是什麼的時節？",opts:["釋放與放下","萌芽","最炎熱","播種"],a:0,why:"就像樹木落葉，秋天要求肺釋放並保護。"},
+   {t:"match",q:"把每個季節與它的主題配對",pairs:[["春","生長"],["夏","喜悅與循環"],["長夏","安定"],["秋","釋放"],["冬","儲藏"]]},
+   {t:"mc",q:"Lu 大師在經典的病邪清單上加了哪些「現代病邪」？",opts:["電磁波與過度刺激","月光","新鮮空氣","安靜"],a:0,why:"電磁波、污染、藥物負擔與資訊超載，都會讓身體的能量場承受壓力。"},
+   {t:"tf",q:"冬天受的傷往往痊癒得比較慢。",a:true,why:"自然的時機值得尊重——療癒也會順應季節。"},
+   {t:"fill",q:"在寒冷、颳風的天氣遮好皮膚，能支持你的 ___ 功能。",bank:["肺","肝","腎","心"],a:"肺",why:"肺主皮膚與表層的防禦——遮好身體來保護它。"}
+  ]},
+ {title:"食物智慧", icon:"🥕",
+  tips:[
+   "關鍵問題不是「它健康嗎？」，而是「你能消化它嗎？」",
+   "食物透過精華與訊息來療癒：核桃（小小的大腦）溫暖腎；梨、杏仁與蜂蜜舒緩肺；紅蘿蔔、地瓜與薑滋養土；青蘋果讓肝愉悅。",
+   "蒲公英——無畏地在任何地方生長——是 Lu 大師情緒韌性的象徵。"
+  ],
+  questions:[
+   {t:"mc",q:"關於食物，最重要的問題是……",opts:["「我能消化它嗎？」","「它流行嗎？」","「它很貴嗎？」","「它是冷的嗎？」"],a:0,why:"能不能消化，勝過理論上的健康——沒被消化的超級食物對誰都沒有幫助。"},
+   {t:"match",q:"把每種食物與它支持的臟腑配對",pairs:[["核桃","腎"],["梨","肺"],["薑","脾／胃"],["青蘋果","肝"]]},
+   {t:"mc",q:"蒲公英象徵……",opts:["無畏與韌性","軟弱","毒素","奢侈"],a:0,why:"它大膽地在任何地方生長——吃它，借一點那份無畏的精神。"},
+   {t:"tf",q:"同一種食物可能幫助一個人，卻傷害另一個人。",a:true,why:"體質、季節與當下的失衡，決定一種食物是療癒還是負擔。"},
+   {t:"mc",q:"草本透過什麼發揮作用？",opts:["精華、資訊與意識——不只是化學作用","只有化學作用","只有安慰劑效應","只有味道"],a:0,why:"真正的草本療癒會深入到經絡層次；而療癒的依然是身體本身。"},
+   {t:"mc",q:"對於寒與鬱滯的模式，教導中出現了哪些廚房療方？",opts:["薑與蔥的熱敷","冰袋","生鮮果汁斷食","冷凍優格"],a:0,why:"溫暖能推動寒冷所凍結的——薑、蔥與熱敷。"},
+   {t:"fill",q:"糖尿病被描述為生活中缺少 ___，而不只是血糖問題。",bank:["甜蜜","運動","蛋白質","藥物"],a:"甜蜜",why:"Lu 大師的招牌教導：身體用比喻說話，而你的生活可以回應它。"},
+   {t:"tf",q:"消化的強弱，決定你能從補充品與藥物中得到多少益處。",a:true,why:"如果你無法消化吸收它，即使最好的療方也會與你擦身而過。"}
+  ]},
+ {title:"《消化宇宙》", icon:"🌌",
+  tips:[
+   "一切都必須被消化——食物、情緒、資訊與人生事件。",
+   "代謝的五個階段：受納 → 消化 → 處理 → 轉化 → 展現。",
+   "生命三角：脾／胃（活期帳戶）＋ 腎／膀胱（存款）＋ 肝／膽（流動的驅動者）。",
+   "修煉之路：知 → 解 → 悟 → 修 → 行。"
+  ],
+  questions:[
+   {t:"order",q:"排出代謝的五個階段",items:["受納","消化","處理","轉化","展現"],why:"從你讓什麼進來，到精華，到分配，到轉變，到看得見的結果。"},
+   {t:"mc",q:"在 Lu 大師的教導中，「消化」包括……",opts:["食物、情緒、資訊與人生事件","只有食物","只有水","只有想法"],a:0,why:"小道的原則：一切都必須被消化。"},
+   {t:"mc",q:"哪些臟腑構成生命三角？",opts:["脾／胃、腎／膀胱、肝／膽","心、肺、腦","眼、耳、鼻","皮膚、骨骼、血液"],a:0,why:"後天之氣 ＋ 先天儲備 ＋ 流動與轉化的驅動者。"},
+   {t:"mc",q:"先天（遺傳）免疫與哪些臟腑相連？",opts:["腎與膀胱","脾與胃","心與小腸","肺與大腸"],a:0,why:"腎層次的免疫被描述為以智慧為基礎、來自祖先的。"},
+   {t:"tf",q:"一個人可能在影像檢查上結構正常，功能上卻是生病的。",a:true,why:"影像檢查顯示結構；中醫解讀功能——動態的模式會在結構損傷出現之前很久就顯現。"},
+   {t:"fill",q:"更高層次的療癒改變產生這個模式的 ___，而不只是症狀。",bank:["意識","繃帶","作息","天氣"],a:"意識",why:"改變模式背後的智慧，症狀就失去了存在的理由。"},
+   {t:"mc",q:"過敏被看作……",opts:["身體在傳達更深層的臟腑需求","純粹的壞運氣","會傳染的疾病","想像出來的反應"],a:0,why:"常常與寒涼的精華有關——是一則關於某個臟腑系統需要什麼的訊息。"},
+   {t:"order",q:"排出 Lu 大師的修煉之路",items:["知","解","悟","修","行"],why:"知識唯有最終被活出來，才會成為智慧。"}
+  ]}
+]});
+/* =====================================================
+   ENGINE
+   ===================================================== */
+const $=id=>document.getElementById(id);
+const LEVELS=[[0,"氣之幼苗"],[120,"能量學徒"],[300,"經絡探索者"],[600,"五行達人"],[1000,"養氣者"],[1500,"龍之大師"]];
+const GOAL=30;
+
+/* ---------- state ---------- */
+let state={xp:0,streak:0,lastDay:"",xpToday:0,xpDay:"",sound:true,done:{},mistakes:[]};
+function save(){try{localStorage.setItem("dwq_quest_v1",JSON.stringify(state));}catch(e){}}
+function load(){try{const s=localStorage.getItem("dwq_quest_v1");if(s)state=Object.assign(state,JSON.parse(s));}catch(e){}}
+function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function yesterday(){const d=new Date(Date.now()-864e5);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+
+/* ---------- utils ---------- */
+function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function levelFor(xp){let t=LEVELS[0][1];for(const[n,l]of LEVELS){if(xp>=n)t=l;}return t;}
+
+/* ---------- sound ---------- */
+let AC=null;
+function tone(f,dur,type,when,vol){const o=AC.createOscillator(),g=AC.createGain();o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(0.0001,AC.currentTime+when);g.gain.exponentialRampToValueAtTime(vol||0.18,AC.currentTime+when+0.015);g.gain.exponentialRampToValueAtTime(0.0001,AC.currentTime+when+dur);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+when);o.stop(AC.currentTime+when+dur+0.05);}
+function sfx(kind){
+  if(!state.sound)return;
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    if(AC.state==="suspended")AC.resume();
+    if(kind==="click")tone(650,0.06,"sine",0,0.08);
+    else if(kind==="ok"){tone(660,0.12,"sine",0);tone(880,0.16,"sine",0.1);}
+    else if(kind==="bad"){tone(190,0.22,"sawtooth",0,0.12);}
+    else if(kind==="win"){[523,659,784,1047].forEach((f,i)=>tone(f,0.18,"sine",i*0.12,0.16));}
+    else if(kind==="match"){tone(760,0.09,"sine",0,0.1);}
+  }catch(e){}
+}
+
+/* ---------- dragon mascot ---------- */
+function dragonSVG(size,mood){
+  const hat=mood==="win"?'<polygon points="60,4 47,30 73,30" fill="#ffc800" stroke="#e6a800" stroke-width="2"/><circle cx="60" cy="5" r="4" fill="#ff4b4b"/>':"";
+  const eyes=mood==="win"
+    ?'<path d="M42 56 l6 4 -6 4" stroke="#3c3c3c" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 56 l-6 4 6 4" stroke="#3c3c3c" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    :'<circle cx="45" cy="60" r="8.5" fill="#fff"/><circle cx="75" cy="60" r="8.5" fill="#fff"/><circle cx="47" cy="61" r="4.2" fill="#3c3c3c"/><circle cx="73" cy="61" r="4.2" fill="#3c3c3c"/><circle cx="48.5" cy="59" r="1.5" fill="#fff"/><circle cx="74.5" cy="59" r="1.5" fill="#fff"/>';
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 120 120" aria-hidden="true">'
+   +'<ellipse cx="24" cy="52" rx="9" ry="14" fill="#46a302" transform="rotate(18 24 52)"/>'
+   +'<ellipse cx="96" cy="52" rx="9" ry="14" fill="#46a302" transform="rotate(-18 96 52)"/>'
+   +hat
+   +(mood==="win"?"":'<path d="M44 28 q-4 -16 8 -18 q2 10 -1 16 Z" fill="#46a302"/><path d="M76 28 q4 -16 -8 -18 q-2 10 1 16 Z" fill="#46a302"/>')
+   +'<ellipse cx="60" cy="68" rx="42" ry="40" fill="#58cc02"/>'
+   +'<ellipse cx="60" cy="88" rx="25" ry="17" fill="#d7ffb8"/>'
+   +eyes
+   +'<ellipse cx="60" cy="76" rx="13" ry="9" fill="#8ee000"/>'
+   +'<circle cx="55.5" cy="74.5" r="1.8" fill="#3f8f00"/><circle cx="64.5" cy="74.5" r="1.8" fill="#3f8f00"/>'
+   +'<path d="M50 86 q10 8 20 0" stroke="#3f8f00" stroke-width="3.5" fill="none" stroke-linecap="round"/>'
+   +'<circle cx="36" cy="72" r="4.5" fill="#ffb3c1" opacity=".7"/><circle cx="84" cy="72" r="4.5" fill="#ffb3c1" opacity=".7"/>'
+   +'</svg>';
+}
+
+/* ---------- flatten lessons ---------- */
+const FLAT=[];
+UNITS.forEach((u,ui)=>u.lessons.forEach((l,li)=>FLAT.push({ui,li})));
+function keyOf(ui,li){return ui+"-"+li;}
+function firstOpenIdx(){for(let i=0;i<FLAT.length;i++){const f=FLAT[i];if(!state.done[keyOf(f.ui,f.li)])return i;}return FLAT.length;}
+
+/* ---------- home ---------- */
+function refreshStats(){
+  $("streakVal").textContent=state.streak;
+  $("xpVal").textContent=state.xp;
+  $("lvlVal").textContent=levelFor(state.xp);
+  $("flameEm").className=state.lastDay===today()?"em flame-on":"em";
+  if(state.xpDay!==today()){state.xpToday=0;state.xpDay=today();}
+  $("goalLbl").textContent=Math.min(state.xpToday,GOAL)+" / "+GOAL+" XP"+(state.xpToday>=GOAL?" ✓":"");
+  $("goalBar").style.width=Math.min(100,state.xpToday/GOAL*100)+"%";
+  $("sndBtn").textContent=state.sound?"🔊":"🔇";
+}
+function renderHome(){
+  refreshStats();
+  $("dragonHero").innerHTML=dragonSVG(64,"happy");
+  const open=firstOpenIdx();
+  let html="",g=0;
+  const offs=[0,-70,-95,-70,0,70,95,70];
+  UNITS.forEach((u,ui)=>{
+    const doneCnt=u.lessons.reduce((n,_,li)=>n+(state.done[keyOf(ui,li)]?1:0),0);
+    html+='<div class="unit-banner" style="background:linear-gradient(135deg,'+u.color+','+u.dark+');">'
+        +'<div class="u-kicker">第 '+(ui+1)+' 單元</div><h2>'+esc(u.title)+'</h2><p>'+esc(u.desc)+'</p>'
+        +'<div class="u-count">'+doneCnt+' / '+u.lessons.length+'</div><div class="u-icon">'+u.icon+'</div></div>';
+    html+='<div class="path">';
+    u.lessons.forEach((l,li)=>{
+      const idx=g++,k=keyOf(ui,li);
+      const st=state.done[k]?"done":(idx===open?"active":(idx<open?"done":"locked"));
+      const off=offs[idx%offs.length];
+      const stars=state.done[k]?'<div class="stars">'+"⭐".repeat(state.done[k])+'</div>':"";
+      const tip=st==="active"?'<div class="start-tip">開始</div>':"";
+      const style=st==="active"?'style="background:'+u.color+';color:'+u.color+';"':(st==="done"?"":"");
+      html+='<div class="node-wrap" style="transform:translateX('+off+'px)">'
+          +tip
+          +'<button class="node '+st+'" '+style+' onclick="tryStart('+ui+','+li+','+idx+')"><span class="ring"></span><span>'
+          +(st==="locked"?"🔒":l.icon)+'</span>'+stars+'</button>'
+          +'<div class="node-label">'+esc(l.title)+'</div></div>';
+    });
+    html+='</div>';
+  });
+  if(state.mistakes.length){
+    html+='<div class="practice-cta"><button class="btn blue" onclick="startPractice()">🛠️ 練習你答錯的 '+state.mistakes.length+' 題</button></div>';
+  }
+  if(firstOpenIdx()>=FLAT.length){
+    html+='<div class="practice-cta" style="text-align:center;font-weight:900;color:var(--gold-dk);font-size:18px;">🏆 You completed the whole path — Dragon Master!</div>';
+  }
+  $("pathArea").innerHTML=html;
+}
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));$(id).classList.add("active");window.scrollTo(0,0);}
+function goHome(){renderHome();show("home");}
+
+/* ---------- lesson session ---------- */
+var S=null; // session (var: reachable on window for debugging)
+function tryStart(ui,li,idx){
+  const k=keyOf(ui,li);
+  if(!state.done[k]&&idx>firstOpenIdx())return;
+  sfx("click");
+  openTips(ui,li,false);
+}
+function openTips(ui,li,practice){
+  const l=UNITS[ui].lessons[li];
+  $("dragonTips").innerHTML=dragonSVG(56,"happy");
+  $("tipsBubble").textContent=shuffle(["先讀這些，再告訴我！","平靜的心學得最快。","深呼吸，然後開始。","小步累積大大的氣！"])[0];
+  let h='<div class="sub">第 '+(ui+1)+' 單元 · 第 '+(li+1)+' 課</div><h2>'+l.icon+" "+esc(l.title)+"</h2>";
+  l.tips.forEach(t=>{h+='<div class="tip-line"><span class="dot">🐉</span><span>'+t+"</span></div>";});
+  $("tipsCard").innerHTML=h;
+  $("tipsStart").onclick=()=>{sfx("click");startLesson(ui,li,false);};
+  show("tips");
+}
+function startLesson(ui,li,practice){
+  const l=UNITS[ui].lessons[li];
+  S={ui,li,practice:false,queue:shuffle(l.questions.map((q,qi)=>({q,ref:keyOf(ui,li)+"-"+qi}))),
+     total:l.questions.length,cleared:0,hearts:5,answers:0,correct:0,combo:0,bestCombo:0,xp:0,heartsLost:0,cur:null,mode:"idle"};
+  show("lesson");
+  nextQ();
+}
+function startPractice(){
+  sfx("click");
+  const picks=shuffle(state.mistakes).slice(0,10);
+  const qs=picks.map(ref=>{const[a,b,c]=ref.split("-").map(Number);return {q:UNITS[a].lessons[b].questions[c],ref};});
+  if(!qs.length)return;
+  S={ui:-1,li:-1,practice:true,queue:shuffle(qs),total:qs.length,cleared:0,hearts:null,
+     answers:0,correct:0,combo:0,bestCombo:0,xp:0,heartsLost:0,cur:null,mode:"idle"};
+  show("lesson");
+  nextQ();
+}
+function updateBar(){
+  $("lessonBar").style.width=(S.cleared/S.total*100)+"%";
+  $("heartsBox").innerHTML=S.practice?'<span style="color:var(--blue);">∞ 練習</span>'
+    :"❤️".repeat(S.hearts)+'<span style="filter:grayscale(1);opacity:.45;">'+"❤️".repeat(5-S.hearts)+"</span>";
+}
+function nextQ(){
+  if(!S.queue.length){finishLesson();return;}
+  S.cur=S.queue.shift();
+  S.mode="answering";S.sel=null;
+  updateBar();
+  renderQ(S.cur.q);
+  setFoot("check",null);
+}
+
+/* ---------- renderers ---------- */
+function renderQ(q){
+  const A=$("qArea");
+  let h="";
+  if(q.t==="mc"){
+    h+='<div class="q-instr">選出最佳答案</div><div class="q-title">'+q.q+"</div>";
+    S.mcMap=shuffle(q.opts.map((o,i)=>({o,i})));
+    S.mcMap.forEach((m,i)=>{h+='<button class="opt" data-i="'+i+'" onclick="pickOpt(this)"><span class="k">'+(i+1)+"</span>"+esc(m.o)+"</button>";});
+  }
+  else if(q.t==="tf"){
+    h+='<div class="q-instr">True or false?</div><div class="q-title">'+q.q+'</div><div class="tf-row">'
+      +'<button class="opt" data-v="true" onclick="pickOpt(this)">✅ 正確</button>'
+      +'<button class="opt" data-v="false" onclick="pickOpt(this)">❌ 錯誤</button></div>';
+  }
+  else if(q.t==="fill"){
+    S.fillVal=null;
+    const parts=q.q.split("___");
+    h+='<div class="q-instr">完成這個句子</div>'
+      +'<div class="sentence">'+esc(parts[0])+'<span class="blank" id="blankSlot" onclick="clearBlank()">&nbsp;</span>'+esc(parts[1]||"")+"</div>"
+      +'<div class="bank">'+shuffle(q.bank).map(w=>'<button class="chip" onclick="fillWord(this)" data-w="'+esc(w)+'">'+esc(w)+"</button>").join("")+"</div>";
+  }
+  else if(q.t==="order"){
+    S.seq=[];
+    let items=shuffle(q.items);
+    if(items.join("|")===q.items.join("|"))items=shuffle(q.items);
+    h+='<div class="q-instr">依正確順序點選</div><div class="q-title">'+q.q+"</div>"
+      +'<div class="seq-zone" id="seqZone"></div>'
+      +'<div class="bank" id="seqBank">'+items.map(w=>'<button class="chip" onclick="seqAdd(this)" data-w="'+esc(w)+'">'+esc(w)+"</button>").join("")+"</div>";
+  }
+  else if(q.t==="match"){
+    S.matchLeft=null;S.matchDone=0;
+    const L=shuffle(q.pairs.map((p,i)=>({t:p[0],i}))),R=shuffle(q.pairs.map((p,i)=>({t:p[1],i})));
+    h+='<div class="q-instr">點選配對的組合</div><div class="q-title">'+q.q+"</div><div class='match-grid'>";
+    const rows=Math.max(L.length,R.length);
+    for(let r=0;r<rows;r++){
+      h+=L[r]?'<button class="mchip" data-side="L" data-i="'+L[r].i+'" onclick="matchTap(this)">'+esc(L[r].t)+"</button>":"<span></span>";
+      h+=R[r]?'<button class="mchip" data-side="R" data-i="'+R[r].i+'" onclick="matchTap(this)">'+esc(R[r].t)+"</button>":"<span></span>";
+    }
+    h+="</div>";
+  }
+  A.innerHTML='<div class="slide-in">'+h+"</div>";
+}
+
+/* ---------- interactions ---------- */
+function pickOpt(el){
+  if(S.mode!=="answering")return;
+  sfx("click");
+  document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel"));
+  el.classList.add("sel");
+  S.sel=el;
+  $("checkBtn").disabled=false;
+}
+function fillWord(el){
+  if(S.mode!=="answering")return;
+  sfx("click");
+  document.querySelectorAll(".bank .chip").forEach(c=>c.classList.remove("used"));
+  el.classList.add("used");
+  S.fillVal=el.dataset.w;
+  const b=$("blankSlot");b.textContent=S.fillVal;b.classList.add("filled");
+  $("checkBtn").disabled=false;
+}
+function clearBlank(){
+  if(S.mode!=="answering")return;
+  S.fillVal=null;
+  const b=$("blankSlot");if(b){b.innerHTML="&nbsp;";b.classList.remove("filled");}
+  document.querySelectorAll(".bank .chip").forEach(c=>c.classList.remove("used"));
+  $("checkBtn").disabled=true;
+}
+function seqAdd(el){
+  if(S.mode!=="answering")return;
+  sfx("click");
+  el.classList.add("used");
+  S.seq.push(el.dataset.w);
+  renderSeq();
+  $("checkBtn").disabled=S.seq.length!==S.cur.q.items.length;
+}
+function seqRemove(i){
+  if(S.mode!=="answering")return;
+  const w=S.seq.splice(i,1)[0];
+  const chips=document.querySelectorAll("#seqBank .chip");
+  for(const c of chips){if(c.dataset.w===w&&c.classList.contains("used")){c.classList.remove("used");break;}}
+  renderSeq();
+  $("checkBtn").disabled=true;
+}
+function renderSeq(){
+  $("seqZone").innerHTML=S.seq.map((w,i)=>'<button class="chip" onclick="seqRemove('+i+')"><span class="seq-num">'+(i+1)+"</span>"+esc(w)+"</button>").join("");
+}
+function matchTap(el){
+  if(S.mode!=="answering")return;
+  const side=el.dataset.side;
+  if(side==="L"){
+    document.querySelectorAll('.mchip[data-side="L"]').forEach(c=>c.classList.remove("sel"));
+    el.classList.add("sel");S.matchLeft=el;sfx("click");return;
+  }
+  if(!S.matchLeft){el.classList.add("bad");setTimeout(()=>el.classList.remove("bad"),400);return;}
+  if(el.dataset.i===S.matchLeft.dataset.i){
+    sfx("match");
+    el.classList.add("lock");S.matchLeft.classList.remove("sel");S.matchLeft.classList.add("lock");
+    S.matchLeft=null;S.matchDone++;
+    if(S.matchDone===S.cur.q.pairs.length){answer(true,"配對完美！");}
+  }else{
+    sfx("bad");
+    el.classList.add("bad");S.matchLeft.classList.add("bad");
+    const L=S.matchLeft;
+    setTimeout(()=>{el.classList.remove("bad");L.classList.remove("bad");},450);
+  }
+}
+
+/* ---------- check / feedback ---------- */
+function setFoot(mode,ok){
+  const f=$("lessonFoot"),b=$("checkBtn"),z=$("fbZone");
+  if(mode==="check"){
+    f.className="lesson-foot";z.innerHTML="";
+    b.textContent="檢查";b.disabled=true;b.className="btn";
+    b.onclick=doCheck;
+    if(S.cur.q.t==="match")b.style.visibility="hidden";else b.style.visibility="visible";
+  }else{
+    b.style.visibility="visible";
+    f.className="lesson-foot "+(ok?"ok":"bad");
+    b.textContent="繼續";b.disabled=false;b.className="btn "+(ok?"":"red");
+    b.onclick=proceed;
+  }
+}
+function doCheck(){
+  if(S.mode!=="answering")return;
+  const q=S.cur.q;let ok=false,detail="";
+  if(q.t==="mc"){const m=S.mcMap[Number(S.sel.dataset.i)];ok=m.i===q.a;
+    if(ok)S.sel.classList.replace("sel","correct");
+    else{S.sel.classList.replace("sel","wrong");
+      document.querySelectorAll(".opt").forEach(o=>{const mm=S.mcMap[Number(o.dataset.i)];if(mm&&mm.i===q.a)o.classList.add("correct");});
+      detail=q.opts[q.a];}
+    document.querySelectorAll(".opt").forEach(o=>o.disabled=true);}
+  else if(q.t==="tf"){ok=(S.sel.dataset.v==="true")===q.a;
+    if(ok)S.sel.classList.replace("sel","correct");else S.sel.classList.replace("sel","wrong");
+    detail=q.a?"正確":"錯誤";
+    document.querySelectorAll(".opt").forEach(o=>o.disabled=true);}
+  else if(q.t==="fill"){ok=S.fillVal===q.a;detail=q.a;
+    const b=$("blankSlot");b.style.color=ok?"var(--green-dk)":"var(--red-dk)";}
+  else if(q.t==="order"){ok=S.seq.join("|")===q.items.join("|");detail=q.items.join(" → ");}
+  answer(ok,detail);
+}
+function answer(ok,detail){
+  S.mode="feedback";S.answers++;
+  const q=S.cur.q;
+  if(ok){
+    S.correct++;S.cleared++;S.combo++;S.bestCombo=Math.max(S.bestCombo,S.combo);
+    const gain=S.practice?5:10;S.xp+=gain;
+    sfx("ok");
+    if(S.combo>=3){const t=$("comboToast");t.textContent="🔥 連續答對 "+S.combo+" 題！+"+gain+" XP";t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1300);}
+    if(S.practice){const i=state.mistakes.indexOf(S.cur.ref);if(i>-1){state.mistakes.splice(i,1);save();}}
+    $("fbZone").innerHTML='<div class="fb ok"><div class="fb-ico">✅</div><div><h3>'+shuffle(["太棒了！","做得好！","答對了！","你的氣很強！","太美了！"])[0]+"</h3><p>"+(q.why||"")+"</p></div></div>";
+  }else{
+    S.combo=0;
+    sfx("bad");
+    if(!S.practice){
+      if(!state.mistakes.includes(S.cur.ref)){state.mistakes.push(S.cur.ref);save();}
+      S.hearts--;S.heartsLost++;
+    }
+    S.queue.push(S.cur); // requeue until mastered
+    const corr=detail?'<b>答案：'+esc(detail)+"</b><br>":"";
+    $("fbZone").innerHTML='<div class="fb bad"><div class="fb-ico">❌</div><div><h3>差一點……</h3><p>'+corr+(q.why||"")+"</p></div></div>";
+    updateBar();
+    if(!S.practice&&S.hearts<=0){setFoot("continue",false);$("checkBtn").style.visibility="hidden";setTimeout(()=>$("heartsModal").classList.add("show"),650);return;}
+  }
+  updateBar();
+  setFoot("continue",ok);
+}
+function proceed(){sfx("click");nextQ();}
+
+/* ---------- finish ---------- */
+function finishLesson(){
+  $("comboToast").classList.remove("show");
+  const acc=S.answers?Math.round(S.correct/S.answers*100):100;
+  const perfect=S.heartsLost===0&&!S.practice;
+  if(perfect)S.xp+=20;
+  state.xp+=S.xp;
+  if(state.xpDay!==today()){state.xpToday=0;state.xpDay=today();}
+  state.xpToday+=S.xp;
+  if(!S.practice){
+    const k=keyOf(S.ui,S.li);
+    const stars=S.heartsLost===0?3:(S.heartsLost<=2?2:1);
+    state.done[k]=Math.max(state.done[k]||0,stars);
+    $("resStars").textContent="⭐".repeat(stars);
+  }else{$("resStars").textContent="🛠️";}
+  const t=today();
+  if(state.lastDay!==t){state.streak=(state.lastDay===yesterday())?state.streak+1:1;state.lastDay=t;}
+  save();
+  $("dragonWin").innerHTML=dragonSVG(110,"win");
+  $("resTitle").textContent=S.practice?"練習完成！":(perfect?"完美的一課！":"完成這一課！");
+  $("resXp").textContent="+"+S.xp;
+  $("resAcc").textContent=acc+"%";
+  $("resCmb").textContent=S.bestCombo;
+  const qu=QUOTES[Math.floor(Math.random()*QUOTES.length)];
+  $("resQuote").innerHTML="“"+esc(qu[0])+"”<b>— "+esc(qu[1])+"</b>";
+  show("results");
+  sfx("win");
+  confetti();
+}
+
+/* ---------- confetti ---------- */
+function confetti(){
+  const c=$("confetti"),x=c.getContext("2d");
+  c.width=innerWidth;c.height=innerHeight;
+  const cols=["#58cc02","#1cb0f6","#ffc800","#ff4b4b","#ce82ff","#ff9600"];
+  const P=Array.from({length:130},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*0.5,r:4+Math.random()*6,co:cols[Math.floor(Math.random()*cols.length)],vy:2+Math.random()*3.5,vx:-1.5+Math.random()*3,ro:Math.random()*Math.PI,vr:-0.1+Math.random()*0.2}));
+  let t=0;
+  (function tick(){
+    x.clearRect(0,0,c.width,c.height);
+    P.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.ro+=p.vr;
+      x.save();x.translate(p.x,p.y);x.rotate(p.ro);x.fillStyle=p.co;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);x.restore();});
+    t++;
+    if(t<180)requestAnimationFrame(tick);else x.clearRect(0,0,c.width,c.height);
+  })();
+}
+
+/* ---------- modals / misc ---------- */
+$("quitBtn").onclick=()=>{$("quitModal").classList.add("show");};
+$("keepBtn").onclick=()=>{$("quitModal").classList.remove("show");};
+$("reallyQuitBtn").onclick=()=>{$("quitModal").classList.remove("show");goHome();};
+$("retryBtn").onclick=()=>{$("heartsModal").classList.remove("show");openTips(S.ui,S.li,false);};
+$("heartsHomeBtn").onclick=()=>{$("heartsModal").classList.remove("show");goHome();};
+$("sndBtn").onclick=()=>{state.sound=!state.sound;save();refreshStats();if(state.sound)sfx("click");};
+
+document.addEventListener("keydown",e=>{
+  if(!$("lesson").classList.contains("active"))return;
+  if(e.key==="Enter"){const b=$("checkBtn");if(!b.disabled&&b.style.visibility!=="hidden")b.click();}
+  if(S&&S.mode==="answering"&&/^[1-9]$/.test(e.key)){
+    const opts=document.querySelectorAll(".opt");
+    const i=Number(e.key)-1;
+    if(opts[i])pickOpt(opts[i]);
+  }
+});
+
+/* ---------- boot ---------- */
+load();
+renderHome();
+</script>
+</body>
+</html>
