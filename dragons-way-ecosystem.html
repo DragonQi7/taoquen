@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragon's Way Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f2; --card:#fffdf8; --line:#ddd5be; --ink:#2c2c28; --muted:#6f6550;
+  --gold:#c8901a; --gold-d:#8b6914; --gold-l:#f3e7cc;
+  --serif:'Playfair Display','Noto Serif TC',Georgia,serif;
+  --sans:'Inter','Noto Sans TC',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --caps:'Cinzel','Noto Serif TC',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 24px;background:rgba(250,248,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar a{text-decoration:none}
+.back{font-size:.9rem;font-weight:600;color:var(--gold-d);padding:6px 4px}
+.back:hover{text-decoration:underline}
+.bar-title{font-family:var(--caps);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:center;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{font-size:.82rem;font-weight:600;color:#fff;background:var(--gold);padding:6px 16px;border-radius:999px}
+.pill:hover{background:var(--gold-d)}
+
+/* ---------- intro ---------- */
+.intro{max-width:1120px;margin:0 auto;padding:44px 24px 8px;text-align:center}
+.eyebrow{font-family:var(--caps);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d)}
+.intro h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.15;margin:10px 0 10px}
+.intro p{max-width:620px;margin:0 auto;color:var(--muted);font-size:1.05rem}
+.demo-note{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--muted);background:var(--gold-l);border-radius:999px;padding:4px 14px}
+
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:28px auto 0;padding:0 16px}
+.tab{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 18px 8px 8px;font-size:.92rem;font-weight:500;color:var(--ink);transition:.2s}
+.tab .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--gold-l);color:var(--gold-d);font-weight:700;font-size:.8rem}
+.tab:hover{border-color:var(--gold)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab[aria-selected="true"] .n{background:var(--gold);color:#fff}
+
+.stage{max-width:1120px;margin:28px auto 80px;padding:0 24px}
+
+/* ---------- wizard ---------- */
+.wiz{display:grid;grid-template-columns:240px 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(80,60,20,.35)}
+.steps{list-style:none;margin:0;padding:22px 0;background:#f4efe2;border-right:1px solid var(--line)}
+.steps li{display:flex;align-items:center;gap:12px;padding:9px 22px;font-size:.9rem;color:var(--muted);transition:.25s}
+.steps .dot{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid #cbbf9f;display:grid;place-items:center;font-size:.72rem;font-weight:700;background:#fff;transition:.25s}
+.steps li.on{color:var(--ink);font-weight:600;background:#fff}
+.steps li.on .dot{border-color:var(--gold);background:var(--gold);color:#fff}
+.steps li.done .dot{border-color:var(--gold-d);background:var(--gold-d);color:#fff}
+.wbody{padding:34px 40px 26px;display:flex;flex-direction:column;min-height:470px}
+.wcount{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);font-weight:600}
+.wq{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:600;line-height:1.25;margin:6px 0 22px}
+.fields{flex:1;display:flex;flex-direction:column;gap:14px}
+.fl{font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:5px}
+.inp{min-height:46px;border:1.5px solid var(--line);border-radius:10px;background:#fff;padding:11px 14px;font-size:.98rem;line-height:1.55;transition:border-color .2s,box-shadow .2s}
+.inp.area{min-height:118px}
+.inp.typing{border-color:var(--gold);box-shadow:0 0 0 4px rgba(200,144,26,.13)}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--gold);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.slot{aspect-ratio:4/3;border:1.5px dashed #cbbf9f;border-radius:12px;display:grid;place-items:center;position:relative;overflow:hidden;background:#fbf8f0;color:#b5a57e;font-size:1.6rem}
+.slot img,.slot .mono{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .45s,transform .6s}
+.slot.in img,.slot.in .mono{opacity:1;transform:none}
+.slot .mono{display:grid;place-items:center;font-family:var(--serif);font-size:2.4rem;color:#fff}
+.slot-l{font-size:.78rem;color:var(--muted);text-align:center;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.88rem;background:#fff;transition:.25s}
+.chip.hl{border-color:var(--gold)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tg{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1.5px solid var(--line);border-radius:12px;padding:14px 18px;background:#fff}
+.tg b{display:block;font-weight:600}
+.tg small{color:var(--muted);font-size:.84rem}
+.sw{flex:none;width:50px;height:28px;border-radius:999px;background:#d9d1bd;position:relative;transition:.3s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:.3s}
+.sw.on{background:var(--gold)}
+.sw.on::after{left:25px}
+.sw-l{font-size:.78rem;font-weight:600;margin-top:4px;text-align:center;color:var(--muted);min-width:50px}
+.evrow{display:flex;gap:14px;align-items:center;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff;opacity:0;transform:translateY(8px);transition:.4s}
+.evrow.in{opacity:1;transform:none}
+.evrow .dt{flex:none;width:78px;font-size:.78rem;font-weight:600;color:var(--gold-d)}
+.evrow .tt{font-size:.92rem}
+.wfoot{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid #eee5d2}
+.prog{flex:1;height:5px;background:#eee5d2;border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s}
+.btn{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-size:.86rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.btn:hover{border-color:var(--gold)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn.primary:hover{background:var(--gold-d);border-color:var(--gold-d)}
+
+/* building */
+.build{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:46px 40px;max-width:720px;margin:0 auto;box-shadow:0 20px 50px -30px rgba(80,60,20,.35)}
+.build h2{font-family:var(--serif);font-weight:600;font-size:1.6rem;margin:0 0 22px;display:flex;align-items:center;gap:14px}
+.spin{width:28px;height:28px;border-radius:50%;border:3px solid var(--gold-l);border-top-color:var(--gold);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.build ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.build li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;opacity:0;transform:translateX(-8px);transition:.4s}
+.build li.in{opacity:1;transform:none}
+.build li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font-size:.75rem;font-weight:700;display:grid;place-items:center;margin-top:2px}
+
+/* site toolbar */
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px}
+.tools .sp{flex:1}
+.ntoggle{display:flex;align-items:center;gap:10px;font-size:.88rem;font-weight:600;background:none;border:0;padding:4px;color:var(--ink)}
+.ans{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:16px;display:none}
+.ans.open{display:block}
+.ans h3{font-family:var(--serif);font-weight:600;margin:0 0 14px;font-size:1.2rem}
+.ans dl{display:grid;grid-template-columns:170px 1fr;gap:8px 18px;margin:0;font-size:.92rem}
+.ans dt{font-weight:600;color:var(--muted)}
+.ans dd{margin:0}
+
+/* browser frame */
+.frame{border:1px solid #cfc6b0;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -35px rgba(40,30,10,.45)}
+.chrome{display:flex;align-items:center;gap:14px;padding:10px 14px;background:#ece8de;border-bottom:1px solid #d7cfbc}
+.chrome .dots{display:flex;gap:6px}
+.chrome .dots i{width:11px;height:11px;border-radius:50%;background:#d0c6b0}
+.url{flex:1;background:#fff;border-radius:7px;padding:5px 12px;font-size:.8rem;color:#6d6656;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.url b{color:#2c2c28;font-weight:500}
+
+/* ---------- generated site ---------- */
+.site{--c1:#56705a;--c2:#b8693f;--sbg:#f6f2ea;--sink:#2b2a26;--soft:#e7e0d2;background:var(--sbg);color:var(--sink);font-family:var(--sans)}
+.site section{padding:64px 7%;position:relative}
+.site h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;margin:0 0 10px}
+.site .kick{font-family:var(--caps);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c2);margin-bottom:8px}
+.snav{display:flex;align-items:center;gap:20px;padding:16px 7%;background:var(--sbg);border-bottom:1px solid var(--soft)}
+.slogo{font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--c1);flex:1;line-height:1.2}
+.slinks{display:flex;gap:20px;font-size:.88rem}
+.slinks a{text-decoration:none;opacity:.8}
+.slinks a:hover{opacity:1;color:var(--c2)}
+.scta{background:var(--c2);color:#fff;text-decoration:none;font-weight:600;font-size:.86rem;padding:9px 18px;border-radius:999px;white-space:nowrap;border:0}
+.scta.ghost{background:transparent;color:var(--c1);border:1.5px solid var(--c1)}
+.shero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:56px!important;padding-bottom:64px!important}
+.shero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.13;margin:0 0 18px;color:var(--c1)}
+.shero p{font-size:1.06rem;opacity:.85;margin:0 0 26px;max-width:540px}
+.shero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hpic{position:relative}
+.hpic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px 18px 18px;display:block}
+.badge{position:absolute;left:-18px;bottom:28px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:8px 18px 8px 8px;box-shadow:0 10px 30px -12px rgba(0,0,0,.35);font-size:.85rem;font-weight:600;max-width:90%}
+.mono{border-radius:50%;background:var(--c1);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;flex:none}
+.badge .mono{width:42px;height:42px;font-size:1rem}
+.sdw{background:#fff}
+.story{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;margin-top:26px}
+.story .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.4;color:var(--c1);border-left:3px solid var(--c2);padding-left:22px;margin:0}
+.story .rest p{margin:0 0 14px;font-size:1rem;opacity:.88}
+.story .rest p.inv{opacity:1;font-weight:600;color:var(--c1);font-size:1.06rem;margin-top:20px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.pcard{background:#fff;border:1px solid var(--soft);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:8px}
+.pcard.lead{border:2px solid var(--c2);box-shadow:0 18px 40px -26px rgba(0,0,0,.4)}
+.pcard .lv{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.65;font-weight:600}
+.pcard h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0;line-height:1.25;color:var(--c1)}
+.pcard .tg2{font-style:italic;font-family:var(--serif);opacity:.85}
+.pcard p{margin:0;font-size:.93rem;opacity:.85}
+.pcard .wk{margin-top:auto;padding-top:10px;font-size:.8rem;font-weight:600;color:var(--c2)}
+.start{align-self:flex-start;background:var(--c2);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+.leadline{font-size:.88rem;background:var(--sbg);border-radius:10px;padding:10px 12px;margin-top:4px!important;opacity:1!important}
+.me{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;background:#fff}
+.me .mono{width:150px;height:150px;font-size:3rem;box-shadow:0 0 0 8px var(--soft)}
+.me .who{font-size:.92rem;opacity:.75;margin-bottom:12px}
+.me blockquote{margin:22px 0 0;background:var(--sbg);border-radius:14px;padding:22px 26px;font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.55}
+.me blockquote b{display:block;font-family:var(--sans);font-style:normal;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c2);margin-bottom:6px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;grid-column:1/-1}
+.gal img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block}
+.faqs{max-width:780px;margin-top:22px}
+.faqs details{border-bottom:1px solid var(--soft);padding:16px 0}
+.faqs summary{cursor:pointer;font-weight:600;font-size:1.04rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";color:var(--c2);font-size:1.3rem;line-height:1}
+.faqs details[open] summary::after{content:"−"}
+.faqs p{margin:10px 0 0;opacity:.85}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.post{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--soft);display:flex;flex-direction:column}
+.post img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.post div{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.post h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;line-height:1.3;margin:0}
+.post p{margin:0;font-size:.9rem;opacity:.8}
+.post a{margin-top:auto;font-size:.85rem;font-weight:600;color:var(--c2);text-decoration:none}
+.evwrap{display:grid;grid-template-columns:280px 1fr;gap:28px;margin-top:24px;align-items:start}
+.cal{background:#fff;border:1px solid var(--soft);border-radius:14px;padding:18px}
+.cal h4{margin:0 0 10px;font-family:var(--serif);font-weight:600;text-align:center;color:var(--c1)}
+.cal .g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:.78rem}
+.cal .g span{padding:5px 0;border-radius:6px}
+.cal .g .h{font-weight:700;opacity:.55}
+.cal .g .e{background:var(--c2);color:#fff;font-weight:700}
+.evs{display:grid;gap:12px}
+.ev{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--soft);border-radius:14px;padding:14px 18px}
+.ev .tile{flex:none;width:62px;text-align:center;border-radius:10px;background:var(--c1);color:#fff;padding:6px 0}
+.ev .tile small{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.ev .tile b{font-family:var(--serif);font-size:1.5rem;line-height:1.1}
+.ev .info{flex:1;min-width:0}
+.ev .info b{display:block;font-size:.98rem;line-height:1.35}
+.ev .info span{font-size:.84rem;opacity:.7}
+.free{display:inline-block;margin-left:6px;background:var(--soft);color:var(--c1);font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;vertical-align:2px;text-transform:uppercase;letter-spacing:.05em}
+.ev .scta{padding:7px 14px;font-size:.8rem}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:#fff}
+.cform{display:grid;gap:12px}
+.cform label{font-size:.8rem;font-weight:600;opacity:.75}
+.cform .f{border:1.5px solid var(--soft);border-radius:10px;height:44px;background:var(--sbg)}
+.cform .f.t{height:100px}
+.cinfo{background:var(--c1);color:#fff;border-radius:16px;padding:28px 30px;display:grid;gap:14px;align-content:start}
+.cinfo div{font-size:.95rem}
+.cinfo small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.sfoot{background:var(--c1);color:rgba(255,255,255,.85);padding:30px 7%;font-size:.84rem;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+.sfoot b{color:#fff;font-family:var(--serif);font-size:1rem}
+
+/* marketing notes */
+.note{display:none;position:absolute;top:14px;right:14px;z-index:5;max-width:300px;background:#fff8e1;border:1px solid #e9cf86;color:#4a3b12;border-radius:10px;padding:10px 13px;font-size:.8rem;line-height:1.45;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);font-family:var(--sans)}
+.note b{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#a07a12;margin-bottom:3px}
+.show-notes .note{display:block}
+.show-notes .site section{outline:2px dashed rgba(200,144,26,.45);outline-offset:-8px}
+
+.hidden{display:none!important}
+.fade{animation:fade .5s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .wiz{grid-template-columns:1fr}
+  .steps{display:flex;overflow-x:auto;padding:10px;border-right:0;border-bottom:1px solid var(--line);gap:4px;scrollbar-width:none}
+  .steps li{padding:6px 10px;white-space:nowrap;border-radius:999px;font-size:.8rem}
+  .steps li:not(.on) span:not(.dot){display:none}
+  .wbody{padding:24px 20px 20px;min-height:430px}
+  .slinks{display:none}
+  .shero,.story,.contact,.evwrap{grid-template-columns:1fr}
+  .shero{gap:32px}
+  .hpic{max-width:420px}
+  .badge{left:10px}
+  .pgrid,.posts{grid-template-columns:1fr}
+  .me{grid-template-columns:1fr}
+  .me .mono{width:110px;height:110px;font-size:2.3rem}
+  .story{gap:22px}
+  .note{position:relative;top:auto;right:auto;max-width:none;margin-bottom:16px}
+  .ans dl{grid-template-columns:1fr;gap:2px}
+  .ans dd{margin-bottom:10px}
+}
+@media (max-width:560px){
+  .bar{padding:10px 16px}
+  .bar-title{display:none}
+  .intro,.stage{padding-left:16px;padding-right:16px}
+  .tab{padding:6px 14px 6px 6px;font-size:.84rem}
+  .photos{gap:8px}
+  .site section{padding:44px 20px}
+  .snav{padding:14px 20px}
+  .snav .scta{display:none}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal img:last-child{display:none}
+  .ev{display:grid;grid-template-columns:62px 1fr;gap:6px 16px;align-items:start}
+  .ev .scta{grid-column:2;justify-self:start}
+  .build{padding:30px 22px}
+  .wfoot{flex-wrap:wrap}
+  .prog{flex-basis:100%;order:-1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="back" id="back" href="#"></a>
+  <div class="bar-title" id="barTitle"></div>
+  <a class="pill" id="pill" href="#"></a>
+</header>
+
+<div class="intro">
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="title"></h1>
+  <p id="sub"></p>
+  <span class="demo-note" id="demoNote"></span>
+</div>
+<div class="tabs" role="tablist" id="tabs"></div>
+
+<main class="stage" id="stage"></main>
+
+<script>
+const DATA = {};
+DATA.en = {
+  ui: {
+    back: "← Members", backHref: "members-main.html#section-instructors",
+    pill: "中文", pillHref: "dragons-way-ecosystem-zh.html",
+    eyebrow: "Instructors Area · Demo",
+    title: "Dragon's Way Ecosystem",
+    sub: "Answer a few questions. Get a website built around your story and your niche.",
+    demoNote: "Demo — the answers are pre-filled examples. Nothing is saved or published.",
+    steps: ["Website name", "Your bio", "Why qigong", "Your photos", "Your niche", "Extra sections", "Contact details", "Events calendar"],
+    prompts: [
+      "What should your website be called?",
+      "Tell people about yourself.",
+      "Why are you passionate about qigong?",
+      "Add a few photos.",
+      "Who do you serve?",
+      "Which extra sections do you want?",
+      "How can people reach you?",
+      "Add your upcoming classes and events."
+    ],
+    fieldSite: "Website name", fieldName: "Your name & title", fieldLoc: "Location",
+    fieldNiche: "I work as a…", fieldAudience: "My ideal students are…",
+    nicheChips: ["Massage therapist", "Health consultant", "Acupuncturist / TCM", "Yoga teacher", "Personal trainer", "Nurse / caregiver", "Life coach"],
+    photoLabels: ["Portrait", "Teaching", "Studio / nature"],
+    faqOpt: "FAQ section", faqHint: "Answers the questions people ask before they sign up",
+    blogOpt: "Blog / articles", blogHint: "Short articles that bring people to your site",
+    contactEmail: "Email", contactPhone: "Phone", contactWhere: "Where you teach",
+    next: "Next", skip: "Skip to website ▸▸", pause: "Pause", resume: "Resume",
+    building: "Building your website…",
+    replay: "↺ Replay walkthrough", answers: "Seed answers", notes: "Marketing notes",
+    examples: ["Massage therapist", "Health consultant", "Acupuncturist"],
+    nav: { about: "About", programs: "Programs", faq: "FAQ", blog: "Blog", events: "Events", contact: "Contact" },
+    dwAbout: "About Dragon's Way Qigong®",
+    meet: "Meet your instructor", whyTitle: "Why I teach qigong",
+    progTitle: "Programs", progSub: "Same movements. Completely different experience.",
+    startHere: "Start here", level: ["Earth · Body", "Man · Mind & emotions", "Heaven · Spirit"],
+    weeks: "6 weeks",
+    faqTitle: "Frequently asked questions", blogTitle: "From the blog", readMore: "Read more →",
+    eventsTitle: "Events calendar", register: "Register",
+    contactTitle: "Get in touch", formName: "Name", formEmail: "Email", formMsg: "Message",
+    formSend: "Send message", formDemo: "(demo form)",
+    footer: "Dragon's Way Qigong® is taught by certified instructors trained in the tradition of Grand Master Nan Lu.",
+    powered: "Built with the Dragon's Way Ecosystem",
+    gallery: "In class",
+    days: ["S", "M", "T", "W", "T", "F", "S"], locale: "en-US",
+    answersTitle: "The answers this site was built from",
+    yes: "Yes", no: "No",
+    noteLabel: "Why this works"
+  },
+  programs: [
+    { name: "5 Element Wellness Blueprint", tag: "Understand your body. Heal from within.",
+      body: "Learn to read your own body — what your symptoms are telling you, which organ needs support, and how to give it through movement, food and daily habits." },
+    { name: "Emotional Freedom Through Qi", tag: "Move the emotions. Free the energy. Change your health.",
+      body: "Learn which emotion is stored in which organ, how to move it out through qigong, and build a daily emotional reset." },
+    { name: "Spirit of Good Health", tag: "Connect to the life force. Live from the inside out.",
+      body: "Practice qigong as meditation in motion — health as a state of harmony with Nature." }
+  ],
+  ex: [
+    {
+      theme: { c1: "#56705a", c2: "#b8693f", bg: "#f6f2ea", ink: "#2b2a26", soft: "#e7e0d2" },
+      site: "Still Water Bodywork & Qigong", domain: "stillwaterqigong.com",
+      person: "Maya Torres, LMT", initials: "MT", location: "Portland, Oregon",
+      bio: "Licensed massage therapist for 12 years. More than 20,000 hours with my hands on tired backs, tight shoulders and bodies that hold on to everything. Certified Dragon's Way Qigong® instructor since 2023.",
+      why: "Massage gave my clients an hour of relief. Then they went home and the tension came back. Qigong gave them something I never could — a way to keep their energy moving on their own, every day, between sessions.",
+      photos: ["images/JoinAclass.jpg", "images/tree.webp", "images/young_adults.png"],
+      niche: 0,
+      audience: "My massage clients — chronic neck and shoulder tension, low back pain, poor sleep and fatigue. They feel better on the table, but it doesn't last.",
+      faq: true, blog: true,
+      email: "hello@stillwaterqigong.com", phone: "(503) 555-0142", where: "Studio in SE Portland · online classes",
+      events: [
+        { d: "2026-10-17", t: "10:00 am", title: "Free intro: why your tension keeps coming back", where: "Studio + Zoom", free: true },
+        { d: "2026-10-27", t: "6:30 pm", title: "5 Element Wellness Blueprint — 6-week class begins", where: "Studio" },
+        { d: "2026-11-14", t: "10:00 am", title: "Workshop: qigong for neck and shoulders", where: "Studio" },
+        { d: "2026-12-05", t: "10:00 am", title: "Winter Kidney care — qigong + self-massage", where: "Studio + Zoom" }
+      ],
+      lead: 0,
+      build: [
+        "Niche matched: massage clients → body level → Program 1 leads",
+        "Headline written from the pain point: “I've tried everything and nothing sticks.”",
+        "Dragon's Way section re-told for people who live with tension",
+        "Your bio and your “why” placed as a personal story",
+        "FAQ answers the objections massage clients actually have",
+        "Blog seeded with 3 articles your clients search for",
+        "Contact form and 4 events added — free intro first"
+      ],
+      hero: {
+        eyebrow: "Massage + Dragon's Way Qigong® · Portland",
+        h1: "Your tension isn't random. It's a message — and it has a map.",
+        sub: "You feel better on the table. Two days later, it's back. Learn the gentle qigong practice that keeps your energy moving between sessions — so the relief finally sticks.",
+        cta: "Book a free intro class", cta2: "See the programs"
+      },
+      story: [
+        "You've probably noticed it: the same knot in the same shoulder, week after week. The massage works. Then life puts it right back.",
+        "Most people think it's posture. Or stress. Or just getting older.",
+        "In Traditional Chinese Medicine, your body runs on a five-element energy system. Your muscles and tendons are nourished by the Liver — chronic tightness is often Liver energy that can't flow.",
+        "Tension that returns. Sleep that doesn't restore. Fatigue that rest doesn't fix. These aren't separate problems. They're one energy system asking for help.",
+        "When energy flows, the body knows how to heal itself. Muscles soften on their own. Sleep deepens.",
+        "Hands-on work opens the door. Dragon's Way Qigong® keeps it open — about 10 minutes a day, at home."
+      ],
+      leadLine: "Recommended for massage clients: your symptoms are messages — this is where you learn to read them.",
+      faqs: [
+        ["Is this like yoga?", "No. Yoga works through flexibility and strength. Dragon's Way Qigong® works through energy flow — gentle enough for any fitness level, powerful enough to shift how your organs function. Most people feel the difference by week 2."],
+        ["I'm stiff and out of shape. Can I do this?", "Yes. The movements are slow and simple, and you can do them standing or seated. Stiff bodies are exactly who this is for."],
+        ["Can I combine it with my massage sessions?", "That's the idea. Massage releases what's stuck; qigong keeps it moving between visits, so each session goes further."],
+        ["How much time does it take?", "About 10 minutes a day at home, plus one class a week for 6 weeks."]
+      ],
+      posts: [
+        ["Why the knot in your shoulder keeps coming back", "It's not your pillow. In Chinese medicine, recurring tension follows a pattern — and the pattern has a name."],
+        ["Your muscles, your Liver and the 11 pm rule", "Why going to bed before 11 is one of the best things you can do for tight muscles."],
+        ["3 qigong movements to do after a massage", "Keep the relief going with three simple movements that take less than five minutes."]
+      ],
+      notes: {
+        hero: "Uses the Program 1 pain point (“I've tried everything and nothing sticks”) in your clients' language — tension that keeps coming back.",
+        about: "Six-step story: relatable observation → common assumption → hidden layer → warning pattern → contrast → soft invitation.",
+        programs: "The lead program is matched to your niche; the other two are shown as the next steps.",
+        me: "Your honest “why” builds trust faster than any credential.",
+        faq: "Each answer handles an objection before it's raised (“Is this like yoga?”).",
+        blog: "Each article names one specific problem your clients already search for.",
+        events: "A free intro comes first: awareness → sign-up → 6-week program.",
+        contact: "One clear next step."
+      }
+    },
+    {
+      theme: { c1: "#1e2c47", c2: "#c8901a", bg: "#f4f5f7", ink: "#1b2030", soft: "#e2e5ec" },
+      site: "Clear Summit Wellness", domain: "clearsummitwellness.com",
+      person: "Daniel Reyes, Health Consultant", initials: "DR", location: "Chicago · online worldwide",
+      bio: "Former management consultant. Fifteen years of 70-hour weeks, three continents, and a body that finally said no. Now I work one-on-one with executives and founders on energy, sleep and stress. Certified Dragon's Way Qigong® instructor.",
+      why: "At 41 I burned out completely. Medicine managed my symptoms — it didn't restore me. Qigong was the first thing that gave me energy back instead of asking for more. I teach the practice I wish someone had shown me ten years earlier.",
+      photos: ["images/zhuang-zi-mountain.jpg", "images/JoinAclass.jpg", "images/tree.webp"],
+      niche: 1,
+      audience: "High-stress professionals — executives, founders, lawyers, physicians. Achieving without thriving: wired at night, tired all day, stress living in the body.",
+      faq: true, blog: false,
+      email: "daniel@clearsummitwellness.com", phone: "(312) 555-0187", where: "Private online sessions · Chicago Loop office",
+      events: [
+        { d: "2026-10-21", t: "12:15 pm", title: "Lunch-hour masterclass: the 15-minute stress reset", where: "Zoom", free: true },
+        { d: "2026-11-02", t: "7:00 am", title: "Emotional Freedom Through Qi — 6-week cohort", where: "Zoom" },
+        { d: "2026-11-19", t: "9:00 am", title: "Corporate workshop: burnout is an energy problem", where: "On-site for teams" },
+        { d: "2027-01-09", t: "9:00 am", title: "New Year reset — half-day retreat", where: "Chicago Loop" }
+      ],
+      lead: 1,
+      build: [
+        "Niche matched: high-stress professionals → mind & emotions level → Program 2 leads",
+        "Headline written from the promise: stress lives in the organs, and it can be moved",
+        "Dragon's Way section re-told for people “achieving without thriving”",
+        "Your burnout story placed as proof — honesty builds trust",
+        "FAQ answers the objections busy professionals actually have",
+        "Blog skipped — you chose no blog",
+        "Contact form and 4 events added — free masterclass first"
+      ],
+      hero: {
+        eyebrow: "For executives, founders & professionals",
+        h1: "Stress doesn't just live in your mind. It lives in your liver, your lungs, your kidneys.",
+        sub: "You're achieving. You're not thriving. A 15-minute daily practice that moves stress out of the body — built for people with no time.",
+        cta: "Book a 20-minute call", cta2: "See the programs"
+      },
+      story: [
+        "Two colleagues. Same job, same hours. One is drained by Thursday. The other still has energy at 9 pm. Same life on the outside — completely different energy on the inside.",
+        "Most high performers think stress is mental. Manage it with a better calendar, a meditation app, a vacation.",
+        "In Traditional Chinese Medicine, every organ holds an emotion. Frustration sits in the Liver. Worry in the Spleen. Fear and constant overdrive drain the Kidneys — your deepest energy reserve.",
+        "Wired at midnight. Exhausted at 3 pm. A jaw that won't unclench. Digestion that falls apart before a big meeting.",
+        "When emotional energy moves, the body follows. Sleep returns. Focus sharpens. Decisions get cleaner.",
+        "The people consistently outperforming their peers have learned something about their own energy that most people never do. Emotional Freedom Through Qi is where you learn it."
+      ],
+      leadLine: "Recommended for high-stress professionals: stop managing stress — start moving it.",
+      faqs: [
+        ["Is this therapy?", "No. Therapy works through language. This works through the body — movement that activates the energy channels of the organs where stress and emotion are stored."],
+        ["I have no time. How long does it take each day?", "15 minutes. Most clients do it first thing in the morning or between meetings. No equipment, no change of clothes."],
+        ["Is this “woo”?", "It's grounded in a medical system that is thousands of years old, and the results are practical: better sleep, steadier energy, a calmer nervous system. You'll judge it by how you feel in week 2."],
+        ["Can you run this for my team?", "Yes — half-day and multi-week corporate programs, on-site or online."]
+      ],
+      posts: [],
+      notes: {
+        hero: "Uses the Program 2 headline in the language of high performers — stress is physical, so it can be moved.",
+        about: "Opens with a persona comparison (two colleagues, different energy), then the six-step story.",
+        programs: "Program 2 leads because this audience already knows stress is the problem.",
+        me: "Personal vulnerability (“I burned out”) is the strongest trust signal for this niche.",
+        faq: "Answers the three things busy professionals worry about: time, credibility, and “is this therapy?”",
+        blog: "",
+        events: "A free lunch-hour masterclass lowers the barrier, then leads into the 6-week cohort.",
+        contact: "One clear next step: a short call."
+      }
+    },
+    {
+      theme: { c1: "#8a2a24", c2: "#3f7d6e", bg: "#fbf7f1", ink: "#2c2420", soft: "#efe5d8" },
+      site: "Jade Gate Acupuncture & Qigong", domain: "jadegateacupuncture.com",
+      person: "Dr. Grace Huang, L.Ac., DAOM", initials: "GH", location: "Pasadena, California",
+      bio: "Licensed acupuncturist and doctor of acupuncture and Oriental medicine. Eighteen years in clinical practice treating pain, digestive, hormonal and stress-related conditions. Trained in Dragon's Way Qigong® to give my patients a practice that works between visits.",
+      why: "Needles can open a channel in 30 minutes. But patients go home to the same habits that blocked it. Qigong turns my patients from passive receivers into active partners in their own healing — and their results last longer.",
+      photos: ["images/chinese-herbs.webp", "images/chinese-meridian-image.webp", "images/JoinAclass.jpg"],
+      niche: 2,
+      audience: "My acupuncture patients and TCM-curious newcomers — digestive problems, chronic fatigue, hormonal imbalance, insomnia — who want to understand their own body.",
+      faq: false, blog: true,
+      email: "care@jadegateacupuncture.com", phone: "(626) 555-0119", where: "Clinic in Old Pasadena · Mon–Sat",
+      events: [
+        { d: "2026-10-15", t: "7:00 pm", title: "Free talk: your symptoms have a map", where: "Clinic", free: true },
+        { d: "2026-10-24", t: "10:00 am", title: "Autumn is Lung season — qigong for immunity", where: "Clinic" },
+        { d: "2026-11-10", t: "6:30 pm", title: "5 Element Wellness Blueprint — 6 weeks (patients 20% off)", where: "Clinic + Zoom" },
+        { d: "2026-12-12", t: "10:00 am", title: "Winter solstice Kidney qigong", where: "Clinic" }
+      ],
+      lead: 0,
+      build: [
+        "Niche matched: acupuncture patients → body level → Program 1 leads",
+        "Headline written as a partnership: treatment in the clinic + practice at home",
+        "Dragon's Way section re-told with the Five Elements your patients already hear about",
+        "Your clinical story placed as authority — 18 years of practice",
+        "FAQ skipped — you chose no FAQ",
+        "Blog seeded with 3 seasonal TCM articles",
+        "Contact form and 4 seasonal events added — free talk first"
+      ],
+      hero: {
+        eyebrow: "Acupuncture · Herbs · Dragon's Way Qigong®",
+        h1: "Needles open the door. Your daily practice keeps it open.",
+        sub: "Your symptoms aren't random — in Chinese medicine they're messages from a specific organ. Learn to read them, and support every treatment with 10 minutes of qigong at home.",
+        cta: "Book a treatment + intro class", cta2: "See the programs"
+      },
+      story: [
+        "Many patients feel wonderful walking out of the clinic. A week later, the old pattern creeps back.",
+        "Most people assume they simply need more treatments.",
+        "Chinese medicine has always taught that healing is a partnership: the practitioner moves Qi in the clinic, and the patient keeps it moving at home — through movement, food and daily rhythm.",
+        "Bloating that comes and goes. Waking between 1 and 3 am. Cold hands, low energy, emotions bigger than the situation. These aren't separate problems — they're one system asking for help.",
+        "When patients practice between visits, each treatment goes further — and fewer are needed.",
+        "The 5 Element Wellness Blueprint teaches you to read your own body in 6 weeks, using the same map I use in the clinic."
+      ],
+      leadLine: "Recommended for patients: learn the same five-element map your practitioner uses.",
+      faqs: [],
+      posts: [
+        ["What your tongue says about your Spleen", "A 30-second check you can do in the mirror every morning — and what to eat when it says “tired”."],
+        ["Why you wake at 3 am", "In the body clock, 1–3 am belongs to the Liver. Here's what it's asking for."],
+        ["Autumn is Lung season — how to prepare", "Grief, dry skin and the first cold of the year all share an element. Three simple ways to support it."]
+      ],
+      notes: {
+        hero: "Positions qigong as part of treatment, not a replacement for it — the right frame for a clinical practice.",
+        about: "Uses the Five Elements your patients already hear about in the clinic — familiar language, deeper meaning.",
+        programs: "Program 1 leads; the patient discount links the clinic and the class.",
+        me: "Clinical experience is the authority signal here; the “why” shows you care about results lasting.",
+        faq: "",
+        blog: "Seasonal articles give patients a reason to come back every few weeks.",
+        events: "Events follow the TCM seasons — Lung in autumn, Kidney in winter.",
+        contact: "Treatment + intro class booked together."
+      }
+    }
+  ]
+};
+
+DATA.zh = {
+  ui: {
+    back: "← 會員專區", backHref: "members-main-zh.html#section-instructors",
+    pill: "EN", pillHref: "dragons-way-ecosystem.html",
+    eyebrow: "導師專區 · 示範",
+    title: "龍之道生態系統",
+    sub: "回答幾個問題，就能得到一個圍繞你的故事與專長打造的網站。",
+    demoNote: "示範——答案是預先填好的範例，不會儲存或發佈任何內容。",
+    steps: ["網站名稱", "個人簡介", "為何熱愛氣功", "你的照片", "你的專長領域", "額外版面", "聯絡方式", "活動行事曆"],
+    prompts: [
+      "你的網站要叫什麼名字？",
+      "向大家介紹你自己。",
+      "你為什麼熱愛氣功？",
+      "加入幾張照片。",
+      "你服務的對象是誰？",
+      "你想要哪些額外的版面？",
+      "大家要如何聯絡你？",
+      "加入你即將舉辦的課程與活動。"
+    ],
+    fieldSite: "網站名稱", fieldName: "你的姓名與頭銜", fieldLoc: "地點",
+    fieldNiche: "我的工作是……", fieldAudience: "我理想的學員是……",
+    nicheChips: ["按摩治療師", "健康顧問", "針灸師／中醫師", "瑜伽老師", "私人教練", "護理師／照護者", "生命教練"],
+    photoLabels: ["個人照", "教學", "教室／自然"],
+    faqOpt: "常見問題版面", faqHint: "回答大家報名前最常問的問題",
+    blogOpt: "部落格／文章", blogHint: "用短文把人帶到你的網站",
+    contactEmail: "電子郵件", contactPhone: "電話", contactWhere: "授課地點",
+    next: "下一步", skip: "直接看網站 ▸▸", pause: "暫停", resume: "繼續",
+    building: "正在建立你的網站……",
+    replay: "↺ 重播流程", answers: "範例答案", notes: "行銷說明",
+    examples: ["按摩治療師", "健康顧問", "針灸師"],
+    nav: { about: "關於", programs: "課程", faq: "常見問題", blog: "部落格", events: "活動", contact: "聯絡" },
+    dwAbout: "關於龍之道氣功®",
+    meet: "認識你的導師", whyTitle: "我為什麼教氣功",
+    progTitle: "課程", progSub: "同樣的動作，完全不同的體驗。",
+    startHere: "從這裡開始", level: ["地 · 身體", "人 · 心智與情緒", "天 · 靈性"],
+    weeks: "6 週",
+    faqTitle: "常見問題", blogTitle: "最新文章", readMore: "閱讀更多 →",
+    eventsTitle: "活動行事曆", register: "報名",
+    contactTitle: "與我聯絡", formName: "姓名", formEmail: "電子郵件", formMsg: "訊息",
+    formSend: "送出訊息", formDemo: "（示範表單）",
+    footer: "龍之道氣功®由受過 Nan Lu 大師傳承訓練的認證導師授課。",
+    powered: "以龍之道生態系統建立",
+    gallery: "課堂花絮",
+    days: ["日", "一", "二", "三", "四", "五", "六"], locale: "zh-TW",
+    answersTitle: "這個網站是根據以下答案建立的",
+    yes: "要", no: "不要",
+    noteLabel: "為什麼有效"
+  },
+  programs: [
+    { name: "五行養生藍圖", tag: "了解你的身體，由內而外療癒。",
+      body: "學會解讀自己的身體——症狀在告訴你什麼、哪一個臟腑需要支持，以及如何透過動作、飲食與日常習慣來照顧它。" },
+    { name: "透過氣獲得情緒自由", tag: "讓情緒流動，釋放能量，改變健康。",
+      body: "了解哪一種情緒儲存在哪一個臟腑、如何透過氣功讓它流動出去，並建立每日的情緒重整練習。" },
+    { name: "健康之神", tag: "連結生命力，由內而外地生活。",
+      body: "把氣功當作動態的冥想來練習——健康，就是與大自然和諧共處的狀態。" }
+  ],
+  ex: [
+    {
+      site: "靜水身心按摩與氣功", person: "Maya Torres，執照按摩治療師", location: "美國奧勒岡州波特蘭",
+      bio: "擔任執照按摩治療師 12 年。超過兩萬個小時，雙手按在疲憊的背、緊繃的肩膀，以及把一切都積存起來的身體上。自 2023 年起成為龍之道氣功®認證導師。",
+      why: "按摩給了我的客戶一個小時的放鬆。然後他們回家，緊繃又回來了。氣功給了他們我從來給不了的東西——一個能每天自己讓能量流動的方法，在兩次療程之間也能持續。",
+      audience: "我的按摩客戶——長期肩頸緊繃、下背痛、睡不好又容易疲倦。躺在按摩床上時感覺很好，但效果維持不久。",
+      where: "波特蘭東南區教室 · 線上課程",
+      events: [
+        { d: "2026-10-17", t: "上午 10:00", title: "免費入門課：為什麼你的緊繃總是回來", where: "教室 + Zoom", free: true },
+        { d: "2026-10-27", t: "晚上 6:30", title: "五行養生藍圖——6 週課程開課", where: "教室" },
+        { d: "2026-11-14", t: "上午 10:00", title: "工作坊：肩頸氣功", where: "教室" },
+        { d: "2026-12-05", t: "上午 10:00", title: "冬季養腎——氣功 + 自我按摩", where: "教室 + Zoom" }
+      ],
+      build: [
+        "專長配對：按摩客戶 → 身體層次 → 由課程一帶頭",
+        "標題取自痛點：「我什麼都試過了，但沒有一樣持久。」",
+        "以「長期緊繃的人」的角度重新講述龍之道",
+        "把你的簡介和「為什麼」放成一段個人故事",
+        "常見問題回答按摩客戶真正會有的疑慮",
+        "部落格預先放入 3 篇你的客戶會搜尋的文章",
+        "加入聯絡表單與 4 場活動——免費入門課排第一"
+      ],
+      hero: {
+        eyebrow: "按摩 + 龍之道氣功® · 波特蘭",
+        h1: "你的緊繃不是偶然。它是一個訊息——而且有一張地圖。",
+        sub: "躺在按摩床上時你感覺很好，兩天後它又回來了。學習溫和的氣功練習，讓能量在兩次療程之間持續流動——讓放鬆終於能夠持久。",
+        cta: "預約免費入門課", cta2: "查看課程"
+      },
+      story: [
+        "你大概注意到了：同一個肩膀、同一個結，一週又一週。按摩有效，然後生活又把它放回原處。",
+        "大多數人以為是姿勢問題，或是壓力，或只是年紀大了。",
+        "在中醫裡，你的身體運行在一個五行能量系統上。肌肉與筋由肝來滋養——長期的緊繃，往往是肝的能量無法流動。",
+        "反覆回來的緊繃、睡了也不解乏、休息也消除不了的疲倦。這些不是分開的問題，而是同一個能量系統在求助。",
+        "當能量流動時，身體知道如何自我療癒。肌肉會自己放鬆，睡眠會變深。",
+        "徒手療法打開了門。龍之道氣功®讓門保持敞開——在家每天大約 10 分鐘。"
+      ],
+      leadLine: "推薦給按摩客戶：你的症狀是訊息——在這裡學會解讀它們。",
+      faqs: [
+        ["這跟瑜伽一樣嗎？", "不一樣。瑜伽透過柔軟度與肌力來運作；龍之道氣功®透過能量的流動來運作——溫和到任何體能程度都能練，又有力到足以改變臟腑的功能。多數人在第二週就能感受到差別。"],
+        ["我身體很僵硬、體能也不好，可以練嗎？", "可以。動作緩慢而簡單，站著或坐著都能做。身體僵硬的人，正是這套功法要幫助的對象。"],
+        ["可以和按摩療程一起進行嗎？", "這正是用意所在。按摩釋放卡住的地方；氣功讓它在兩次療程之間持續流動，讓每一次療程的效果走得更遠。"],
+        ["需要花多少時間？", "每天在家約 10 分鐘，加上 6 週、每週一堂課。"]
+      ],
+      posts: [
+        ["為什麼你肩膀上的結總是回來", "不是枕頭的問題。在中醫裡，反覆的緊繃有它的模式——而這個模式有名字。"],
+        ["你的肌肉、你的肝，以及晚上 11 點的原則", "為什麼在 11 點前上床，是你能為緊繃肌肉做的最好的事之一。"],
+        ["按摩後可以做的 3 個氣功動作", "用三個不到五分鐘的簡單動作，讓放鬆的感覺延續下去。"]
+      ],
+      notes: {
+        hero: "用你客戶的語言說出課程一的痛點（「我什麼都試過了，但沒有一樣持久」）——緊繃總是回來。",
+        about: "六步驟故事：貼近生活的觀察 → 常見的假設 → 隱藏的層次 → 警訊模式 → 對比 → 溫和的邀請。",
+        programs: "帶頭的課程與你的專長配對；另外兩個課程呈現為下一步。",
+        me: "你真誠的「為什麼」，比任何證照都更快建立信任。",
+        faq: "每個回答都在疑慮被提出之前就先處理它（「這跟瑜伽一樣嗎？」）。",
+        blog: "每篇文章都點出一個你的客戶本來就在搜尋的具體問題。",
+        events: "免費入門課排第一：認識 → 報名 → 6 週課程。",
+        contact: "一個清楚的下一步。"
+      }
+    },
+    {
+      site: "澄峰健康", person: "Daniel Reyes，健康顧問", location: "芝加哥 · 全球線上",
+      bio: "前管理顧問。十五年每週工作 70 小時、跨越三大洲，直到身體終於說不。現在我一對一陪伴高階主管與創辦人，處理能量、睡眠與壓力。龍之道氣功®認證導師。",
+      why: "41 歲那年我徹底倦怠。醫學控制了我的症狀——卻沒有讓我恢復。氣功是第一個把能量還給我、而不是向我要更多的東西。我教的，正是我希望十年前就有人教我的練習。",
+      audience: "高壓專業人士——高階主管、創辦人、律師、醫師。有成就卻不健旺：晚上亢奮、白天疲倦，壓力住在身體裡。",
+      where: "線上私人課程 · 芝加哥市中心辦公室",
+      events: [
+        { d: "2026-10-21", t: "中午 12:15", title: "午休大師課：15 分鐘壓力重整", where: "Zoom", free: true },
+        { d: "2026-11-02", t: "上午 7:00", title: "透過氣獲得情緒自由——6 週團體課", where: "Zoom" },
+        { d: "2026-11-19", t: "上午 9:00", title: "企業工作坊：倦怠是能量的問題", where: "到府為團隊授課" },
+        { d: "2027-01-09", t: "上午 9:00", title: "新年重整——半日靜修", where: "芝加哥市中心" }
+      ],
+      build: [
+        "專長配對：高壓專業人士 → 心智與情緒層次 → 由課程二帶頭",
+        "標題取自承諾：壓力住在臟腑裡，而且可以讓它流動出去",
+        "以「有成就卻不健旺」的人的角度重新講述龍之道",
+        "把你的倦怠故事放成證明——誠實能建立信任",
+        "常見問題回答忙碌專業人士真正會有的疑慮",
+        "略過部落格——你選擇不要部落格",
+        "加入聯絡表單與 4 場活動——免費大師課排第一"
+      ],
+      hero: {
+        eyebrow: "給高階主管、創辦人與專業人士",
+        h1: "壓力不只住在你的腦中。它住在你的肝、你的肺、你的腎。",
+        sub: "你有成就，卻不健旺。每天 15 分鐘的練習，把壓力從身體裡移出去——專為沒有時間的人設計。",
+        cta: "預約 20 分鐘通話", cta2: "查看課程"
+      },
+      story: [
+        "兩位同事，同樣的工作、同樣的工時。一位到週四就被掏空，另一位晚上 9 點還精神飽滿。外在的生活一樣——內在的能量完全不同。",
+        "大多數高成就者以為壓力是心理上的：用更好的行事曆、一個冥想 App、一次假期來管理它。",
+        "在中醫裡，每一個臟腑都承載著一種情緒。挫折感積在肝，憂慮積在脾，恐懼與長期的過度驅動則耗損腎——你最深層的能量儲備。",
+        "半夜亢奮，下午三點筋疲力盡。下巴總是咬緊放不開。重要會議前腸胃就出狀況。",
+        "當情緒的能量流動，身體就會跟上。睡眠回來了，專注變得敏銳，決策變得更清晰。",
+        "始終表現超越同儕的人，都學會了一件大多數人從未了解的事：關於自己的能量。「透過氣獲得情緒自由」就是你學會它的地方。"
+      ],
+      leadLine: "推薦給高壓專業人士：別再只是管理壓力——開始讓它流動。",
+      faqs: [
+        ["這是心理治療嗎？", "不是。心理治療透過語言來運作；這是透過身體——用動作啟動儲存壓力與情緒的臟腑經絡。"],
+        ["我沒有時間，每天要花多久？", "15 分鐘。多數客戶在早上第一件事或會議之間練習。不需要器材，也不必換衣服。"],
+        ["這是玄學嗎？", "它根植於一套數千年歷史的醫學體系，成果也很實際：睡得更好、能量更穩定、神經系統更平靜。到了第二週，你可以用自己的感受來判斷。"],
+        ["可以為我的團隊開課嗎？", "可以——半日或多週的企業課程，到府或線上皆可。"]
+      ],
+      posts: [],
+      notes: {
+        hero: "用高成就者的語言說出課程二的標題——壓力是身體上的，所以它可以被移動。",
+        about: "以人物對比開場（兩位同事、不同的能量），接著是六步驟故事。",
+        programs: "由課程二帶頭，因為這群人已經知道壓力就是問題所在。",
+        me: "對這個族群來說，個人的脆弱（「我曾經倦怠」）是最強的信任訊號。",
+        faq: "回答忙碌專業人士最擔心的三件事：時間、可信度，以及「這是心理治療嗎？」",
+        blog: "",
+        events: "免費的午休大師課降低門檻，再引導到 6 週團體課。",
+        contact: "一個清楚的下一步：一通簡短的電話。"
+      }
+    },
+    {
+      site: "玉門針灸與氣功", person: "Grace Huang 博士，執照針灸師", location: "美國加州帕薩迪納",
+      bio: "執照針灸師、針灸與東方醫學博士。臨床執業 18 年，治療疼痛、消化、荷爾蒙與壓力相關的問題。學習龍之道氣功®，是為了給我的病人一個在兩次就診之間也有效的練習。",
+      why: "針可以在 30 分鐘內打通一條經絡。但病人回家後，又回到原本造成阻塞的習慣。氣功讓我的病人從被動的接受者，變成自己療癒過程中的主動夥伴——而且效果維持得更久。",
+      audience: "我的針灸病人，以及對中醫好奇的新朋友——消化問題、慢性疲勞、荷爾蒙失衡、失眠——想要了解自己身體的人。",
+      where: "帕薩迪納舊城區診所 · 週一至週六",
+      events: [
+        { d: "2026-10-15", t: "晚上 7:00", title: "免費講座：你的症狀有一張地圖", where: "診所", free: true },
+        { d: "2026-10-24", t: "上午 10:00", title: "秋天是肺的季節——提升免疫力的氣功", where: "診所" },
+        { d: "2026-11-10", t: "晚上 6:30", title: "五行養生藍圖——6 週課程（病人享 8 折）", where: "診所 + Zoom" },
+        { d: "2026-12-12", t: "上午 10:00", title: "冬至養腎氣功", where: "診所" }
+      ],
+      build: [
+        "專長配對：針灸病人 → 身體層次 → 由課程一帶頭",
+        "標題寫成一種夥伴關係：診所裡的治療 + 在家的練習",
+        "用病人已經熟悉的五行重新講述龍之道",
+        "把你的臨床經歷放成權威——18 年的執業",
+        "略過常見問題——你選擇不要常見問題",
+        "部落格預先放入 3 篇應節的中醫文章",
+        "加入聯絡表單與 4 場應節活動——免費講座排第一"
+      ],
+      hero: {
+        eyebrow: "針灸 · 草本 · 龍之道氣功®",
+        h1: "針打開了門。你每天的練習讓門保持敞開。",
+        sub: "你的症狀不是偶然——在中醫裡，它們是某個特定臟腑傳來的訊息。學會解讀它們，並在家用 10 分鐘的氣功支持每一次治療。",
+        cta: "預約治療 + 入門課", cta2: "查看課程"
+      },
+      story: [
+        "很多病人走出診所時感覺好極了。一週後，舊的模式又慢慢回來。",
+        "大多數人以為，只是需要更多次的治療。",
+        "中醫一向教導：療癒是一種夥伴關係。醫師在診所裡推動氣，病人在家裡讓它持續流動——透過動作、飲食與日常作息。",
+        "時好時壞的腹脹、凌晨 1 到 3 點醒來、手腳冰冷、能量低落、情緒比事情本身更大。這些不是分開的問題——而是同一個系統在求助。",
+        "當病人在兩次就診之間練習，每一次治療都走得更遠——需要的次數也更少。",
+        "「五行養生藍圖」用 6 週教你解讀自己的身體，用的正是我在診所裡用的同一張地圖。"
+      ],
+      leadLine: "推薦給病人：學會你的醫師所用的同一張五行地圖。",
+      faqs: [],
+      posts: [
+        ["你的舌頭透露了脾的什麼", "每天早上對著鏡子 30 秒就能做的檢查——以及當它說「累了」時該吃什麼。"],
+        ["為什麼你凌晨 3 點會醒來", "在人體時鐘裡，凌晨 1 到 3 點屬於肝。這是它在向你要的東西。"],
+        ["秋天是肺的季節——如何做好準備", "悲傷、皮膚乾燥和今年的第一場感冒，屬於同一個五行。三個簡單的方法來支持它。"]
+      ],
+      notes: {
+        hero: "把氣功定位為治療的一部分，而不是取代治療——這是臨床執業最合適的框架。",
+        about: "用病人在診所裡已經聽過的五行——熟悉的語言，更深的意義。",
+        programs: "由課程一帶頭；病人優惠把診所與課程連結起來。",
+        me: "在這裡，臨床經驗就是權威訊號；「為什麼」則展現你在乎效果能否持久。",
+        faq: "",
+        blog: "應節的文章讓病人每隔幾週就有理由回來看看。",
+        events: "活動跟著中醫的季節走——秋天養肺，冬天養腎。",
+        contact: "治療與入門課一起預約。"
+      }
+    }
+  ]
+};
+
+</script>
+<script>
+(function(){
+  const L = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
+  const U = DATA[L].ui, P = DATA[L].programs;
+  const FREE = L === 'zh' ? '免費' : 'Free';
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r) => (r || document).querySelector(s);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function EX(i){ return Object.assign({}, DATA.en.ex[i], L === 'zh' ? DATA.zh.ex[i] : {}); }
+
+  let cur = 0, run = 0, paused = false, phase = 'wiz';
+  const stage = $('#stage');
+
+  // ---------- static text ----------
+  $('#back').textContent = U.back; $('#back').href = U.backHref;
+  $('#pill').textContent = U.pill;
+  $('#barTitle').textContent = U.title;
+  $('#eyebrow').textContent = U.eyebrow;
+  $('#title').textContent = U.title;
+  $('#sub').textContent = U.sub;
+  $('#demoNote').textContent = U.demoNote;
+  const tabs = $('#tabs');
+  U.examples.forEach((name, i) => {
+    const b = document.createElement('button');
+    b.className = 'tab'; b.setAttribute('role', 'tab');
+    b.innerHTML = '<span class="n">' + (i + 1) + '</span>' + esc(name);
+    b.onclick = () => { location.hash = 'ex=' + (i + 1); start(i); };
+    tabs.appendChild(b);
+  });
+  function setTabs(){ [...tabs.children].forEach((b, i) => b.setAttribute('aria-selected', i === cur)); }
+  function setPill(){ $('#pill').href = U.pillHref + '#ex=' + (cur + 1) + (phase === 'site' ? '&view=site' : ''); }
+
+  // ---------- timing helpers ----------
+  function sleep(ms, r){
+    return new Promise((res, rej) => {
+      let t = 0;
+      (function tick(){
+        if (r !== run) return rej('cancel');
+        if (t >= ms) return res();
+        if (!paused) t += 40;
+        setTimeout(tick, 40);
+      })();
+    });
+  }
+  async function type(el, text, r){
+    el.classList.add('typing');
+    if (reduce){ el.textContent = text; el.classList.remove('typing'); return; }
+    const total = Math.min(2300, Math.max(600, text.length * 24));
+    const steps = Math.max(1, Math.round(total / 40));
+    const per = Math.max(1, Math.ceil(text.length / steps));
+    const caret = '<span class="caret"></span>';
+    for (let i = 0; i <= text.length; i += per){
+      el.innerHTML = esc(text.slice(0, i)) + caret;
+      await sleep(40, r);
+    }
+    el.innerHTML = esc(text);
+    el.classList.remove('typing');
+  }
+  const dObj = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+  const fmt = (s, o) => new Intl.DateTimeFormat(U.locale, o).format(dObj(s));
+
+  // ---------- wizard ----------
+  function wizShell(){
+    stage.innerHTML =
+      '<div class="wiz fade"><ol class="steps" id="steps">' +
+      U.steps.map((s, i) => '<li><span class="dot">' + (i + 1) + '</span><span>' + esc(s) + '</span></li>').join('') +
+      '</ol><div class="wbody"><div class="wcount" id="wcount"></div><div class="wq" id="wq"></div>' +
+      '<div class="fields" id="fields"></div><div class="wfoot"><div class="prog"><i id="prog"></i></div>' +
+      '<button class="btn" id="pause"></button><button class="btn primary" id="skip"></button></div></div></div>';
+    $('#pause').textContent = U.pause;
+    $('#skip').textContent = U.skip;
+    $('#pause').onclick = () => { paused = !paused; $('#pause').textContent = paused ? U.resume : U.pause; };
+    $('#skip').onclick = () => { run++; showSite(); };
+  }
+  function field(label, area){
+    return '<div><div class="fl">' + esc(label) + '</div><div class="inp' + (area ? ' area' : '') + '"></div></div>';
+  }
+  function setStep(s){
+    [...$('#steps').children].forEach((li, i) => { li.className = i < s ? 'done' : i === s ? 'on' : ''; if (i < s) li.firstChild.textContent = '✓'; else li.firstChild.textContent = i + 1; });
+    const on = $('#steps').children[s]; if (on && on.scrollIntoView && innerWidth < 900) on.parentNode.scrollLeft = on.offsetLeft - 20;
+    $('#wcount').textContent = (L === 'zh' ? '第 ' + (s + 1) + ' 步，共 8 步' : 'Step ' + (s + 1) + ' of 8');
+    $('#wq').textContent = U.prompts[s];
+    $('#prog').style.width = (s / 8 * 100) + '%';
+  }
+  async function animStep(s, e, r){
+    const F = $('#fields'); let els;
+    switch (s){
+      case 0:
+        F.innerHTML = field(U.fieldSite) + field(U.fieldName) + field(U.fieldLoc);
+        els = F.querySelectorAll('.inp');
+        await type(els[0], e.site, r); await type(els[1], e.person, r); await type(els[2], e.location, r); break;
+      case 1: F.innerHTML = field(U.steps[1], true); await type($('.inp', F), e.bio, r); break;
+      case 2: F.innerHTML = field(U.steps[2], true); await type($('.inp', F), e.why, r); break;
+      case 3:
+        F.innerHTML = '<div class="photos">' + U.photoLabels.map((l, i) =>
+          '<div><div class="slot">+' + (i === 0 ? '<div class="mono" style="background:' + e.theme.c1 + '">' + esc(e.initials) + '</div>' : '<img alt="" src="' + e.photos[i] + '">') +
+          '</div><div class="slot-l">' + esc(l) + '</div></div>').join('') + '</div>';
+        for (const sl of F.querySelectorAll('.slot')){ await sleep(520, r); sl.classList.add('in'); }
+        break;
+      case 4:
+        F.innerHTML = '<div><div class="fl">' + esc(U.fieldNiche) + '</div><div class="chips">' +
+          U.nicheChips.map(c => '<span class="chip">' + esc(c) + '</span>').join('') + '</div></div>' + field(U.fieldAudience, true);
+        const chips = F.querySelectorAll('.chip');
+        for (let i = 0; i <= e.niche; i++){ chips.forEach(c => c.classList.remove('hl')); chips[i].classList.add('hl'); await sleep(260, r); }
+        chips[e.niche].classList.remove('hl'); chips[e.niche].classList.add('on');
+        await sleep(350, r); await type($('.inp', F), e.audience, r); break;
+      case 5:
+        F.innerHTML = [[U.faqOpt, U.faqHint], [U.blogOpt, U.blogHint]].map(t =>
+          '<div class="tg"><div><b>' + esc(t[0]) + '</b><small>' + esc(t[1]) + '</small></div><div><div class="sw"></div><div class="sw-l">' + esc(U.no) + '</div></div></div>').join('');
+        const sws = F.querySelectorAll('.tg');
+        for (const [i, v] of [[0, e.faq], [1, e.blog]]){
+          await sleep(650, r);
+          if (v){ $('.sw', sws[i]).classList.add('on'); }
+          $('.sw-l', sws[i]).textContent = v ? U.yes : U.no;
+        }
+        break;
+      case 6:
+        F.innerHTML = field(U.contactEmail) + field(U.contactPhone) + field(U.contactWhere);
+        els = F.querySelectorAll('.inp');
+        await type(els[0], e.email, r); await type(els[1], e.phone, r); await type(els[2], e.where, r); break;
+      case 7:
+        F.innerHTML = e.events.map(ev => '<div class="evrow"><div class="dt">' + esc(fmt(ev.d, {month: 'short', day: 'numeric'})) + '</div><div class="tt">' + esc(ev.title) + '</div></div>').join('');
+        for (const row of F.querySelectorAll('.evrow')){ await sleep(480, r); row.classList.add('in'); }
+        break;
+    }
+  }
+  async function building(e, r){
+    stage.innerHTML = '<div class="build fade"><h2><span class="spin"></span>' + esc(U.building) + '</h2><ul>' +
+      e.build.map(b => '<li>' + esc(b) + '</li>').join('') + '</ul></div>';
+    for (const li of stage.querySelectorAll('li')){ await sleep(reduce ? 0 : 520, r); li.classList.add('in'); }
+    await sleep(900, r);
+  }
+
+  async function start(i, toSite){
+    run++; const r = run; cur = i; paused = false; setTabs();
+    if (toSite){ showSite(); return; }
+    phase = 'wiz'; setPill();
+    const e = EX(i);
+    wizShell();
+    try {
+      for (let s = 0; s < 8; s++){
+        setStep(s);
+        await animStep(s, e, r);
+        await sleep(750, r);
+      }
+      $('#prog').style.width = '100%';
+      await sleep(300, r);
+      await building(e, r);
+      showSite();
+    } catch (err) { /* cancelled */ }
+  }
+
+  // ---------- generated site ----------
+  function note(e, k){
+    const t = e.notes[k]; if (!t) return '';
+    return '<div class="note"><b>' + esc(U.noteLabel) + '</b>' + esc(t) + '</div>';
+  }
+  function cal(e){
+    const f = dObj(e.events[0].d), y = f.getFullYear(), m = f.getMonth();
+    const first = new Date(y, m, 1).getDay(), n = new Date(y, m + 1, 0).getDate();
+    const hit = new Set(e.events.map(v => dObj(v.d)).filter(d => d.getMonth() === m && d.getFullYear() === y).map(d => d.getDate()));
+    let g = U.days.map(d => '<span class="h">' + d + '</span>').join('');
+    for (let i = 0; i < first; i++) g += '<span></span>';
+    for (let d = 1; d <= n; d++) g += '<span' + (hit.has(d) ? ' class="e"' : '') + '>' + d + '</span>';
+    return '<div class="cal"><h4>' + esc(new Intl.DateTimeFormat(U.locale, {month: 'long', year: 'numeric'}).format(f)) + '</h4><div class="g">' + g + '</div></div>';
+  }
+  function siteHTML(e){
+    const N = U.nav, order = [e.lead].concat([0, 1, 2].filter(x => x !== e.lead));
+    const links = [['about', N.about], ['programs', N.programs]].concat(e.faq ? [['faq', N.faq]] : [], e.blog ? [['blog', N.blog]] : [], [['events', N.events], ['contact', N.contact]]);
+    const mono = (sz) => '<div class="mono"' + (sz ? ' style="width:' + sz + 'px;height:' + sz + 'px"' : '') + '>' + esc(e.initials) + '</div>';
+    let h = '<nav class="snav"><div class="slogo">' + esc(e.site) + '</div><div class="slinks">' +
+      links.map(l => '<a href="#s-' + l[0] + '">' + esc(l[1]) + '</a>').join('') +
+      '</div><a class="scta" href="#s-contact">' + esc(e.hero.cta) + '</a></nav>';
+    h += '<section class="shero">' + note(e, 'hero') + '<div><div class="kick">' + esc(e.hero.eyebrow) + '</div><h1>' + esc(e.hero.h1) + '</h1><p>' + esc(e.hero.sub) +
+      '</p><div class="ctas"><a class="scta" href="#s-contact">' + esc(e.hero.cta) + '</a><a class="scta ghost" href="#s-programs">' + esc(e.hero.cta2) + '</a></div></div>' +
+      '<div class="hpic"><img alt="" src="' + e.photos[1] + '"><div class="badge">' + mono() + '<span>' + esc(e.person) + '</span></div></div></section>';
+    h += '<section class="sdw" id="s-about">' + note(e, 'about') + '<div class="kick">Dragon\'s Way Qigong®</div><h2>' + esc(U.dwAbout) + '</h2><div class="story"><p class="big">' + esc(e.story[0]) +
+      '</p><div class="rest">' + e.story.slice(1).map((p, i, a) => '<p' + (i === a.length - 1 ? ' class="inv"' : '') + '>' + esc(p) + '</p>').join('') + '</div></div></section>';
+    h += '<section id="s-programs">' + note(e, 'programs') + '<div class="kick">' + esc(U.progTitle) + '</div><h2>' + esc(U.progSub) + '</h2><div class="pgrid">' +
+      order.map(k => '<div class="pcard' + (k === e.lead ? ' lead' : '') + '">' + (k === e.lead ? '<span class="start">' + esc(U.startHere) + '</span>' : '') +
+        '<div class="lv">' + esc(U.level[k]) + '</div><h3>' + esc(P[k].name) + '</h3><div class="tg2">' + esc(P[k].tag) + '</div><p>' + esc(P[k].body) + '</p>' +
+        (k === e.lead ? '<p class="leadline">' + esc(e.leadLine) + '</p>' : '') + '<div class="wk">' + esc(U.weeks) + '</div></div>').join('') + '</div></section>';
+    h += '<section class="me">' + note(e, 'me') + mono() + '<div><div class="kick">' + esc(U.meet) + '</div><h2>' + esc(e.person) + '</h2><div class="who">' + esc(e.location) +
+      '</div><p style="margin:0">' + esc(e.bio) + '</p><blockquote><b>' + esc(U.whyTitle) + '</b>“' + esc(e.why) + '”</blockquote></div>' +
+      '<div class="gal">' + e.photos.concat([]).reverse().map(p => '<img alt="" src="' + p + '">').join('') + '</div></section>';
+    if (e.faq) h += '<section id="s-faq">' + note(e, 'faq') + '<div class="kick">' + esc(N.faq) + '</div><h2>' + esc(U.faqTitle) + '</h2><div class="faqs">' +
+      e.faqs.map((q, i) => '<details' + (i === 0 ? ' open' : '') + '><summary>' + esc(q[0]) + '</summary><p>' + esc(q[1]) + '</p></details>').join('') + '</div></section>';
+    if (e.blog) h += '<section id="s-blog" style="background:#fff">' + note(e, 'blog') + '<div class="kick">' + esc(N.blog) + '</div><h2>' + esc(U.blogTitle) + '</h2><div class="posts">' +
+      e.posts.map((p, i) => '<article class="post"><img alt="" src="' + e.photos[(i + 1) % 3] + '"><div><h3>' + esc(p[0]) + '</h3><p>' + esc(p[1]) + '</p><a href="#s-blog">' + esc(U.readMore) + '</a></div></article>').join('') + '</div></section>';
+    h += '<section id="s-events">' + note(e, 'events') + '<div class="kick">' + esc(N.events) + '</div><h2>' + esc(U.eventsTitle) + '</h2><div class="evwrap">' + cal(e) + '<div class="evs">' +
+      e.events.map(ev => '<div class="ev"><div class="tile"><small>' + esc(fmt(ev.d, {month: 'short'})) + '</small><b>' + dObj(ev.d).getDate() + '</b></div><div class="info"><b>' + esc(ev.title) +
+        (ev.free ? '<span class="free">' + FREE + '</span>' : '') + '</b><span>' + esc(fmt(ev.d, {weekday: 'short'})) + ' · ' + esc(ev.t) + ' · ' + esc(ev.where) + '</span></div><a class="scta" href="#s-contact">' + esc(U.register) + '</a></div>').join('') +
+      '</div></div></section>';
+    h += '<section class="contact" id="s-contact">' + note(e, 'contact') + '<div><div class="kick">' + esc(N.contact) + '</div><h2>' + esc(U.contactTitle) + '</h2><div class="cform">' +
+      '<label>' + esc(U.formName) + '</label><div class="f"></div><label>' + esc(U.formEmail) + '</label><div class="f"></div><label>' + esc(U.formMsg) + '</label><div class="f t"></div>' +
+      '<div><button class="scta" type="button">' + esc(U.formSend) + '</button> <small style="opacity:.6">' + esc(U.formDemo) + '</small></div></div></div>' +
+      '<div class="cinfo"><div><small>' + esc(U.contactEmail) + '</small>' + esc(e.email) + '</div><div><small>' + esc(U.contactPhone) + '</small>' + esc(e.phone) +
+      '</div><div><small>' + esc(U.contactWhere) + '</small>' + esc(e.where) + '</div></div></section>';
+    h += '<footer class="sfoot"><div><b>' + esc(e.site) + '</b><br>' + esc(U.footer) + '</div><div>' + esc(U.powered) + '</div></footer>';
+    return h;
+  }
+  function answers(e){
+    const rows = [[U.steps[0], e.site + ' — ' + e.person + ' · ' + e.location], [U.steps[1], e.bio], [U.steps[2], e.why],
+      [U.steps[4], U.nicheChips[e.niche] + ' — ' + e.audience],
+      [U.steps[5], U.faqOpt + ': ' + (e.faq ? U.yes : U.no) + ' · ' + U.blogOpt + ': ' + (e.blog ? U.yes : U.no)],
+      [U.steps[6], e.email + ' · ' + e.phone + ' · ' + e.where],
+      [U.steps[7], e.events.map(v => fmt(v.d, {month: 'short', day: 'numeric'}) + ' ' + v.title).join(' / ')]];
+    return '<h3>' + esc(U.answersTitle) + '</h3><dl>' + rows.map(x => '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>').join('') + '</dl>';
+  }
+  function showSite(){
+    phase = 'site'; setPill(); setTabs();
+    const e = EX(cur);
+    stage.innerHTML = '<div class="fade"><div class="tools"><button class="btn" id="replay"></button><button class="btn" id="ansBtn"></button><span class="sp"></span>' +
+      '<button class="ntoggle" id="nt"><span class="sw" id="ntsw"></span><span></span></button></div>' +
+      '<div class="ans" id="ans">' + answers(e) + '</div>' +
+      '<div class="frame" id="frame"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">https://<b>' + esc(e.domain) + '</b></div></div>' +
+      '<div class="site" id="site">' + siteHTML(e) + '</div></div></div>';
+    $('#replay').textContent = U.replay;
+    $('#ansBtn').textContent = U.answers;
+    $('#nt span:last-child').textContent = U.notes;
+    $('#replay').onclick = () => start(cur);
+    $('#ansBtn').onclick = () => $('#ans').classList.toggle('open');
+    $('#nt').onclick = () => { const on = $('#frame').classList.toggle('show-notes'); $('#ntsw').classList.toggle('on', on); };
+    const s = $('#site'), t = e.theme;
+    s.style.setProperty('--c1', t.c1); s.style.setProperty('--c2', t.c2); s.style.setProperty('--sbg', t.bg);
+    s.style.setProperty('--sink', t.ink); s.style.setProperty('--soft', t.soft);
+    s.querySelectorAll('a[href^="#s-"]').forEach(a => a.onclick = ev => { ev.preventDefault(); const el = document.getElementById(a.getAttribute('href').slice(1)); if (el) window.scrollTo({top: el.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth'}); });
+    const top = $('.tools').getBoundingClientRect().top + scrollY - 70;
+    if (scrollY > top) window.scrollTo({top: top});
+  }
+
+  // ---------- boot ----------
+  function fromHash(){
+    const m = /ex=(\d)/.exec(location.hash), i = m ? Math.min(3, Math.max(1, +m[1])) - 1 : 0;
+    return [i, /view=site/.test(location.hash)];
+  }
+  const [i0, site0] = fromHash();
+  start(i0, site0);
+})();
+</script>
+</body>
+</html>
