@@ -127,7 +127,7 @@ button{font:inherit;cursor:pointer}
 .url b{color:#2c2c28;font-weight:500}
 
 /* ---------- generated site ---------- */
-.site{--c1:#56705a;--c2:#b8693f;--sbg:#f6f2ea;--sink:#2b2a26;--soft:#e7e0d2;background:var(--sbg);color:var(--sink);font-family:var(--sans)}
+.site{--c1:#56705a;--c2:#b8693f;--sbg:#f6f2ea;--sink:#2b2a26;--soft:#e7e0d2;--card:#fff;--on1:#fff;--on2:#fff;transition:background .4s,color .4s;background:var(--sbg);color:var(--sink);font-family:var(--sans)}
 .site section{padding:64px 7%;position:relative}
 .site h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;margin:0 0 10px}
 .site .kick{font-family:var(--caps);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c2);margin-bottom:8px}
@@ -136,7 +136,7 @@ button{font:inherit;cursor:pointer}
 .slinks{display:flex;gap:20px;font-size:.88rem}
 .slinks a{text-decoration:none;opacity:.8}
 .slinks a:hover{opacity:1;color:var(--c2)}
-.scta{background:var(--c2);color:#fff;text-decoration:none;font-weight:600;font-size:.86rem;padding:9px 18px;border-radius:999px;white-space:nowrap;border:0}
+.scta{background:var(--c2);color:var(--on2);text-decoration:none;font-weight:600;font-size:.86rem;padding:9px 18px;border-radius:999px;white-space:nowrap;border:0}
 .scta.ghost{background:transparent;color:var(--c1);border:1.5px solid var(--c1)}
 .shero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:56px!important;padding-bottom:64px!important}
 .shero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.13;margin:0 0 18px;color:var(--c1)}
@@ -144,25 +144,25 @@ button{font:inherit;cursor:pointer}
 .shero .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .hpic{position:relative}
 .hpic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px 18px 18px;display:block}
-.badge{position:absolute;left:-18px;bottom:28px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:8px 18px 8px 8px;box-shadow:0 10px 30px -12px rgba(0,0,0,.35);font-size:.85rem;font-weight:600;max-width:90%}
-.mono{border-radius:50%;background:var(--c1);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;flex:none}
+.badge{color:var(--sink);position:absolute;left:-18px;bottom:28px;display:flex;align-items:center;gap:12px;background:var(--card);border-radius:999px;padding:8px 18px 8px 8px;box-shadow:0 10px 30px -12px rgba(0,0,0,.35);font-size:.85rem;font-weight:600;max-width:90%}
+.mono{border-radius:50%;background:var(--c1);color:var(--on1);display:grid;place-items:center;font-family:var(--serif);font-weight:600;flex:none}
 .badge .mono{width:42px;height:42px;font-size:1rem}
-.sdw{background:#fff}
+.sdw{background:var(--card)}
 .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;margin-top:26px}
 .story .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.4;color:var(--c1);border-left:3px solid var(--c2);padding-left:22px;margin:0}
 .story .rest p{margin:0 0 14px;font-size:1rem;opacity:.88}
 .story .rest p.inv{opacity:1;font-weight:600;color:var(--c1);font-size:1.06rem;margin-top:20px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.pcard{background:#fff;border:1px solid var(--soft);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:8px}
+.pcard{background:var(--card);border:1px solid var(--soft);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:8px}
 .pcard.lead{border:2px solid var(--c2);box-shadow:0 18px 40px -26px rgba(0,0,0,.4)}
 .pcard .lv{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.65;font-weight:600}
 .pcard h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0;line-height:1.25;color:var(--c1)}
 .pcard .tg2{font-style:italic;font-family:var(--serif);opacity:.85}
 .pcard p{margin:0;font-size:.93rem;opacity:.85}
 .pcard .wk{margin-top:auto;padding-top:10px;font-size:.8rem;font-weight:600;color:var(--c2)}
-.start{align-self:flex-start;background:var(--c2);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+.start{align-self:flex-start;background:var(--c2);color:var(--on2);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
 .leadline{font-size:.88rem;background:var(--sbg);border-radius:10px;padding:10px 12px;margin-top:4px!important;opacity:1!important}
-.me{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;background:#fff}
+.me{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;background:var(--card)}
 .me .mono{width:150px;height:150px;font-size:3rem;box-shadow:0 0 0 8px var(--soft)}
 .me .who{font-size:.92rem;opacity:.75;margin-bottom:12px}
 .me blockquote{margin:22px 0 0;background:var(--sbg);border-radius:14px;padding:22px 26px;font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.55}
@@ -177,22 +177,22 @@ button{font:inherit;cursor:pointer}
 .faqs details[open] summary::after{content:"−"}
 .faqs p{margin:10px 0 0;opacity:.85}
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-.post{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--soft);display:flex;flex-direction:column}
+.post{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--soft);display:flex;flex-direction:column}
 .post img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
 .post div{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .post h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;line-height:1.3;margin:0}
 .post p{margin:0;font-size:.9rem;opacity:.8}
 .post a{margin-top:auto;font-size:.85rem;font-weight:600;color:var(--c2);text-decoration:none}
 .evwrap{display:grid;grid-template-columns:280px 1fr;gap:28px;margin-top:24px;align-items:start}
-.cal{background:#fff;border:1px solid var(--soft);border-radius:14px;padding:18px}
+.cal{background:var(--card);border:1px solid var(--soft);border-radius:14px;padding:18px}
 .cal h4{margin:0 0 10px;font-family:var(--serif);font-weight:600;text-align:center;color:var(--c1)}
 .cal .g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:.78rem}
 .cal .g span{padding:5px 0;border-radius:6px}
 .cal .g .h{font-weight:700;opacity:.55}
-.cal .g .e{background:var(--c2);color:#fff;font-weight:700}
+.cal .g .e{background:var(--c2);color:var(--on2);font-weight:700}
 .evs{display:grid;gap:12px}
-.ev{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--soft);border-radius:14px;padding:14px 18px}
-.ev .tile{flex:none;width:62px;text-align:center;border-radius:10px;background:var(--c1);color:#fff;padding:6px 0}
+.ev{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--soft);border-radius:14px;padding:14px 18px}
+.ev .tile{flex:none;width:62px;text-align:center;border-radius:10px;background:var(--c1);color:var(--on1);padding:6px 0}
 .ev .tile small{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
 .ev .tile b{font-family:var(--serif);font-size:1.5rem;line-height:1.1}
 .ev .info{flex:1;min-width:0}
@@ -200,17 +200,24 @@ button{font:inherit;cursor:pointer}
 .ev .info span{font-size:.84rem;opacity:.7}
 .free{display:inline-block;margin-left:6px;background:var(--soft);color:var(--c1);font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;vertical-align:2px;text-transform:uppercase;letter-spacing:.05em}
 .ev .scta{padding:7px 14px;font-size:.8rem}
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:#fff}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:var(--card)}
 .cform{display:grid;gap:12px}
 .cform label{font-size:.8rem;font-weight:600;opacity:.75}
 .cform .f{border:1.5px solid var(--soft);border-radius:10px;height:44px;background:var(--sbg)}
 .cform .f.t{height:100px}
-.cinfo{background:var(--c1);color:#fff;border-radius:16px;padding:28px 30px;display:grid;gap:14px;align-content:start}
+.cinfo{background:var(--c1);color:var(--on1);border-radius:16px;padding:28px 30px;display:grid;gap:14px;align-content:start}
 .cinfo div{font-size:.95rem}
 .cinfo small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
-.sfoot{background:var(--c1);color:rgba(255,255,255,.85);padding:30px 7%;font-size:.84rem;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
-.sfoot b{color:#fff;font-family:var(--serif);font-size:1rem}
+.sfoot{background:var(--c1);color:var(--on1);padding:30px 7%;font-size:.84rem;display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+.sfoot b{color:var(--on1);font-family:var(--serif);font-size:1rem}
 
+.spic{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block;margin-top:26px}
+.site .cform .f{background:var(--sbg)}
+.skins{display:flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.skin{width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #cfc6b0;padding:0;transition:transform .15s}
+.skin:hover{transform:scale(1.12)}
+.skin[aria-pressed="true"]{box-shadow:0 0 0 2px var(--gold)}
+.credit{opacity:.7;font-size:.75rem}
 /* marketing notes */
 .note{display:none;position:absolute;top:14px;right:14px;z-index:5;max-width:300px;background:#fff8e1;border:1px solid #e9cf86;color:#4a3b12;border-radius:10px;padding:10px 13px;font-size:.8rem;line-height:1.45;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);font-family:var(--sans)}
 .note b{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#a07a12;margin-bottom:3px}
@@ -238,6 +245,8 @@ button{font:inherit;cursor:pointer}
   .me .mono{width:110px;height:110px;font-size:2.3rem}
   .story{gap:22px}
   .note{position:relative;top:auto;right:auto;max-width:none;margin-bottom:16px}
+  .tools .sp{display:none}
+  .skins{width:100%;flex-wrap:wrap}
   .ans dl{grid-template-columns:1fr;gap:2px}
   .ans dd{margin-bottom:10px}
 }
@@ -346,7 +355,8 @@ DATA.en = {
       person: "Maya Torres, LMT", initials: "MT", location: "Portland, Oregon",
       bio: "Licensed massage therapist for 12 years. More than 20,000 hours with my hands on tired backs, tight shoulders and bodies that hold on to everything. Certified Dragon's Way Qigong® instructor since 2023.",
       why: "Massage gave my clients an hour of relief. Then they went home and the tension came back. Qigong gave them something I never could — a way to keep their energy moving on their own, every day, between sessions.",
-      photos: ["images/JoinAclass.jpg", "images/tree.webp", "images/young_adults.png"],
+      photos: ["https://images.unsplash.com/photo-1773204989457-57809a3cda73", "https://images.unsplash.com/photo-1639162906614-0603b0ae95fd", "https://images.unsplash.com/photo-1758798469179-dea5d63257ba"],
+      storyPic: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1", blogPics: ["https://images.unsplash.com/photo-1745327883508-b6cd32e5dde5", "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2", "https://images.unsplash.com/photo-1741522509407-41cfe73b0b75"], skin: 0,
       niche: 0,
       audience: "My massage clients — chronic neck and shoulder tension, low back pain, poor sleep and fatigue. They feel better on the table, but it doesn't last.",
       faq: true, blog: true,
@@ -410,7 +420,8 @@ DATA.en = {
       person: "Daniel Reyes, Health Consultant", initials: "DR", location: "Chicago · online worldwide",
       bio: "Former management consultant. Fifteen years of 70-hour weeks, three continents, and a body that finally said no. Now I work one-on-one with executives and founders on energy, sleep and stress. Certified Dragon's Way Qigong® instructor.",
       why: "At 41 I burned out completely. Medicine managed my symptoms — it didn't restore me. Qigong was the first thing that gave me energy back instead of asking for more. I teach the practice I wish someone had shown me ten years earlier.",
-      photos: ["images/zhuang-zi-mountain.jpg", "images/JoinAclass.jpg", "images/tree.webp"],
+      photos: ["https://images.unsplash.com/photo-1566375452240-f12931512216", "https://images.unsplash.com/photo-1588419683124-d3864b87bc7c", "https://images.unsplash.com/photo-1594128975315-42d6dd47df24"],
+      storyPic: "https://images.unsplash.com/photo-1758525588902-3f2fc90e6652", blogPics: [], skin: 1,
       niche: 1,
       audience: "High-stress professionals — executives, founders, lawyers, physicians. Achieving without thriving: wired at night, tired all day, stress living in the body.",
       faq: true, blog: false,
@@ -470,7 +481,8 @@ DATA.en = {
       person: "Dr. Grace Huang, L.Ac., DAOM", initials: "GH", location: "Pasadena, California",
       bio: "Licensed acupuncturist and doctor of acupuncture and Oriental medicine. Eighteen years in clinical practice treating pain, digestive, hormonal and stress-related conditions. Trained in Dragon's Way Qigong® to give my patients a practice that works between visits.",
       why: "Needles can open a channel in 30 minutes. But patients go home to the same habits that blocked it. Qigong turns my patients from passive receivers into active partners in their own healing — and their results last longer.",
-      photos: ["images/chinese-herbs.webp", "images/chinese-meridian-image.webp", "images/JoinAclass.jpg"],
+      photos: ["https://images.unsplash.com/photo-1757138100328-c246b5795aa3", "https://images.unsplash.com/photo-1598555763574-dca77e10427e", "https://images.unsplash.com/photo-1707037420546-5810b4f79cff"],
+      storyPic: "https://images.unsplash.com/photo-1598555748505-ccca0d9b9f7b", blogPics: ["https://images.unsplash.com/photo-1586768835949-e593c97c8967", "https://images.unsplash.com/photo-1580913702955-6c3fcf6ddedc", "https://images.unsplash.com/photo-1773204989457-57809a3cda73"], skin: 2,
       niche: 2,
       audience: "My acupuncture patients and TCM-curious newcomers — digestive problems, chronic fatigue, hormonal imbalance, insomnia — who want to understand their own body.",
       faq: false, blog: true,
@@ -763,6 +775,24 @@ DATA.zh = {
   const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r) => (r || document).querySelector(s);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const IMG = (u, w) => /^https:/.test(u) ? u + '?w=' + w + '&q=75&auto=format&fit=crop' : u;
+  const SKINS = [
+    {en: 'Sage', zh: '鼠尾草', c1: '#4f6b55', c2: '#b8693f', bg: '#f5f1e8', card: '#ffffff', ink: '#2b2a26', soft: '#e4dccb', on1: '#fff', on2: '#fff'},
+    {en: 'Midnight', zh: '午夜', c1: '#1e2c47', c2: '#c8901a', bg: '#f3f4f7', card: '#ffffff', ink: '#1b2030', soft: '#dfe3eb', on1: '#fff', on2: '#fff'},
+    {en: 'Cinnabar', zh: '朱砂', c1: '#8a2a24', c2: '#2f7466', bg: '#fbf6ee', card: '#ffffff', ink: '#2c2420', soft: '#efe3d4', on1: '#fff', on2: '#fff'},
+    {en: 'Ocean', zh: '海洋', c1: '#13596e', c2: '#e07a5f', bg: '#eef6f7', card: '#ffffff', ink: '#17303a', soft: '#d3e5e9', on1: '#fff', on2: '#fff'},
+    {en: 'Lotus', zh: '蓮花', c1: '#77395f', c2: '#c48b2f', bg: '#faf3f6', card: '#ffffff', ink: '#33222c', soft: '#eedce6', on1: '#fff', on2: '#fff'},
+    {en: 'Bamboo', zh: '竹林', c1: '#2f5d3a', c2: '#d9a441', bg: '#f2f5ec', card: '#ffffff', ink: '#1f2a20', soft: '#dbe5d2', on1: '#fff', on2: '#1f2a20'},
+    {en: 'Ink (dark)', zh: '墨色（深色）', c1: '#d9b979', c2: '#c8901a', bg: '#131519', card: '#1c1f26', ink: '#ece6d9', soft: '#2b2f38', on1: '#16181d', on2: '#fff'}
+  ];
+  const skinOf = {};
+  function applySkin(k){
+    const s = $('#site'); if (!s) return; const t = SKINS[k];
+    skinOf[cur] = k;
+    [['--c1', t.c1], ['--c2', t.c2], ['--sbg', t.bg], ['--card', t.card], ['--sink', t.ink], ['--soft', t.soft], ['--on1', t.on1], ['--on2', t.on2]].forEach(v => s.style.setProperty(v[0], v[1]));
+    document.querySelectorAll('.skin').forEach((b, i) => b.setAttribute('aria-pressed', i === k));
+    setPill();
+  }
   function EX(i){ return Object.assign({}, DATA.en.ex[i], L === 'zh' ? DATA.zh.ex[i] : {}); }
 
   let cur = 0, run = 0, paused = false, phase = 'wiz';
@@ -785,7 +815,7 @@ DATA.zh = {
     tabs.appendChild(b);
   });
   function setTabs(){ [...tabs.children].forEach((b, i) => b.setAttribute('aria-selected', i === cur)); }
-  function setPill(){ $('#pill').href = U.pillHref + '#ex=' + (cur + 1) + (phase === 'site' ? '&view=site' : ''); }
+  function setPill(){ $('#pill').href = U.pillHref + '#ex=' + (cur + 1) + (phase === 'site' ? '&view=site' : '') + (skinOf[cur] != null ? '&skin=' + (skinOf[cur] + 1) : ''); }
 
   // ---------- timing helpers ----------
   function sleep(ms, r){
@@ -860,7 +890,7 @@ DATA.zh = {
       case 2: F.innerHTML = field(U.steps[2], true); await type($('.inp', F), e.why, r); break;
       case 3:
         F.innerHTML = '<div class="photos">' + U.photoLabels.map((l, i) =>
-          '<div><div class="slot">+' + (i === 0 ? '<div class="mono" style="background:' + e.theme.c1 + '">' + esc(e.initials) + '</div>' : '<img alt="" src="' + e.photos[i] + '">') +
+          '<div><div class="slot">+' + (i === 0 ? '<div class="mono" style="background:' + SKINS[skinOf[cur] != null ? skinOf[cur] : e.skin].c1 + ';color:' + SKINS[skinOf[cur] != null ? skinOf[cur] : e.skin].on1 + '">' + esc(e.initials) + '</div>' : '<img alt="" src="' + IMG(e.photos[i], 500) + '">') +
           '</div><div class="slot-l">' + esc(l) + '</div></div>').join('') + '</div>';
         for (const sl of F.querySelectorAll('.slot')){ await A(520, r); sl.classList.add('in'); }
         break;
@@ -966,20 +996,20 @@ DATA.zh = {
       '</div><a class="scta" href="#s-contact">' + esc(e.hero.cta) + '</a></nav>';
     h += '<section class="shero">' + note(e, 'hero') + '<div><div class="kick">' + esc(e.hero.eyebrow) + '</div><h1>' + esc(e.hero.h1) + '</h1><p>' + esc(e.hero.sub) +
       '</p><div class="ctas"><a class="scta" href="#s-contact">' + esc(e.hero.cta) + '</a><a class="scta ghost" href="#s-programs">' + esc(e.hero.cta2) + '</a></div></div>' +
-      '<div class="hpic"><img alt="" src="' + e.photos[1] + '"><div class="badge">' + mono() + '<span>' + esc(e.person) + '</span></div></div></section>';
-    h += '<section class="sdw" id="s-about">' + note(e, 'about') + '<div class="kick">Dragon\'s Way Qigong®</div><h2>' + esc(U.dwAbout) + '</h2><div class="story"><p class="big">' + esc(e.story[0]) +
-      '</p><div class="rest">' + e.story.slice(1).map((p, i, a) => '<p' + (i === a.length - 1 ? ' class="inv"' : '') + '>' + esc(p) + '</p>').join('') + '</div></div></section>';
+      '<div class="hpic"><img alt="" src="' + IMG(e.photos[1], 900) + '"><div class="badge">' + mono() + '<span>' + esc(e.person) + '</span></div></div></section>';
+    h += '<section class="sdw" id="s-about">' + note(e, 'about') + '<div class="kick">Dragon\'s Way Qigong®</div><h2>' + esc(U.dwAbout) + '</h2><div class="story"><div><p class="big">' + esc(e.story[0]) + '</p>' + (e.storyPic ? '<img class="spic" alt="" loading="lazy" src="' + IMG(e.storyPic, 900) + '">' : '') +
+      '</div><div class="rest">' + e.story.slice(1).map((p, i, a) => '<p' + (i === a.length - 1 ? ' class="inv"' : '') + '>' + esc(p) + '</p>').join('') + '</div></div></section>';
     h += '<section id="s-programs">' + note(e, 'programs') + '<div class="kick">' + esc(U.progTitle) + '</div><h2>' + esc(U.progSub) + '</h2><div class="pgrid">' +
       order.map(k => '<div class="pcard' + (k === e.lead ? ' lead' : '') + '">' + (k === e.lead ? '<span class="start">' + esc(U.startHere) + '</span>' : '') +
         '<div class="lv">' + esc(U.level[k]) + '</div><h3>' + esc(P[k].name) + '</h3><div class="tg2">' + esc(P[k].tag) + '</div><p>' + esc(P[k].body) + '</p>' +
         (k === e.lead ? '<p class="leadline">' + esc(e.leadLine) + '</p>' : '') + '<div class="wk">' + esc(U.weeks) + '</div></div>').join('') + '</div></section>';
     h += '<section class="me">' + note(e, 'me') + mono() + '<div><div class="kick">' + esc(U.meet) + '</div><h2>' + esc(e.person) + '</h2><div class="who">' + esc(e.location) +
       '</div><p style="margin:0">' + esc(e.bio) + '</p><blockquote><b>' + esc(U.whyTitle) + '</b>“' + esc(e.why) + '”</blockquote></div>' +
-      '<div class="gal">' + e.photos.concat([]).reverse().map(p => '<img alt="" src="' + p + '">').join('') + '</div></section>';
+      '<div class="gal">' + e.photos.concat([]).reverse().map(p => '<img alt="" loading="lazy" src="' + IMG(p, 700) + '">').join('') + '</div></section>';
     if (e.faq) h += '<section id="s-faq">' + note(e, 'faq') + '<div class="kick">' + esc(N.faq) + '</div><h2>' + esc(U.faqTitle) + '</h2><div class="faqs">' +
       e.faqs.map((q, i) => '<details' + (i === 0 ? ' open' : '') + '><summary>' + esc(q[0]) + '</summary><p>' + esc(q[1]) + '</p></details>').join('') + '</div></section>';
-    if (e.blog) h += '<section id="s-blog" style="background:#fff">' + note(e, 'blog') + '<div class="kick">' + esc(N.blog) + '</div><h2>' + esc(U.blogTitle) + '</h2><div class="posts">' +
-      e.posts.map((p, i) => '<article class="post"><img alt="" src="' + e.photos[(i + 1) % 3] + '"><div><h3>' + esc(p[0]) + '</h3><p>' + esc(p[1]) + '</p><a href="#s-blog">' + esc(U.readMore) + '</a></div></article>').join('') + '</div></section>';
+    if (e.blog) h += '<section id="s-blog" style="background:var(--card)">' + note(e, 'blog') + '<div class="kick">' + esc(N.blog) + '</div><h2>' + esc(U.blogTitle) + '</h2><div class="posts">' +
+      e.posts.map((p, i) => '<article class="post"><img alt="" loading="lazy" src="' + IMG((e.blogPics || [])[i] || e.photos[(i + 1) % 3], 700) + '"><div><h3>' + esc(p[0]) + '</h3><p>' + esc(p[1]) + '</p><a href="#s-blog">' + esc(U.readMore) + '</a></div></article>').join('') + '</div></section>';
     h += '<section id="s-events">' + note(e, 'events') + '<div class="kick">' + esc(N.events) + '</div><h2>' + esc(U.eventsTitle) + '</h2><div class="evwrap">' + cal(e) + '<div class="evs">' +
       e.events.map(ev => '<div class="ev"><div class="tile"><small>' + esc(fmt(ev.d, {month: 'short'})) + '</small><b>' + dObj(ev.d).getDate() + '</b></div><div class="info"><b>' + esc(ev.title) +
         (ev.free ? '<span class="free">' + FREE + '</span>' : '') + '</b><span>' + esc(fmt(ev.d, {weekday: 'short'})) + ' · ' + esc(ev.t) + ' · ' + esc(ev.where) + '</span></div><a class="scta" href="#s-contact">' + esc(U.register) + '</a></div>').join('') +
@@ -989,7 +1019,7 @@ DATA.zh = {
       '<div><button class="scta" type="button">' + esc(U.formSend) + '</button> <small style="opacity:.6">' + esc(U.formDemo) + '</small></div></div></div>' +
       '<div class="cinfo"><div><small>' + esc(U.contactEmail) + '</small>' + esc(e.email) + '</div><div><small>' + esc(U.contactPhone) + '</small>' + esc(e.phone) +
       '</div><div><small>' + esc(U.contactWhere) + '</small>' + esc(e.where) + '</div></div></section>';
-    h += '<footer class="sfoot"><div><b>' + esc(e.site) + '</b><br>' + esc(U.footer) + '</div><div>' + esc(U.powered) + '</div></footer>';
+    h += '<footer class="sfoot"><div><b>' + esc(e.site) + '</b><br>' + esc(U.footer) + '</div><div>' + esc(U.powered) + '<br><span class="credit">' + (L === 'zh' ? '照片：Unsplash' : 'Photos: Unsplash') + '</span></div></footer>';
     return h;
   }
   function answers(e){
@@ -1004,7 +1034,7 @@ DATA.zh = {
     phase = 'site'; setPill(); setTabs();
     const e = EX(cur);
     stage.innerHTML = '<div class="fade"><div class="tools"><button class="btn" id="replay"></button><button class="btn" id="backStep"></button><button class="btn" id="ansBtn"></button><span class="sp"></span>' +
-      '<button class="ntoggle" id="nt"><span class="sw" id="ntsw"></span><span></span></button></div>' +
+      '<div class="skins" id="skins"></div><button class="ntoggle" id="nt"><span class="sw" id="ntsw"></span><span></span></button></div>' +
       '<div class="ans" id="ans">' + answers(e) + '</div>' +
       '<div class="frame" id="frame"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">https://<b>' + esc(e.domain) + '</b></div></div>' +
       '<div class="site" id="site">' + siteHTML(e) + '</div></div></div>';
@@ -1016,9 +1046,11 @@ DATA.zh = {
     $('#backStep').onclick = () => { paused = true; stage.innerHTML = ''; playFrom(7); };
     $('#ansBtn').onclick = () => $('#ans').classList.toggle('open');
     $('#nt').onclick = () => { const on = $('#frame').classList.toggle('show-notes'); $('#ntsw').classList.toggle('on', on); };
-    const s = $('#site'), t = e.theme;
-    s.style.setProperty('--c1', t.c1); s.style.setProperty('--c2', t.c2); s.style.setProperty('--sbg', t.bg);
-    s.style.setProperty('--sink', t.ink); s.style.setProperty('--soft', t.soft);
+    const sk = $('#skins');
+    sk.innerHTML = '<span>' + (L === 'zh' ? '配色' : 'Skin') + '</span>' + SKINS.map((t, i) => '<button class="skin" title="' + esc(t[L]) + '" aria-label="' + esc(t[L]) + '" style="background:linear-gradient(135deg,' + t.c1 + ' 50%,' + t.c2 + ' 50%)"></button>').join('');
+    [...sk.querySelectorAll('.skin')].forEach((b, i) => b.onclick = () => applySkin(i));
+    applySkin(skinOf[cur] != null ? skinOf[cur] : e.skin);
+    const s = $('#site');
     s.querySelectorAll('a[href^="#s-"]').forEach(a => a.onclick = ev => { ev.preventDefault(); const el = document.getElementById(a.getAttribute('href').slice(1)); if (el) window.scrollTo({top: el.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth'}); });
     const top = $('.tools').getBoundingClientRect().top + scrollY - 70;
     if (scrollY > top) window.scrollTo({top: top});
@@ -1030,6 +1062,7 @@ DATA.zh = {
     return [i, /view=site/.test(location.hash)];
   }
   const [i0, site0] = fromHash();
+  { const m = /skin=(\d)/.exec(location.hash); if (m) skinOf[i0] = Math.min(SKINS.length, Math.max(1, +m[1])) - 1; }
   start(i0, site0);
 })();
 </script>
