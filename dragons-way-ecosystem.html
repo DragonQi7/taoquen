@@ -352,6 +352,51 @@ button{font:inherit;cursor:pointer}
   .guar{flex-direction:column;align-items:flex-start}
 }
 
+.mono{overflow:hidden}
+.mono img{width:100%;height:100%;object-fit:cover;display:block}
+/* generating screen */
+.gen{display:grid;grid-template-columns:1fr 1.05fr;gap:34px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:36px 38px;box-shadow:0 20px 50px -30px rgba(80,60,20,.35)}
+.gen h2{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:0;display:flex;align-items:center;gap:14px}
+.gen .gsub{color:var(--muted);margin:6px 0 22px;font-size:.95rem}
+.gpct{font-family:var(--serif);font-size:3.2rem;font-weight:700;line-height:1;color:var(--gold-d);font-variant-numeric:tabular-nums}
+.gbar{height:10px;border-radius:9px;background:#eee5d2;overflow:hidden;margin:12px 0 10px}
+.gbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#e2b552,var(--gold));background-size:200% 100%;animation:sheen 1.4s linear infinite;border-radius:9px}
+@keyframes sheen{to{background-position:-200% 0}}
+.gnow{font-size:.9rem;font-weight:600;min-height:1.4em;color:var(--ink)}
+.glist{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:9px}
+.glist li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:#b3a88e;transition:color .3s}
+.glist li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;border:2px solid #d9cfb8;margin-top:2px;transition:.3s}
+.glist li.now{color:var(--ink);font-weight:600}
+.glist li.now::before{border-color:var(--gold);border-top-color:transparent;animation:spin .8s linear infinite}
+.glist li.done{color:var(--ink)}
+.glist li.done::before{content:"✓";border-color:var(--gold);background:var(--gold);color:#fff;font-size:.7rem;font-weight:700;display:grid;place-items:center}
+.gdone{display:none;align-items:center;gap:10px;margin-top:18px;font-weight:700;color:#3d7a4d}
+.gdone.on{display:flex}
+.wf{border:1px solid #d7cfbc;border-radius:12px;overflow:hidden;background:var(--wbg,#f6f2ea);align-self:start;box-shadow:0 18px 40px -26px rgba(40,30,10,.5)}
+.wf-chrome{display:flex;gap:6px;align-items:center;padding:8px 10px;background:#ece8de;border-bottom:1px solid #d7cfbc}
+.wf-chrome i{width:8px;height:8px;border-radius:50%;background:#d0c6b0}
+.wf-chrome span{flex:1;margin-left:8px;height:16px;border-radius:5px;background:#fff;font-size:.66rem;color:#8a8170;padding:1px 8px;overflow:hidden;white-space:nowrap}
+.wf-body{padding:12px;display:grid;gap:10px;min-height:380px}
+.wb{opacity:0;transform:translateY(8px) scale(.98);transition:opacity .45s,transform .45s}
+.wb.on{opacity:1;transform:none}
+.sk{background:linear-gradient(90deg,rgba(0,0,0,.07),rgba(0,0,0,.03),rgba(0,0,0,.07));background-size:200% 100%;animation:sheen 1.2s linear infinite;border-radius:5px}
+.wf-bar{height:14px;border-radius:4px;background:var(--wc1)}
+.wf-nav{display:flex;justify-content:space-between;align-items:center}
+.wf-nav b{font-family:var(--serif);font-size:.72rem;color:var(--wc1)}
+.wf-nav em{width:38px;height:12px;border-radius:9px;background:var(--wc2)}
+.wf-hero{display:grid;grid-template-columns:1.3fr .7fr;gap:10px;align-items:center}
+.wf-hero h5{margin:0 0 6px;font-family:var(--serif);font-size:.82rem;line-height:1.25;color:var(--wc1)}
+.wf-hero img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:40px 40px 6px 6px}
+.wf-row{display:grid;gap:6px}
+.wf-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.wf-cards div{height:34px;border-radius:6px;border:1.5px solid var(--wc2);background:#fff}
+.wf-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.wf-plans div{height:46px;border-radius:6px;background:#fff;border:1px solid rgba(0,0,0,.08);display:grid;place-items:center;font-size:.62rem;font-weight:700;color:var(--wc1)}
+.wf-plans div:nth-child(2){border:2px solid var(--wc2)}
+.wf-guide{display:flex;gap:8px;align-items:center}
+.wf-guide img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.wf-foot{height:22px;border-radius:5px;background:var(--wc1)}
+@media (max-width:900px){.gen{grid-template-columns:1fr;padding:26px 20px}.wf{order:-1}.wf-body{min-height:0}}
 /* marketing notes */
 .note{display:none;position:absolute;top:14px;right:14px;z-index:5;max-width:300px;background:#fff8e1;border:1px solid #e9cf86;color:#4a3b12;border-radius:10px;padding:10px 13px;font-size:.8rem;line-height:1.45;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);font-family:var(--sans)}
 .note b{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#a07a12;margin-bottom:3px}
@@ -1124,6 +1169,11 @@ DATA.en.ex[2].build = [
   "Blog added, FAQ skipped; free talk leads the events"
 ];
 
+DATA.en.ex[0].portrait = "https://images.unsplash.com/photo-1580489944761-15a19d654956";
+DATA.en.ex[1].portrait = "https://images.unsplash.com/photo-1622626426572-c268eb006092";
+DATA.en.ex[2].portrait = "https://images.unsplash.com/photo-1662850886700-4ec19bd30d11";
+Object.assign(DATA.en.ui, { generating: "Generating your website…", ready: "Your website is ready", genSub: "Turning your answers into a Dragon's Way website" });
+
 DATA.zh.dw = {
   ui: {
     enroll: "立即報名", enrollShort: "報名", freeIntro: "參加免費入門課",
@@ -1347,6 +1397,8 @@ DATA.zh.ex[2].build = [
   "加入部落格、略過常見問題；免費講座排在活動第一"
 ];
 
+Object.assign(DATA.zh.ui, { generating: "正在生成你的網站……", ready: "你的網站已完成", genSub: "把你的答案變成一個龍之道網站" });
+
 </script>
 <script>
 (function(){
@@ -1359,6 +1411,7 @@ DATA.zh.ex[2].build = [
   const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r) => (r || document).querySelector(s);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const FACE = (u, w) => u + '?w=' + w + '&h=' + w + '&fit=crop&crop=faces&q=75&auto=format';
   const IMG = (u, w) => /^https:/.test(u) ? u + '?w=' + w + '&q=75&auto=format&fit=crop' : u;
   const SKINS = [
     {en: 'Sage', zh: '鼠尾草', c1: '#4f6b55', c2: '#b8693f', bg: '#f5f1e8', card: '#ffffff', ink: '#2b2a26', soft: '#e4dccb', on1: '#fff', on2: '#fff'},
@@ -1474,7 +1527,7 @@ DATA.zh.ex[2].build = [
       case 2: F.innerHTML = field(U.steps[2], true); await type($('.inp', F), e.why, r); break;
       case 3:
         F.innerHTML = '<div class="photos">' + U.photoLabels.map((l, i) =>
-          '<div><div class="slot">+' + (i === 0 ? '<div class="mono" style="background:' + SKINS[skinOf[cur] != null ? skinOf[cur] : e.skin].c1 + ';color:' + SKINS[skinOf[cur] != null ? skinOf[cur] : e.skin].on1 + '">' + esc(e.initials) + '</div>' : '<img alt="" src="' + IMG(e.photos[i], 500) + '">') +
+          '<div><div class="slot">+' + (i === 0 ? '<img alt="" src="' + FACE(e.portrait, 500) + '">' : '<img alt="" src="' + IMG(e.photos[i], 500) + '">') +
           '</div><div class="slot-l">' + esc(l) + '</div></div>').join('') + '</div>';
         for (const sl of F.querySelectorAll('.slot')){ await A(520, r); sl.classList.add('in'); }
         break;
@@ -1521,10 +1574,39 @@ DATA.zh.ex[2].build = [
     }
   }
   async function building(e, r){
-    stage.innerHTML = '<div class="build fade"><h2><span class="spin"></span>' + esc(U.building) + '</h2><ul>' +
-      e.build.map(b => '<li>' + esc(b) + '</li>').join('') + '</ul></div>';
-    for (const li of stage.querySelectorAll('li')){ await sleep(reduce ? 0 : 520, r); li.classList.add('in'); }
-    await sleep(900, r);
+    const sk = SKINS[skinOf[cur] != null ? skinOf[cur] : e.skin], W = DATA[L].dw;
+    const lines = e.build, n = lines.length;
+    stage.innerHTML = '<div class="gen fade" style="--wc1:' + sk.c1 + ';--wc2:' + sk.c2 + ';--wbg:' + (sk.card === '#ffffff' ? sk.bg : sk.bg) + '">' +
+      '<div><h2><span class="spin" id="gspin"></span><span id="gtitle">' + esc(U.generating) + '</span></h2><div class="gsub">' + esc(U.genSub) + '</div>' +
+      '<div class="gpct" id="gpct">0%</div><div class="gbar"><i id="gbar"></i></div><div class="gnow" id="gnow"></div>' +
+      '<ul class="glist">' + lines.map(l => '<li>' + esc(l) + '</li>').join('') + '</ul>' +
+      '<div class="gdone" id="gdone">✓ ' + esc(U.ready) + '</div></div>' +
+      '<div class="wf"><div class="wf-chrome"><i></i><i></i><i></i><span>https://' + esc(e.domain) + '</span></div><div class="wf-body">' +
+        '<div class="wb wf-nav"><b>' + esc(e.site) + '</b><em></em></div>' +
+        '<div class="wb wf-hero"><div><h5>' + esc(e.hero.h1) + '</h5><div class="wf-row"><div class="sk" style="height:7px"></div><div class="sk" style="height:7px;width:80%"></div></div></div><img alt="" src="' + IMG(e.photos[1], 400) + '"></div>' +
+        '<div class="wb wf-row"><div class="sk" style="height:9px;width:55%"></div><div class="wf-cards">' + W.weeks.slice(0, 6).map(() => '<div></div>').join('') + '</div></div>' +
+        '<div class="wb wf-bar"></div>' +
+        '<div class="wb wf-plans">' + W.plans.map(p => '<div>$' + p.full + '</div>').join('') + '</div>' +
+        '<div class="wb wf-guide"><img alt="" src="' + FACE(e.portrait, 120) + '"><div class="wf-row" style="flex:1"><div class="sk" style="height:7px;width:50%"></div><div class="sk" style="height:7px"></div></div></div>' +
+        '<div class="wb wf-foot"></div>' +
+      '</div></div></div>';
+    const lis = stage.querySelectorAll('.glist li'), blocks = stage.querySelectorAll('.wb');
+    const per = reduce ? 0 : 950;
+    for (let i = 0; i < n; i++){
+      lis[i].classList.add('now'); $('#gnow').textContent = lines[i];
+      if (blocks[i]) blocks[i].classList.add('on');
+      const from = Math.round(i / n * 100), to = Math.round((i + 1) / n * 100), stepsN = Math.max(1, Math.round(per / 45));
+      for (let k = 1; k <= stepsN; k++){
+        await sleep(40, r);
+        const v = Math.round(from + (to - from) * k / stepsN);
+        $('#gpct').textContent = v + '%'; $('#gbar').style.width = v + '%';
+      }
+      lis[i].classList.remove('now'); lis[i].classList.add('done');
+    }
+    for (let i = n; i < blocks.length; i++) blocks[i].classList.add('on');
+    $('#gpct').textContent = '100%'; $('#gbar').style.width = '100%';
+    $('#gspin').style.display = 'none'; $('#gtitle').textContent = U.ready; $('#gnow').textContent = ''; $('#gdone').classList.add('on');
+    await sleep(1100, r);
   }
 
   let step = 0; const NSTEP = 9;
@@ -1549,8 +1631,8 @@ DATA.zh.ex[2].build = [
   }
   async function finish(){
     run++; const r = run; const e = EX(cur);
-    if (paused){ showSite(); return; }
-    try { await building(e, r); showSite(); } catch (err) {}
+    paused = false; setPlay();
+    try { await building(e, r); showSite(); } catch (err) { if (err !== "cancel") console.error(err); }
   }
   function start(i, toSite){
     cur = i; paused = false; setTabs();
@@ -1604,7 +1686,7 @@ DATA.zh.ex[2].build = [
     });
   }
   setInterval(tick, 1000);
-  const mono = e => '<div class="mono">' + esc(e.initials) + '</div>';
+  const mono = e => '<div class="mono">' + (e.portrait ? '<img alt="' + esc(e.person) + '" src="' + FACE(e.portrait, 320) + '">' : esc(e.initials)) + '</div>';
   const enrollBtn = (label, cls) => '<a class="scta' + (cls ? ' ' + cls : '') + '" href="#enroll" data-go="enroll">' + esc(label || D.enroll) + '</a>';
   function ubar(e){
     return '<div class="ubar">' + note(e, 'bar') + '<span>' + esc(D.bar) + '</span>' + cd(e) + '<span class="ub-d">' + esc(D.closes) + ' ' + esc(fmtLong(deadline(e))) + '</span>' + enrollBtn(D.enrollShort, 'sm') + '</div>';
