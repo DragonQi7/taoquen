@@ -87,7 +87,10 @@ button{font:inherit;cursor:pointer}
 .evrow .dt{flex:none;width:78px;font-size:.78rem;font-weight:600;color:var(--gold-d)}
 .evrow .tt{font-size:.92rem}
 .wfoot{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid #eee5d2}
-.prog{flex:1;height:5px;background:#eee5d2;border-radius:9px;overflow:hidden}
+.ctrls{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.ctrls .btn{padding:8px 14px}
+.ctrls .play{min-width:92px}
+.prog{flex:1;min-width:120px;height:5px;background:#eee5d2;border-radius:9px;overflow:hidden}
 .prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s}
 .btn{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-size:.86rem;font-weight:600;color:var(--ink);white-space:nowrap}
 .btn:hover{border-color:var(--gold)}
@@ -253,6 +256,9 @@ button{font:inherit;cursor:pointer}
   .ev .scta{grid-column:2;justify-self:start}
   .build{padding:30px 22px}
   .wfoot{flex-wrap:wrap}
+  .ctrls{width:100%;justify-content:space-between}
+  .ctrls .btn{padding:8px 10px;font-size:.8rem;flex:1}
+  .ctrls .play{min-width:0}
   .prog{flex-basis:100%;order:-1}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -750,6 +756,9 @@ DATA.zh = {
 (function(){
   const L = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
   const U = DATA[L].ui, P = DATA[L].programs;
+  const NV = L === 'zh'
+    ? {start: '⏮ 開頭', prev: '◀ 上一步', next: '下一步 ▶', end: '結尾 ⏭', play: '▶ 播放', pause: '⏸ 暫停', startT: '從第 1 步重新開始', endT: '直接看完成的網站'}
+    : {start: '⏮ Start', prev: '◀ Prev', next: 'Next ▶', end: 'End ⏭', play: '▶ Play', pause: '⏸ Pause', startT: 'Start again from step 1', endT: 'Jump to the finished website'};
   const FREE = L === 'zh' ? '免費' : 'Free';
   const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r) => (r || document).querySelector(s);
@@ -790,9 +799,12 @@ DATA.zh = {
       })();
     });
   }
+  let fast = false;           // true = render a step instantly (manual navigation while paused)
+  const A = (ms, r) => fast ? (r === run ? Promise.resolve() : Promise.reject('cancel')) : sleep(ms, r);
   async function type(el, text, r){
+    if (r !== run) throw 'cancel';
+    if (reduce || fast){ el.textContent = text; return; }
     el.classList.add('typing');
-    if (reduce){ el.textContent = text; el.classList.remove('typing'); return; }
     const total = Math.min(2300, Math.max(600, text.length * 24));
     const steps = Math.max(1, Math.round(total / 40));
     const per = Math.max(1, Math.ceil(text.length / steps));
@@ -814,12 +826,19 @@ DATA.zh = {
       U.steps.map((s, i) => '<li><span class="dot">' + (i + 1) + '</span><span>' + esc(s) + '</span></li>').join('') +
       '</ol><div class="wbody"><div class="wcount" id="wcount"></div><div class="wq" id="wq"></div>' +
       '<div class="fields" id="fields"></div><div class="wfoot"><div class="prog"><i id="prog"></i></div>' +
-      '<button class="btn" id="pause"></button><button class="btn primary" id="skip"></button></div></div></div>';
-    $('#pause').textContent = U.pause;
-    $('#skip').textContent = U.skip;
-    $('#pause').onclick = () => { paused = !paused; $('#pause').textContent = paused ? U.resume : U.pause; };
-    $('#skip').onclick = () => { run++; showSite(); };
+      '<div class="ctrls"><button class="btn" id="bStart"></button><button class="btn" id="bPrev"></button>' +
+      '<button class="btn play" id="bPlay"></button><button class="btn" id="bNext"></button><button class="btn primary" id="bEnd"></button></div></div></div></div>';
+    $('#bStart').textContent = NV.start; $('#bPrev').textContent = NV.prev; $('#bNext').textContent = NV.next; $('#bEnd').textContent = NV.end;
+    $('#bStart').title = NV.startT; $('#bEnd').title = NV.endT;
+    $('#bStart').onclick = () => { paused = false; playFrom(0); };
+    $('#bPrev').onclick = () => { paused = true; playFrom(Math.max(0, step - 1)); };
+    $('#bNext').onclick = () => { paused = true; if (step >= 7) finish(); else playFrom(step + 1); };
+    $('#bEnd').onclick = () => { run++; showSite(); };
+    $('#bPlay').onclick = () => { paused = !paused; setPlay(); };
+    [...$('#steps').children].forEach((li, i) => { li.style.cursor = 'pointer'; li.onclick = () => { paused = true; playFrom(i); }; });
+    setPlay();
   }
+  function setPlay(){ const b = $('#bPlay'); if (b){ b.textContent = paused ? NV.play : NV.pause; b.classList.toggle('primary', paused); } }
   function field(label, area){
     return '<div><div class="fl">' + esc(label) + '</div><div class="inp' + (area ? ' area' : '') + '"></div></div>';
   }
@@ -843,21 +862,21 @@ DATA.zh = {
         F.innerHTML = '<div class="photos">' + U.photoLabels.map((l, i) =>
           '<div><div class="slot">+' + (i === 0 ? '<div class="mono" style="background:' + e.theme.c1 + '">' + esc(e.initials) + '</div>' : '<img alt="" src="' + e.photos[i] + '">') +
           '</div><div class="slot-l">' + esc(l) + '</div></div>').join('') + '</div>';
-        for (const sl of F.querySelectorAll('.slot')){ await sleep(520, r); sl.classList.add('in'); }
+        for (const sl of F.querySelectorAll('.slot')){ await A(520, r); sl.classList.add('in'); }
         break;
       case 4:
         F.innerHTML = '<div><div class="fl">' + esc(U.fieldNiche) + '</div><div class="chips">' +
           U.nicheChips.map(c => '<span class="chip">' + esc(c) + '</span>').join('') + '</div></div>' + field(U.fieldAudience, true);
         const chips = F.querySelectorAll('.chip');
-        for (let i = 0; i <= e.niche; i++){ chips.forEach(c => c.classList.remove('hl')); chips[i].classList.add('hl'); await sleep(260, r); }
+        for (let i = 0; i <= e.niche; i++){ chips.forEach(c => c.classList.remove('hl')); chips[i].classList.add('hl'); await A(260, r); }
         chips[e.niche].classList.remove('hl'); chips[e.niche].classList.add('on');
-        await sleep(350, r); await type($('.inp', F), e.audience, r); break;
+        await A(350, r); await type($('.inp', F), e.audience, r); break;
       case 5:
         F.innerHTML = [[U.faqOpt, U.faqHint], [U.blogOpt, U.blogHint]].map(t =>
           '<div class="tg"><div><b>' + esc(t[0]) + '</b><small>' + esc(t[1]) + '</small></div><div><div class="sw"></div><div class="sw-l">' + esc(U.no) + '</div></div></div>').join('');
         const sws = F.querySelectorAll('.tg');
         for (const [i, v] of [[0, e.faq], [1, e.blog]]){
-          await sleep(650, r);
+          await A(650, r);
           if (v){ $('.sw', sws[i]).classList.add('on'); }
           $('.sw-l', sws[i]).textContent = v ? U.yes : U.no;
         }
@@ -868,7 +887,7 @@ DATA.zh = {
         await type(els[0], e.email, r); await type(els[1], e.phone, r); await type(els[2], e.where, r); break;
       case 7:
         F.innerHTML = e.events.map(ev => '<div class="evrow"><div class="dt">' + esc(fmt(ev.d, {month: 'short', day: 'numeric'})) + '</div><div class="tt">' + esc(ev.title) + '</div></div>').join('');
-        for (const row of F.querySelectorAll('.evrow')){ await sleep(480, r); row.classList.add('in'); }
+        for (const row of F.querySelectorAll('.evrow')){ await A(480, r); row.classList.add('in'); }
         break;
     }
   }
@@ -879,24 +898,50 @@ DATA.zh = {
     await sleep(900, r);
   }
 
-  async function start(i, toSite){
-    run++; const r = run; cur = i; paused = false; setTabs();
-    if (toSite){ showSite(); return; }
-    phase = 'wiz'; setPill();
-    const e = EX(i);
-    wizShell();
+  let step = 0;
+  async function playFrom(s0){
+    run++; const r = run; phase = 'wiz'; setPill();
+    const e = EX(cur);
+    if (!$('#steps')) wizShell();
+    setPlay();
     try {
-      for (let s = 0; s < 8; s++){
-        setStep(s);
+      for (let s = s0; s < 8; s++){
+        step = s; setStep(s);
+        fast = paused;                 // paused + manual jump -> show the step filled in
         await animStep(s, e, r);
-        await sleep(750, r);
+        fast = false;
+        await sleep(750, r);           // waits here while paused
       }
       $('#prog').style.width = '100%';
       await sleep(300, r);
       await building(e, r);
       showSite();
-    } catch (err) { /* cancelled */ }
+    } catch (err) { fast = false; /* cancelled */ }
   }
+  async function finish(){
+    run++; const r = run; const e = EX(cur);
+    if (paused){ showSite(); return; }
+    try { await building(e, r); showSite(); } catch (err) {}
+  }
+  function start(i, toSite){
+    cur = i; paused = false; setTabs();
+    if (toSite){ run++; showSite(); return; }
+    stage.innerHTML = '';
+    playFrom(0);
+  }
+  document.addEventListener('keydown', ev => {
+    if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
+    const k = ev.key;
+    if (phase === 'wiz' && $('#bNext')){
+      if (k === 'ArrowRight') $('#bNext').click();
+      else if (k === 'ArrowLeft') $('#bPrev').click();
+      else if (k === 'Home') $('#bStart').click();
+      else if (k === 'End') $('#bEnd').click();
+      else if (k === ' ') { ev.preventDefault(); $('#bPlay').click(); }
+      else return;
+      ev.preventDefault();
+    } else if (phase === 'site' && k === 'ArrowLeft' && $('#backStep')){ $('#backStep').click(); }
+  });
 
   // ---------- generated site ----------
   function note(e, k){
@@ -958,15 +1003,17 @@ DATA.zh = {
   function showSite(){
     phase = 'site'; setPill(); setTabs();
     const e = EX(cur);
-    stage.innerHTML = '<div class="fade"><div class="tools"><button class="btn" id="replay"></button><button class="btn" id="ansBtn"></button><span class="sp"></span>' +
+    stage.innerHTML = '<div class="fade"><div class="tools"><button class="btn" id="replay"></button><button class="btn" id="backStep"></button><button class="btn" id="ansBtn"></button><span class="sp"></span>' +
       '<button class="ntoggle" id="nt"><span class="sw" id="ntsw"></span><span></span></button></div>' +
       '<div class="ans" id="ans">' + answers(e) + '</div>' +
       '<div class="frame" id="frame"><div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">https://<b>' + esc(e.domain) + '</b></div></div>' +
       '<div class="site" id="site">' + siteHTML(e) + '</div></div></div>';
-    $('#replay').textContent = U.replay;
+    $('#replay').textContent = NV.start;
     $('#ansBtn').textContent = U.answers;
     $('#nt span:last-child').textContent = U.notes;
-    $('#replay').onclick = () => start(cur);
+    $('#replay').onclick = () => { paused = false; stage.innerHTML = ''; playFrom(0); };
+    $('#backStep').textContent = NV.prev;
+    $('#backStep').onclick = () => { paused = true; stage.innerHTML = ''; playFrom(7); };
     $('#ansBtn').onclick = () => $('#ans').classList.toggle('open');
     $('#nt').onclick = () => { const on = $('#frame').classList.toggle('show-notes'); $('#ntsw').classList.toggle('on', on); };
     const s = $('#site'), t = e.theme;
